@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "scroll-o-script",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* CREATING SPRITES
+use https://icomoon.io/app/#/select/font or https://glyphter.com/ to convert singular svgs into .ttf font
+include new font in index.html
+Other Tools for process
+use https://ezgif.com/sprite-cutter if you need to split sprite sheet into single images
+https://convertio.co/png-svg/ to convert png to svg
+
+SCROLL-O-Sprites
+
+
+
+
+
+
+
+ */

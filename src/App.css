@@ -1,0 +1,366 @@
+.App {
+  text-align: center;
+  outline: none;
+  background-color: #424242;
+  color: #eee;
+  min-height: 100%;
+  height: 100vh;
+}
+
+.Nystrum {
+  background-color: #424242;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+#display {
+  /* overflow: scroll; */
+}
+
+#display:focus {
+  /* outline: none; */
+}
+
+.game_display_container {
+  overflow-x: scroll;
+  border: solid 4px #eee;
+}
+
+.Level > .row {
+  margin: 0;
+}
+
+.CharacterSelect {
+  margin: auto;
+  width: 300px;
+}
+
+.CharacterSelect__button {
+  display: block;
+  margin: auto;
+  width: 300px;
+}
+
+.UI {
+  text-align: left;
+}
+
+.UI button {
+  display: block;
+}
+
+.Tooltip {
+    display:inline-block;
+    position:relative;
+    text-align:left;
+}
+
+.Tooltip .top {
+    min-width:200px; 
+    top:-20px;
+    left:50%;
+    transform:translate(-50%, -100%);
+    padding:10px 20px;
+    color:#444444;
+    background-color:#EEEEEE;
+    font-weight:normal;
+    font-size:13px;
+    border-radius:8px;
+    position:absolute;
+    z-index:99999999;
+    box-sizing:border-box;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    display:none;
+}
+
+.Tooltip:hover .top {
+    display:block;
+}
+
+.Tooltip .top i {
+    position:absolute;
+    top:100%;
+    left:50%;
+    margin-left:-12px;
+    width:24px;
+    height:12px;
+    overflow:hidden;
+}
+
+.Tooltip .top i::after {
+    content:'';
+    position:absolute;
+    width:12px;
+    height:12px;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(45deg);
+    background-color:#EEEEEE;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+}
+
+.CharacterCard_Container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.CharacterCard {
+  border: 2px solid #222;
+  box-shadow: 6px 6px 6px #222;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-around;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+}
+
+.CharacterCard .Portrait {
+  border: 3px solid;
+  border-radius: 6px;
+  display: flex;
+  font-size: 45px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  min-width: 100px;
+  min-height: 100px;
+  padding: 10px;
+}
+
+.CharacterCard .StatusEffects {
+  /* background-color: #666; */
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 6px;
+  padding: 8px;
+  margin: 0 12px 0 0;
+  text-align: center;
+}
+
+.ResourceBlock {
+  border: 3px solid;
+  border-radius: 6px;
+  box-shadow: 3px 3px #424242;
+  display: flex;
+  font-size: 16;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+}
+
+.StatusEffects__effect {
+  border: 3px solid;
+  border-radius: 6px;
+  box-shadow: 3px 3px #424242;
+  display: flex;
+  font-size: 16;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+}
+
+.CharacterCard .NamePlate {
+  font-size: 26px;
+}
+
+.ProgressBar {
+
+}
+.ProgressBar__label {
+
+}
+.ProgressBar__blips {
+  background-color: #666;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 6px;
+  padding: 8px;
+  margin: 0 12px 0 0;
+  text-align: center;
+}
+.ProgressBar__blips__blip {
+  display: inline-block;
+  min-height: 20px;
+  min-width: 20px;
+  border: 2px solid #424242;
+  box-shadow: 3px 3px #424242;
+  border-radius: 5px;
+}
+
+.Keymap {
+  /* left: 0px; */
+  height: 50vh;
+}
+
+.Keymap .Button {
+  width: 100%;
+}
+
+.CharacterActions {
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.CharacterActions__item {
+}
+
+.CharacterActions__item__label {
+  background-color: #222;
+  border: #222 1px solid;
+  border-radius: 6px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  width: 90px;
+  top: 10px;
+}
+
+.CharacterActions__item__content {
+  align-items: center;
+  border: #222 solid 2px;
+  border-radius: 6px;
+  display: flex;
+  font-family: 'Roboto', 'scroll-o-script';
+  height: 100px;
+  justify-content: center;
+  margin: auto;
+  padding: 10px;
+  width: 100px;
+}
+
+.CharacterActions__item__resources {
+  bottom: 15px;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+
+
+.Inventory {
+  /* left: 200px; */
+}
+
+.Equipment {
+  /* left: 400px; */
+}
+
+.Information {
+  /* right: 0; */
+  /* left: 600px; */
+}
+
+.Instructions__block {
+  background-color: #666;
+  min-width: 200px;
+  border-radius: 6px;
+  padding: 8px;
+  display: inline-block;
+  margin: 0 12px 0 0;
+  text-align: center;
+}
+
+.Instructions__block .btn-main {
+  width: 100%;
+}
+
+.Messages {
+  /* right: 0; */
+  /* left: 600px; */
+  /* overflow-y: scroll;
+  height: 800px;  */
+  height: 50vh;
+  overflow-y: hidden;
+}
+
+.Messages .Message {
+  width: 100%;
+  text-align: left;
+  display: block;
+  text-overflow: ellipsis;
+  height: unset;
+  transition: background-color .2s ease-out;
+  border-radius: 2px;
+  line-height: 36px;
+  padding: 0 16px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.Information .Button {
+  display: inline;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Screen Animations */
+.fade-appear {
+  opacity: 0.01;
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+
+}
+
+.btn-main {
+  background-color: #fdf6e3;
+  color: rgb(4, 49, 61);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn-main:hover, .btn-main:focus {
+  background-color: rgb(4, 49, 61);
+  color: #fdf6e3;
+}

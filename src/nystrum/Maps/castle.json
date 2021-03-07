@@ -1,0 +1,8983 @@
+{
+  "cols": 50,
+  "rows": 25,
+  "tiles": {
+    "0,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,17": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,18": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,19": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "0,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,17": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,18": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,19": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "1,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,17": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,18": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,19": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "2,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,17": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,18": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,19": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "3,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,17": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,18": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,19": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "4,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,17": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,18": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,19": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "5,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,17": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,18": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,19": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "6,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,17": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,18": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,19": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "7,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,17": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,18": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,19": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "8,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,17": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,18": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,19": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "9,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,17": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,18": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,19": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "10,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,16": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "11,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "11,18": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "11,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "11,20": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "11,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "11,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "12,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "12,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "12,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "12,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "12,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "12,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "12,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "12,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "12,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "12,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "12,10": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "12,11": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "12,12": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "12,13": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "12,14": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "12,15": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "12,16": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "12,17": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "12,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "12,19": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "12,20": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "12,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "12,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "12,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "12,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "13,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "13,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "13,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "13,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "13,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "13,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "13,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "13,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "13,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "13,9": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "13,10": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "13,11": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "13,12": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "13,13": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "13,14": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "13,15": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "13,16": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "13,17": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "13,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "13,19": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "13,20": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "13,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "13,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "13,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "13,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "14,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "14,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "14,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "14,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "14,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "14,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "14,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "14,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "14,8": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "14,9": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "14,10": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "14,11": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "14,12": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "14,13": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "14,14": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "14,15": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "14,16": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "14,17": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "14,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "14,19": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "14,20": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "14,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "14,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "14,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "14,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "15,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "15,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "15,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "15,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "15,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "15,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "15,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "15,7": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "15,8": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "15,9": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "15,10": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "15,11": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "15,12": {
+      "type": 1,
+      "character": "+",
+      "color": "#9b9b9b",
+      "data": {
+        "type": "DOOR"
+      }
+    },
+    "15,13": {
+      "type": 1,
+      "character": "+",
+      "color": "#9b9b9b",
+      "data": {
+        "type": "DOOR"
+      }
+    },
+    "15,14": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "15,15": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "15,16": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "15,17": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "15,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "15,19": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "15,20": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "15,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "15,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "15,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "15,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "16,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "16,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "16,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "16,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "16,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "16,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "16,6": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "16,7": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "16,8": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "16,9": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "16,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "16,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "16,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "16,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "16,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "16,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "16,16": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "16,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "16,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "16,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "16,20": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "16,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "16,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "16,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "16,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "17,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "17,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "17,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "17,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "17,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "17,5": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "17,6": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "17,7": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "17,8": {
+      "type": 1,
+      "character": "+",
+      "color": "#9b9b9b",
+      "data": {
+        "type": "DOOR"
+      }
+    },
+    "17,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "17,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "17,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "17,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "17,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "17,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "17,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "17,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "17,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "17,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "17,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "17,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "17,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "17,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "17,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "17,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "18,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "18,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "18,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "18,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "18,4": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "18,5": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "18,6": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "18,7": {
+      "type": 1,
+      "character": "+",
+      "color": "#9b9b9b",
+      "data": {
+        "type": "DOOR"
+      }
+    },
+    "18,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "18,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "18,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "18,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "18,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "18,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "18,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "18,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "18,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "18,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "18,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "18,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "18,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "18,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "18,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "18,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "18,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "19,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "19,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "19,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "19,3": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "19,4": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "19,5": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "19,6": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "19,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "19,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "19,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "19,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "19,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "19,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "19,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "19,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "19,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "19,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "19,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "19,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "19,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "19,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "19,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "19,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "19,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "19,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "20,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "20,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "20,2": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "20,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "20,4": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "20,5": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "20,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "20,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "20,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "20,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "20,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "20,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "20,12": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "20,13": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "20,14": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "20,15": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "20,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "20,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "20,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "20,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "20,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "20,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "20,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "20,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "20,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "21,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "21,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "21,2": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "21,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "21,4": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "21,5": {
+      "type": 1,
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "21,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "21,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "21,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "21,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "21,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "21,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "21,12": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "21,13": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "21,14": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "21,15": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "21,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "21,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "21,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "21,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "21,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "21,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "21,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "21,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "21,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "22,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "22,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "22,2": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "22,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "22,4": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "22,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "22,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "22,7": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "22,8": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "22,9": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "22,10": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "22,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "22,12": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "22,13": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "22,14": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "22,15": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "22,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "22,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "22,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "22,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "22,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "22,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "22,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "22,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "22,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "23,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "23,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "23,2": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "23,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "23,4": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "23,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "23,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "23,7": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "23,8": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "23,9": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "23,10": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "23,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "23,12": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "23,13": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "23,14": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "23,15": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "23,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "23,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "23,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "23,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "23,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "23,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "23,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "23,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "23,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "24,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "24,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "24,2": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "24,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "24,4": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "24,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "24,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "24,7": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "24,8": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "24,9": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "24,10": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "24,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "24,12": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "24,13": {
+      "type": 1,
+      "character": "+",
+      "color": "#9b9b9b",
+      "data": {
+        "type": "DOOR"
+      }
+    },
+    "24,14": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "24,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "24,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "24,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "24,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "24,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "24,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "24,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "24,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "24,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "24,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "25,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "25,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "25,2": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "25,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "25,4": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "25,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "25,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "25,7": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "25,8": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "25,9": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "25,10": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "25,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "25,12": {
+      "type": 1,
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "25,13": {
+      "type": 1,
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "25,14": {
+      "type": 1,
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "25,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "25,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "25,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "25,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "25,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "25,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "25,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "25,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "25,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "25,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "26,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "26,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "26,2": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "26,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "26,4": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "26,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "26,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "26,7": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "26,8": {
+      "type": 1,
+      "character": "+",
+      "color": "#9b9b9b",
+      "data": {
+        "type": "DOOR"
+      }
+    },
+    "26,9": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "26,10": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "26,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "26,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "26,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "26,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "26,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "26,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "26,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "26,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "26,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "26,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "26,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "26,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "26,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "26,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "27,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "27,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "27,2": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "27,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "27,4": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "27,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "27,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "27,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "27,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "27,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "27,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "27,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "27,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "27,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "27,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "27,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "27,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "27,17": {
+      "type": 1,
+      "character": "+",
+      "color": "#9b9b9b",
+      "data": {
+        "type": "DOOR"
+      }
+    },
+    "27,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "27,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "27,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "27,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "27,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "27,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "27,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "28,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "28,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "28,2": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "28,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "28,4": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "28,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "28,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "28,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "28,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "28,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "28,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "28,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "28,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "28,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "28,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "28,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "28,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "28,17": {
+      "type": 1,
+      "character": "+",
+      "color": "#9b9b9b",
+      "data": {
+        "type": "DOOR"
+      }
+    },
+    "28,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "28,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "28,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "28,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "28,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "28,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "28,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "29,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "29,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "29,2": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "29,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "29,4": {
+      "type": 1,
+      "character": "+",
+      "color": "#9b9b9b",
+      "data": {
+        "type": "DOOR"
+      }
+    },
+    "29,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "29,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "29,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "29,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "29,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "29,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "29,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "29,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "29,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "29,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "29,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "29,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "29,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "29,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "29,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "29,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "29,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "29,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "29,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "29,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "30,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "30,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "30,2": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "30,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "30,4": {
+      "type": 1,
+      "character": "+",
+      "color": "#9b9b9b",
+      "data": {
+        "type": "DOOR"
+      }
+    },
+    "30,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "30,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "30,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "30,8": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "30,9": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "30,10": {
+      "type": 1,
+      "character": "+",
+      "color": "#9b9b9b",
+      "data": {
+        "type": "DOOR"
+      }
+    },
+    "30,11": {
+      "type": 1,
+      "character": "+",
+      "color": "#9b9b9b",
+      "data": {
+        "type": "DOOR"
+      }
+    },
+    "30,12": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "30,13": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "30,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "30,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "30,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "30,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "30,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "30,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "30,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "30,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "30,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "30,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "30,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "31,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "31,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "31,2": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "31,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "31,4": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "31,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "31,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "31,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "31,8": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "31,9": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "31,10": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "31,11": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "31,12": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "31,13": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "31,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "31,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "31,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "31,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "31,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "31,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "31,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "31,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "31,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "31,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "31,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "32,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "32,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "32,2": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "32,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "32,4": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "32,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "32,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "32,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "32,8": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "32,9": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "32,10": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "32,11": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "32,12": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "32,13": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "32,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "32,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "32,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "32,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "32,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "32,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "32,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "32,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "32,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "32,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "32,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "33,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "33,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "33,2": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "33,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "33,4": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "33,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "33,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "33,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "33,8": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "33,9": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "33,10": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "33,11": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "33,12": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "33,13": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "33,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "33,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "33,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "33,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "33,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "33,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "33,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "33,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "33,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "33,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "33,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "34,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "34,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "34,2": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "34,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "34,4": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "34,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "34,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "34,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "34,8": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "34,9": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "34,10": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "34,11": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "34,12": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "34,13": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "34,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "34,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "34,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "34,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "34,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "34,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "34,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "34,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "34,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "34,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "34,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "35,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "35,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "35,2": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "35,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "35,4": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "35,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "35,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "35,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "35,8": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "35,9": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "35,10": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "35,11": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "35,12": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "35,13": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "35,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "35,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "35,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "35,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "35,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "35,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "35,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "35,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "35,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "35,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "35,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "36,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "36,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "36,2": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "36,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "36,4": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "36,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "36,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "36,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "36,8": {
+      "type": 1,
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "36,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "36,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "36,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "36,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "36,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "36,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "36,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "36,16": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "36,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "36,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "36,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "36,20": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "36,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "36,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "36,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "36,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "37,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "37,1": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "37,2": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "37,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "37,4": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "37,5": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "37,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "37,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "37,8": {
+      "type": 1,
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "37,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "37,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "37,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "37,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "37,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "37,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "37,15": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "37,16": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "37,17": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "37,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "37,19": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "37,20": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "37,21": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "37,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "37,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "37,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "38,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "38,1": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "38,2": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "38,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "38,4": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "38,5": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "38,6": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "38,7": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "38,8": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "38,9": {
+      "type": 1,
+      "character": "+",
+      "color": "#9b9b9b",
+      "data": {
+        "type": "DOOR"
+      }
+    },
+    "38,10": {
+      "type": 1,
+      "character": "+",
+      "color": "#9b9b9b",
+      "data": {
+        "type": "DOOR"
+      }
+    },
+    "38,11": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "38,12": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "38,13": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "38,14": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "38,15": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "38,16": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "38,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "38,18": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "38,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "38,20": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "38,21": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "38,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "38,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "38,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "39,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "39,1": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "39,2": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "39,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "39,4": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "39,5": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "39,6": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "39,7": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "39,8": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "39,9": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "39,10": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "39,11": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "39,12": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "39,13": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "39,14": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "39,15": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "39,16": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "39,17": {
+      "type": 1,
+      "character": "+",
+      "color": "#9b9b9b",
+      "data": {
+        "type": "DOOR"
+      }
+    },
+    "39,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "39,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "39,20": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "39,21": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "39,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "39,23": {
+      "type": 1,
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "39,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "40,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "40,1": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "40,2": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "40,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "40,4": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "40,5": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "40,6": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "40,7": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "40,8": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "40,9": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "40,10": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "40,11": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "40,12": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "40,13": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "40,14": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "40,15": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "40,16": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "40,17": {
+      "type": 1,
+      "character": "+",
+      "color": "#9b9b9b",
+      "data": {
+        "type": "DOOR"
+      }
+    },
+    "40,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "40,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "40,20": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "40,21": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "40,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "40,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "40,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "41,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "41,1": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "41,2": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "41,3": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "41,4": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "41,5": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "41,6": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "41,7": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "41,8": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "41,9": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "41,10": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "41,11": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "41,12": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "41,13": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "41,14": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "41,15": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "41,16": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "41,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "41,18": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "41,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "41,20": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "41,21": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "41,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "41,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "41,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "42,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "42,1": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "42,2": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "42,3": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "42,4": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "42,5": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "42,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "42,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "42,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "42,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "42,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "42,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "42,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "42,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "42,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "42,15": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "42,16": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "42,17": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "42,18": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "42,19": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "42,20": {
+      "character": "=",
+      "color": "#937255",
+      "data": {
+        "type": "FLOOR"
+      }
+    },
+    "42,21": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "42,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "42,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "42,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,16": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "43,17": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "43,18": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "43,19": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "43,20": {
+      "type": 1,
+      "character": "#",
+      "color": "#c3c3c3",
+      "data": {
+        "type": "WALL"
+      }
+    },
+    "43,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "43,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,17": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,18": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,19": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "44,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,17": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,18": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,19": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "45,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,17": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,18": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,19": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "46,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,17": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,18": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,19": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "47,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,17": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,18": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,19": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "48,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,0": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,1": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,2": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,3": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,4": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,5": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,6": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,7": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,8": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,9": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,10": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,11": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,12": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,13": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,14": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,15": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,16": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,17": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,18": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,19": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,20": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,21": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,22": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,23": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    },
+    "49,24": {
+      "character": ",,",
+      "color": "#417505",
+      "data": {
+        "type": "GROUND"
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "name": "jacinto_rl",
+  "version": "0.0.1",
+  "private": true,
+  "homepage": "./",
+  "main": "public/electron.js",
+  "author": {
+    "name": "David Vanderhaar",
+    "email": "d.vanderhaarhunter@gmail.com",
+    "url": "https://david-vanderhaar.github.io/"
+  },
+  "build": {
+    "appId": "io.github.david-vanderhaar",
+    "productName": "Jacinto RL",
+    "copyright": "Copyright © 2021 ${author}",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "dependencies": {
+    "howler": "^2.1.3",
+    "konva": "^4.1.5",
+    "lodash": "^4.17.15",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts": "3.1.1",
+    "rot-js": "^2.1.1",
+    "uuid": "^3.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "electron-dev": "concurrently \"BROWSER=none npm run start\" \"wait-on http://localhost:3000 && electron .\"",
+    "postinstall": "electron-builder install-app-deps",
+    "preelectron-pack": "npm run build",
+    "electron-pack-linux": "electron-builder --linux deb tar.xz",
+    "electron-pack-windows": "electron-builder -w",
+    "electron-pack-mac": "electron-builder -m"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "electron": "^8.2.4",
+    "electron-builder": "^22.6.0",
+    "electron-is-dev": "^1.2.0",
+    "gh-pages": "^2.1.1",
+    "react-addons-css-transition-group": "^15.6.2",
+    "wait-on": "^4.0.2"
+  }
+}
