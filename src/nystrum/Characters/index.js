@@ -1,12 +1,8 @@
-import RockLee from './RockLee';
-import Gaara from './Gaara';
-import FireFighter from './FireFighter';
+import Basic_Gear from './GearBasic';
 
 let Characters = () => {
   return {
-    Gaara,
-    RockLee,
-    FireFighter,
+    Basic_Gear,
   }
 }
 

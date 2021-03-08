@@ -227,6 +227,19 @@ export class Game {
     return result;
   }
 
+  rangedCursorCanOccupyPosition (pos, entity = {passable: false}) {
+    let result = false;
+    let targetTile = this.map[Helper.coordsToString(pos)];
+    if (targetTile) {
+      let tile = this.map[Helper.coordsToString(pos)];
+      if (this.tileKey[tile.type].passable) {
+        result = true;
+      }
+    }
+
+    return result;
+  }
+
   cursorCanOccupyPosition(pos) {
     let result = false;
     let targetTile = this.map[Helper.coordsToString(pos)];

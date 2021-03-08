@@ -6,6 +6,7 @@ import { HasInnerGates } from './HasInnerGates';
 import { UI } from './UI';
 import {HasTargetingCursor} from './HasTargetingCursor';
 import { Attacking } from './Attacking';
+import { RangedAttacking } from './RangedAttacking';
 import { Equipable } from './Equipable';
 import { Acting } from './Acting';
 import { Rendering } from './Rendering';
@@ -118,7 +119,7 @@ export const Player = pipe(
   Containing,
   Equiping,
   Attacking,
-  HasInnerGates,
+  RangedAttacking,
   Destructable,
   Cloning,
   Playing,
@@ -129,6 +130,12 @@ export const Weapon = pipe(
   Rendering,
   Equipable,
   Attacking
+)(Entity);
+
+export const RangedWeapon = pipe(
+  Rendering,
+  Equipable,
+  RangedAttacking,
 )(Entity);
 
 export const Armor = pipe(

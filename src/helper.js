@@ -84,3 +84,13 @@ export const getPointsOnCircumference = (centerX = 0, centerY = 0, r = 3) => {
   }
   return list
 }
+
+export const getPositionsFromStructure = (structure, initialPosition) => {
+  return structure.positions.map((slot) => {
+    let position = {
+      x: initialPosition.x + slot.x + structure.x_offset,
+      y: initialPosition.y + slot.y + structure.y_offset
+    }
+    return position
+  })
+}

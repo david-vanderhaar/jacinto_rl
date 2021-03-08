@@ -14,7 +14,7 @@ class Nystrum extends React.Component {
       return {
         initialize: characterKey[key],
         selected: false,
-        name: key,
+        name: key.split('_').join(' '),
       }
     });
 
@@ -22,7 +22,7 @@ class Nystrum extends React.Component {
       return {
         class: Modes[key],
         selected: false,
-        name: key,
+        name: key.split('_').join(' '),
       }
     });
 
@@ -31,7 +31,7 @@ class Nystrum extends React.Component {
       characters,
       modes,
       selectedCharacter: null,
-      selectedMode: null,
+      selectedMode: modes[0],
     };
   }
 
@@ -59,15 +59,8 @@ class Nystrum extends React.Component {
       setSelectedCharacter={this.setSelectedCharacter.bind(this)}
       selectedCharacter={this.state.selectedCharacter}
       characters={this.state.characters}
-    />
-    const modeScreen = <Screens.ModeSelect 
-      key={SCREENS.MODE_SELECT} 
-      setActiveScreen={this.setActiveScreen.bind(this)}
-      setSelectedMode={this.setSelectedMode.bind(this)}
-      selectedMode={this.state.selectedMode}
-      modes={this.state.modes}
-    />
-    const titleScreen = <Screens.Title 
+      />
+      const titleScreen = <Screens.Title 
       key={SCREENS.TITLE} 
       setActiveScreen={this.setActiveScreen.bind(this)}
       setSelectedCharacter={this.setSelectedCharacter.bind(this)}
@@ -98,8 +91,6 @@ class Nystrum extends React.Component {
     switch (this.state.activeScreen) {
       case SCREENS.CHARACTER_SELECT:
         return characterScreen
-      case SCREENS.MODE_SELECT:
-        return modeScreen
       case SCREENS.TITLE:
         return titleScreen
       case SCREENS.LOSE:

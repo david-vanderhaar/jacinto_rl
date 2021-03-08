@@ -1,11 +1,5 @@
-import { Mode } from './default'
-import { Flume } from './flume'
-import { Castle } from './castle'
-import { Chunin } from './chunin'
+import { Jacinto } from './jacinto'
 
 export default {
-  Mode,
-  Flume,
-  Castle,
-  Chunin,
+  Jacinto,
 }
