@@ -44,7 +44,7 @@ export const HasTargetingCursor = superclass => class extends superclass {
         {
           x: position.x, 
           y: position.y, 
-          color: THEMES.SOLARIZED.base3 
+          color: THEMES.SOLARIZED.red 
         })
         this.animations.push(newAnimation);
       })

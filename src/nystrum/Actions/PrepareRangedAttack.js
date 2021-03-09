@@ -24,10 +24,18 @@ export class PrepareRangedAttack extends Base {
     // const positions = Helper.getPositionsFromStructure(CLONE_PATTERNS.smallSquare, pos)
     this.actor.activateCursor(positions)
 
+    const pathAnimations = [];
+    const deactivatePathAnimations = () => pathAnimations.forEach((anim) => {
+      this.game.display.removeAnimation(anim.id);
+    })
+
     const goToPreviousKeymap = new GoToPreviousKeymap({
       actor: this.actor,
       game: this.game,
-      onAfter: () => this.actor.deactivateCursor(),
+      onAfter: () => {
+        this.actor.deactivateCursor()
+        deactivatePathAnimations()
+      },
     })
 
     let keymap = {
@@ -40,6 +48,17 @@ export class PrepareRangedAttack extends Base {
           label: 'move N',
           direction: DIRECTIONS.N,
           range: 4,
+          onSuccess: () => {
+            pathAnimations.forEach((anim) => {
+              this.game.display.removeAnimation(anim.id);
+            })
+            const initiatedFrom = pos;
+            const path = Helper.calculateStraightPath(initiatedFrom, this.actor.getCursorPositions()[0]);
+            path.slice(1).forEach((pathPos) => {
+              const animation = this.game.display.addAnimation(1, { x: pathPos.x, y: pathPos.y, color: THEMES.SOLARIZED.base3 })
+              pathAnimations.push(animation);
+            })
+          }
         })
       },
       a: () => { 
@@ -49,6 +68,17 @@ export class PrepareRangedAttack extends Base {
           label: 'move W',
           direction: DIRECTIONS.W,
           range: 4,
+          onSuccess: () => {
+            pathAnimations.forEach((anim) => {
+              this.game.display.removeAnimation(anim.id);
+            })
+            const initiatedFrom = pos;
+            const path = Helper.calculateStraightPath(initiatedFrom, this.actor.getCursorPositions()[0]);
+            path.slice(1).forEach((pathPos) => {
+              const animation = this.game.display.addAnimation(1, { x: pathPos.x, y: pathPos.y, color: THEMES.SOLARIZED.base3 })
+              pathAnimations.push(animation);
+            })
+          }
         })
       },
       s: () => { 
@@ -58,6 +88,17 @@ export class PrepareRangedAttack extends Base {
           label: 'move S',
           direction: DIRECTIONS.S,
           range: 4,
+          onSuccess: () => {
+            pathAnimations.forEach((anim) => {
+              this.game.display.removeAnimation(anim.id);
+            })
+            const initiatedFrom = pos;
+            const path = Helper.calculateStraightPath(initiatedFrom, this.actor.getCursorPositions()[0]);
+            path.slice(1).forEach((pathPos) => {
+              const animation = this.game.display.addAnimation(1, { x: pathPos.x, y: pathPos.y, color: THEMES.SOLARIZED.base3 })
+              pathAnimations.push(animation);
+            })
+          }
         })
       },
       d: () => { 
@@ -67,6 +108,17 @@ export class PrepareRangedAttack extends Base {
           label: 'move E',
           direction: DIRECTIONS.E,
           range: 4,
+          onSuccess: () => {
+            pathAnimations.forEach((anim) => {
+              this.game.display.removeAnimation(anim.id);
+            })
+            const initiatedFrom = pos;
+            const path = Helper.calculateStraightPath(initiatedFrom, this.actor.getCursorPositions()[0]);
+            path.slice(1).forEach((pathPos) => {
+              const animation = this.game.display.addAnimation(1, { x: pathPos.x, y: pathPos.y, color: THEMES.SOLARIZED.base3 })
+              pathAnimations.push(animation);
+            })
+          }
         })
       },
       r: () => { 
@@ -78,6 +130,7 @@ export class PrepareRangedAttack extends Base {
           requiredResources: this.passThroughRequiredResources,
           onSuccess: () => {
             this.actor.deactivateCursor();
+            deactivatePathAnimations();
             this.actor.setNextAction(goToPreviousKeymap);
           }
         })

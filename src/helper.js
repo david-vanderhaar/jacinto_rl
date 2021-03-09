@@ -30,23 +30,55 @@ export const coordsAreEqual = (pos_one, pos_two) => pos_one.x === pos_two.x && p
 
 export const coordsToString = (coords) => `${coords.x},${coords.y}`
 
-export const calculatePath = (game, targetPos, currentPos, topology = 4) => {
-  let map = game.map
-  let isPassable = function (x, y) {
-    const tile = map[x + "," + y];
-    if (tile) {
-      return (game.tileKey[tile.type].passable);
-    } else {
-      return false
-    }
+const isPassableDefault = (game) => (x, y) => {
+  const tile = game.map[x + "," + y];
+  if (tile) {
+    return (game.tileKey[tile.type].passable);
+  } else {
+    return false
   }
-  let astar = new ROT.Path.AStar(targetPos.x, targetPos.y, isPassable, { topology });
+}
+
+export const calculatePath = (game, targetPos, currentPos, topology = 4, isPassable = isPassableDefault) => {
+  let map = game.map
+  let isPassableCallback = isPassable(game);
+  let astar = new ROT.Path.AStar(targetPos.x, targetPos.y, isPassableCallback, { topology });
   let path = [];
   astar.compute(currentPos.x, currentPos.y, function (x, y) {
     path.push({ x, y })
   });
 
   return path.slice(1);
+}
+
+const diagonal_distance = (p0, p1) => {
+  let dx = p1.x - p0.x, dy = p1.y - p0.y;
+  return Math.max(Math.abs(dx), Math.abs(dy));
+}
+
+const round_point = (p) => {
+  return {x: Math.round(p.x), y: Math.round(p.y)};
+}
+
+const lerp_point = (p0, p1, t) => {
+  return {
+    x: lerp(p0.x, p1.x, t),
+    y: lerp(p0.y, p1.y, t)
+  };
+}
+
+const lerp = (start, end, t) => {
+  return start + t * (end - start);
+}
+
+export const calculateStraightPath = (p0, p1) => {
+  let points = [];
+  let N = diagonal_distance(p0, p1);
+  for (let step = 0; step < N; step++) {
+    let t = N === 0 ? 0.0 : step / N;
+    points.push(round_point(lerp_point(p0, p1, t)));
+  }
+  return points;
 }
 
 export const getPositionInDirection = (pos, direction) => {

@@ -15,6 +15,7 @@ export const RangedAttacking = superclass => class extends superclass {
     console.log('this.baseRangedAccuracy ', this.baseRangedAccuracy);
     console.log('weaponAccuracy ', weaponAccuracy);
     console.log('distanceToTarget ', distanceToTarget);
+    // TODO: change the 10 to something more relevant or remove distance
     const result = this.baseRangedAccuracy + weaponAccuracy - (distanceToTarget / 10);
     console.log('getRangedAttackChance ', result);
     return result;
@@ -59,16 +60,19 @@ export const RangedAttacking = superclass => class extends superclass {
 
   rangedAttack(targetPos, additional = 0) {
     let success = false;
+    let hit = false;
     let tile = this.game.map[Helper.coordsToString(targetPos)];
     if (!tile) {
-      return [false, false];
+      return [success, hit];
     }
     let targets = Helper.getDestructableEntities(tile.entities);
     if (targets.length > 0) {
       const distanceToTarget = Helper.calculatePath(this.game, targetPos, this.getPosition(), 8).length;
-      const hit = Math.random() < this.getRangedAttackChance(distanceToTarget);
-      console.log('hit ', hit);
-      if (!hit) return [true, !hit];
+      hit = Math.random() < this.getRangedAttackChance(distanceToTarget);
+      if (!hit) {
+        success = true;
+        return [success, hit];
+      }
       let target = targets[0];
       if (this.canRangedAttack(target)) {
         let damage = this.getRangedAttackDamage(additional);
@@ -77,6 +81,6 @@ export const RangedAttacking = superclass => class extends superclass {
         success = true;
       }
     }
-    return [success, false];
+    return [success, hit];
   }
 };

@@ -25,29 +25,32 @@ export class MultiTargetRangedAttack extends Base {
     let particlePos = { x: this.actor.pos.x, y: this.actor.pos.y };
     let renderer = this.particleTemplate.renderer;
     this.targetPositions.forEach((targetPos) => {
-      let [attackSuccess, missed] = this.actor.rangedAttack(targetPos);
+      let [attackSuccess, hit] = this.actor.rangedAttack(targetPos);
       particlePath.push(targetPos);
-      if (missed) {
+      if (attackSuccess) {
         success = true;
-        this.addParticle(
-          1, 
-          { ...targetPos }, 
-          { x: 0, y: 0 },
-          Constant.PARTICLE_TEMPLATES.fail.renderer,
-        );
-      } else if (attackSuccess) {
-        this.addParticle(
-          particlePath.length + 1,
-          particlePos,
-          null,
-          renderer,
-          Constant.PARTICLE_TYPE.path,
-          particlePath
-        );
+        if (!hit) {
+          success = true;
+          this.addParticle(
+            1,
+            { ...targetPos },
+            { x: 0, y: 0 },
+            Constant.PARTICLE_TEMPLATES.fail.renderer,
+          );
+        } else {
+          this.addParticle(
+            particlePath.length + 1,
+            particlePos,
+            null,
+            renderer,
+            Constant.PARTICLE_TYPE.path,
+            particlePath
+          );
+        }
       }
     });
     return {
-      success: true,
+      success,
       alternative,
     };
   }
