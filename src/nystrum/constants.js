@@ -237,10 +237,24 @@ export const EQUIPMENT_LAYOUTS = {
       {type: EQUIPMENT_TYPES.GENERIC, name: 'slot_1', item: null},
       {type: EQUIPMENT_TYPES.GENERIC, name: 'slot_2', item: null},
     ]
+  },
+  gear: () => {
+    return [
+      { type: EQUIPMENT_TYPES.HEAD, name: 'head', item: null },
+      { type: EQUIPMENT_TYPES.TORSO, name: 'torso', item: null },
+      { type: EQUIPMENT_TYPES.HAND, name: 'weapon', item: null },
+    ]
   }
 }
 
 export const CLONE_PATTERNS = {
+  point: {
+    x_offset: 0,
+    y_offset: 0,
+    positions: [
+      { x: 0, y: 0, taken: false, },
+    ]
+  },
   verticalLine: {
     x_offset: 1,
     y_offset: 1,

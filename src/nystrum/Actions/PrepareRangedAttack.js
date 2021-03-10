@@ -2,7 +2,7 @@ import { Base } from './Base';
 import { MoveRangedAttackCursor } from './MoveRangedAttackCursor';
 import { MultiTargetRangedAttack } from './MultiTargetRangedAttack';
 import { GoToPreviousKeymap } from './GoToPreviousKeymap';
-import { DIRECTIONS, ENERGY_THRESHOLD, THEMES, CLONE_PATTERNS } from '../constants';
+import { DIRECTIONS, ENERGY_THRESHOLD, THEMES, EQUIPMENT_TYPES } from '../constants';
 import * as Helper from '../../helper';
 
 export class PrepareRangedAttack extends Base {
@@ -20,7 +20,11 @@ export class PrepareRangedAttack extends Base {
 
   perform() {
     const pos = this.actor.getPosition();
-    const positions = [{...pos}]
+    // TODO: positions, range, required resources (ammo) should be determined by equipped range weapon
+    const range = this.actor.getAttackRange();
+    const equippedWeapon = this.actor.getItemInSlot(EQUIPMENT_TYPES.HAND)
+    let positions = [{ ...pos }];
+    if (equippedWeapon) positions = equippedWeapon.getPositionsInShape(pos);
     // const positions = Helper.getPositionsFromStructure(CLONE_PATTERNS.smallSquare, pos)
     this.actor.activateCursor(positions)
 
@@ -47,7 +51,7 @@ export class PrepareRangedAttack extends Base {
           game: this.game,
           label: 'move N',
           direction: DIRECTIONS.N,
-          range: 4,
+          range,
           onSuccess: () => {
             pathAnimations.forEach((anim) => {
               this.game.display.removeAnimation(anim.id);
@@ -67,7 +71,7 @@ export class PrepareRangedAttack extends Base {
           game: this.game,
           label: 'move W',
           direction: DIRECTIONS.W,
-          range: 4,
+          range,
           onSuccess: () => {
             pathAnimations.forEach((anim) => {
               this.game.display.removeAnimation(anim.id);
@@ -87,7 +91,7 @@ export class PrepareRangedAttack extends Base {
           game: this.game,
           label: 'move S',
           direction: DIRECTIONS.S,
-          range: 4,
+          range,
           onSuccess: () => {
             pathAnimations.forEach((anim) => {
               this.game.display.removeAnimation(anim.id);
@@ -107,7 +111,7 @@ export class PrepareRangedAttack extends Base {
           game: this.game,
           label: 'move E',
           direction: DIRECTIONS.E,
-          range: 4,
+          range,
           onSuccess: () => {
             pathAnimations.forEach((anim) => {
               this.game.display.removeAnimation(anim.id);

@@ -5,6 +5,7 @@ import { PresentingUI } from './PresentingUI';
 import { HasInnerGates } from './HasInnerGates';
 import { UI } from './UI';
 import {HasTargetingCursor} from './HasTargetingCursor';
+import {HasShapePattern} from './HasShapePattern';
 import { Attacking } from './Attacking';
 import { RangedAttacking } from './RangedAttacking';
 import { Equipable } from './Equipable';
@@ -136,6 +137,7 @@ export const RangedWeapon = pipe(
   Rendering,
   Equipable,
   RangedAttacking,
+  HasShapePattern,
 )(Entity);
 
 export const Armor = pipe(

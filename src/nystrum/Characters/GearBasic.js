@@ -15,6 +15,7 @@ import {OpenInventory} from '../Actions/OpenInventory';
 import {OpenEquipment} from '../Actions/OpenEquipment';
 import {OpenDropInventory} from '../Actions/OpenDropInventory';
 import {PickupRandomItem} from '../Actions/PickupRandomItem';
+import { Lancer } from '../Items/Weapons/Lancer';
 
 export default function (engine) {
   // define keymap
@@ -109,26 +110,26 @@ export default function (engine) {
       //     new ChakraResource({ getResourceCost: () => 2 }),
       //   ],
       // }),
-      // i: () => new OpenInventory({
-      //   label: 'Inventory',
-      //   game: engine.game,
-      //   actor,
-      // }),
-      // o: () => new OpenEquipment({
-      //   label: 'Equipment',
-      //   game: engine.game,
-      //   actor,
-      // }),
-      // u: () => new OpenDropInventory({
-      //   label: 'Drop Items',
-      //   game: engine.game,
-      //   actor,
-      // }),
-      // g: () => new PickupRandomItem({
-      //   label: 'Pickup',
-      //   game: engine.game,
-      //   actor,
-      // }),
+      i: () => new OpenInventory({
+        label: 'Inventory',
+        game: engine.game,
+        actor,
+      }),
+      o: () => new OpenEquipment({
+        label: 'Equipment',
+        game: engine.game,
+        actor,
+      }),
+      u: () => new OpenDropInventory({
+        label: 'Drop Items',
+        game: engine.game,
+        actor,
+      }),
+      g: () => new PickupRandomItem({
+        label: 'Pickup',
+        game: engine.game,
+        actor,
+      }),
       // t: () => new PrepareDirectionalThrow({
       //   label: 'Throw',
       //   game: engine.game,
@@ -152,6 +153,7 @@ export default function (engine) {
     baseRangedAccuracy: 0,
     baseRangedDamage: 1,
     charge: 10,
+    equipment: Constant.EQUIPMENT_LAYOUTS.gear(),
     game: engine.game,
     presentingUI: true,
     initializeKeymap: keymap,
@@ -160,16 +162,14 @@ export default function (engine) {
   // add default items to container
   const kunais = Array(100).fill('').map(() => Item.directionalKunai(engine, { ...actor.pos }, null, 10));
   const swords = Array(2).fill('').map(() => Item.sword(engine));
-  actor.container = [
-    new ContainerSlot({
-      itemType: kunais[0].name,
-      items: kunais,
-    }),
-    new ContainerSlot({
-      itemType: swords[0].name,
-      items: swords,
-    }),
-  ]
+  const lancer = Lancer(engine);
+  // actor.container = [
+  //   new ContainerSlot({
+  //     itemType: lancer.name,
+  //     items: [],
+  //   }),
+  // ]
+  actor.equip(lancer.equipmentType, lancer);
 
   return actor;
 }

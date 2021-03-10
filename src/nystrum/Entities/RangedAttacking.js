@@ -3,31 +3,42 @@ import * as Helper from '../../helper';
 import { result } from 'lodash';
 
 export const RangedAttacking = superclass => class extends superclass {
-  constructor({ baseRangedAccuracy = 0, baseRangedDamage = 0, ...args }) {
+  constructor({ attackRange = 0, baseRangedAccuracy = 0, baseRangedDamage = 0, ...args }) {
     super({ ...args });
     this.entityTypes = this.entityTypes.concat('RANGED_ATTACKING');
+    this.attackRange = attackRange;
     this.baseRangedAccuracy = baseRangedAccuracy;
     this.baseRangedDamage = baseRangedDamage;
   }
 
   getRangedAttackChance(distanceToTarget) {
     const weaponAccuracy = this.getRangedWeaponAccuracy();
-    console.log('this.baseRangedAccuracy ', this.baseRangedAccuracy);
-    console.log('weaponAccuracy ', weaponAccuracy);
-    console.log('distanceToTarget ', distanceToTarget);
     // TODO: change the 10 to something more relevant or remove distance
-    const result = this.baseRangedAccuracy + weaponAccuracy - (distanceToTarget / 10);
-    console.log('getRangedAttackChance ', result);
+    const result = this.baseRangedAccuracy + weaponAccuracy - (distanceToTarget / (this.getAttackRange() * 3));
     return result;
   }
 
-  getRangedWeaponAccuracy() {
-    const accuracy = 0;
+  getAttackRange() {
+    let range = this.attackRange;
     if (this.entityTypes.includes('EQUIPING')) {
       this.equipment.forEach((slot) => {
         if (slot.item) {
           if (slot.item.entityTypes.includes('RANGED_ATTACKING')) {
-            accuracy += slot.item.getRangedAttackChance();
+            range += slot.item.attackRange;
+          }
+        }
+      });
+    }
+    return range;
+  }
+
+  getRangedWeaponAccuracy() {
+    let accuracy = 0;
+    if (this.entityTypes.includes('EQUIPING')) {
+      this.equipment.forEach((slot) => {
+        if (slot.item) {
+          if (slot.item.entityTypes.includes('RANGED_ATTACKING')) {
+            accuracy += slot.item.getRangedAttackChance(0);
           }
         }
       });
@@ -41,7 +52,7 @@ export const RangedAttacking = superclass => class extends superclass {
   }
 
   getRangedWeaponDamage() {
-    const damage = 0;
+    let damage = 0;
     if (this.entityTypes.includes('EQUIPING')) {
       this.equipment.forEach((slot) => {
         if (slot.item) {
