@@ -9,7 +9,7 @@ export const Lancer = (engine, pos) => new RangedWeapon({
   baseRangedAccuracy: 1,
   baseRangedDamage: 1,
   pos,
-  // shapePattern: Constant.CLONE_PATTERNS.square,
+  shapePattern: Constant.CLONE_PATTERNS.square,
   equipmentType: Constant.EQUIPMENT_TYPES.HAND,
   renderer: {
     character: 'L',

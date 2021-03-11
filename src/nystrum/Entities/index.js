@@ -17,6 +17,7 @@ import { Charging } from './Charging';
 import { Signing } from './Signing';
 import { Playing } from './Playing';
 import { Cloning } from './Cloning';
+import { Covering } from './Covering';
 import { DestructiveProjecting } from './DestructiveProjecting';
 import { DirectionalProjecting } from './DirectionalProjecting';
 import { DirectionalPushing } from './DirectionalPushing';
@@ -62,6 +63,12 @@ export const Speaker = pipe(
 
 export const Wall = pipe(
   Rendering,
+  Destructable,
+)(Entity);
+
+export const CoverWall = pipe(
+  Rendering,
+  Covering,
   Destructable,
 )(Entity);
 

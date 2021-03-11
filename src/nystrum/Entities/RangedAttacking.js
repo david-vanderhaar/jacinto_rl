@@ -11,11 +11,35 @@ export const RangedAttacking = superclass => class extends superclass {
     this.baseRangedDamage = baseRangedDamage;
   }
 
-  getRangedAttackChance(distanceToTarget) {
+  getRangedAttackChance(targetPos = null) {
     const weaponAccuracy = this.getRangedWeaponAccuracy();
-    // TODO: change the 10 to something more relevant or remove distance
-    const result = this.baseRangedAccuracy + weaponAccuracy - (distanceToTarget / (this.getAttackRange() * 3));
+    const coverDebuff = targetPos ? this.getRangedAttackCoverDebuff(targetPos) : 0;
+    const distanceDebuff = targetPos ? this.getRangedAttackDistanceDebuff(targetPos) : 0;
+    console.log('weaponAccuracy ', weaponAccuracy)
+    console.log('coverDebuff ', coverDebuff)
+    console.log('distanceDebuff ', distanceDebuff)
+    console.log('this.baseRangedAccuracy ', this.baseRangedAccuracy)
+    const result = this.baseRangedAccuracy + weaponAccuracy + coverDebuff + distanceDebuff;
+    console.log(result);
     return result;
+  }
+
+  getRangedAttackCoverDebuff(targetPos) {
+    const path = Helper.calculateStraightPath(this.getPosition(), targetPos);
+    const coverAccuracyModifer = path.reduce((acc, curr) => {
+      let tile = this.game.map[Helper.coordsToString(curr)];
+      let entitiesProvidingCover = Helper.filterEntitiesByType(tile.entities, 'COVERING');
+      let coverModifer = 0;
+      if (entitiesProvidingCover.length > 0) coverModifer = entitiesProvidingCover[0].accuracyModifer;
+      return acc + coverModifer;
+    }, 0);
+    console.log('coverAccuracyModifer ', coverAccuracyModifer);
+    return coverAccuracyModifer;
+  }
+
+  getRangedAttackDistanceDebuff(targetPos) {
+    const distanceToTarget = Helper.calculatePath(this.game, targetPos, this.getPosition(), 8).length;
+    return -1 * (distanceToTarget / (this.getAttackRange() * 3))
   }
 
   getAttackRange() {
@@ -38,7 +62,7 @@ export const RangedAttacking = superclass => class extends superclass {
       this.equipment.forEach((slot) => {
         if (slot.item) {
           if (slot.item.entityTypes.includes('RANGED_ATTACKING')) {
-            accuracy += slot.item.getRangedAttackChance(0);
+            accuracy += slot.item.getRangedAttackChance();
           }
         }
       });
@@ -69,7 +93,7 @@ export const RangedAttacking = superclass => class extends superclass {
     return true;
   }
 
-  rangedAttack(targetPos, additional = 0) {
+  rangedAttack(targetPos, additionalDamage = 0, additionalAccuracy = 0) {
     let success = false;
     let hit = false;
     let tile = this.game.map[Helper.coordsToString(targetPos)];
@@ -78,15 +102,20 @@ export const RangedAttacking = superclass => class extends superclass {
     }
     let targets = Helper.getDestructableEntities(tile.entities);
     if (targets.length > 0) {
-      const distanceToTarget = Helper.calculatePath(this.game, targetPos, this.getPosition(), 8).length;
-      hit = Math.random() < this.getRangedAttackChance(distanceToTarget);
+      const attackChance = this.getRangedAttackChance(targetPos);
+      const hitChance = attackChance + additionalAccuracy;
+      console.log('attackChance ', attackChance);
+      console.log('additionalAccuracy ', additionalAccuracy);
+      console.log('hitChance ', hitChance);
+      hit = Math.random() < hitChance;
+      console.log('hit ', hit);
       if (!hit) {
         success = true;
         return [success, hit];
       }
       let target = targets[0];
       if (this.canRangedAttack(target)) {
-        let damage = this.getRangedAttackDamage(additional);
+        let damage = this.getRangedAttackDamage(additionalDamage);
         this.game.addMessage(`${this.name} does ${damage} to ${target.name}`, MESSAGE_TYPE.DANGER);
         target.decreaseDurability(damage);
         success = true;

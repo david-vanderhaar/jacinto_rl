@@ -101,6 +101,10 @@ export const getDestructableEntities = (entites) => {
   return entites.filter((entity) => entity.hasOwnProperty('durability'));
 }
 
+export const filterEntitiesByType = (entites, type) => {
+  return entites.filter((entity) => entity.entityTypes.includes(type));
+}
+
 const getGranularity = (radius) => {
   let result = (2 / 3) * (Math.pow(radius, 3) - (9 * Math.pow(radius, 2)) + (32 * radius) - 18)
   return result

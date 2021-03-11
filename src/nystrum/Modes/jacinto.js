@@ -3,7 +3,7 @@ import * as Helper from '../../helper';
 import * as Item from '../items';
 import * as MapHelper from '../Maps/helper';
 import { generate as generateBuilding } from '../Maps/generator';
-import { Debris, Bandit, RangedBandit } from '../Entities/index';
+import { CoverWall, Debris, Bandit, RangedBandit } from '../Entities/index';
 import { MESSAGE_TYPE } from '../message';
 import { Mode } from './default';
 import SOUNDS from '../sounds';
@@ -19,8 +19,8 @@ export class Jacinto extends Mode {
     };
     this.dataByLevel = [
       {
-        enemies: Array(1).fill('Bandit'),
-        // enemies: Array(10).fill('Bandit'),
+        // enemies: Array(1).fill('Bandit'),
+        enemies: Array(10).fill('Bandit'),
       },
       {
         enemies: Array(10).fill('Bandit'),
@@ -53,6 +53,13 @@ export class Jacinto extends Mode {
       let posXY = pos.split(',').map((coord) => parseInt(coord));
       this[`add${enemyName}`]({ x: posXY[0], y: posXY[1] });
     })
+
+    // let floorTiles = Object.keys(this.game.map).filter((key) => this.game.map[key].type === 'FLOOR')
+    for (let index = 0; index < 20; index++) {
+      let pos = Helper.getRandomInArray(groundTiles);
+      let posXY = pos.split(',').map((coord) => parseInt(coord));
+      this.addCover({ x: posXY[0], y: posXY[1] });
+    }
   }
 
   getPlayers () {
@@ -131,6 +138,56 @@ export class Jacinto extends Mode {
     return false;
   }
 
+  addCover (
+    pos,
+    name = 'box',
+    character = '%',
+    durability = 5,
+    background = Constant.THEMES.SOLARIZED.base01
+  ) {
+    let sprite = Helper.getRandomInArray(['', '', '', '', '', '']);
+    switch (character) {
+      case '%':
+        sprite = Helper.getRandomInArray(['', '']);
+        break;
+      case 'm':
+        sprite = Helper.getRandomInArray(['', '']);
+        break;
+      case 'H':
+        sprite = Helper.getRandomInArray(['', '']);
+        break;
+      case 'Xs':
+        sprite = ''
+        break;
+      case 'X':
+        sprite = ''
+        break;
+      case 'XL':
+        sprite = ''
+        break;
+      default:
+        sprite = '';
+        break;
+    }
+
+    let box = new CoverWall({
+      pos,
+      renderer: {
+        character,
+        sprite,
+        color: Constant.THEMES.SOLARIZED.base2,
+        background,
+      },
+      name,
+      game: this.game,
+      durability,
+      accuracyModifer: -0.1,
+      damageModifer: 0,
+    })
+
+    this.game.placeActorOnMap(box)
+  }
+  
   addDebris (pos, name = 'box', character = '%', durability = 5, explosivity = 0, pushable = true, draggable = true, background = Constant.THEMES.SOLARIZED.base01) {
     let sprite = Helper.getRandomInArray(['', '', '', '', '', '']);
     switch (character) {

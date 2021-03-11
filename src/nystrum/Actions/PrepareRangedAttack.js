@@ -20,12 +20,10 @@ export class PrepareRangedAttack extends Base {
 
   perform() {
     const pos = this.actor.getPosition();
-    // TODO: positions, range, required resources (ammo) should be determined by equipped range weapon
     const range = this.actor.getAttackRange();
     const equippedWeapon = this.actor.getItemInSlot(EQUIPMENT_TYPES.HAND)
     let positions = [{ ...pos }];
     if (equippedWeapon) positions = equippedWeapon.getPositionsInShape(pos);
-    // const positions = Helper.getPositionsFromStructure(CLONE_PATTERNS.smallSquare, pos)
     this.actor.activateCursor(positions)
 
     const pathAnimations = [];

@@ -17,8 +17,10 @@ export class MoveRangedAttackCursor extends Base {
     const targetPos = Helper.getPositionInDirection(this.actor.getCursorPositions()[0], this.direction);
     const path = Helper.calculateStraightPath(initiatedFrom, targetPos);
     const isInRange = this.range ? path.length <= this.range : true;
-    const pathIsNotBlocked = path.reduce((acc, curr) => acc && this.game.rangedCursorCanOccupyPosition(curr));
+    const pathIsNotBlocked = path.reduce((acc, curr) => acc && this.game.rangedCursorCanOccupyPosition(curr), true);
     if (isInRange && pathIsNotBlocked && this.game.rangedCursorCanOccupyPosition(targetPos, this.actor)) {
+    // if (isInRange && this.game.rangedCursorCanOccupyPosition(targetPos, this.actor)) {
+    // if (isInRange) {
       this.actor.moveCursorInDirection(this.direction);
       success = true;
     }
