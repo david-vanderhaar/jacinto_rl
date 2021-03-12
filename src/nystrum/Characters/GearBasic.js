@@ -16,6 +16,7 @@ import {OpenEquipment} from '../Actions/OpenEquipment';
 import {OpenDropInventory} from '../Actions/OpenDropInventory';
 import {PickupRandomItem} from '../Actions/PickupRandomItem';
 import { Lancer } from '../Items/Weapons/Lancer';
+import {COLORS} from '../Modes/Jacinto/theme';
 
 export default function (engine) {
   // define keymap
@@ -143,12 +144,12 @@ export default function (engine) {
     pos: { x: 23, y: 7 },
     renderer: {
       character: 'G',
-      color: Constant.THEMES.SOLARIZED.base2,
-      background: Constant.THEMES.NARUTO.gaara,
+      color: COLORS.base3,
+      background: COLORS.cog2,
     },
     name: 'Gear',
     actions: [],
-    speed: 400,
+    speed: Constant.ENERGY_THRESHOLD * 4,
     durability: 20,
     baseRangedAccuracy: 0,
     baseRangedDamage: 1,

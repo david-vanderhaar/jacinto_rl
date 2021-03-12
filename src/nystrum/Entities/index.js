@@ -29,6 +29,7 @@ import { Dragging } from './Dragging';
 import { Draggable } from './Draggable';
 import { Pushable } from './Pushable';
 import { Spreading } from './Spreading';
+import { Spawning } from './Spawning';
 import { Destructable } from './Destructable';
 import { IsParticle } from './IsParticle';
 import { Speaking } from './Speaking';
@@ -190,6 +191,13 @@ export const FireSpread = pipe(
   Destructable,
   Attacking,
   Spreading,
+)(Entity);
+
+export const EmergenceHole = pipe(
+  Acting,
+  Rendering,
+  Destructable,
+  Spawning,
 )(Entity);
 
 export const Particle = pipe(

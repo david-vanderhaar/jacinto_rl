@@ -38,6 +38,7 @@ export class Castle extends Mode {
     // generateBuilding(this.game.map, offsetX, offsetY, 2, 4);
     let padding = 3;
     MapHelper.addTileZone(
+      this.game.tileKey,
       { x: padding, y: padding },
       this.game.mapHeight - (padding * 2),
       this.game.mapWidth - (padding * 2),
@@ -48,6 +49,7 @@ export class Castle extends Mode {
     );
     padding = 4
     MapHelper.addTileZone(
+      this.game.tileKey,
       { x: padding, y: padding },
       this.game.mapHeight - (padding * 2),
       this.game.mapWidth - (padding * 2),
@@ -58,6 +60,7 @@ export class Castle extends Mode {
     );
     padding = 5;
     MapHelper.addTileZone(
+      this.game.tileKey,
       { x: padding, y: padding },
       this.game.mapHeight - (padding * 2),
       this.game.mapWidth - (padding * 2),
@@ -68,6 +71,7 @@ export class Castle extends Mode {
     );
     padding = 6
     MapHelper.addTileZone(
+      this.game.tileKey,
       { x: padding, y: padding },
       this.game.mapHeight - (padding * 2),
       this.game.mapWidth - (padding * 2),
@@ -78,6 +82,7 @@ export class Castle extends Mode {
     );
 
     MapHelper.addTileZone(
+      this.game.tileKey,
       { x: 31, y: 9 },
       4,
       4,

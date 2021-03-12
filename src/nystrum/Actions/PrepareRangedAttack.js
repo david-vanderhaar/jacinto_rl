@@ -56,21 +56,14 @@ export class PrepareRangedAttack extends Base {
     const equippedWeapon = this.actor.getItemInSlot(EQUIPMENT_TYPES.HAND)
     let positions = [{ ...pos }];
     if (equippedWeapon) positions = equippedWeapon.getPositionsInShape(pos);
-    this.actor.activateCursor(positions)
 
     const pathAnimations = [];
     const deactivatePathAnimations = () => pathAnimations.forEach((anim) => {
       this.game.display.removeAnimation(anim.id);
     })
 
-    // const path = Helper.calculateStraightPath(this.getPosition(), targetPos);
-    // const coverAccuracyModifer = path.reduce((acc, curr) => {
-    //   let tile = this.game.map[Helper.coordsToString(curr)];
-    //   let entitiesProvidingCover = Helper.filterEntitiesByType(tile.entities, 'COVERING');
-    //   let coverModifer = 0;
-    //   if (entitiesProvidingCover.length > 0) coverModifer = entitiesProvidingCover[0].accuracyModifer;
-    //   return acc + coverModifer;
-    // }, 0);
+    this.actor.activateCursor(positions);
+    this.updateCursors(pathAnimations, pos);
 
     const goToPreviousKeymap = new GoToPreviousKeymap({
       actor: this.actor,

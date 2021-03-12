@@ -35,6 +35,7 @@ export class Flume extends Mode {
     const offsetY = Math.floor(this.game.mapHeight / 2)
     generateBuilding(this.game.map, offsetX, offsetY);
     MapHelper.addTileZone(
+      this.game.tileKey,
       { x: 0, y: 0 },
       3,
       3,

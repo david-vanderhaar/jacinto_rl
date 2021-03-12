@@ -35,6 +35,7 @@ export class Chunin extends Mode {
     
     this.setWaveData();
     MapHelper.addTileZone(
+      this.game.tileKey,
       { x: 31, y: 9 },
       4,
       4,

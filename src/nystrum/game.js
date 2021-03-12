@@ -152,8 +152,8 @@ export class Game {
         // type = 'WATER';
       }
 
-      if (Constant.TILE_KEY[type].animation) {
-        currentFrame = Helper.getRandomInt(0, Constant.TILE_KEY[type].animation.length)
+      if (this.tileKey[type].animation) {
+        currentFrame = Helper.getRandomInt(0, this.tileKey[type].animation.length)
       }
 
       this.map[key] = {
@@ -174,8 +174,8 @@ export class Game {
         let type = 'GROUND';
         let currentFrame = 0;
 
-        if (Constant.TILE_KEY[type].animation) {
-          currentFrame = Helper.getRandomInt(0, Constant.TILE_KEY[type].animation.length)
+        if (this.tileKey[type].animation) {
+          currentFrame = Helper.getRandomInt(0, this.tileKey[type].animation.length)
         }
 
         this.map[key] = {
@@ -196,8 +196,8 @@ export class Game {
         type = 'GROUND';
       }
 
-      if (Constant.TILE_KEY[type].animation) {
-        currentFrame = Helper.getRandomInt(0, Constant.TILE_KEY[type].animation.length)
+      if (this.tileKey[type].animation) {
+        currentFrame = Helper.getRandomInt(0, this.tileKey[type].animation.length)
       }
 
     

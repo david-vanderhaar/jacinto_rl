@@ -39,6 +39,27 @@ export const THEMES = {
     cyan: '#2aa198',
     green: '#859900',
   },
+  JACINTO: {
+    // base1: '#07111Dff',
+    base1: '#0B0B0Bff',
+    base2: '#5A7178ff',
+    base3: '#B6ACA3ff',
+    base4: '#EDF6F1ff',
+    cog1: '#2d5fc9',
+    cog2: '#18c0f8',
+    cog3: '#86C8E4ff',
+    // locust2: '#E19D3Fff',
+    locust1: '#96641Dff',
+    locust2: '#F89339ff',
+    locust3: '#E7C898ff',
+    flesh1: '#833139ff',
+    flesh2: '#CC7468ff',
+    flesh3: '#DDA78Fff',
+    gray: '#6D7886ff',
+    red: '#C7141Cff',
+    yellow: '#b58900',
+    green: '#859900',
+  },
 }
 
 export const NPC_NAME = 'Helpless Citizen';

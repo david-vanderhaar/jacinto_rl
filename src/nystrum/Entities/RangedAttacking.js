@@ -15,12 +15,7 @@ export const RangedAttacking = superclass => class extends superclass {
     const weaponAccuracy = this.getRangedWeaponAccuracy();
     const coverDebuff = targetPos ? this.getRangedAttackCoverDebuff(targetPos) : 0;
     const distanceDebuff = targetPos ? this.getRangedAttackDistanceDebuff(targetPos) : 0;
-    console.log('weaponAccuracy ', weaponAccuracy)
-    console.log('coverDebuff ', coverDebuff)
-    console.log('distanceDebuff ', distanceDebuff)
-    console.log('this.baseRangedAccuracy ', this.baseRangedAccuracy)
     const result = this.baseRangedAccuracy + weaponAccuracy + coverDebuff + distanceDebuff;
-    console.log(result);
     return result;
   }
 
@@ -33,7 +28,6 @@ export const RangedAttacking = superclass => class extends superclass {
       if (entitiesProvidingCover.length > 0) coverModifer = entitiesProvidingCover[0].accuracyModifer;
       return acc + coverModifer;
     }, 0);
-    console.log('coverAccuracyModifer ', coverAccuracyModifer);
     return coverAccuracyModifer;
   }
 
@@ -104,11 +98,8 @@ export const RangedAttacking = superclass => class extends superclass {
     if (targets.length > 0) {
       const attackChance = this.getRangedAttackChance(targetPos);
       const hitChance = attackChance + additionalAccuracy;
-      console.log('attackChance ', attackChance);
-      console.log('additionalAccuracy ', additionalAccuracy);
-      console.log('hitChance ', hitChance);
       hit = Math.random() < hitChance;
-      console.log('hit ', hit);
+      // TODO: trigger hit and mis animations
       if (!hit) {
         success = true;
         return [success, hit];
