@@ -202,7 +202,15 @@ export class Display {
       anim.node.destroy();
       return false;
     });
-    
+  }
+
+  updateAnimation (id) {
+    this.animations = this.animations.map((anim) => {
+      if (anim.id === id) {
+        console.log(anim);
+      }
+      return anim;
+    });
   }
 
   updateTile(tile, character, foreground, background) {

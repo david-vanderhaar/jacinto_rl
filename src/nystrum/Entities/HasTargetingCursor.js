@@ -46,6 +46,7 @@ export const HasTargetingCursor = superclass => class extends superclass {
           y: position.y, 
           color: THEMES.SOLARIZED.red 
         })
+        console.log(newAnimation);
         this.animations.push(newAnimation);
       })
     }
@@ -73,5 +74,10 @@ export const HasTargetingCursor = superclass => class extends superclass {
     this.setCursorPositions(newPositons);
     this.resetAnimations();
     return newPositons;
+  }
+
+  changeCursorColor (index, color) {
+    const anim = this.animations[index];
+    anim.node.fill(color)
   }
 };

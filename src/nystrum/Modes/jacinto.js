@@ -181,7 +181,7 @@ export class Jacinto extends Mode {
       name,
       game: this.game,
       durability,
-      accuracyModifer: -0.1,
+      accuracyModifer: -0.3,
       damageModifer: 0,
     })
 
