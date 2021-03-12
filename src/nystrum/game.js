@@ -437,11 +437,11 @@ export class Game {
     setTimeout(() => {
       this.spriteMode = false;
       this.draw()
-    }, 100)
+    }, 500)
     setTimeout(() => {
       this.spriteMode = true;
       this.draw()
-    }, 100)
+    }, 500)
     // end hack
   }
 
@@ -465,7 +465,6 @@ export const handleKeyPress = (event, engine) => {
     }
     if (keymap) {
       let code = event.key;
-      console.log(code);
       if (!(code in keymap)) { return; }
       const getAction = keymap[code];
       const action = getAction();

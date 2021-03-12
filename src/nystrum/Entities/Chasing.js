@@ -1,6 +1,7 @@
 import * as Constant from '../constants';
 import * as Helper from '../../helper';
 import { Move } from '../Actions/Move';
+import { Say } from '../Actions/Say';
 
 export const Chasing = superclass => class extends superclass {
   constructor({ targetEntity = null, ...args }) {
@@ -9,14 +10,22 @@ export const Chasing = superclass => class extends superclass {
     this.targetEntity = targetEntity;
   }
   getAction(game) {
-    let path = Helper.calculatePath(game, this.targetEntity.pos, this.pos);
-    let targetPos = path.length > 0 ? path[0] : this.pos;
-    let result = new Move({
-      targetPos,
-      game,
-      actor: this,
-      energyCost: Constant.ENERGY_THRESHOLD
-    });
-    return result;
+    if (this.targetEntity) {
+      let path = Helper.calculatePath(game, this.targetEntity.pos, this.pos);
+      let targetPos = path.length > 0 ? path[0] : this.pos;
+      return new Move({
+        targetPos,
+        game,
+        actor: this,
+        energyCost: Constant.ENERGY_THRESHOLD
+      });
+    } else {
+      return new Say({
+        message: 'Where are they?',
+        game,
+        actor: this,
+        energyCost: Constant.ENERGY_THRESHOLD
+      });
+    }
   }
 };

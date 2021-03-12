@@ -21,6 +21,14 @@ export const RangedChasing = superclass => class extends superclass {
     return inPath;
   }
   getAction(game) {
+    if (!this.targetEntity) {
+      return new Say({
+        message: `Where are they?`,
+        game,
+        actor: this,
+        energyCost: Constant.ENERGY_THRESHOLD
+      });
+    }
     let throwDirection = {
       x: Math.sign(this.targetEntity.pos.x - this.pos.x),
       y: Math.sign(this.targetEntity.pos.y - this.pos.y),

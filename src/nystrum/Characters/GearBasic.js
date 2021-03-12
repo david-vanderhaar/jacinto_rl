@@ -92,7 +92,7 @@ export default function (engine) {
       //   sandWallRequiredResources: [new ChakraResource({ getResourceCost: () => 1 })]
       // }),
       r: () => new PrepareRangedAttack({
-        label: 'Substitution',
+        label: 'Aim',
         game: engine.game,
         actor,
         passThroughEnergyCost: Constant.ENERGY_THRESHOLD,
@@ -161,15 +161,7 @@ export default function (engine) {
   })
 
   // add default items to container
-  const kunais = Array(100).fill('').map(() => Item.directionalKunai(engine, { ...actor.pos }, null, 10));
-  const swords = Array(2).fill('').map(() => Item.sword(engine));
   const lancer = Lancer(engine);
-  // actor.container = [
-  //   new ContainerSlot({
-  //     itemType: lancer.name,
-  //     items: [],
-  //   }),
-  // ]
   actor.equip(lancer.equipmentType, lancer);
 
   return actor;

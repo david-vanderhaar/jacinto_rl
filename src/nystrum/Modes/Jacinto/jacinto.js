@@ -103,7 +103,11 @@ export class Jacinto extends Mode {
     if (this.levelComplete()) {
       this.nextLevel();
       this.setWaveData();
-      this.game.initializeGameData();
+
+      // a hack to persist player data
+      // this would persist all existing actors however
+      this.initialize();
+      // this.game.initializeGameData();
     }
   }
   
@@ -171,7 +175,7 @@ export class Jacinto extends Mode {
         background: COLORS.base04,
       },
       timeToSpread: 1,
-      spreadCount: 10,
+      spreadCount: 3,
       durability: 1,
       speed: Constant.ENERGY_THRESHOLD,
       getSpawnedEntity: (spawnPosition) => {
@@ -257,9 +261,9 @@ export class Jacinto extends Mode {
   getBanditStats () {
     let banditLevels = [
       {
-        name: 'Slingshot',
+        name: 'Grub',
         renderer: {
-          character: Helper.getRandomInArray(['d']),
+          character: Helper.getRandomInArray(['g']),
           color: COLORS.flesh2,
           background: COLORS.flesh1,
           sprite: '',
@@ -271,7 +275,7 @@ export class Jacinto extends Mode {
         entityClass: RangedBandit
       },
       {
-        name: 'Ross',
+        name: 'Wretch',
         renderer: {
           character: Helper.getRandomInArray(['w']),
           color: COLORS.flesh1,

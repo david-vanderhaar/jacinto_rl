@@ -60,23 +60,6 @@ export const Spawning = superclass => class extends superclass {
         kill -= 1;
       }
       if (adjacentPos) {
-        // let players = game.mode.getPlayers()
-        // let targetEntity = players[0]
-        // const banditStats = game.mode.getBanditStats();
-        // let entity = new banditStats.entityClass({
-        //   targetEntity,
-        //   pos: adjacentPos,
-        //   renderer: banditStats.renderer,
-        //   name: banditStats.name,
-        //   game,
-        //   actions: [],
-        //   attackDamage: banditStats.attackDamage,
-        //   durability: banditStats.durability,
-        //   speed: banditStats.speed,
-        //   // directional projectile destruction breaks engine
-        //   getProjectile: ({ pos, targetPos, direction, range }) => Item.directionalKunai(this.game.engine, { ...pos }, direction, range)
-        //   // getProjectile: ({ pos, targetPos, direction, range }) => Item.kunai(game.engine, { ...pos }, { ...targetPos })
-        // })
         this.timeToSpread = this.timeToSpreadMax;
         this.spreadCount -= 1;
         return new PlaceActor({
