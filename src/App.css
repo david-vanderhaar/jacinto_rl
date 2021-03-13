@@ -196,7 +196,7 @@
 .ProgressBar__blips {
   background-color: #666;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   border-radius: 6px;
   padding: 8px;
   margin: 0 12px 0 0;

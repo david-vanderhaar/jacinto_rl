@@ -38,7 +38,10 @@ export class PrepareRangedAttack extends Base {
     // modifying target curso color based on change to hit
     cursorPositions.forEach((pos, i) => {
       const chance = this.actor.getRangedAttackChance(pos);
-      if (chance <= 0.5) {
+      if (chance <= 0) {
+        this.actor.changeCursorColor(i, 'transparent');
+      }
+      if (chance > 0 && chance <= 0.5) {
         this.actor.changeCursorColor(i, THEMES.SOLARIZED.red);
       }
       if (chance > 0.5 && chance <= 0.7) {

@@ -13,7 +13,8 @@ import {SandPulse} from '../Actions/SandPulse';
 import {AddSandSkinStatusEffect} from '../Actions/AddSandSkinStatusEffect';
 import {OpenInventory} from '../Actions/OpenInventory';
 import {OpenEquipment} from '../Actions/OpenEquipment';
-import {OpenDropInventory} from '../Actions/OpenDropInventory';
+import {OpenUpgrades} from '../Actions/OpenUpgrades';
+import {Upgrade} from '../Entities/Upgradable';
 import {PickupRandomItem} from '../Actions/PickupRandomItem';
 import { Lancer } from '../Items/Weapons/Lancer';
 import {COLORS} from '../Modes/Jacinto/theme';
@@ -121,8 +122,8 @@ export default function (engine) {
         game: engine.game,
         actor,
       }),
-      u: () => new OpenDropInventory({
-        label: 'Drop Items',
+      u: () => new OpenUpgrades({
+        label: 'Upgrade',
         game: engine.game,
         actor,
       }),
@@ -143,6 +144,7 @@ export default function (engine) {
   let actor = new Player({
     pos: { x: 23, y: 7 },
     renderer: {
+      sprite: '',
       character: 'G',
       color: COLORS.base3,
       background: COLORS.cog2,
@@ -154,6 +156,23 @@ export default function (engine) {
     baseRangedAccuracy: 0,
     baseRangedDamage: 1,
     charge: 10,
+    upgrade_points: 3,
+    upgrade_tree: [
+      Upgrade({
+        cost: 1,
+        name: '+5% Accuracy',
+        activate: (actor) => (actor.baseRangedAccuracy += 0.05),
+      }),
+      Upgrade({
+        cost: 2,
+        name: '+1 Actions',
+        activate: (actor) => {
+          actor.speed += Constant.ENERGY_THRESHOLD;
+          actor.energy += Constant.ENERGY_THRESHOLD;
+        },
+        removeOnActivate: true,
+      }),
+    ],
     equipment: Constant.EQUIPMENT_LAYOUTS.gear(),
     game: engine.game,
     presentingUI: true,

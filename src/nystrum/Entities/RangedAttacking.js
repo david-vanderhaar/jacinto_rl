@@ -1,6 +1,5 @@
 import { MESSAGE_TYPE } from '../message';
 import * as Helper from '../../helper';
-import { result } from 'lodash';
 
 export const RangedAttacking = superclass => class extends superclass {
   constructor({ attackRange = 0, baseRangedAccuracy = 0, baseRangedDamage = 0, ...args }) {

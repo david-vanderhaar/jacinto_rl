@@ -10,7 +10,7 @@ function Portrait ({actor}) {
       color: actor.renderer.color,
       borderColor: actor.renderer.color,
     }}>
-      {actor.renderer.character}
+      {actor.renderer.sprite ? actor.renderer.sprite : actor.renderer.character}
     </div>
   )
 }
@@ -22,7 +22,7 @@ function StatusEffect ({effect}) {
       color: effect.renderer.color,
       borderColor: effect.renderer.color,
     }}>
-      {effect.renderer.character}
+      {effect.renderer.sprite ? effect.renderer.sprite : effect.renderer.character}
     </div>
   )
 }
@@ -109,6 +109,14 @@ function CharacterCard ({actor, game}) {
           attributePath='charge'
           attributePathMax='chargeMax'
           colorFilled='#13b8d7'
+          unit={1}
+          actor={actor} 
+        />
+        <ProgressBar 
+          label='Upgrade Points'
+          attributePath='upgrade_points'
+          attributePathMax='upgrade_points'
+          colorFilled='#3e7dc9'
           unit={1}
           actor={actor} 
         />

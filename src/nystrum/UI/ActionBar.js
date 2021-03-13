@@ -3,6 +3,7 @@ import * as _ from 'lodash';
 import Tooltip from './Tooltip';
 
 function ResourceBlock({ resource, superScript, canPay }) {
+  const character = resource.renderer.sprite ? resource.renderer.sprite : resource.renderer.character
   return (
     <div className="ResourceBlock" style={{
       backgroundColor: canPay ? resource.renderer.background : '#616161',
@@ -11,7 +12,7 @@ function ResourceBlock({ resource, superScript, canPay }) {
       fontFamily: 'scroll-o-script',
       width: superScript ? 'auto' : 20,
     }}>
-      {`${superScript ? superScript + ' ' : ''}${resource.renderer.character}`}
+      {`${superScript ? superScript + ' ' : ''}${character}`}
     </div>
   )
 }

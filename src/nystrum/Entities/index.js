@@ -37,6 +37,7 @@ import { Burnable } from './Burnable';
 import { Exploding } from './Exploding';
 import { Helpless } from './Helpless';
 import { HasKeymap } from './HasKeymap';
+import { Upgradable } from './Upgradable';
 
 export const UI_Actor = pipe(
   Acting,
@@ -133,6 +134,7 @@ export const Player = pipe(
   Cloning,
   Playing,
   Burnable,
+  Upgradable,
 )(Entity);
 
 export const Weapon = pipe(

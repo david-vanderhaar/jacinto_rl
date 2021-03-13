@@ -5,6 +5,6 @@ export class EnergyResource extends ActionResource {
     super({ ...args });
     this.name = 'Energy';
     this.actorResourcePath = 'energy';
-    this.renderer = { color: 'black', background: '#ff9926', character: '' }
+    this.renderer = { color: 'black', background: '#ff9926', character: '8', sprite: '' }
   }
 }
