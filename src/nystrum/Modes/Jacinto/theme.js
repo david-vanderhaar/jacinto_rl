@@ -97,6 +97,41 @@ export const TILE_KEY = {
   },
 }
 
+export const STAT_RENDERERS = {
+  'amount': {
+    background: COLORS.base04,
+    foreground: COLORS.locust2,
+    character: '#',
+  },
+  'attackRange': {
+    background: COLORS.green,
+    foreground: COLORS.base3,
+    character: '==>',
+  },
+  'magazine': {
+    background: COLORS.gray,
+    foreground: COLORS.base3,
+    character: '!!',
+  },
+  'baseRangedAccuracy': {
+    background: COLORS.violet,
+    foreground: COLORS.base3,
+    character: '*',
+  },
+  'baseRangedDamage': {
+    background: COLORS.red,
+    foreground: COLORS.base3,
+    character: 'x',
+  },
+} 
+
+// GiArcheryTarget / GiBullseye / GiCrosshair -- accuracy
+// GiBullets -- ammo
+// GiBackwardTime -- ammo / reload
+//  GiBarbedArrow - -range
+// GiBurningDot -- damage
+// GiCog
+
 /*
 SCROLL-O-Sprites
 

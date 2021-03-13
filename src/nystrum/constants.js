@@ -261,9 +261,8 @@ export const EQUIPMENT_LAYOUTS = {
   },
   gear: () => {
     return [
-      { type: EQUIPMENT_TYPES.HEAD, name: 'head', item: null },
-      { type: EQUIPMENT_TYPES.TORSO, name: 'torso', item: null },
       { type: EQUIPMENT_TYPES.HAND, name: 'weapon', item: null },
+      // { type: EQUIPMENT_TYPES.TORSO, name: 'ammo', item: null },
     ]
   }
 }

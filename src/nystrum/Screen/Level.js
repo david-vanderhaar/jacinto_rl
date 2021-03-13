@@ -5,11 +5,12 @@ import * as Game from '../game';
 import Instructions from '../UI/Instructions';
 import Information from '../UI/Information';
 import PlayerInformation from '../UI/Entity/PlayerInformation';
-import Equipment from '../UI/Equipment';
 import Inventory from '../UI/Inventory';
 // import KeymapUI from '../UI/Keymap';
 import KeymapUI from '../UI/ActionBar';
 import Messages from '../UI/Messages';
+import Equipment from '../UI/Jacinto/Equipment';
+import Help from '../UI/Jacinto/Help';
 
 class Level extends React.Component {
   constructor(props) {
@@ -57,14 +58,15 @@ class Level extends React.Component {
             <div className='game_display_container'>
               {Game.DisplayElement(this.presserRef, Game.handleKeyPress, this.state.game.engine)}
             </div>
+            <Help id="jacinto_help" />
             <PlayerInformation game={this.state.game} />
             {/* <Information game={this.state.game} /> */}
             <Instructions game={this.state.game} spriteMode={this.state.game.spriteMode} setActiveScreen={this.props.setActiveScreen} toggleSpriteMode={this.toggleSpriteMode.bind(this)} />
           </div>
           <div className='col s2'>
-            <Messages messages={this.state.game.messages.slice(-5).reverse()} />
-            <Equipment equipment={this.state.game.visibleEquipment} />
-            <Inventory inventory={this.state.game.visibleInventory} />
+            <Equipment game={this.state.game} player={this.state.game.getFirstPlayer()} />
+            {/* <Messages messages={this.state.game.messages.slice(-5).reverse()} /> */}
+            {/* <Inventory inventory={this.state.game.visibleInventory} /> */}
           </div>
           {/* <div className='col s2'> */}
           {/* </div> */}

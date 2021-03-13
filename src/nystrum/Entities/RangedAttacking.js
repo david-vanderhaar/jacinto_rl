@@ -2,12 +2,14 @@ import { MESSAGE_TYPE } from '../message';
 import * as Helper from '../../helper';
 
 export const RangedAttacking = superclass => class extends superclass {
-  constructor({ attackRange = 0, baseRangedAccuracy = 0, baseRangedDamage = 0, ...args }) {
+  constructor({ attackRange = 0, baseRangedAccuracy = 0, baseRangedDamage = 0, magazineSize = 0, ...args }) {
     super({ ...args });
     this.entityTypes = this.entityTypes.concat('RANGED_ATTACKING');
     this.attackRange = attackRange;
     this.baseRangedAccuracy = baseRangedAccuracy;
     this.baseRangedDamage = baseRangedDamage;
+    this.magazineSize = magazineSize;
+    this.magazine = magazineSize;
   }
 
   getRangedAttackChance(targetPos = null) {

@@ -6,6 +6,7 @@ export const Lancer = (engine, pos) => new RangedWeapon({
   name: 'Lancer',
   passable: true,
   attackRange: 6,
+  magazineSize: 4,
   baseRangedAccuracy: 1,
   baseRangedDamage: 1,
   pos,

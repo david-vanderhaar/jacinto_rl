@@ -183,6 +183,20 @@
   padding: 10px;
 }
 
+.ItemPortrait {
+  border: 3px solid;
+  border-radius: 6px;
+  box-shadow: 3px 3px #424242;
+  display: flex;
+  font-size: 16;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  width: 80px;
+  height: 80px;
+  padding: 10px;
+}
+
 .CharacterCard .NamePlate {
   font-size: 26px;
 }
@@ -210,6 +224,29 @@
   box-shadow: 3px 3px #424242;
   border-radius: 5px;
 }
+
+.Jacinto_Help .modal-content, 
+.Jacinto_Help .modal-footer {
+  background-color: #07111Dff;
+  color: #E19D3Fff;
+}
+
+
+.Jacinto_Help .modal-footer .modal-close {
+  color: #E19D3Fff;
+}
+
+.Jacinto_Help .Jacinto_Help__section_header {
+  border: #E19D3Fff 1px solid;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.Jacinto_Help .Jacinto_Help__section_body {
+  text-align: left;
+  margin: 15px 0;
+}
+
 
 .Keymap {
   /* left: 0px; */
@@ -258,6 +295,60 @@
   display: flex;
   justify-content: space-around;
   position: relative;
+}
+
+.EquipmentCard {
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.EquipmentCard__item {
+  margin-right: 10px;
+}
+
+.EquipmentCard__item__label {
+  background-color: #222;
+  border: #222 1px solid;
+  border-radius: 6px;
+  margin: auto;
+  text-align: center;
+  /* position: relative; */
+  width: 90px;
+  /* top: 10px; */
+}
+
+.EquipmentCard__item__content {
+  align-items: center;
+  border: #222 solid 2px;
+  border-radius: 6px;
+  display: flex;
+  font-family: 'Roboto', 'scroll-o-script';
+  height: 100px;
+  justify-content: center;
+  margin: auto;
+  padding: 10px;
+  width: 100px;
+}
+
+.EquipmentCard__item__stats {
+  flex-direction: column;
+  display: flex;
+  justify-content: space-around;
+}
+
+.StatBlock {
+  border: 3px solid;
+  border-radius: 6px;
+  box-shadow: 3px 3px #424242;
+  display: flex;
+  font-size: 16;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 10px;
 }
 
 

@@ -32,6 +32,10 @@ export const Spreading = superclass => class extends superclass {
       // find adjacent spot to spread to
       let adjacentPositions = [
         {
+          x: this.pos.x + 0,
+          y: this.pos.y + 0,
+        },
+        {
           x: this.pos.x + 1,
           y: this.pos.y + 0,
         },

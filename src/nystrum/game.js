@@ -333,10 +333,14 @@ export class Game {
     return this.engine.actors.filter((actor) => actor.entityTypes.includes('PLAYING'))
   }
 
-  getPlayerPosition () {
+  getFirstPlayer () {
     const players = this.getPlayers();
-    if (players.length) return players[0].pos
+    if (players.length) return players[0]
     return null
+  }
+
+  getPlayerPosition () {
+    return this.getFirstPlayer().pos;
   }
   
   draw () {
@@ -470,7 +474,7 @@ export const handleKeyPress = (event, engine) => {
       const action = getAction();
       // const action = keymap[code];
       action.setAsNextAction();
-      engine.start()
+      engine.start();
     }
   }
   return;

@@ -42,6 +42,13 @@ class Instructions extends React.Component {
               }
             </button>
           </div>
+          <div
+            className='Instructions__block'
+          >
+            <button data-target="jacinto_help" className='btn btn-main modal-trigger'>
+              Help
+            </button>
+          </div>
         </div>
       </div>
     );
