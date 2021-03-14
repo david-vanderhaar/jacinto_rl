@@ -9,7 +9,7 @@ export const RangedAttacking = superclass => class extends superclass {
     this.baseRangedAccuracy = baseRangedAccuracy;
     this.baseRangedDamage = baseRangedDamage;
     this.magazineSize = magazineSize;
-    this.magazine = magazineSize;
+    this.magazine = 0;
   }
 
   getRangedAttackChance(targetPos = null) {
@@ -88,6 +88,41 @@ export const RangedAttacking = superclass => class extends superclass {
     return true;
   }
 
+  getEquipedWeapons() {
+    if (this.entityTypes.includes('EQUIPING')) {
+      return this.equipment.map((slot) => {
+        if (slot.item) {
+          if (slot.item.entityTypes.includes('RANGED_ATTACKING')) {
+            return slot.item;
+          }
+        }
+      });
+    }
+    return [];
+  }
+
+  useAmmo() {
+    this.getEquipedWeapons().forEach((weapon) => weapon.magazine = Math.max(0, weapon.magazine - 1));
+  }
+
+  reload () {
+    let reloaded = false;
+    if (this.entityTypes.includes('CONTAINING')) {
+      this.getEquipedWeapons().forEach((weapon) => {
+        const amount = weapon.magazineSize - weapon.magazine;
+        for (let i = 0; i <= amount; i++) {
+          let ammo = this.contains('Ammo');
+          if (ammo) {
+            this.removeFromContainer(ammo);
+            weapon.magazine += 1;
+            reloaded = true;
+          }
+        }
+      });
+    }
+    return reloaded;
+  }
+
   rangedAttack(targetPos, additionalDamage = 0, additionalAccuracy = 0) {
     let success = false;
     let hit = false;
@@ -100,11 +135,12 @@ export const RangedAttacking = superclass => class extends superclass {
       const attackChance = this.getRangedAttackChance(targetPos);
       const hitChance = attackChance + additionalAccuracy;
       hit = Math.random() < hitChance;
-      // TODO: trigger hit and mis animations
+      // TODO: trigger hit and miss animations
       if (!hit) {
         success = true;
         return [success, hit];
       }
+      this.useAmmo();
       let target = targets[0];
       if (this.canRangedAttack(target)) {
         let damage = this.getRangedAttackDamage(additionalDamage);

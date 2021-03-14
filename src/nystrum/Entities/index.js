@@ -156,6 +156,10 @@ export const Armor = pipe(
   Destructable,
 )(Entity);
 
+export const Ammo = pipe(
+  Rendering,
+)(Entity);
+
 export const DestructiveProjectile = pipe(
   Acting,
   Rendering,

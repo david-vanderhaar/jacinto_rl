@@ -122,6 +122,13 @@ export const STAT_RENDERERS = {
     background: COLORS.red,
     foreground: COLORS.base3,
     character: 'x',
+    sprite: '',
+  },
+  'meleeDamage': {
+    background: COLORS.red,
+    foreground: COLORS.base3,
+    character: 'x',
+    sprite: '',
   },
 } 
 

@@ -128,7 +128,7 @@ export class PrepareRangedAttack extends Base {
           }
         })
       },
-      r: () => { 
+      t: () => { 
         return new MultiTargetRangedAttack({
           targetPositions:  [...this.actor.getCursorPositions()],
           game: this.game,

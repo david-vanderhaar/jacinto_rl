@@ -11,16 +11,20 @@ import {EquipItemFromContainer} from '../../Actions/EquipItemFromContainer';
 import {STAT_RENDERERS} from '../../Modes/Jacinto/theme';
 
 function StatBlock({stat}) {
-  const {getIcon, value} = stat;
+  const {getIcon, value, name} = stat;
   const character = stat.renderer.sprite ? stat.renderer.sprite : stat.renderer.character
   return (
-    <div className="StatBlock" style={{
-      backgroundColor: stat.renderer.background,
-      color: stat.renderer.foreground,
-      borderColor: stat.renderer.foreground,
-      fontFamily: 'scroll-o-script',
-      width: stat.value ? 'auto' : 20,
-    }}>
+    <div 
+      className="StatBlock" 
+      style={{
+        backgroundColor: stat.renderer.background,
+        color: stat.renderer.foreground,
+        borderColor: stat.renderer.foreground,
+        fontFamily: 'scroll-o-script',
+        width: stat.value !== null ? 'auto' : 20,
+      }}
+      title={name}
+    >
       {
         getIcon ? getIcon() : `${character}`
       }
@@ -41,6 +45,9 @@ const EquipmentCard = (props) => {
     amount,
     equipable,
   } = data;
+
+  let needsReload = false;
+
   let onClick = () => null;
   if (equipable) {
     const action = new EquipItemFromContainer({
@@ -65,41 +72,60 @@ const EquipmentCard = (props) => {
       renderer: STAT_RENDERERS.amount,
     })
   }
-  if (item['attackRange']) {
+  if (item.hasOwnProperty('attackRange')) {
     stats.push({
-      name: 'attackRange',
+      name: 'attack range',
       value: item['attackRange'],
       renderer: STAT_RENDERERS.attackRange,
       getIcon: () => <GiBarbedArrow />,
     })
   }
-  if (item['magazineSize']) {
+  if (item.hasOwnProperty('magazine')) {
     stats.push({
-      name: 'magazine',
-      value: item['magazine'],
+      name: 'shots before reload',
+      value: item.magazine,
       renderer: STAT_RENDERERS.magazine,
       getIcon: () => <GiBullets />,
     })
+    if (item.magazine <= 0) {
+      needsReload = true;
+    }
   }
-  if (item['baseRangedAccuracy']) {
+  if (item.hasOwnProperty('baseRangedAccuracy')) {
     stats.push({
-      name: 'baseRangedAccuracy',
+      name: 'base accuracy',
       value: item['baseRangedAccuracy'],
       renderer: STAT_RENDERERS.baseRangedAccuracy,
       getIcon: () => <GiCrosshair />,
     })
   }
-  if (item['baseRangedDamage']) {
+  if (item.hasOwnProperty('baseRangedDamage')) {
     stats.push({
-      name: 'baseRangedDamage',
+      name: 'base damage',
       value: item['baseRangedDamage'],
       renderer: STAT_RENDERERS.baseRangedDamage,
       getIcon: () => <GiBurningDot />,
     })
   }
+  if (item.hasOwnProperty('attackDamage')) {
+    stats.push({
+      name: 'base melee damage',
+      value: item['attackDamage'],
+      renderer: STAT_RENDERERS.meleeDamage,
+    })
+  }
   
   return (
-    <div className="EquipmentCard" onClick={() => game.refocus()}>
+    <div 
+      className={`EquipmentCard ${equipped ? 'EquipmentCard--selected' : ''}`} 
+      onClick={() => game.refocus()}
+    >
+      {needsReload && (
+        <div className="EquipmentCard__reload_overlay" onClick={() => player.reload()}>
+          <div className="EquipmentCard__reload_overlay__text">Needs Reload</div>
+          <div className="EquipmentCard__reload_overlay__text"><GiBackwardTime /></div>
+        </div>
+      )}
       <div
         className="EquipmentCard__item"
         onClick={onClick}
@@ -118,8 +144,7 @@ const EquipmentCard = (props) => {
       <div className="EquipmentCard__item__stats">
         {
           stats.map((stat, i) => {
-            const numBlocks = stat.value;
-            return numBlocks > 0 && (
+            return (
               <StatBlock
                 key={`${i}-${stat.name}-resource-block`}
                 stat={stat}
@@ -157,6 +182,7 @@ class Equipment extends React.Component {
             item,
             amount,
             equipable,
+            equipped: false,
           })
         }
       }

@@ -26,16 +26,6 @@ export class MultiTargetRangedAttack extends Base {
     let particlePos = { x: this.actor.pos.x, y: this.actor.pos.y };
     let renderer = this.particleTemplate.renderer;
     this.targetPositions.forEach((targetPos) => {
-      // const path = Helper.calculateStraightPath(particlePos, targetPos);
-      // const coverAccuracyModifer = path.reduce((acc, curr) => {
-      //   let tile = this.game.map[Helper.coordsToString(curr)];
-      //   let entitiesProvidingCover = Helper.filterEntitiesByType(tile.entities, 'COVERING');
-      //   let coverModifer = 0;
-      //   if (entitiesProvidingCover.length > 0) coverModifer = entitiesProvidingCover[0].accuracyModifer;
-      //   return acc + coverModifer;
-      // }, 0);
-      // console.log('coverAccuracyModifer ', coverAccuracyModifer);
-      // let [attackSuccess, hit] = this.actor.rangedAttack(targetPos, 0, coverAccuracyModifer);
       let [attackSuccess, hit] = this.actor.rangedAttack(targetPos);
       particlePath.push(targetPos);
       if (attackSuccess) {

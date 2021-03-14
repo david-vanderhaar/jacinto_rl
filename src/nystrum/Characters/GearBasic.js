@@ -17,12 +17,22 @@ import {OpenUpgrades} from '../Actions/OpenUpgrades';
 import {Upgrade} from '../Entities/Upgradable';
 import {PickupRandomItem} from '../Actions/PickupRandomItem';
 import { Lancer } from '../Items/Weapons/Lancer';
+import { Ammo } from '../Items/Pickups/Ammo';
 import {COLORS} from '../Modes/Jacinto/theme';
+import { Reload } from '../Actions/Reload';
 
 export default function (engine) {
   // define keymap
   const keymap = (engine, actor) => {
     return {
+      Escape: () => new Say({
+        label: 'Pass',
+        message: 'pass turn...',
+        game: engine.game,
+        actor,
+        interrupt: true,
+        energyCost: 0,
+      }),
       w: () => {
         const direction = Constant.DIRECTIONS.N;
         let newX = actor.pos.x + direction[0];
@@ -78,40 +88,19 @@ export default function (engine) {
         actor,
         energyCost: Constant.ENERGY_THRESHOLD,
       }),
-      Escape: () => new Say({
-        label: 'Pass',
-        message: 'pass turn...',
-        game: engine.game,
-        actor,
-        interrupt: true,
-        energyCost: 0,
-      }),
-      // l: () => new PrepareSandWall({
-      //   label: 'Sand Wall',
-      //   game: engine.game,
-      //   actor,
-      //   sandWallRequiredResources: [new ChakraResource({ getResourceCost: () => 1 })]
-      // }),
-      r: () => new PrepareRangedAttack({
+      t: () => new PrepareRangedAttack({
         label: 'Shoot',
         game: engine.game,
         actor,
         passThroughEnergyCost: Constant.ENERGY_THRESHOLD,
         passThroughRequiredResources: [new ChakraResource({ getResourceCost: () => 1 })]
       }),
-      // k: () => new SandPulse({
-      //   label: 'Sand Pulse',
-      //   game: engine.game,
-      //   actor,
-      // }),
-      // h: () => new AddSandSkinStatusEffect({
-      //   label: 'Sand Skin',
-      //   game: engine.game,
-      //   actor,
-      //   requiredResources: [
-      //     new ChakraResource({ getResourceCost: () => 2 }),
-      //   ],
-      // }),
+      r: () => new Reload({
+        label: 'Reloading',
+        game: engine.game,
+        actor,
+        energyCost: Constant.ENERGY_THRESHOLD,
+      }),
       i: () => new OpenInventory({
         label: 'Inventory',
         game: engine.game,
@@ -144,7 +133,7 @@ export default function (engine) {
   let actor = new Player({
     pos: { x: 23, y: 7 },
     renderer: {
-      sprite: '',
+      sprite: '',
       character: 'G',
       color: COLORS.base3,
       background: COLORS.cog2,
@@ -180,11 +169,11 @@ export default function (engine) {
   })
 
   // add default items to container
-  const swords = Array(2).fill('').map(() => Item.sword(engine));
+  const ammo = Array(100).fill('').map(() => Ammo(engine));
   actor.container = [
     new ContainerSlot({
-      itemType: swords[0].name,
-      items: swords,
+      itemType: ammo[0].name,
+      items: ammo,
     })
   ]
 
