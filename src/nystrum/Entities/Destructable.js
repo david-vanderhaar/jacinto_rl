@@ -24,6 +24,7 @@ export const Destructable = superclass => class extends superclass {
   decreaseDurabilityWithoutDefense(value) {
     this.durability -= value;
     if (this.durability <= 0) {
+      this.onDestroy();
       this.destroy();
     }
   }
@@ -35,6 +36,7 @@ export const Destructable = superclass => class extends superclass {
     this.renderer.character = this.durability;
     this.game.draw();
     if (this.durability <= 0) {
+      this.onDestroy();
       this.destroy();
     }
   }
@@ -42,7 +44,6 @@ export const Destructable = superclass => class extends superclass {
     this.durability += value;
   }
   destroy() {
-    this.onDestroy();
     destroyEntity(this);
   }
 };

@@ -2,20 +2,20 @@ import * as Constant from '../../constants';
 import {RangedWeapon} from '../../Entities/index';
 import {COLORS} from '../../Modes/Jacinto/theme';
 
-export const Lancer = (engine, pos) => new RangedWeapon({
+export const Snub = (engine, pos) => new RangedWeapon({
   game: engine.game,
-  name: 'Lancer',
+  name: 'Snub',
   passable: true,
-  attackRange: 12,
-  magazineSize: 4,
-  baseRangedAccuracy: 1,
+  attackRange: 6,
+  magazineSize: 10,
+  baseRangedAccuracy: 0.7,
   baseRangedDamage: 1,
   pos,
-  // shapePattern: Constant.CLONE_PATTERNS.bigSquare,
+  // shapePattern: Constant.CLONE_PATTERNS.square,
   equipmentType: Constant.EQUIPMENT_TYPES.HAND,
   renderer: {
-    character: 'L',
+    character: 'S',
     color: COLORS.base3,
-    background: COLORS.gray,
+    background: COLORS.base01,
   },
 });

@@ -21,11 +21,13 @@ export class Jacinto extends Mode {
     this.dataByLevel = [
       {
         enemies: Array(1).fill('Bandit'),
+        emergenceHoles: 0,
         // enemies: Array(10).fill('Bandit'),
       },
-      {
-        enemies: Array(10).fill('Bandit'),
-      },
+      // {
+      //   enemies: Array(10).fill('Bandit'),
+      //   emergenceHoles: 4,
+      // },
     ]
   }
 
@@ -38,10 +40,20 @@ export class Jacinto extends Mode {
     this.setWaveData();
     MapHelper.addTileZone(
       this.game.tileKey,
-      { x: 31, y: 9 },
-      4,
-      4,
+      { x: 0, y: 0 },
+      this.game.mapHeight,
+      1,
       'SAFE',
+      this.game.map,
+      this.game.mapHeight,
+      this.game.mapWidth,
+    );
+    MapHelper.addTileZone(
+      this.game.tileKey,
+      { x: this.game.mapWidth - 3, y: 0 },
+      this.game.mapHeight,
+      3,
+      'LOCKED_EXIT',
       this.game.map,
       this.game.mapHeight,
       this.game.mapWidth,
@@ -64,7 +76,8 @@ export class Jacinto extends Mode {
       this.addCover({ x: posXY[0], y: posXY[1] });
     }
 
-    for (let index = 0; index < 2; index++) {
+    // adding emergence holes
+    for (let index = 0; index < this.data.emergenceHoles; index++) {
       let pos = Helper.getRandomInArray(groundTiles);
       let posXY = pos.split(',').map((coord) => parseInt(coord));
       this.addEmerenceHole({ x: posXY[0], y: posXY[1] });
@@ -133,7 +146,16 @@ export class Jacinto extends Mode {
   }
 
   levelComplete () {
-    return this.game.engine.actors.length === 1; 
+    const playerOnExit = this.playerIsOnExit();
+    const enemiesDefeated = this.enemiesDefeated();
+    if (enemiesDefeated) {
+      this.activateExitTiles();
+    }
+    return playerOnExit && enemiesDefeated; 
+  }
+
+  enemiesDefeated () {
+    return this.game.engine.actors.filter((actor) => actor['faction'] === 'LOCUST').length <= 0
   }
 
   hasWon () {
@@ -177,6 +199,7 @@ export class Jacinto extends Mode {
       timeToSpread: 1,
       spreadCount: 3,
       durability: 1,
+      faction: 'LOCUST',
       speed: Constant.ENERGY_THRESHOLD,
       getSpawnedEntity: (spawnPosition) => {
         let players = this.getPlayers()
@@ -192,6 +215,7 @@ export class Jacinto extends Mode {
           attackDamage: banditStats.attackDamage,
           durability: banditStats.durability,
           speed: banditStats.speed,
+          faction: 'LOCUST',
           // directional projectile destruction breaks engine
           getProjectile: ({ pos, targetPos, direction, range }) => Item.directionalKunai(this.game.engine, { ...pos }, direction, range)
           // getProjectile: ({ pos, targetPos, direction, range }) => Item.kunai(game.engine, { ...pos }, { ...targetPos })
@@ -305,6 +329,7 @@ export class Jacinto extends Mode {
       attackDamage: banditStats.attackDamage,
       durability: banditStats.durability,
       speed: banditStats.speed,
+      faction: 'LOCUST',
       // directional projectile destruction breaks engine
       getProjectile: ({ pos, targetPos, direction, range }) => Item.directionalKunai(this.game.engine, { ...pos }, direction, range)
       // getProjectile: ({ pos, targetPos, direction, range }) => Item.kunai(game.engine, { ...pos }, { ...targetPos })
@@ -325,13 +350,34 @@ export class Jacinto extends Mode {
           x: parseInt(key.split(',')[0]),
           y: parseInt(key.split(',')[1]),
         }
-        player.pos = position;
-        let tile = this.game.map[key];
-        if (tile) {
-          tile.entities.push(player);
-        }
+        player.pos = {x: position.x, y: player.pos.y};
+        this.game.placeActorOnMap(player)
       }
     })
+  }
+
+  playerIsOnExit() {
+    const player = this.game.getFirstPlayer();
+    if (player) {
+      const tile = this.game.map[Helper.coordsToString(player.pos)];
+      if (tile.type === 'EXIT') {
+        return true;
+      }
+    }
+    return false
+  }
+
+  activateExitTiles() {
+    MapHelper.addTileZone(
+      this.game.tileKey,
+      { x: this.game.mapWidth - 3, y: 0 },
+      this.game.mapHeight,
+      3,
+      'EXIT',
+      this.game.map,
+      this.game.mapHeight,
+      this.game.mapWidth,
+    );
   }
 
 }

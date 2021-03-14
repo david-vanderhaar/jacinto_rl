@@ -2,6 +2,7 @@ import SOUNDS from '../sounds';
 import { FireSpread } from './index';
 import * as Constant from '../constants';
 import * as Helper from '../../helper';
+import {MESSAGE_TYPE} from '../message';
 
 export const Exploding = superclass => class extends superclass {
   constructor({ flammability = 1, explosivity = 1, ...args }) {
@@ -50,8 +51,18 @@ export const Exploding = superclass => class extends superclass {
         y: this.pos.y + slot.y + structure.y_offset
       };
       const tile = this.game.map[Helper.coordsToString(position)];
-      if (tile)
-        tile.type = 'BURNT';
+      if (tile) {
+        tile.type =  'BURNT';
+        let targets = Helper.getDestructableEntities(tile.entities);
+        if (targets.length > 0) {
+          // let target = targets[0];
+          targets.forEach((target) => {
+            let damage = this['attackDamage'] ? this.attackDamage : this.explosivity;
+            this.game.addMessage(`${this.name} does ${damage} to ${target.name}`, MESSAGE_TYPE.DANGER);
+            target.decreaseDurability(damage);
+          })
+        }
+      }
     });
     if (this.explosivity > 0)
       SOUNDS.explosion_0.play();

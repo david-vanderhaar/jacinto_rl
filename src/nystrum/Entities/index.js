@@ -38,6 +38,7 @@ import { Exploding } from './Exploding';
 import { Helpless } from './Helpless';
 import { HasKeymap } from './HasKeymap';
 import { Upgradable } from './Upgradable';
+import { HasFaction } from './HasFaction';
 
 export const UI_Actor = pipe(
   Acting,
@@ -106,6 +107,7 @@ export const Bandit = pipe(
   Destructable,
   Attacking,
   Pushable,
+  HasFaction,
 )(Entity);
 
 export const RangedBandit = pipe(
@@ -115,6 +117,7 @@ export const RangedBandit = pipe(
   Destructable,
   Attacking,
   Pushable,
+  HasFaction,
 )(Entity);
 
 export const Player = pipe(
@@ -135,6 +138,7 @@ export const Player = pipe(
   Playing,
   Burnable,
   Upgradable,
+  HasFaction,
 )(Entity);
 
 export const Weapon = pipe(
@@ -176,6 +180,15 @@ export const DirectionalProjectile = pipe(
   Destructable,
 )(Entity);
 
+export const Grenade = pipe(
+  Acting,
+  Rendering,
+  Attacking,
+  DirectionalProjecting,
+  Destructable,
+  Exploding,
+)(Entity);
+
 export const DestructiveCloudProjectile = pipe(
   Acting,
   Rendering,
@@ -204,6 +217,7 @@ export const EmergenceHole = pipe(
   Rendering,
   Destructable,
   Spawning,
+  HasFaction,
 )(Entity);
 
 export const Particle = pipe(

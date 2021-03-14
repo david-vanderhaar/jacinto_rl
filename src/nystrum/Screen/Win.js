@@ -1,5 +1,7 @@
 import React from 'react';
-import CharacterSelect from '../UI/CharacterSelect';
+import {
+  GiCog,
+} from "react-icons/gi";
 
 class Win extends React.Component {
   constructor(props) {
@@ -11,25 +13,32 @@ class Win extends React.Component {
     return (
       <div className="Title">
         <div
+          className="Title__content"
           style={{
-
             width: '100vw',
             height: '100vh',
-            // backgroundColor: '#eee',
-            backgroundColor: 'rgb(54,160,190)',
-            backgroundImage: `url("${window.PUBLIC_URL}/fire_man_blue.jpg")`,
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            backgroundPositionY: '10px'
-
+            backgroundColor: '#3e7dc9',
           }}
         >
-          <CharacterSelect 
-            characters={this.props.characters} 
-            selectedCharacter={this.props.selectedCharacter} 
-            setSelectedCharacter={this.props.setSelectedCharacter}
-            setActiveScreen={this.props.setActiveScreen}
-          />
+          <h2 className="Title__header">
+            <GiCog />
+            <GiCog />
+            <GiCog />
+          </h2>
+          <button
+            style={{
+              margin: 'initial',
+            }}
+            className={`CharacterSelect__button btn btn-main`}
+            onClick={() => window.location.reload()}
+          >
+            Victory
+          </button>
+          <h2 className="Title__header">
+            <GiCog />
+            <GiCog />
+            <GiCog />
+          </h2>
         </div>
       </div>
     );

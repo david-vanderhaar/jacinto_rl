@@ -14,10 +14,6 @@ const CharacterSelect = (props) => {
           return (
             <button
               key={index}
-              style={{
-                position: 'relative',
-                top: '280px'
-              }}
               className={`CharacterSelect__button btn btn-main`}
               onClick={() => {
                 props.setSelectedCharacter(character)

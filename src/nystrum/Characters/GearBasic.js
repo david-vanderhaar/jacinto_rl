@@ -17,6 +17,8 @@ import {OpenUpgrades} from '../Actions/OpenUpgrades';
 import {Upgrade} from '../Entities/Upgradable';
 import {PickupRandomItem} from '../Actions/PickupRandomItem';
 import { Lancer } from '../Items/Weapons/Lancer';
+import { Snub } from '../Items/Weapons/Snub';
+import { Grenade } from '../Items/Weapons/Grenade';
 import { Ammo } from '../Items/Pickups/Ammo';
 import {COLORS} from '../Modes/Jacinto/theme';
 import { Reload } from '../Actions/Reload';
@@ -88,15 +90,15 @@ export default function (engine) {
         actor,
         energyCost: Constant.ENERGY_THRESHOLD,
       }),
-      t: () => new PrepareRangedAttack({
-        label: 'Shoot',
+      f: () => new PrepareRangedAttack({
+        label: 'Fire Weapon',
         game: engine.game,
         actor,
         passThroughEnergyCost: Constant.ENERGY_THRESHOLD,
-        passThroughRequiredResources: [new ChakraResource({ getResourceCost: () => 1 })]
+        passThroughRequiredResources: [],
       }),
       r: () => new Reload({
-        label: 'Reloading',
+        label: 'Reload',
         game: engine.game,
         actor,
         energyCost: Constant.ENERGY_THRESHOLD,
@@ -121,12 +123,13 @@ export default function (engine) {
         game: engine.game,
         actor,
       }),
-      // t: () => new PrepareDirectionalThrow({
-      //   label: 'Throw',
-      //   game: engine.game,
-      //   actor,
-      //   passThroughEnergyCost: Constant.ENERGY_THRESHOLD,
-      // })
+      t: () => new PrepareDirectionalThrow({
+        label: 'Grenade',
+        projectileType: 'Grenade',
+        game: engine.game,
+        actor,
+        passThroughEnergyCost: Constant.ENERGY_THRESHOLD,
+      })
     };
   }
   // instantiate class
@@ -141,7 +144,7 @@ export default function (engine) {
     name: 'Gear',
     actions: [],
     speed: Constant.ENERGY_THRESHOLD * 4,
-    durability: 20,
+    durability: 1,
     baseRangedAccuracy: 0,
     baseRangedDamage: 1,
     charge: 10,
@@ -165,16 +168,27 @@ export default function (engine) {
     equipment: Constant.EQUIPMENT_LAYOUTS.gear(),
     game: engine.game,
     presentingUI: true,
+    faction: 'COG',
     initializeKeymap: keymap,
   })
 
   // add default items to container
   const ammo = Array(100).fill('').map(() => Ammo(engine));
+  const grenades = Array(4).fill('').map(() => Grenade(engine, 6));
+  const snub = Snub(engine);
   actor.container = [
+    new ContainerSlot({
+      itemType: snub.name,
+      items: [snub],
+    }),
     new ContainerSlot({
       itemType: ammo[0].name,
       items: ammo,
-    })
+    }),
+    new ContainerSlot({
+      itemType: grenades[0].name,
+      items: grenades,
+    }),
   ]
 
   const lancer = Lancer(engine);

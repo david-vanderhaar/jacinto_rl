@@ -1,8 +1,5 @@
 import { Howl, Howler } from 'howler';
 
-console.log(window.PUBLIC_URL);
-
-
 export default {
   fire_0: new Howl({
     src: [window.PUBLIC_URL + '/sounds/fire-00.mp3'],

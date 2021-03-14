@@ -295,8 +295,8 @@ export const CLONE_PATTERNS = {
     ]
   },
   square: {
-    x_offset: 2,
-    y_offset: 2,
+    x_offset: 0,
+    y_offset: 0,
     positions: [
       { x: 0, y: 0, taken: false, },
       { x: 0, y: 1, taken: false, },
@@ -310,8 +310,8 @@ export const CLONE_PATTERNS = {
     ]
   },
   bigSquare: {
-    x_offset: 2,
-    y_offset: 2,
+    x_offset: 0,
+    y_offset: 0,
     positions: [
       { x: 0, y: 0, taken: false, },
       { x: 0, y: 1, taken: false, },

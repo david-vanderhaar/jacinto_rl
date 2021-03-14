@@ -9,7 +9,7 @@ export const RangedAttacking = superclass => class extends superclass {
     this.baseRangedAccuracy = baseRangedAccuracy;
     this.baseRangedDamage = baseRangedDamage;
     this.magazineSize = magazineSize;
-    this.magazine = 0;
+    this.magazine = magazineSize;
   }
 
   getRangedAttackChance(targetPos = null) {

@@ -132,7 +132,7 @@ export class Display {
     let displayContainer = document.createElement('div');
     d.appendChild(displayContainer);
 
-    this.adjustContentToScreen(d);
+    // this.adjustContentToScreen(d);
     
     this.stage = new Konva.Stage({
       container: 'display',   // id of container <div>
@@ -169,7 +169,7 @@ export class Display {
   adjustContentToScreen (display_element) {
     const DEVICE_WIDTH = display_element.offsetWidth;
     const value = (DEVICE_WIDTH - this.tileOffset) / this.game.mapWidth;
-    this.tileWidth = Math.ceil(value);
+    this.tileWidth = Math.floor(value);
     this.tileHeight = this.tileWidth;
     this.width = ((this.game.mapWidth - 1) * this.tileWidth) + this.tileOffset;
     this.height = (this.game.mapHeight * this.tileHeight) + this.tileOffset;
@@ -267,36 +267,6 @@ export class Display {
       listening: false,
       shadowForStrokeEnabled: false,
     });
-
-    const dis_layer = this.layer;
-    if (x === 1 && y === 1) {
-      Konva.Image.fromURL('/tile241.png', function (darthNode) {
-        darthNode.setAttrs({
-          x: actual_x,
-          y: actual_y,
-          scaleX: 1,
-          scaleY: 1,
-          fill: 'pink',
-          opacity: 0.5
-        });
-        dis_layer.add(darthNode);
-      });
-      // var imageObj = new Image();
-      // imageObj.onload = function () {
-      //   var yoda = new Konva.Image({
-      //     x: 50,
-      //     y: 50,
-      //     image: imageObj,
-      //     width: 106,
-      //     height: 118,
-      //   });
-
-      //   // add the shape to the layer
-      //   this.layer.add(yoda);
-      //   // layer.batchDraw();
-      // };
-      // imageObj.src = '/tile241.png';
-    }
 
     node.add(rect);
     node.add(text);

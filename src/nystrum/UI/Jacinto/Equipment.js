@@ -6,9 +6,10 @@ import {
   GiBarbedArrow,
   GiBurningDot,
 } from "react-icons/gi";
-import Button from '../Button';
 import {EquipItemFromContainer} from '../../Actions/EquipItemFromContainer';
+import {Reload} from '../../Actions/Reload';
 import {STAT_RENDERERS} from '../../Modes/Jacinto/theme';
+import * as Constant from '../../constants';
 
 function StatBlock({stat}) {
   const {getIcon, value, name} = stat;
@@ -121,7 +122,7 @@ const EquipmentCard = (props) => {
       onClick={() => game.refocus()}
     >
       {needsReload && (
-        <div className="EquipmentCard__reload_overlay" onClick={() => player.reload()}>
+        <div className="EquipmentCard__reload_overlay">
           <div className="EquipmentCard__reload_overlay__text">Needs Reload</div>
           <div className="EquipmentCard__reload_overlay__text"><GiBackwardTime /></div>
         </div>

@@ -105,14 +105,6 @@ function CharacterCard ({actor, game}) {
           actor={actor} 
         />
         <ProgressBar 
-          label='Chakara Points'
-          attributePath='charge'
-          attributePathMax='chargeMax'
-          colorFilled='#13b8d7'
-          unit={1}
-          actor={actor} 
-        />
-        <ProgressBar 
           label='Upgrade Points'
           attributePath='upgrade_points'
           attributePathMax='upgrade_points'

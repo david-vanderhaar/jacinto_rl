@@ -128,8 +128,9 @@ export class PrepareRangedAttack extends Base {
           }
         })
       },
-      t: () => { 
+      f: () => { 
         return new MultiTargetRangedAttack({
+          label: 'Fire',
           targetPositions:  [...this.actor.getCursorPositions()],
           game: this.game,
           actor: this.actor,

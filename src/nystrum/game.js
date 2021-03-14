@@ -10,12 +10,12 @@ import * as _ from 'lodash';
 // const MAP_DATA = require('./Maps/castle.json');
 // const SOLANGE = require('./Data/solange.json');
 
-const MAP_WIDTH = 60;
+const MAP_WIDTH = 50;
 const MAP_HEIGHT = 25;
 
 const TILE_OFFSET = 0;
 
-const TILE_WIDTH = 30;
+const TILE_WIDTH = 26;
 const TILE_HEIGHT = TILE_WIDTH;
 
 const canvasWidth = (MAP_WIDTH * TILE_WIDTH) + TILE_OFFSET;
@@ -340,7 +340,9 @@ export class Game {
   }
 
   getPlayerPosition () {
-    return this.getFirstPlayer().pos;
+    const player = this.getFirstPlayer();
+    if (player) return player.getPosition();
+    return null
   }
   
   draw () {

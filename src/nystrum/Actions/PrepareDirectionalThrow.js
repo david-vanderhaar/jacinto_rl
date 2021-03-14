@@ -7,18 +7,20 @@ import { DIRECTIONS, ENERGY_THRESHOLD } from '../constants';
 export class PrepareDirectionalThrow extends Base {
   constructor({ 
     passThroughEnergyCost = ENERGY_THRESHOLD, 
-    passThroughRequiredResources = [], 
+    passThroughRequiredResources = [],
+    projectileType = TYPE.DIRECTIONAL_KUNAI,
     ...args 
   }) {
     super({ ...args });
     this.passThroughEnergyCost = passThroughEnergyCost;
     this.passThroughRequiredResources = passThroughRequiredResources;
+    this.projectileType = projectileType;
     this.processDelay = 0;
     this.energyCost = 0;
   }
   perform() {
 
-    let projectile = this.actor.contains(TYPE.DIRECTIONAL_KUNAI);
+    let projectile = this.actor.contains(this.projectileType);
     if (!projectile) return {
       success: false,
       alternative: null,

@@ -1,5 +1,8 @@
 import React from 'react';
-import CharacterSelect from '../UI/CharacterSelect';
+import {
+  GiStarSkull,
+} from "react-icons/gi";
+import { SCREENS } from './constants';
 
 
 class Lose extends React.Component {
@@ -12,25 +15,32 @@ class Lose extends React.Component {
     return (
       <div className="Title">
         <div
+          className="Title__content"
           style={{
-
             width: '100vw',
             height: '100vh',
             backgroundColor: '#222',
-            // backgroundColor: 'rgb(4, 49, 61)',
-            backgroundImage: `url("${window.PUBLIC_URL}/fire_man_blue.jpg")`,
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            backgroundPositionY: '10px'
-
           }}
         >
-          <CharacterSelect 
-            characters={this.props.characters} 
-            selectedCharacter={this.props.selectedCharacter} 
-            setSelectedCharacter={this.props.setSelectedCharacter}
-            setActiveScreen={this.props.setActiveScreen}
-          />
+          <h2 className="Title__header">
+            <GiStarSkull />
+            <GiStarSkull />
+            <GiStarSkull />
+          </h2>
+          <button
+            style={{
+              margin: 'initial',
+            }}
+            className={`CharacterSelect__button btn btn-main`}
+            onClick={() => window.location.reload()}
+          >
+            Restart
+          </button>
+          <h2 className="Title__header">
+            <GiStarSkull />
+            <GiStarSkull />
+            <GiStarSkull />
+          </h2>
         </div>
       </div>
     );

@@ -22,7 +22,8 @@ class Instructions extends React.Component {
           }
           <div 
             className='Instructions__block'
-            onClick={() => this.props.setActiveScreen(SCREENS.TITLE)}
+            // onClick={() => this.props.setActiveScreen(SCREENS.TITLE)}
+            onClick={() => window.location.reload()}
           >
             <button className='btn btn-main'>
               Restart

@@ -89,11 +89,41 @@ export const TILE_KEY = {
     passable: true,
   },
   'SAFE': {
-    background: COLORS.locust0,
-    foreground: COLORS.green,
-    character: '+',
-    sprite: '',
+    background: COLORS.base03,
+    foreground: COLORS.base01,
+    character: '.',
+    sprite: '',
     passable: true,
+  },
+  'LOCKED_EXIT': {
+    background: COLORS.base03,
+    foreground: COLORS.base01,
+    character: '.',
+    sprite: '',
+    passable: true,
+  },
+  'EXIT': {
+    background: COLORS.base03,
+    foreground: COLORS.green,
+    character: '>',
+    sprite: '',
+    passable: true,
+  },
+  'BURNT': {
+    background: COLORS.base03,
+    foreground: COLORS.red,
+    character: 'X',
+    sprite: '',
+    passable: true,
+    animation: [
+      { background: COLORS.base03, foreground: COLORS.yellow, character: 'X', sprite: '', passable: true, },
+      { background: COLORS.base03, foreground: COLORS.yellow, character: 'x', sprite: '', passable: true, },
+      { background: COLORS.base03, foreground: COLORS.red, character: 'X', sprite: '', passable: true, },
+      { background: COLORS.base03, foreground: COLORS.orange, character: 'x', sprite: '', passable: true, },
+      { background: COLORS.base03, foreground: COLORS.orange, character: 'X', sprite: '', passable: true, },
+      { background: COLORS.base03, foreground: COLORS.red, character: 'x', sprite: '', passable: true, },
+      { background: COLORS.base03, foreground: COLORS.red, character: 'X', sprite: '', passable: true, },
+    ]
   },
 }
 
@@ -101,7 +131,7 @@ export const STAT_RENDERERS = {
   'amount': {
     background: COLORS.base04,
     foreground: COLORS.locust2,
-    character: '#',
+    character: '',
   },
   'attackRange': {
     background: COLORS.green,

@@ -1,4 +1,8 @@
 import React from 'react';
+import {
+  GiCog,
+  GiStarSkull,
+} from "react-icons/gi";
 import { SCREENS } from './constants';
 import CharacterSelect from '../UI/CharacterSelect';
 
@@ -12,24 +16,21 @@ class Title extends React.Component {
     return (
       <div className="Title">
         <div
+          className="Title__content"
           style={{
-
             width: '100vw',
             height: '100vh',
-            backgroundColor: 'rgb(4, 49, 61)',
-            backgroundImage: `url("${window.PUBLIC_URL}/fire_man_blue.jpg")`,
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            backgroundPositionY: '10px'
-
+            backgroundColor: '#07111Dff',
           }}
         >
+          <h2 className="Title__header"><GiCog/></h2>
           <CharacterSelect 
             characters={this.props.characters} 
             selectedCharacter={this.props.selectedCharacter} 
             setSelectedCharacter={this.props.setSelectedCharacter}
             setActiveScreen={this.props.setActiveScreen}
           />
+          <h2 className="Title__header"><GiStarSkull /></h2>
         </div>
       </div>
     );
