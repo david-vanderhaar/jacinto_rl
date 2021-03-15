@@ -47,14 +47,14 @@ class ActionBar extends React.Component {
                         }}
                       >
                         <div className="CharacterActions__item__label">
-                          {action.label}
+                          {key}
                         </div>
                         <div className="CharacterActions__item__content" style={renderer && {
                           backgroundColor: renderer.background,
                           color: renderer.color,
                           borderColor: renderer.color,
                         }}>
-                          {key}
+                          {action.label}
                         </div>
                         <div className="CharacterActions__item__resources">
                           {

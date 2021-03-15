@@ -1,8 +1,12 @@
-import Basic_Gear from './GearBasic';
+import The_Scout from './GearLight';
+import The_Veteran from './GearHeavy';
+import The_Stranded from './GearStranded';
 
 let Characters = () => {
   return {
-    Basic_Gear,
+    The_Scout,
+    The_Veteran,
+    The_Stranded,
   }
 }
 

@@ -9,6 +9,9 @@ import { Mode } from '../default';
 import SOUNDS from '../../sounds';
 import * as _ from 'lodash';
 import {COLORS, TILE_KEY} from './theme';
+import { Ammo } from '../../Items/Pickups/Ammo';
+import { Grenade } from '../../Items/Weapons/Grenade';
+
 
 export class Jacinto extends Mode {
   constructor({ ...args }) {
@@ -22,7 +25,8 @@ export class Jacinto extends Mode {
       {
         enemies: Array(1).fill('Bandit'),
         emergenceHoles: 0,
-        // enemies: Array(10).fill('Bandit'),
+        ammoLoot: 2,
+        grenadeLoot: 1,
       },
       // {
       //   enemies: Array(10).fill('Bandit'),
@@ -62,14 +66,18 @@ export class Jacinto extends Mode {
     generateBuilding(this.game.map, 20, 5, 6, 4);
 
     this.placePlayersInSafeZone();
+    const player = this.game.getFirstPlayer();
+    if (player) player.upgrade_points += 1;
+
     let groundTiles = Object.keys(this.game.map).filter((key) => this.game.map[key].type === 'GROUND')
+    let floorTiles = Object.keys(this.game.map).filter((key) => this.game.map[key].type === 'FLOOR')
+
     this.data.enemies.forEach((enemyName) => {
       let pos = Helper.getRandomInArray(groundTiles);
       let posXY = pos.split(',').map((coord) => parseInt(coord));
       this[`add${enemyName}`]({ x: posXY[0], y: posXY[1] });
     })
 
-    // let floorTiles = Object.keys(this.game.map).filter((key) => this.game.map[key].type === 'FLOOR')
     for (let index = 0; index < 20; index++) {
       let pos = Helper.getRandomInArray(groundTiles);
       let posXY = pos.split(',').map((coord) => parseInt(coord));
@@ -81,6 +89,20 @@ export class Jacinto extends Mode {
       let pos = Helper.getRandomInArray(groundTiles);
       let posXY = pos.split(',').map((coord) => parseInt(coord));
       this.addEmerenceHole({ x: posXY[0], y: posXY[1] });
+    }
+
+    // adding  ammo loot
+    for (let index = 0; index < this.data.ammoLoot; index++) {
+      let pos = Helper.getRandomInArray(floorTiles);
+      let posXY = pos.split(',').map((coord) => parseInt(coord));
+      this.addAmmoLoot({ x: posXY[0], y: posXY[1] });
+    }
+
+    // adding  grenade loot
+    for (let index = 0; index < this.data.grenadeLoot; index++) {
+      let pos = Helper.getRandomInArray(floorTiles);
+      let posXY = pos.split(',').map((coord) => parseInt(coord));
+      this.addGrenadeLoot({ x: posXY[0], y: posXY[1] });
     }
   }
 
@@ -216,6 +238,14 @@ export class Jacinto extends Mode {
           durability: banditStats.durability,
           speed: banditStats.speed,
           faction: 'LOCUST',
+          onDestroy: (actor) => {
+            const chance = Math.random();
+            if (chance <= 0.05) {
+              this.addAmmoLoot(actor.getPosition());
+            } else if (chance <= 0.1) {
+              this.addGrenadeLoot(actor.getPosition());
+            }
+          },
           // directional projectile destruction breaks engine
           getProjectile: ({ pos, targetPos, direction, range }) => Item.directionalKunai(this.game.engine, { ...pos }, direction, range)
           // getProjectile: ({ pos, targetPos, direction, range }) => Item.kunai(game.engine, { ...pos }, { ...targetPos })
@@ -230,6 +260,26 @@ export class Jacinto extends Mode {
       this.game.engine.addActor(entity);
       this.game.draw();
     };
+  }
+
+  createAmmoStack(amount, pos) {
+    return Array(amount).fill('').map((i) => {
+      const ammo = Ammo(this.game.engine);
+      ammo.pos = pos;
+      return ammo;
+    });
+  }
+
+  addAmmoLoot (pos) {
+    this.createAmmoStack(10, pos).forEach((entity) => {
+      this.game.placeActorOnMap(entity)
+    })
+  }
+
+  addGrenadeLoot (pos) {
+    const entity = Grenade(this.game.engine, 6);
+    entity.pos = pos;
+    this.game.placeActorOnMap(entity)
   }
 
   addCover (
@@ -330,6 +380,14 @@ export class Jacinto extends Mode {
       durability: banditStats.durability,
       speed: banditStats.speed,
       faction: 'LOCUST',
+      onDestroy: (actor) => {
+        const chance = Math.random();
+        if (chance <= 0.05) {
+          this.addAmmoLoot(actor.getPosition());
+        } else if (chance <= 0.1) {
+          this.addGrenadeLoot(actor.getPosition());
+        }
+      },
       // directional projectile destruction breaks engine
       getProjectile: ({ pos, targetPos, direction, range }) => Item.directionalKunai(this.game.engine, { ...pos }, direction, range)
       // getProjectile: ({ pos, targetPos, direction, range }) => Item.kunai(game.engine, { ...pos }, { ...targetPos })

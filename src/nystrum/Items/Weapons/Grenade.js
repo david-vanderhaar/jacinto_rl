@@ -14,7 +14,7 @@ export const Grenade = (engine, range) => new GrenadeEntity({
   },
   flammability: 0,
   explosivity: 3,
-  attackDamage: 3,
+  attackDamage: 10,
   speed: Constant.ENERGY_THRESHOLD * range,
   energy: 0,
   range,

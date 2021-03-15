@@ -38,14 +38,21 @@ export const HasTargetingCursor = superclass => class extends superclass {
   addAnimations () {
     const positions = this.getCursorPositions();
     if (positions.length) {
+      // hack for visual separation
+      let lastPos = {x: null, y: null}
+      let nudge = 0;
+      // const nudgeInc = 0.2
       positions.forEach((position) => {
-      const newAnimation = this.game.display.addAnimation(
-        ANIMATION_TYPES.BLINK_TILE, 
-        {
-          x: position.x, 
-          y: position.y, 
-          color: THEMES.SOLARIZED.red 
-        })
+        // if (position.x == lastPos.x && position.y == lastPos.y) nudge += nudgeInc;
+        // lastPos = {...position};
+        const newAnimation = this.game.display.addAnimation(
+          ANIMATION_TYPES.BLINK_TILE, 
+          {
+            x: position.x, 
+            y: position.y + nudge, 
+            color: THEMES.SOLARIZED.base3 
+          }
+        );
         this.animations.push(newAnimation);
       })
     }

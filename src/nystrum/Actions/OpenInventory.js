@@ -30,6 +30,7 @@ export class OpenInventory extends Base {
         game: this.game,
         actor: this.actor,
         label: `Equip ${item.name}`,
+        energyCost: 0,
         onSuccess: () => {
           this.game.visibleInventory = null
           this.actor.setNextAction(goToPreviousKeymap);

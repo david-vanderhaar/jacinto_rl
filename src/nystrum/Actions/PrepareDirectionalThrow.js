@@ -3,6 +3,7 @@ import { PlaceActor } from './PlaceActor';
 import { GoToPreviousKeymap } from './GoToPreviousKeymap';
 import { TYPE } from '../items';
 import { DIRECTIONS, ENERGY_THRESHOLD } from '../constants';
+import { getPositionInDirection } from '../../helper';
 
 export class PrepareDirectionalThrow extends Base {
   constructor({ 
@@ -34,9 +35,29 @@ export class PrepareDirectionalThrow extends Base {
 
     this.actor.removeFromContainer(projectile);
 
+    const pos = this.actor.getPosition();
+    // tackle in 4 directions a sfar as the actor has energy
+    const cursor_positions = [];
+    [
+      DIRECTIONS.N,
+      DIRECTIONS.S,
+      DIRECTIONS.E,
+      DIRECTIONS.W,
+    ].forEach((direction, i) => {
+      Array(projectile.range).fill('').forEach((none, distance) => {
+        if (distance > 0) {
+          cursor_positions.push(
+            getPositionInDirection(pos, direction.map((dir) => dir * (distance)))
+          )
+        }
+      })
+    });
+    this.actor.activateCursor(cursor_positions)
+
     const goToPreviousKeymap = new GoToPreviousKeymap({
       actor: this.actor,
       game: this.game,
+      onAfter: () => this.actor.deactivateCursor(),
     })
 
     let keymap = {

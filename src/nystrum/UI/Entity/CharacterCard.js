@@ -105,6 +105,14 @@ function CharacterCard ({actor, game}) {
           actor={actor} 
         />
         <ProgressBar 
+          label='Health Points'
+          attributePath='durability'
+          attributePathMax='durabilityMax'
+          colorFilled='#dc322f'
+          unit={1}
+          actor={actor} 
+        />
+        <ProgressBar 
           label='Upgrade Points'
           attributePath='upgrade_points'
           attributePathMax='upgrade_points'

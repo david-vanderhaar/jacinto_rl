@@ -10,12 +10,15 @@ import {OpenInventory} from '../Actions/OpenInventory';
 import {OpenUpgrades} from '../Actions/OpenUpgrades';
 import {Upgrade} from '../Entities/Upgradable';
 import {PickupAllItems} from '../Actions/PickupAllItems';
-import { Lancer } from '../Items/Weapons/Lancer';
+import { PrepareTackle } from '../Actions/PrepareTackle';
+import { RetroLancer } from '../Items/Weapons/RetroLancer';
+import { Boltok } from '../Items/Weapons/Boltok';
 import { Snub } from '../Items/Weapons/Snub';
 import { Grenade } from '../Items/Weapons/Grenade';
 import { Ammo } from '../Items/Pickups/Ammo';
 import {COLORS} from '../Modes/Jacinto/theme';
 import { Reload } from '../Actions/Reload';
+import { Gnasher } from '../Items/Weapons/Gnasher';
 
 export default function (engine) {
   // define keymap
@@ -123,10 +126,18 @@ export default function (engine) {
         game: engine.game,
         actor,
         passThroughEnergyCost: Constant.ENERGY_THRESHOLD,
-      })
+      }),
+      c: () => new PrepareTackle({
+        label: 'Bayonet Charge',
+        game: engine.game,
+        actor,
+        passThroughEnergyCost: Constant.ENERGY_THRESHOLD,
+      }),
     };
   }
   // instantiate class
+  const primary = RetroLancer(engine);
+  const durability = 20;
   let actor = new Player({
     pos: { x: 23, y: 7 },
     renderer: {
@@ -135,28 +146,32 @@ export default function (engine) {
       color: COLORS.base3,
       background: COLORS.cog2,
     },
-    name: 'Gear',
-    actions: [],
+    name: 'The Veteran',
     speed: Constant.ENERGY_THRESHOLD * 4,
-    durability: 10,
+    durability,
     baseRangedAccuracy: 0,
-    baseRangedDamage: 1,
-    charge: 10,
-    upgrade_points: 0,
+    baseRangedDamage: 0,
+    attackDamage: 0,
+    upgrade_points: 10,
     upgrade_tree: [
       Upgrade({
         cost: 1,
-        name: '+5% Accuracy',
-        activate: (actor) => (actor.baseRangedAccuracy += 0.05),
+        name: '+1 Health',
+        activate: (actor) => {
+          actor.durabilityMax += 1
+          actor.increaseDurability(1)
+        },
       }),
       Upgrade({
-        cost: 2,
-        name: '+1 Actions',
-        activate: (actor) => {
-          actor.speed += Constant.ENERGY_THRESHOLD;
-          actor.energy += Constant.ENERGY_THRESHOLD;
-        },
-        removeOnActivate: true,
+        cost: 1,
+        name: '+1 Melee Damage',
+        activate: (actor) => (primary.attackDamage += 1),
+      }),
+      Upgrade({
+        cost: 3,
+        name: 'Full Health',
+        canUpgrade: (actor) => actor.durability < actor.durabilityMax,
+        activate: (actor) => (actor.increaseDurability(actor.durabilityMax - actor.durability)),
       }),
     ],
     equipment: Constant.EQUIPMENT_LAYOUTS.gear(),
@@ -167,13 +182,13 @@ export default function (engine) {
   })
 
   // add default items to container
-  const ammo = Array(100).fill('').map(() => Ammo(engine));
-  const grenades = Array(4).fill('').map(() => Grenade(engine, 6));
-  const snub = Snub(engine);
+  const ammo = Array(10).fill('').map(() => Ammo(engine));
+  const grenades = Array(2).fill('').map(() => Grenade(engine, 6));
+  const secondary = Gnasher(engine);
   actor.container = [
     new ContainerSlot({
-      itemType: snub.name,
-      items: [snub],
+      itemType: secondary.name,
+      items: [secondary],
     }),
     new ContainerSlot({
       itemType: ammo[0].name,
@@ -185,8 +200,7 @@ export default function (engine) {
     }),
   ]
 
-  const lancer = Lancer(engine);
-  actor.equip(lancer.equipmentType, lancer);
+  actor.equip(primary.equipmentType, primary);
 
   return actor;
 }

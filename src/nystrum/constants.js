@@ -275,6 +275,27 @@ export const CLONE_PATTERNS = {
       { x: 0, y: 0, taken: false, },
     ]
   },
+  triple_point: {
+    x_offset: 0,
+    y_offset: 0,
+    positions: [
+      { x: 0, y: 0, taken: false, },
+      { x: 0, y: 0, taken: false, },
+      { x: 0, y: 0, taken: false, },
+    ]
+  },
+  spread: {
+    x_offset: 1,
+    y_offset: 0,
+    positions: [
+      { x: 0, y: 0, taken: false, },
+      { x: 0, y: 1, taken: false, },
+      { x: 0, y: -1, taken: false, },
+      { x: 1, y: 0, taken: false, },
+      { x: 1, y: 2, taken: false, },
+      { x: 1, y: -2, taken: false, },
+    ]
+  },
   verticalLine: {
     x_offset: 1,
     y_offset: 1,

@@ -4,8 +4,11 @@ export const Destructable = superclass => class extends superclass {
     super({ ...args });
     this.entityTypes = this.entityTypes.concat('DESTRUCTABLE');
     this.durability = durability;
+    this.durabilityMax = durability;
     this.defense = defense;
     this.onDestroy = onDestroy;
+    this.actorSprite = this.renderer.sprite
+    this.actorCharacter = this.renderer.character
   }
   getDefense() {
     let defense = this.defense;
@@ -24,7 +27,7 @@ export const Destructable = superclass => class extends superclass {
   decreaseDurabilityWithoutDefense(value) {
     this.durability -= value;
     if (this.durability <= 0) {
-      this.onDestroy();
+      this.onDestroy(this);
       this.destroy();
     }
   }
@@ -32,16 +35,25 @@ export const Destructable = superclass => class extends superclass {
     const current = this.durability;
     const newDurability = current - (value - this.getDefense());
     this.durability = Math.min(current, newDurability);
-    this.renderer.sprite = this.durability;
-    this.renderer.character = this.durability;
-    this.game.draw();
+    this.updateActorRenderer();
     if (this.durability <= 0) {
-      this.onDestroy();
+      this.onDestroy(this);
       this.destroy();
     }
   }
   increaseDurability(value) {
     this.durability += value;
+    this.updateActorRenderer();
+  }
+  updateActorRenderer() {
+    if (this.durability === this.durabilityMax) {
+      this.renderer.sprite = this.actorSprite;
+      this.renderer.character = this.actorCharacter;
+    } else {
+      this.renderer.sprite = this.durability;
+      this.renderer.character = this.durability;
+    }
+    this.game.draw();
   }
   destroy() {
     destroyEntity(this);

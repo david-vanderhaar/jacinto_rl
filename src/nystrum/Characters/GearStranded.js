@@ -1,5 +1,6 @@
 // import deps
 import * as Constant from '../constants';
+import { UpgradeResource } from '../Actions/ActionResources/UpgradeResource';
 import { Player } from '../Entities/index';
 import { ContainerSlot } from '../Entities/Containing';
 import {Say} from '../Actions/Say';
@@ -10,12 +11,13 @@ import {OpenInventory} from '../Actions/OpenInventory';
 import {OpenUpgrades} from '../Actions/OpenUpgrades';
 import {Upgrade} from '../Entities/Upgradable';
 import {PickupAllItems} from '../Actions/PickupAllItems';
-import { Lancer } from '../Items/Weapons/Lancer';
-import { Snub } from '../Items/Weapons/Snub';
+import { Longshot } from '../Items/Weapons/Longshot';
+import { Boltok } from '../Items/Weapons/Boltok';
 import { Grenade } from '../Items/Weapons/Grenade';
 import { Ammo } from '../Items/Pickups/Ammo';
 import {COLORS} from '../Modes/Jacinto/theme';
 import { Reload } from '../Actions/Reload';
+import { AddSprintStatusEffect } from '../Actions/AddSprintStatusEffect';
 
 export default function (engine) {
   // define keymap
@@ -102,11 +104,6 @@ export default function (engine) {
         game: engine.game,
         actor,
       }),
-      // o: () => new OpenEquipment({
-      //   label: 'Equipment',
-      //   game: engine.game,
-      //   actor,
-      // }),
       u: () => new OpenUpgrades({
         label: 'Upgrade',
         game: engine.game,
@@ -123,10 +120,22 @@ export default function (engine) {
         game: engine.game,
         actor,
         passThroughEnergyCost: Constant.ENERGY_THRESHOLD,
-      })
+      }),
+      // c: () => new AddSprintStatusEffect({
+      //   label: 'Sprint',
+      //   game: engine.game,
+      //   actor,
+      //   speedBuff: Constant.ENERGY_THRESHOLD * 10,
+      //   requiredResources: [
+      //     new UpgradeResource({ getResourceCost: () => 1 }),
+      //   ],
+      // }),
     };
   }
   // instantiate class
+  const primary = Longshot(engine);
+  const secondary = Boltok(engine);
+  const durability = 12;
   let actor = new Player({
     pos: { x: 23, y: 7 },
     renderer: {
@@ -135,28 +144,38 @@ export default function (engine) {
       color: COLORS.base3,
       background: COLORS.cog2,
     },
-    name: 'Gear',
-    actions: [],
-    speed: Constant.ENERGY_THRESHOLD * 4,
-    durability: 10,
+    name: 'The Stranded',
+    speed: Constant.ENERGY_THRESHOLD * 6,
+    durability,
     baseRangedAccuracy: 0,
-    baseRangedDamage: 1,
-    charge: 10,
-    upgrade_points: 0,
+    baseRangedDamage: 0,
+    attackDamage: 0,
+    upgrade_points: 10,
     upgrade_tree: [
       Upgrade({
         cost: 1,
-        name: '+5% Accuracy',
-        activate: (actor) => (actor.baseRangedAccuracy += 0.05),
+        name: '+1 Health',
+        activate: (actor) => {
+          actor.durabilityMax += 1
+          actor.increaseDurability(1)
+        },
       }),
       Upgrade({
-        cost: 2,
-        name: '+1 Actions',
+        cost: 1,
+        name: '+5% Longshot Accuracy',
+        activate: (actor) => (primary.baseRangedAccuracy += 0.05),
+      }),
+      Upgrade({
+        cost: 1,
+        name: '+5% Boltok Accuracy',
+        activate: (actor) => (secondary.baseRangedAccuracy += 0.05),
+      }),
+      Upgrade({
+        cost: 1,
+        name: 'Craft 3 Grenades',
         activate: (actor) => {
-          actor.speed += Constant.ENERGY_THRESHOLD;
-          actor.energy += Constant.ENERGY_THRESHOLD;
+          Array(3).fill('').map(() => actor.addToContainer(Grenade(engine, 6)));
         },
-        removeOnActivate: true,
       }),
     ],
     equipment: Constant.EQUIPMENT_LAYOUTS.gear(),
@@ -167,13 +186,12 @@ export default function (engine) {
   })
 
   // add default items to container
-  const ammo = Array(100).fill('').map(() => Ammo(engine));
-  const grenades = Array(4).fill('').map(() => Grenade(engine, 6));
-  const snub = Snub(engine);
+  const ammo = Array(20).fill('').map(() => Ammo(engine));
+  const grenades = Array(2).fill('').map(() => Grenade(engine, 6));
   actor.container = [
     new ContainerSlot({
-      itemType: snub.name,
-      items: [snub],
+      itemType: secondary.name,
+      items: [secondary],
     }),
     new ContainerSlot({
       itemType: ammo[0].name,
@@ -185,8 +203,7 @@ export default function (engine) {
     }),
   ]
 
-  const lancer = Lancer(engine);
-  actor.equip(lancer.equipmentType, lancer);
+  actor.equip(primary.equipmentType, primary);
 
   return actor;
 }

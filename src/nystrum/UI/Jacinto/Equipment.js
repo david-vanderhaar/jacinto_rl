@@ -7,9 +7,7 @@ import {
   GiBurningDot,
 } from "react-icons/gi";
 import {EquipItemFromContainer} from '../../Actions/EquipItemFromContainer';
-import {Reload} from '../../Actions/Reload';
 import {STAT_RENDERERS} from '../../Modes/Jacinto/theme';
-import * as Constant from '../../constants';
 
 function StatBlock({stat}) {
   const {getIcon, value, name} = stat;
@@ -95,7 +93,7 @@ const EquipmentCard = (props) => {
   if (item.hasOwnProperty('baseRangedAccuracy')) {
     stats.push({
       name: 'base accuracy',
-      value: item['baseRangedAccuracy'],
+      value: `${Math.round(item['baseRangedAccuracy'] * 100)}%`,
       renderer: STAT_RENDERERS.baseRangedAccuracy,
       getIcon: () => <GiCrosshair />,
     })

@@ -127,6 +127,8 @@ export default function (engine) {
     };
   }
   // instantiate class
+  const lancer = Lancer(engine);
+  const durability = 10;
   let actor = new Player({
     pos: { x: 23, y: 7 },
     renderer: {
@@ -135,28 +137,42 @@ export default function (engine) {
       color: COLORS.base3,
       background: COLORS.cog2,
     },
-    name: 'Gear',
+    name: 'The Scout',
     actions: [],
-    speed: Constant.ENERGY_THRESHOLD * 4,
-    durability: 10,
+    speed: Constant.ENERGY_THRESHOLD * 8,
+    durability,
+    attackDamage: 0,
     baseRangedAccuracy: 0,
-    baseRangedDamage: 1,
-    charge: 10,
-    upgrade_points: 0,
+    baseRangedDamage: 0,
+    upgrade_points: 10,
     upgrade_tree: [
       Upgrade({
         cost: 1,
-        name: '+5% Accuracy',
-        activate: (actor) => (actor.baseRangedAccuracy += 0.05),
+        name: '+1 Health',
+        activate: (actor) => {
+          actor.durabilityMax += 1
+          actor.increaseDurability(1)
+        },
+      }),
+      // Upgrade({
+      //   cost: 1,
+      //   name: 'Full Health',
+      //   canUpgrade: (actor) => actor.durability < actor.durabilityMax,
+      //   activate: (actor) => (actor.increaseDurability(actor.durabilityMax - actor.durability)),
+      // }),
+      Upgrade({
+        cost: 1,
+        name: '+5% Lancer Accuracy',
+        activate: (actor) => (lancer.baseRangedAccuracy += 0.1),
       }),
       Upgrade({
-        cost: 2,
+        cost: 3,
         name: '+1 Actions',
         activate: (actor) => {
           actor.speed += Constant.ENERGY_THRESHOLD;
           actor.energy += Constant.ENERGY_THRESHOLD;
         },
-        removeOnActivate: true,
+        // removeOnActivate: true,
       }),
     ],
     equipment: Constant.EQUIPMENT_LAYOUTS.gear(),
@@ -167,7 +183,7 @@ export default function (engine) {
   })
 
   // add default items to container
-  const ammo = Array(100).fill('').map(() => Ammo(engine));
+  const ammo = Array(30).fill('').map(() => Ammo(engine));
   const grenades = Array(4).fill('').map(() => Grenade(engine, 6));
   const snub = Snub(engine);
   actor.container = [
@@ -185,7 +201,6 @@ export default function (engine) {
     }),
   ]
 
-  const lancer = Lancer(engine);
   actor.equip(lancer.equipmentType, lancer);
 
   return actor;

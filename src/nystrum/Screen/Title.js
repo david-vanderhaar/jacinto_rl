@@ -38,7 +38,7 @@ class Title extends React.Component {
               this.props.setActiveScreen(SCREENS.CHARACTER_SELECT)
             }}
           >
-            Enter Jacinto
+            Defend Jacinto
           </button>
           <h2 className="Title__header"><GiStarSkull /></h2>
         </div>

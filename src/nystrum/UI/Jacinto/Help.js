@@ -21,9 +21,9 @@ function Help(props) {
           <div className="col s12 m6">
             <div className="Jacinto_Help__section_header">Hints</div>
             <div className="Jacinto_Help__section_body">
-              <div>Stay in cover.</div>
               <div>Destroy <span className="red-text">Emergence Holes</span> ASAP.</div>
-              <div>Spend <span className="blue-text">Upgrade Points</span></div>
+              <div>Spend <span className="blue-text">Upgrade Points</span>.</div>
+              <div>Weapon <span className="blue-text">accuracy</span> decreases over distance.</div>
             </div>
           </div>
         </div>
