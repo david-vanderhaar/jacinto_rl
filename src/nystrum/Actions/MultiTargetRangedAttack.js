@@ -22,6 +22,15 @@ export class MultiTargetRangedAttack extends Base {
         }),
       };
     }
+    const weapons = this.actor.getEquipedWeapons();
+    if (weapons.length > 0) {
+      if (weapons[0].magazine <= 0) {
+        return {
+          success,
+          alternative,
+        };
+      }
+    }
     let particlePath = [];
     let particlePos = { x: this.actor.pos.x, y: this.actor.pos.y };
     let renderer = this.particleTemplate.renderer;

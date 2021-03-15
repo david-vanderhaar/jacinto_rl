@@ -110,7 +110,7 @@ export const RangedAttacking = superclass => class extends superclass {
     if (this.entityTypes.includes('CONTAINING')) {
       this.getEquipedWeapons().forEach((weapon) => {
         const amount = weapon.magazineSize - weapon.magazine;
-        for (let i = 0; i <= amount; i++) {
+        for (let i = 0; i < amount; i++) {
           let ammo = this.contains('Ammo');
           if (ammo) {
             this.removeFromContainer(ammo);

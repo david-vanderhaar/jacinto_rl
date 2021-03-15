@@ -144,7 +144,7 @@ export default function (engine) {
     attackDamage: 0,
     baseRangedAccuracy: 0,
     baseRangedDamage: 0,
-    upgrade_points: 10,
+    upgrade_points: 0,
     upgrade_tree: [
       Upgrade({
         cost: 1,
@@ -154,25 +154,25 @@ export default function (engine) {
           actor.increaseDurability(1)
         },
       }),
-      // Upgrade({
-      //   cost: 1,
-      //   name: 'Full Health',
-      //   canUpgrade: (actor) => actor.durability < actor.durabilityMax,
-      //   activate: (actor) => (actor.increaseDurability(actor.durabilityMax - actor.durability)),
-      // }),
       Upgrade({
         cost: 1,
         name: '+5% Lancer Accuracy',
         activate: (actor) => (lancer.baseRangedAccuracy += 0.1),
       }),
       Upgrade({
-        cost: 3,
+        cost: 2,
         name: '+1 Actions',
         activate: (actor) => {
           actor.speed += Constant.ENERGY_THRESHOLD;
           actor.energy += Constant.ENERGY_THRESHOLD;
         },
         // removeOnActivate: true,
+      }),
+      Upgrade({
+        cost: 3,
+        name: 'Full Health',
+        canUpgrade: (actor) => actor.durability < actor.durabilityMax,
+        activate: (actor) => (actor.increaseDurability(actor.durabilityMax - actor.durability)),
       }),
     ],
     equipment: Constant.EQUIPMENT_LAYOUTS.gear(),

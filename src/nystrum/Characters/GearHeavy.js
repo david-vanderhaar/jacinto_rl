@@ -152,7 +152,7 @@ export default function (engine) {
     baseRangedAccuracy: 0,
     baseRangedDamage: 0,
     attackDamage: 0,
-    upgrade_points: 10,
+    upgrade_points: 0,
     upgrade_tree: [
       Upgrade({
         cost: 1,
@@ -164,8 +164,8 @@ export default function (engine) {
       }),
       Upgrade({
         cost: 1,
-        name: '+1 Melee Damage',
-        activate: (actor) => (primary.attackDamage += 1),
+        name: '+2 Melee Damage',
+        activate: (actor) => (primary.attackDamage += 2),
       }),
       Upgrade({
         cost: 3,

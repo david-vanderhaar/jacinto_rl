@@ -9,7 +9,7 @@ export const Boltok = (engine, pos) => new RangedWeapon({
   attackRange: 4,
   magazineSize: 2,
   baseRangedAccuracy: 0.8,
-  baseRangedDamage: 2,
+  baseRangedDamage: 3,
   attackDamage: 1,
   pos,
   // shapePattern: Constant.CLONE_PATTERNS.square,

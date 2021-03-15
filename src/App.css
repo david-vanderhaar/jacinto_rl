@@ -56,7 +56,7 @@
 
 .CharacterSelect__button {
   display: block;
-  /* margin: auto; */
+  margin: 20px 0;
   width: 300px;
 }
 
@@ -223,6 +223,10 @@
   border: 2px solid #424242;
   box-shadow: 3px 3px #424242;
   border-radius: 5px;
+}
+
+.Jacinto_Help {
+  width: 50%;
 }
 
 .Jacinto_Help .modal-content, 

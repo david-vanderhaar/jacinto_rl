@@ -23,15 +23,47 @@ export class Jacinto extends Mode {
     };
     this.dataByLevel = [
       {
-        enemies: Array(1).fill('Bandit'),
-        emergenceHoles: 0,
+        enemies: Array(4).fill('Grub'),
+        emergenceHoles: 1,
         ammoLoot: 2,
         grenadeLoot: 1,
       },
-      // {
-      //   enemies: Array(10).fill('Bandit'),
-      //   emergenceHoles: 4,
-      // },
+      {
+        enemies: Array(6).fill('Grub'),
+        emergenceHoles: 3,
+        ammoLoot: 1,
+        grenadeLoot: 0,
+      },
+      {
+        enemies: Array(12).fill('Grub'),
+        emergenceHoles: 0,
+        ammoLoot: 3,
+        grenadeLoot: 1,
+      },
+      {
+        enemies: [],
+        emergenceHoles: 5,
+        ammoLoot: 2,
+        grenadeLoot: 0,
+      },
+      {
+        enemies: Array(10).fill('Grub'),
+        emergenceHoles: 4,
+        ammoLoot: 1,
+        grenadeLoot: 0,
+      },
+      {
+        enemies: [],
+        emergenceHoles: 12,
+        ammoLoot: 20,
+        grenadeLoot: 5,
+      },
+      {
+        enemies: [...Array(4).fill('Grub'), 'Skorge'],
+        emergenceHoles: 6,
+        ammoLoot: 20,
+        grenadeLoot: 2,
+      },
     ]
   }
 
@@ -64,6 +96,7 @@ export class Jacinto extends Mode {
     );
     generateBuilding(this.game.map, 10, 10, 2, 4);
     generateBuilding(this.game.map, 20, 5, 6, 4);
+    generateBuilding(this.game.map, 30, 5, 10, 4);
 
     this.placePlayersInSafeZone();
     const player = this.game.getFirstPlayer();
@@ -78,7 +111,7 @@ export class Jacinto extends Mode {
       this[`add${enemyName}`]({ x: posXY[0], y: posXY[1] });
     })
 
-    for (let index = 0; index < 20; index++) {
+    for (let index = 0; index < 40; index++) {
       let pos = Helper.getRandomInArray(groundTiles);
       let posXY = pos.split(',').map((coord) => parseInt(coord));
       this.addCover({ x: posXY[0], y: posXY[1] });
@@ -271,7 +304,7 @@ export class Jacinto extends Mode {
   }
 
   addAmmoLoot (pos) {
-    this.createAmmoStack(10, pos).forEach((entity) => {
+    this.createAmmoStack(5, pos).forEach((entity) => {
       this.game.placeActorOnMap(entity)
     })
   }
@@ -349,6 +382,20 @@ export class Jacinto extends Mode {
         entityClass: RangedBandit
       },
       {
+        name: 'Grub Scout',
+        renderer: {
+          character: Helper.getRandomInArray(['s']),
+          color: COLORS.flesh1,
+          background: COLORS.flesh2,
+          sprite: '',
+          // sprite: '',
+        },
+        durability: 1,
+        attackDamage: 1,
+        speed: 500,
+        entityClass: RangedBandit
+      },
+      {
         name: 'Wretch',
         renderer: {
           character: Helper.getRandomInArray(['w']),
@@ -361,11 +408,24 @@ export class Jacinto extends Mode {
         speed: 500,
         entityClass: Bandit
       },
+      {
+        name: 'Big Grub',
+        renderer: {
+          character: Helper.getRandomInArray(['B']),
+          color: COLORS.locust2,
+          background: COLORS.flesh1,
+          sprite: '',
+        },
+        durability: 4,
+        attackDamage: 3,
+        speed: 100,
+        entityClass: Bandit
+      },
     ]
     return Helper.getRandomInArray(banditLevels);
   }
 
-  addBandit (pos) {
+  addGrub (pos) {
     let players = this.getPlayers()
     let targetEntity = players[0]
     const banditStats = this.getBanditStats();
@@ -395,6 +455,33 @@ export class Jacinto extends Mode {
     if (this.game.placeActorOnMap(entity)) {
       this.game.engine.addActor(entity);
       // this.game.draw();
+    };
+  }
+  
+  addSkorge (pos) {
+    let players = this.getPlayers()
+    let targetEntity = players[0]
+    let entity = new Bandit({
+      targetEntity,
+      pos,
+      renderer: {
+        sprite: '',
+        character: 'S',
+        color: COLORS.flesh1,
+        background: COLORS.base04,
+      },
+      name: 'Skorge',
+      game: this.game,
+      attackDamage: 8,
+      durability: 40,
+      speed: Constant.ENERGY_THRESHOLD * 5,
+      faction: 'LOCUST',
+      // directional projectile destruction breaks engine
+      // getProjectile: ({ pos, targetPos, direction, range }) => Item.directionalKunai(this.game.engine, { ...pos }, direction, range)
+      // getProjectile: ({ pos, targetPos, direction, range }) => Item.kunai(game.engine, { ...pos }, { ...targetPos })
+    })
+    if (this.game.placeActorOnMap(entity)) {
+      this.game.engine.addActor(entity);
     };
   }
 

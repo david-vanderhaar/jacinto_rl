@@ -150,7 +150,7 @@ export default function (engine) {
     baseRangedAccuracy: 0,
     baseRangedDamage: 0,
     attackDamage: 0,
-    upgrade_points: 10,
+    upgrade_points: 0,
     upgrade_tree: [
       Upgrade({
         cost: 1,
@@ -176,6 +176,12 @@ export default function (engine) {
         activate: (actor) => {
           Array(3).fill('').map(() => actor.addToContainer(Grenade(engine, 6)));
         },
+      }),
+      Upgrade({
+        cost: 3,
+        name: 'Full Health',
+        canUpgrade: (actor) => actor.durability < actor.durabilityMax,
+        activate: (actor) => (actor.increaseDurability(actor.durabilityMax - actor.durability)),
       }),
     ],
     equipment: Constant.EQUIPMENT_LAYOUTS.gear(),
