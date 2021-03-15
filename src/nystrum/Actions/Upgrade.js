@@ -1,5 +1,6 @@
 import * as Helper from '../../helper';
 import { Base } from './Base';
+import SOUNDS from '../sounds';
 
 export class Upgrade extends Base {
   constructor({ upgrade, ...args }) {
@@ -25,6 +26,7 @@ export class Upgrade extends Base {
           y: -1 * Math.sign(pos.y - this.actor.pos.y)
         });
       });
+      SOUNDS.save.play();
     }
     return {
       success,

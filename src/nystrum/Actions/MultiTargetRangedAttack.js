@@ -1,5 +1,6 @@
 import { Base } from './Base';
 import { Say } from './Say';
+import SOUNDS from '../sounds';
 import * as Constant from '../constants';
 import * as Helper from '../../helper';
 
@@ -40,6 +41,7 @@ export class MultiTargetRangedAttack extends Base {
       if (attackSuccess) {
         success = true;
         if (!hit) {
+          SOUNDS.release_0.play();
           success = true;
           this.addParticle(
             1,
@@ -48,6 +50,8 @@ export class MultiTargetRangedAttack extends Base {
             Constant.PARTICLE_TEMPLATES.fail.renderer,
           );
         } else {
+          const sound = Helper.getRandomInArray([SOUNDS.chop_0, SOUNDS.chop_1]);
+          sound.play();
           this.addParticle(
             particlePath.length + 1,
             particlePos,
