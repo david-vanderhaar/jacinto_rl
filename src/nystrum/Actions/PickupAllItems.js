@@ -1,6 +1,7 @@
 import { MESSAGE_TYPE } from '../message';
 import { Base } from './Base';
 import * as Helper from '../../helper';
+import SOUNDS from '../sounds';
 
 export class PickupAllItems extends Base {
   constructor({ ...args }) {
@@ -18,7 +19,8 @@ export class PickupAllItems extends Base {
         this.game.map[Helper.coordsToString(this.actor.pos)].entities = entities.filter((it) => it.id !== item.id);
         success = true;
       });
-    } 
+      SOUNDS.grab_0.play();
+    }
     return {
       success,
       alternative: null,

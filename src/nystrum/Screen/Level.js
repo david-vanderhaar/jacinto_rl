@@ -9,6 +9,7 @@ import Inventory from '../UI/Inventory';
 // import KeymapUI from '../UI/Keymap';
 import KeymapUI from '../UI/ActionBar';
 import Messages from '../UI/Messages';
+import InfoBlocks from '../UI/InfoBlocks';
 import Equipment from '../UI/Jacinto/Equipment';
 import Help from '../UI/Jacinto/Help';
 
@@ -69,6 +70,7 @@ class Level extends React.Component {
           </div>
           <div className='col s2'>
             <Equipment game={this.state.game} player={this.state.game.getFirstPlayer()} />
+            <InfoBlocks game={this.state.game} />
             {/* <Messages messages={this.state.game.messages.slice(-5).reverse()} /> */}
             {/* <Inventory inventory={this.state.game.visibleInventory} /> */}
           </div>

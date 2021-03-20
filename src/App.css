@@ -225,18 +225,23 @@
   border-radius: 5px;
 }
 
+
 .Jacinto_Help {
   width: 50%;
 }
 
-.Jacinto_Help .modal-content, 
-.Jacinto_Help .modal-footer {
-  background-color: #07111Dff;
+.modal > .Jacinto_Help {
+  width: auto;
+}
+
+.modal-content, 
+.modal-footer {
+  background-color: #07111Dff !important;
   color: #E19D3Fff;
 }
 
 
-.Jacinto_Help .modal-footer .modal-close {
+.modal-footer .modal-close {
   color: #E19D3Fff;
 }
 
@@ -406,6 +411,11 @@
   display: inline-block;
   margin: 0 12px 0 0;
   text-align: center;
+}
+
+.Instructions__block--Jacinto {
+  background-color: #07111Dff !important;
+  color: #E19D3Fff;
 }
 
 .Instructions__block .btn-main {

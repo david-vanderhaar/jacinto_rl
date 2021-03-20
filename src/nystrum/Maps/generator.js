@@ -201,7 +201,7 @@ const addInnerWalls = (map, count = 2) => {
     const neighbors = getNeighboringPoints(coords, false).filter((point) => {
       let t = map[Helper.coordsToString(point)];
       if (t) {
-        if (['GROUND'].includes(t.type)) {
+        if (['GROUND', 'GROUND_ALT'].includes(t.type)) {
           return true;
         }
       }
@@ -253,7 +253,7 @@ const addInnerWalls = (map, count = 2) => {
         previousFloorPositions.push({...currentPosition})
         // console.log(previousFloorPositions.length);
         
-      } else if (tile.type === 'GROUND' || (tile.type === 'WALL' && previousFloorPositions.length)) {
+      } else if (['GROUND', 'GROUND_ALT'].includes(tile.type) || (tile.type === 'WALL' && previousFloorPositions.length)) {
         // go back two and make FLOOR
         let prevPos = {
           x: currentPosition.x - (direction.x * 2),

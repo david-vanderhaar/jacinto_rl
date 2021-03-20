@@ -46,6 +46,13 @@ export const TILE_KEY = {
     sprite: '',
     passable: true,
   },
+  'GROUND_ALT': {
+    background: COLORS.base03,
+    foreground: COLORS.base01,
+    character: '',
+    sprite: '',
+    passable: true,
+  },
   'EMERGENCE_DESTROYED': {
     background: COLORS.base04,
     foreground: COLORS.locust0,

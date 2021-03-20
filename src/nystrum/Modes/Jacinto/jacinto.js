@@ -84,16 +84,6 @@ export class Jacinto extends Mode {
       this.game.mapHeight,
       this.game.mapWidth,
     );
-    MapHelper.addTileZone(
-      this.game.tileKey,
-      { x: this.game.mapWidth - 3, y: 0 },
-      this.game.mapHeight,
-      3,
-      'LOCKED_EXIT',
-      this.game.map,
-      this.game.mapHeight,
-      this.game.mapWidth,
-    );
     generateBuilding(this.game.map, 10, 10, 2, 4);
     generateBuilding(this.game.map, 20, 5, 6, 4);
     generateBuilding(this.game.map, 30, 5, 10, 4);
@@ -144,21 +134,17 @@ export class Jacinto extends Mode {
   }
 
   updateUI() {
-    _.each(this.getPlayers(), (player, index) => {
-      const currentBlips = Math.floor(player.energy / 100);
-      const maxBlips = Math.floor(player.speed / 100);
-      const arr = [
-        ...Array(currentBlips).fill(''),
-        ...Array(maxBlips - currentBlips).fill('_'),
-      ];
-      this.createOrUpdateInfoBlock(`playerSpeed${player.id}`, { text: `${player.name} | AP: ${arr.join(' ')}` })
-      // this.createOrUpdateInfoBlock(`playerSpeed`, { text: `AP: ${player.energy}/${player.speed}` })
-    })
+    this.createOrUpdateInfoBlock(
+      'gameProgress',
+      { 
+        text: `${this.data.level - 1} of  ${this.dataByLevel.length} city blocks cleared.` 
+      }
+    );
   }
 
   update () {
     super.update();
-    // this.updateUI();
+    this.updateUI();
     if (this.hasWon()) {
       this.game.toWin()
     }

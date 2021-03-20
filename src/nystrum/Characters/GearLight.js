@@ -156,7 +156,7 @@ export default function (engine) {
       }),
       Upgrade({
         cost: 1,
-        name: '+5% Lancer Accuracy',
+        name: '+10% Lancer Accuracy',
         activate: (actor) => (lancer.baseRangedAccuracy += 0.1),
       }),
       Upgrade({

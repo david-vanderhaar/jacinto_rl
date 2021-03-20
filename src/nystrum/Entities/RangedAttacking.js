@@ -136,11 +136,11 @@ export const RangedAttacking = superclass => class extends superclass {
       const hitChance = attackChance + additionalAccuracy;
       hit = Math.random() < hitChance;
       // TODO: trigger hit and miss animations
+      this.useAmmo();
       if (!hit) {
         success = true;
         return [success, hit];
       }
-      this.useAmmo();
       let target = targets[0];
       if (this.canRangedAttack(target)) {
         let damage = this.getRangedAttackDamage(additionalDamage);

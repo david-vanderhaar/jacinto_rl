@@ -76,6 +76,7 @@ export class PrepareDirectionalThrow extends Base {
             projectile.direction = DIRECTIONS.N;
           },
           onSuccess: () => {
+            this.actor.deactivateCursor()
             this.actor.setNextAction(goToPreviousKeymap);
           },
         })
@@ -93,6 +94,7 @@ export class PrepareDirectionalThrow extends Base {
             projectile.direction = DIRECTIONS.E;
           },
           onSuccess: () => {
+            this.actor.deactivateCursor()
             this.actor.setNextAction(goToPreviousKeymap);
           },
         })
@@ -110,6 +112,7 @@ export class PrepareDirectionalThrow extends Base {
             projectile.direction = DIRECTIONS.S;
           },
           onSuccess: () => {
+            this.actor.deactivateCursor()
             this.actor.setNextAction(goToPreviousKeymap);
           },
         })
@@ -127,6 +130,7 @@ export class PrepareDirectionalThrow extends Base {
             projectile.direction = DIRECTIONS.W;
           },
           onSuccess: () => {
+            this.actor.deactivateCursor()
             this.actor.setNextAction(goToPreviousKeymap);
           },
         })
