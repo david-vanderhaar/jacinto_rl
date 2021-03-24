@@ -121,6 +121,17 @@ export const getPointsOnCircumference = (centerX = 0, centerY = 0, r = 3) => {
   return list
 }
 
+export const getPointsWithinRadius = (position, radius) => {
+  let positions = [];
+  for (let x = position.x - radius; x < position.x + radius; x++) {
+    let yspan = Math.round(radius * Math.sin(Math.acos((position.x - x) / radius)));
+    for (let y = position.y - yspan; y < position.y + yspan; y++) {
+      positions.push({x, y})
+    }
+  }
+  return positions;
+}
+
 export const getPositionsFromStructure = (structure, initialPosition) => {
   return structure.positions.map((slot) => {
     let position = {

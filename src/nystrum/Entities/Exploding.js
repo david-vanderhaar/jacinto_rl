@@ -38,12 +38,11 @@ export const Exploding = superclass => class extends superclass {
     });
   }
   explode() {
+    const positions = Helper.getPointsWithinRadius({ x: 0, y: 0 }, this.explosivity)
     let structure = {
       x_offset: 0,
       y_offset: 0,
-      positions: Array(this.explosivity).fill('').reduce((acc, curr, i) => {
-        return acc.concat(...Helper.getPointsOnCircumference(0, 0, i + 1));
-      }, [])
+      positions
     };
     structure.positions.forEach((slot) => {
       let position = {
@@ -53,7 +52,9 @@ export const Exploding = superclass => class extends superclass {
       const tile = this.game.map[Helper.coordsToString(position)];
       if (tile) {
         tile.type =  'BURNT';
-        let targets = Helper.getDestructableEntities(tile.entities);
+        let targets = Helper.getDestructableEntities(tile.entities.filter(
+          (entity) => entity.id !== this.id
+        ));
         if (targets.length > 0) {
           // let target = targets[0];
           targets.forEach((target) => {

@@ -183,7 +183,7 @@ export default function (engine) {
 
   // add default items to container
   const ammo = Array(10).fill('').map(() => Ammo(engine));
-  const grenades = Array(2).fill('').map(() => Grenade(engine, 6));
+  const grenades = Array(2).fill('').map(() => Grenade(engine, 12));
   const secondary = Gnasher(engine);
   actor.container = [
     new ContainerSlot({
