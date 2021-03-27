@@ -33,8 +33,6 @@ export class PrepareDirectionalThrow extends Base {
       y: this.actor.pos.y,
     };
 
-    this.actor.removeFromContainer(projectile);
-
     const pos = this.actor.getPosition();
     // tackle in 4 directions a sfar as the actor has energy
     let cursor_positions = [];
@@ -81,6 +79,7 @@ export class PrepareDirectionalThrow extends Base {
           },
           onSuccess: () => {
             this.actor.deactivateCursor()
+            this.actor.removeFromContainer(projectile);
             this.actor.setNextAction(goToPreviousKeymap);
           },
         })
@@ -99,6 +98,7 @@ export class PrepareDirectionalThrow extends Base {
           },
           onSuccess: () => {
             this.actor.deactivateCursor()
+            this.actor.removeFromContainer(projectile);
             this.actor.setNextAction(goToPreviousKeymap);
           },
         })
@@ -117,6 +117,7 @@ export class PrepareDirectionalThrow extends Base {
           },
           onSuccess: () => {
             this.actor.deactivateCursor()
+            this.actor.removeFromContainer(projectile);
             this.actor.setNextAction(goToPreviousKeymap);
           },
         })
@@ -135,6 +136,7 @@ export class PrepareDirectionalThrow extends Base {
           },
           onSuccess: () => {
             this.actor.deactivateCursor()
+            this.actor.removeFromContainer(projectile);
             this.actor.setNextAction(goToPreviousKeymap);
           },
         })

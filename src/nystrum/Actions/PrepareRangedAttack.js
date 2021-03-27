@@ -57,13 +57,42 @@ export class PrepareRangedAttack extends Base {
     const pos = this.actor.getPosition();
     const range = this.actor.getAttackRange();
     const equippedWeapon = this.actor.getItemInSlot(EQUIPMENT_TYPES.HAND)
-    let positions = [{ ...pos }];
-    if (equippedWeapon) positions = equippedWeapon.getPositionsInShape(pos);
 
     const pathAnimations = [];
-    const deactivatePathAnimations = () => pathAnimations.forEach((anim) => {
+    const rangeAnims = []
+    const deactivateAnimations = (anims) => anims.forEach((anim) => {
       this.game.display.removeAnimation(anim.id);
     })
+
+    const positionsInRange = Helper.getPointsWithinRadius(pos, range).filter((pose) => (pose.x !== pos.x || pose.y !== pos.y));
+
+    let targets = [];
+    let targetIndex = 0;
+    positionsInRange.forEach((position) => {
+      // rangeAnims.push(this.game.display.addAnimation(1, {
+      //   x: position.x,
+      //   y: position.y,
+      //   color: THEMES.SOLARIZED.blue
+      // }))
+      let tile = this.game.map[Helper.coordsToString(position)];
+      if (tile) {
+        const validTargets = Helper.getDestructableEntities(tile.entities);
+        let newTarget = validTargets.length ? validTargets[0] : null;
+        if (newTarget) {
+          targets.push(newTarget);
+        }
+      }
+    })
+
+    let positions = [];
+    if (targets.length) {
+      positions.push(targets[0].getPosition());
+      if (targets.length > 1) targetIndex = 1;
+    } else {
+      positions.push({...pos})
+    }
+
+    if (equippedWeapon) positions = equippedWeapon.getPositionsInShape(positions[0]);
 
     this.actor.activateCursor(positions);
     this.updateCursors(pathAnimations, pos);
@@ -73,13 +102,46 @@ export class PrepareRangedAttack extends Base {
       game: this.game,
       onAfter: () => {
         this.actor.deactivateCursor()
-        deactivatePathAnimations()
+        deactivateAnimations(pathAnimations)
+        deactivateAnimations(rangeAnims)
       },
     })
 
     let keymap = {
       Escape: () => goToPreviousKeymap,
       
+      e: () => { 
+        return new MoveRangedAttackCursor({
+          actor: this.actor,
+          game: this.game,
+          label: 'Next Target',
+          targetPos: targets.length ? targets[targetIndex].getPosition() : null,
+          range,
+          availablePositions: positionsInRange,
+          onSuccess: () => {
+            targetIndex = (targetIndex + 1) % targets.length;
+            this.updateCursors(pathAnimations, pos);
+          },
+        })
+      },
+      q: () => { 
+        return new MoveRangedAttackCursor({
+          actor: this.actor,
+          game: this.game,
+          label: 'Previous Target',
+          targetPos: targets.length ? targets[targetIndex].getPosition() : null,
+          range,
+          availablePositions: positionsInRange,
+          onSuccess: () => {
+            if (targetIndex === 0) {
+              targetIndex = targets.length - 1
+            } else {
+              targetIndex -= 1
+            }
+            this.updateCursors(pathAnimations, pos);
+          }
+        })
+      },
       w: () => { 
         return new MoveRangedAttackCursor({
           actor: this.actor,
@@ -87,6 +149,7 @@ export class PrepareRangedAttack extends Base {
           label: 'move N',
           direction: DIRECTIONS.N,
           range,
+          availablePositions: positionsInRange,
           onSuccess: () => {
             this.updateCursors(pathAnimations, pos);
           }
@@ -99,6 +162,7 @@ export class PrepareRangedAttack extends Base {
           label: 'move W',
           direction: DIRECTIONS.W,
           range,
+          availablePositions: positionsInRange,
           onSuccess: () => {
             this.updateCursors(pathAnimations, pos);
           }
@@ -111,6 +175,7 @@ export class PrepareRangedAttack extends Base {
           label: 'move S',
           direction: DIRECTIONS.S,
           range,
+          availablePositions: positionsInRange,
           onSuccess: () => {
             this.updateCursors(pathAnimations, pos);
           }
@@ -123,6 +188,7 @@ export class PrepareRangedAttack extends Base {
           label: 'move E',
           direction: DIRECTIONS.E,
           range,
+          availablePositions: positionsInRange,
           onSuccess: () => {
             this.updateCursors(pathAnimations, pos);
           }
@@ -138,7 +204,8 @@ export class PrepareRangedAttack extends Base {
           requiredResources: this.passThroughRequiredResources,
           onSuccess: () => {
             this.actor.deactivateCursor();
-            deactivatePathAnimations();
+            deactivateAnimations(pathAnimations);
+            deactivateAnimations(rangeAnims);
             this.actor.setNextAction(goToPreviousKeymap);
           }
         })

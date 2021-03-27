@@ -70,6 +70,21 @@ export const HasTargetingCursor = superclass => class extends superclass {
     this.addAnimations();
   }
 
+  moveCursorToPosition (position) {
+    const currentPositions = this.getCursorPositions()
+    const xDelta = position.x - currentPositions[0].x;
+    const yDelta = position.y - currentPositions[0].y;
+    const newPositons = currentPositions.map(
+      (pos) => ({
+        x: pos.x + xDelta,
+        y: pos.y + yDelta
+      })
+    );
+    this.setCursorPositions(newPositons);
+    this.resetAnimations();
+    return newPositons;
+  }
+
   moveCursorInDirection (direction, distance = 1) {
     const newPositons = this.getCursorPositions().map(
       (pos) => ({
