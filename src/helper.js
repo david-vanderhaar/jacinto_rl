@@ -110,6 +110,27 @@ const getGranularity = (radius) => {
   return result
 }
 
+export const getNeighboringTiles = (map, pos) => {
+  const neigborPositions = [
+    { x: 0, y: 1},
+    { x: 1, y: 1},
+    { x: 1, y: 0},
+    { x: 1, y: -1},
+    { x: 0, y: -1},
+    { x: -1, y: -1},
+    { x: -1, y: 0},
+    { x: -1, y: 1},
+  ];
+
+  return neigborPositions.map((point) => {
+    const newPos = { x: pos.x + point.x, y: pos.y + point.y};
+    let newTile = map[coordsToString(newPos)];
+    if (newTile) {
+      return newTile
+    }
+  }).filter((item) => Boolean(item));
+}
+
 export const getPointsOnCircumference = (centerX = 0, centerY = 0, r = 3) => {
   const n = getGranularity(r);
   let list = [];

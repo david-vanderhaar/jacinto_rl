@@ -39,6 +39,7 @@ import { Helpless } from './Helpless';
 import { HasKeymap } from './HasKeymap';
 import { Upgradable } from './Upgradable';
 import { HasFaction } from './HasFaction';
+import { UsesCover } from './UsesCover';
 
 export const UI_Actor = pipe(
   Acting,
@@ -108,6 +109,7 @@ export const Bandit = pipe(
   Attacking,
   Pushable,
   HasFaction,
+  UsesCover,
 )(Entity);
 
 export const RangedBandit = pipe(
@@ -118,6 +120,7 @@ export const RangedBandit = pipe(
   Attacking,
   Pushable,
   HasFaction,
+  UsesCover,
 )(Entity);
 
 export const Player = pipe(
@@ -139,6 +142,7 @@ export const Player = pipe(
   Burnable,
   Upgradable,
   HasFaction,
+  UsesCover,
 )(Entity);
 
 export const Weapon = pipe(

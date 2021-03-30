@@ -1,3 +1,5 @@
+import { ANIMATION_TYPES } from '../Display/konvaCustom';
+
 export const Covering = superclass => class extends superclass {
   constructor({ accuracyModifer = 0, damageModifer = 0, ...args }) {
     super({ ...args });
@@ -6,4 +8,9 @@ export const Covering = superclass => class extends superclass {
     this.accuracyModifer = accuracyModifer;
     this.damageModifer = damageModifer;
   }
+
+  isProvidingCover () {
+    return this.providesCover && (this.accuracyModifer < 0 || this.damageModifer < 0);
+  }
+
 };

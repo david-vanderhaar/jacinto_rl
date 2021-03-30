@@ -16,8 +16,12 @@ import { Grenade } from '../Items/Weapons/Grenade';
 import { Ammo } from '../Items/Pickups/Ammo';
 import {COLORS} from '../Modes/Jacinto/theme';
 import { Reload } from '../Actions/Reload';
+import { AddStatusEffect } from '../Actions/AddStatusEffect';
+import {MeleeDamage} from '../StatusEffects/MeleeDamage';
+
 
 export default function (engine) {
+  const lancer = Lancer(engine);
   // define keymap
   const keymap = (engine, actor) => {
     return {
@@ -123,11 +127,31 @@ export default function (engine) {
         game: engine.game,
         actor,
         passThroughEnergyCost: Constant.ENERGY_THRESHOLD,
+      }),
+      c: () => new AddStatusEffect({
+        label: 'Rev Lancer Chainsaw',
+        game: engine.game,
+        actor,
+        energyCost: Constant.ENERGY_THRESHOLD,
+        effect: new MeleeDamage({
+          buffValue: 12,
+          game: engine.game,
+          actor: lancer, // should be weapon
+          lifespan: Constant.ENERGY_THRESHOLD * 3,
+          stepInterval: Constant.ENERGY_THRESHOLD,
+        }),
+        particleTemplate: {
+          renderer: {
+            color: '#424242',
+            background: '#e6e6e6',
+            character: ''
+          },
+        },
       })
     };
   }
   // instantiate class
-  const lancer = Lancer(engine);
+  
   const durability = 10;
   let actor = new Player({
     pos: { x: 23, y: 7 },

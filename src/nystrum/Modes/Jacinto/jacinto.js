@@ -142,8 +142,17 @@ export class Jacinto extends Mode {
     );
   }
 
+  checkCoverAnimations() {
+    this.game.engine.actors.forEach((actor) => {
+      if (actor.entityTypes.includes('USES_COVER')) {
+        if (actor.resetCoverAnimations());
+      }
+    })
+  }
+
   update () {
     super.update();
+    this.checkCoverAnimations();
     this.updateUI();
     if (this.hasWon()) {
       this.game.toWin()

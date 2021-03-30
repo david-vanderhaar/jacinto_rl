@@ -6,6 +6,7 @@ export const ANIMATION_TYPES = {
   DEFAULT: 0,
   BLINK_TILE: 1,
   SOLID_TILE: 2,
+  BLINK_BOX: 3,
 }
 
 class Animation {
@@ -54,6 +55,7 @@ class BlinkTile extends Animation {
     y,
     lerpDirection = -1,
     color = '#fff',
+    rectAttributes = {},
     ...args
   }) {
     super({ ...args });
@@ -61,6 +63,7 @@ class BlinkTile extends Animation {
     this.y = y;
     this.lerpDirection = lerpDirection;
     this.color = color;
+    this.rectAttributes = rectAttributes
   }
 
   getActive () {
@@ -69,7 +72,7 @@ class BlinkTile extends Animation {
 
   initialize () {
     this.active = true;
-    let rect = new Konva.Rect({
+    const attrs = {
       name: 'rect',
       x: (this.display.tileWidth * this.x) + (this.display.tileOffset + this.display.tileGutter),
       y: (this.display.tileHeight * this.y) + (this.display.tileOffset + this.display.tileGutter),
@@ -78,13 +81,15 @@ class BlinkTile extends Animation {
       width: this.display.tileWidth / 2,
       height: this.display.tileHeight / 2,
       fill: this.color,
-      strokeEnabled: false,
+      // strokeEnabled: false,
       // for optimization
       transformsEnabled: 'position',
       perfectDrawEnabled: false,
       listening: false,
       shadowForStrokeEnabled: false,
-    });
+      ...this.rectAttributes,
+    };
+    let rect = new Konva.Rect(attrs);
     this.display.animationLayer.add(rect);
     this.node = rect;
     super.initialize();
@@ -99,6 +104,21 @@ class BlinkTile extends Animation {
     super.update(frame);
   }
   
+}
+
+export class BlinkBox extends BlinkTile {
+  constructor({...args}) {
+    super({ ...args });
+    this.rectAttributes = {
+      fill: 'transparent',
+      stroke: args.color,
+      strokeWidth: 5,
+      offsetX: 0,
+      offsetY: 0,
+      width: this.display.tileWidth,
+      height: this.display.tileHeight,
+    }
+  }
 }
 
 export class Display {
@@ -183,6 +203,9 @@ export class Display {
         break;
       case ANIMATION_TYPES.BLINK_TILE:
         animation = new BlinkTile({display: this, ...args})
+        break;
+      case ANIMATION_TYPES.BLINK_BOX:
+        animation = new BlinkBox({display: this, ...args})
         break;
       case ANIMATION_TYPES.DEFAULT:
       default:
