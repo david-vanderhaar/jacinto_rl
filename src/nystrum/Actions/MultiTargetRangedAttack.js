@@ -1,5 +1,6 @@
 import { Base } from './Base';
 import { Say } from './Say';
+import { Reload } from './Reload';
 import SOUNDS from '../sounds';
 import * as Constant from '../constants';
 import * as Helper from '../../helper';
@@ -27,8 +28,12 @@ export class MultiTargetRangedAttack extends Base {
     if (weapons.length > 0) {
       if (weapons[0].magazine <= 0) {
         return {
-          success,
-          alternative,
+          success: true,
+          alternative: new Reload({
+            game: this.game,
+            actor: this.actor,
+            energyCost: Constant.ENERGY_THRESHOLD,
+          }),
         };
       }
     }

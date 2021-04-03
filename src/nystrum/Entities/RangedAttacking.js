@@ -24,10 +24,20 @@ export const RangedAttacking = superclass => class extends superclass {
     const path = Helper.calculateStraightPath(this.getPosition(), targetPos);
     const coverAccuracyModifer = path.reduce((acc, curr) => {
       let tile = this.game.map[Helper.coordsToString(curr)];
+      // if targeting throuh a wall, the shot is modified by -100%
       if (['WALL'].includes(tile.type)) return acc - 1;
       let entitiesProvidingCover = Helper.filterEntitiesByType(tile.entities, 'COVERING');
       let coverModifer = 0;
-      if (entitiesProvidingCover.length > 0) coverModifer = entitiesProvidingCover[0].accuracyModifer;
+      // only counts the first entity cover modifer in a tile
+      if (entitiesProvidingCover.length > 0) {
+        // if covering entity is in use by this actor, ignore it's modifer
+        if (this.entityTypes.includes('USES_COVER')) {
+          if (this.getCoveredByIds().includes(entitiesProvidingCover[0].id)) {
+            return acc;
+          }
+        }
+        coverModifer = entitiesProvidingCover[0].accuracyModifer;
+      }
       return acc + coverModifer;
     }, 0);
     return coverAccuracyModifer;

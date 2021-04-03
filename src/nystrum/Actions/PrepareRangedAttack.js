@@ -76,7 +76,8 @@ export class PrepareRangedAttack extends Base {
       // }))
       let tile = this.game.map[Helper.coordsToString(position)];
       if (tile) {
-        const validTargets = Helper.getDestructableEntities(tile.entities);
+        // const validTargets = Helper.getDestructableEntities(tile.entities);
+        const validTargets = tile.entities.filter((actor) => actor['faction'] === 'LOCUST');
         let newTarget = validTargets.length ? validTargets[0] : null;
         if (newTarget) {
           targets.push(newTarget);

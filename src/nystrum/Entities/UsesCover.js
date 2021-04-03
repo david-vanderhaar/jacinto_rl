@@ -5,11 +5,19 @@ export const UsesCover = superclass => class extends superclass {
     super({ ...args });
     this.entityTypes = this.entityTypes.concat('USES_COVER');
     this.coverAnimations = [];
+    this.showCoverAnimations = true;
+    this.coveredBy = [];
+  }
+
+  getCoveredByIds () {
+    return this.coveredBy.map((entity) => entity.id);
   }
 
   setCoverAnimations () {
     // check neigbors
+    if (!this.showCoverAnimations) return;
     const tiles = Helper.getNeighboringTiles(this.game.map, this.getPosition());
+    let coverAnimated = false;
     tiles.forEach((tile) => {
       if (tile.entities.length) {
         const entity = tile.entities[0];
@@ -25,10 +33,25 @@ export const UsesCover = superclass => class extends superclass {
               }
             );
             this.coverAnimations.push(newAnimation);
+            coverAnimated = true;
+            this.coveredBy.push(entity);
           }
         }
       }
     });
+    if (coverAnimated) {
+      //animate covered actor
+      const position = this.getPosition();
+      const newAnimation = this.game.display.addAnimation(
+        ANIMATION_TYPES.BLINK_BOX,
+        {
+          x: position.x,
+          y: position.y,
+          color: '#3e7dc9'
+        }
+      );
+      this.coverAnimations.push(newAnimation);
+    }
   }
 
   removeCoverAnimations () {
@@ -40,9 +63,21 @@ export const UsesCover = superclass => class extends superclass {
     }
   }
 
+  removeCoveredBy () {
+    this.coveredBy = [];
+  }
+
   resetCoverAnimations() {
     this.removeCoverAnimations();
+    this.removeCoveredBy();
     this.setCoverAnimations();
+  }
+
+  destroy() {
+    this.showCoverAnimations = false;
+    this.removeCoverAnimations();
+    this.removeCoveredBy();
+    super.destroy();
   }
 
 };
