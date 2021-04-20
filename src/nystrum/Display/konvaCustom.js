@@ -99,7 +99,7 @@ class BlinkTile extends Animation {
     let opacity = this.node.opacity();
     if (opacity >= 1) this.lerpDirection = -1;
     if (opacity <= 0) this.lerpDirection = 1;
-    opacity += (0.05 * this.lerpDirection)
+    opacity += (0.030 * this.lerpDirection)
     this.node.opacity(Helper.clamp(opacity, 0, 1))
     super.update(frame);
   }
@@ -145,6 +145,7 @@ export class Display {
     this.animations = [];
     this.animationLoop = null;
     this.game = game;
+    this.animationTypes = ANIMATION_TYPES;
   }
 
   initialize (document) {

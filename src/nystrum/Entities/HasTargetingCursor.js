@@ -46,7 +46,7 @@ export const HasTargetingCursor = superclass => class extends superclass {
         // if (position.x == lastPos.x && position.y == lastPos.y) nudge += nudgeInc;
         // lastPos = {...position};
         const newAnimation = this.game.display.addAnimation(
-          ANIMATION_TYPES.BLINK_TILE, 
+          ANIMATION_TYPES.BLINK_BOX, 
           {
             x: position.x, 
             y: position.y + nudge, 
@@ -97,8 +97,10 @@ export const HasTargetingCursor = superclass => class extends superclass {
     return newPositons;
   }
 
-  changeCursorColor (index, color) {
+  updateCursoNode (index, args) {
     const anim = this.animations[index];
-    anim.node.fill(color)
+    args.forEach((arg) => {
+      anim.node[arg.key](arg.value)
+    })
   }
 };

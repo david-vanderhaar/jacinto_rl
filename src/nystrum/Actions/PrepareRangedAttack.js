@@ -30,7 +30,7 @@ export class PrepareRangedAttack extends Base {
     // adding visible path to new cursor position
     path.slice(1).forEach((pathPos) => {
       if (!find(cursorPositions, {x: pathPos.x, y: pathPos.y})) {
-        const animation = this.game.display.addAnimation(1, { x: pathPos.x, y: pathPos.y, color: THEMES.SOLARIZED.base3 })
+        const animation = this.game.display.addAnimation(this.game.display.animationTypes.BLINK_TILE, { x: pathPos.x, y: pathPos.y, color: THEMES.SOLARIZED.base3 })
         pathAnimations.push(animation);
       }
     })
@@ -39,16 +39,28 @@ export class PrepareRangedAttack extends Base {
     cursorPositions.forEach((pos, i) => {
       const chance = this.actor.getRangedAttackChance(pos);
       if (chance <= 0) {
-        this.actor.changeCursorColor(i, 'transparent');
+        this.actor.updateCursoNode(i, [
+          {key: 'fill', value: 'transparent'}, 
+          {key: 'stroke', value: 'white'}, 
+        ]);
       }
       if (chance > 0 && chance <= 0.5) {
-        this.actor.changeCursorColor(i, THEMES.SOLARIZED.red);
+        this.actor.updateCursoNode(i, [
+          {key: 'fill', value: THEMES.SOLARIZED.red}, 
+          {key: 'stroke', value: 'transparent'}, 
+        ]);
       }
       if (chance > 0.5 && chance <= 0.7) {
-        this.actor.changeCursorColor(i, THEMES.SOLARIZED.yellow);
+        this.actor.updateCursoNode(i, [
+          {key: 'fill', value: THEMES.SOLARIZED.yellow}, 
+          {key: 'stroke', value: 'transparent'}, 
+        ]);
       }
       if (chance >= 0.7) {
-        this.actor.changeCursorColor(i, THEMES.SOLARIZED.green);
+        this.actor.updateCursoNode(i, [
+          {key: 'fill', value: THEMES.SOLARIZED.green}, 
+          {key: 'stroke', value: 'transparent'}, 
+        ]);
       }
     })
   }
