@@ -1,11 +1,12 @@
 import React from 'react';
 import * as ROT from 'rot-js';
+import * as _ from 'lodash';
 import * as Constant from './constants';
 import * as Helper from '../helper';
 import * as Message from './message';
 import { Display } from './Display/konvaCustom';
 import Mode from './Modes/index';
-import * as _ from 'lodash';
+import * as MapHelper from './Maps/helper';
 
 // const MAP_DATA = require('./Maps/castle.json');
 // const SOLANGE = require('./Data/solange.json');
@@ -146,25 +147,14 @@ export class Game {
     let digCallback = function (x, y, value) {      
       let key = x + "," + y;
       let type = 'GROUND';
-      let currentFrame = 0;
       if (value) { 
         type = 'WALL';
         // type = 'WATER';
       }
-
-      if (this.tileKey[type].animation) {
-        currentFrame = Helper.getRandomInt(0, this.tileKey[type].animation.length)
-      }
-
-      this.map[key] = {
-        type,
-        currentFrame,
-        entities: [],
-      };
+      MapHelper.addTileToMap({map: this.map, key, tileKey: this.tileKey, tileType: type})
       freeCells.push(key);
     }
     digger.create(digCallback.bind(this));
-    this.randomlyPlaceAllActorsOnMap()
   }
 
   createEmptyLevel () {
@@ -173,17 +163,7 @@ export class Game {
         const key = `${j},${i}`
         // let type = 'GROUND';
         let type = Helper.getRandomInArray(['GROUND', 'GROUND_ALT', 'GROUND_ALT', 'GROUND_ALT']);
-        let currentFrame = 0;
-
-        if (this.tileKey[type].animation) {
-          currentFrame = Helper.getRandomInt(0, this.tileKey[type].animation.length)
-        }
-
-        this.map[key] = {
-          type,
-          currentFrame,
-          entities: [],
-        };
+        MapHelper.addTileToMap({map: this.map, key, tileKey: this.tileKey, tileType: type})
       }
     }
   }
@@ -192,24 +172,11 @@ export class Game {
     Object.keys(data.tiles).forEach((key, i) => {
       const tile = data.tiles[key];
       let type = tile.data.type;
-      let currentFrame = 0;
       if (!type) {
         type = 'GROUND';
       }
-
-      if (this.tileKey[type].animation) {
-        currentFrame = Helper.getRandomInt(0, this.tileKey[type].animation.length)
-      }
-
-    
-      this.map[key] = {
-        type,
-        currentFrame,
-        entities: [],
-      };
+      MapHelper.addTileToMap({map: this.map, key, tileKey: this.tileKey, tileType: type})
     })
-
-    // this.placeInitialEntities();
   }
 
   canOccupyPosition (pos, entity = {passable: false}) {

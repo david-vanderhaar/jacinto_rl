@@ -11,7 +11,7 @@ import * as _ from 'lodash';
 import {COLORS, TILE_KEY} from './theme';
 import { Ammo } from '../../Items/Pickups/Ammo';
 import { Grenade } from '../../Items/Weapons/Grenade';
-
+const MAP_DATA = require('../../Maps/castle.json');
 
 export class Jacinto extends Mode {
   constructor({ ...args }) {
@@ -72,7 +72,8 @@ export class Jacinto extends Mode {
     this.game.tileKey = TILE_KEY
     this.game.createEmptyLevel();
     this.game.initializeMapTiles();
-    
+    // this.game.createCustomLevel(MAP_DATA);
+
     this.setWaveData();
     MapHelper.addTileZone(
       this.game.tileKey,

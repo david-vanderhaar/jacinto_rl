@@ -51,7 +51,7 @@ export const Exploding = superclass => class extends superclass {
       };
       const tile = this.game.map[Helper.coordsToString(position)];
       if (tile) {
-        tile.type =  'BURNT';
+        tile.type = 'BURNT';
         let targets = Helper.getDestructableEntities(tile.entities.filter(
           (entity) => entity.id !== this.id
         ));
@@ -70,8 +70,8 @@ export const Exploding = superclass => class extends superclass {
     // this.game.draw(); //may not need draw here
   }
   destroy() {
-    this.enflame();
     this.explode();
+    this.enflame();
     super.destroy();
   }
 };

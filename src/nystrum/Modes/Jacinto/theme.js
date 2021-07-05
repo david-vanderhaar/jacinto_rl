@@ -80,6 +80,7 @@ export const TILE_KEY = {
     foreground: COLORS.locust1,
     character: '',
     passable: true,
+    tags: ['BURNABLE'],
   },
   'WALL': {
     background: COLORS.locust0,
@@ -87,6 +88,7 @@ export const TILE_KEY = {
     character: '#',
     sprite: '',
     passable: false,
+    tags: ['BURNABLE'],
   },
   'DOOR': {
     background: COLORS.locust0,
@@ -94,6 +96,7 @@ export const TILE_KEY = {
     character: '+',
     sprite: '',
     passable: true,
+    tags: ['BURNABLE'],
   },
   'SAFE': {
     background: COLORS.base03,
@@ -122,6 +125,7 @@ export const TILE_KEY = {
     character: 'X',
     sprite: '',
     passable: true,
+    tags: ['BURNABLE'],
     animation: [
       { background: COLORS.base03, foreground: COLORS.yellow, character: 'X', sprite: '', passable: true, },
       { background: COLORS.base03, foreground: COLORS.yellow, character: 'x', sprite: '', passable: true, },
