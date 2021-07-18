@@ -32,10 +32,71 @@ export const generate = (map, offsetX, offsetY, unitCount = 12, unitSize = 4, bo
     kill -= 1;
     if (kill <= 0) break;
   }
-  
-  removeInnerWalls(map)
-  addInnerWalls(map, floorPlan.length)
+
+  // removeInnerWalls(map)
+  // addDoorToOuterWalls(map)
+  // addInnerWalls(map, floorPlan.length)
+  addCorridors(map, floorPlan, offsetX, offsetY, unitSize)
   return data;
+}
+
+const addCorridors = (map, floorPlan, offsetX, offsetY, unitSize) => {
+  const relativeCornerCoords = [
+    {x: 1, y: 1},
+    {x: unitSize - 1, y: unitSize - 1},
+    {x: 1, y: unitSize - 1},
+    {x: unitSize - 1, y: 1},
+  ]
+  for (let i = 0; i < (floorPlan.length - 1); i++) {
+    const currentUnit = floorPlan[i];
+    let currentUnitPosition = getUnitPosition(currentUnit, offsetX, offsetY, unitSize);
+    const currentUnitRelativeCornerCoord = Helper.getRandomInArray(relativeCornerCoords)
+    currentUnitPosition.x += currentUnitRelativeCornerCoord.x;
+    currentUnitPosition.y += currentUnitRelativeCornerCoord.y;
+    
+    const neigbors = getNeighboringUnitsFromFloorPlan(floorPlan, currentUnit);
+    neigbors.forEach((neigbor) => {
+      let nextUnitPosition = getUnitPosition(neigbor, offsetX, offsetY, unitSize);
+      const nextUnitRelativeCornerCoord = currentUnitRelativeCornerCoord
+      nextUnitPosition.x += nextUnitRelativeCornerCoord.x;
+      nextUnitPosition.y += nextUnitRelativeCornerCoord.y;
+      
+      digCorridor(map, currentUnitPosition, nextUnitPosition);
+    });
+  }
+}
+
+const getNeighboringUnitsFromFloorPlan = (floorPlan, currentUnit) => {
+  const neighbors = getNeighboringPoints(currentUnit);
+  return floorPlan.filter((unit) => {
+    return neighbors.find((coords) => coords.x === unit.x && coords.y === unit.y);
+  })
+}
+
+const digCorridor = (map, currentUnitPosition, nextUnitPosition) => {
+    const corridorDirection = [
+      Math.sign(nextUnitPosition.x - currentUnitPosition.x),
+      Math.sign(nextUnitPosition.y - currentUnitPosition.y)
+    ]
+    let kill = 1000;
+    let corridorPosition = Helper.getPositionInDirection(currentUnitPosition, corridorDirection); 
+    let hasDoor = false
+    while (!Helper.coordsAreEqual(corridorPosition, nextUnitPosition)) {
+      let tile = map[Helper.coordsToString(corridorPosition)];
+      if (tile) {
+        if (tile.type === 'WALL') {
+          if (!hasDoor) {
+            tile.type = 'DOOR'
+            hasDoor = true;
+          } else {
+            tile.type = 'FLOOR'
+          }
+        }
+      }
+      corridorPosition = Helper.getPositionInDirection(corridorPosition, corridorDirection); 
+      kill -= 1;
+      if (kill <= 0) break;
+    }
 }
 
 const createFloorPlan = () => {
@@ -119,13 +180,20 @@ const getNeighboringPoints = (origin, eightWay = false) => {
   return neighbors;
 }
 
+const isCorner = (x, y, roomSize) => {
+  if (x === 0 && y === 0) return true
+  if (x === roomSize && y === roomSize) return true
+  if (x === roomSize && y === 0) return true
+  if (x === 0 && y === roomSize) return true
+  return false;
+};
+
 const createUnit = (map, position, size, border) => {
   // const length = size; // this will leave a border
   // const length = size + 1; // this will close the gap
   const length = size + 1 - border; // this will calculate using border
 
   // prevent units from hitting map edge
-  let unitCollidesWithEdge = false;
   for (let i = 0; i < length; i++) {
     for (let j = 0; j < length; j++) {
       const newPosition = {
@@ -133,35 +201,32 @@ const createUnit = (map, position, size, border) => {
         y: position.y + j,
       }
       let tile = map[Helper.coordsToString(newPosition)];
-      if (!tile) unitCollidesWithEdge = true;
+      if (!tile) return false;
+      if (tile.type === 'ROAD_EDGE') return false;
+      if (tile.type === 'WALL') return false;
+      if (tile.type === 'FLOOR') return false;
     }
   }
 
-  if (!unitCollidesWithEdge) {
-    for (let i = 0; i < length; i++) {
-      for (let j = 0; j < length; j++) {
-        const newPosition = {
-          x: position.x + i,
-          y: position.y + j,
-        }
-        let type = 'FLOOR';
-        if (i === 0 || i === (length - 1)) type = 'WALL';
-        if (j === 0 || j === (length - 1)) type = 'WALL';
-        let tile = map[Helper.coordsToString(newPosition)];
-        if (tile) tile.type = type;
+  for (let i = 0; i < length; i++) {
+    for (let j = 0; j < length; j++) {
+      const newPosition = {
+        x: position.x + i,
+        y: position.y + j,
       }
+      let type = 'FLOOR';
+      if (i === 0 || i === (length - 1)) type = 'WALL';
+      if (j === 0 || j === (length - 1)) type = 'WALL';
+      let tile = map[Helper.coordsToString(newPosition)];
+      if (tile) tile.type = type;
     }
   }
 
-  return !unitCollidesWithEdge;
+  return true;
 }
 
-const removeInnerWalls = (map) => {
-  let walls = Object.keys(map).filter((key) => {
-    return map[key].type === 'WALL';
-  })
-
-  let innerWalls = walls.filter((key) => {
+const getInnerWalls = (map, tiles) => {
+  return tiles.filter((key) => {
     const coordArray = key.split(',').map((i) => parseInt(i));
     const coords = {
       x: coordArray[0],
@@ -170,7 +235,7 @@ const removeInnerWalls = (map) => {
     const neighbors = getNeighboringPoints(coords, true).filter((point) => {
       let t = map[Helper.coordsToString(point)];
       if (t) {
-        if (['WALL', 'FLOOR'].includes(t.type)) {
+        if (['WALL', 'FLOOR', 'DOOR'].includes(t.type)) {
           return true;
         }
       }
@@ -182,10 +247,52 @@ const removeInnerWalls = (map) => {
     }
     return false;
   })
+}
+
+const getOuterWalls = (map, tiles) => {
+  return tiles.filter((key) => {
+    const coordArray = key.split(',').map((i) => parseInt(i));
+    const coords = {
+      x: coordArray[0],
+      y: coordArray[1],
+    }
+    const neighbors = getNeighboringPoints(coords, true).filter((point) => {
+      let t = map[Helper.coordsToString(point)];
+      if (t) {
+        if (['WALL', 'FLOOR'].includes(t.type)) {
+          return false;
+        }
+      }
+      return true
+    });
+    
+    if (neighbors.length === 8) {
+      return false;
+    }
+    return true;
+  })
+}
+
+const removeInnerWalls = (map) => {
+  let walls = Object.keys(map).filter((key) => {
+    return map[key].type === 'WALL';
+  })
+
+  let innerWalls = getInnerWalls(map, walls);
 
   innerWalls.forEach((key) => {
     map[key].type = 'FLOOR';
   })
+}
+
+const addDoorToOuterWalls = (map) => {
+  let walls = Object.keys(map).filter((key) => {
+    return map[key].type === 'WALL';
+  });
+
+  let outerWalls = getOuterWalls(map, walls);
+  let key = Helper.getRandomInArray(outerWalls);
+  map[key].type = 'DOOR'
 }
 
 const addInnerWalls = (map, count = 2) => {
@@ -201,7 +308,7 @@ const addInnerWalls = (map, count = 2) => {
     const neighbors = getNeighboringPoints(coords, false).filter((point) => {
       let t = map[Helper.coordsToString(point)];
       if (t) {
-        if (['GROUND', 'GROUND_ALT'].includes(t.type)) {
+        if (['GROUND', 'GROUND_ALT', 'ROAD', 'ROAD_EDGE'].includes(t.type)) {
           return true;
         }
       }
@@ -210,6 +317,8 @@ const addInnerWalls = (map, count = 2) => {
     if (neighbors.length === 2) return true;
     return false
   })
+
+  if (!corners.length) return;
 
   // building walls
   let wallCount = 0;
@@ -252,8 +361,10 @@ const addInnerWalls = (map, count = 2) => {
         tile.type = 'WALL';
         previousFloorPositions.push({...currentPosition})
         // console.log(previousFloorPositions.length);
-        
-      } else if (['GROUND', 'GROUND_ALT'].includes(tile.type) || (tile.type === 'WALL' && previousFloorPositions.length)) {
+      }
+      // else if (['GROUND', 'GROUND_ALT', 'ROAD', 'ROAD_EDGE'].includes(tile.type) || (tile.type === 'WALL' && previousFloorPositions.length)) {
+      // else if (['GROUND', 'GROUND_ALT', 'ROAD', 'ROAD_EDGE'].includes(tile.type)) {
+      else if (['GROUND', 'GROUND_ALT', 'ROAD', 'ROAD_EDGE'].includes(tile.type) && previousFloorPositions.length) {
         // go back two and make FLOOR
         let prevPos = {
           x: currentPosition.x - (direction.x * 2),
