@@ -1,4 +1,5 @@
 import * as Helper from '../../helper';
+import * as MapHelper from './helper';
 
 export const generate = (map, offsetX, offsetY, unitCount = 12, unitSize = 4, borderWidth = 1) => {
   let data = {};
@@ -84,7 +85,7 @@ const digCorridor = (map, currentUnitPosition, nextUnitPosition) => {
     while (!Helper.coordsAreEqual(corridorPosition, nextUnitPosition)) {
       let tile = map[Helper.coordsToString(corridorPosition)];
       if (tile) {
-        if (tile.type === 'WALL') {
+        if (tileIsWall(tile)) {
           if (!hasDoor) {
             tile.type = 'DOOR'
             hasDoor = true;
@@ -203,7 +204,7 @@ const createUnit = (map, position, size, border) => {
       let tile = map[Helper.coordsToString(newPosition)];
       if (!tile) return false;
       if (tile.type === 'ROAD_EDGE') return false;
-      if (tile.type === 'WALL') return false;
+      if (tileIsWall(tile)) return false;
       if (tile.type === 'FLOOR') return false;
     }
   }
@@ -215,8 +216,12 @@ const createUnit = (map, position, size, border) => {
         y: position.y + j,
       }
       let type = 'FLOOR';
-      if (i === 0 || i === (length - 1)) type = 'WALL';
-      if (j === 0 || j === (length - 1)) type = 'WALL';
+      if (i === 0 || i === (length - 1)) type = 'WALL_VERTICAL';
+      if (j === 0 || j === (length - 1)) type = 'WALL_HORIZONTAL';
+      if (i === 0 && j === 0) type = 'WALL_CORNER_NW';
+      if (i === 0 && j === (length - 1)) type = 'WALL_CORNER_SW';
+      if (i === (length - 1) && j === 0) type = 'WALL_CORNER_NE';
+      if (i === (length - 1) && j === (length - 1)) type = 'WALL_CORNER_SE';
       let tile = map[Helper.coordsToString(newPosition)];
       if (tile) tile.type = type;
     }
@@ -224,6 +229,8 @@ const createUnit = (map, position, size, border) => {
 
   return true;
 }
+
+const tileIsWall = (tile) => MapHelper.tileHasTag({tile, tag: 'WALL'})
 
 const getInnerWalls = (map, tiles) => {
   return tiles.filter((key) => {
@@ -235,7 +242,7 @@ const getInnerWalls = (map, tiles) => {
     const neighbors = getNeighboringPoints(coords, true).filter((point) => {
       let t = map[Helper.coordsToString(point)];
       if (t) {
-        if (['WALL', 'FLOOR', 'DOOR'].includes(t.type)) {
+        if (['FLOOR', 'DOOR'].includes(t.type) || tileIsWall(t)) {
           return true;
         }
       }
@@ -259,7 +266,7 @@ const getOuterWalls = (map, tiles) => {
     const neighbors = getNeighboringPoints(coords, true).filter((point) => {
       let t = map[Helper.coordsToString(point)];
       if (t) {
-        if (['WALL', 'FLOOR'].includes(t.type)) {
+        if (['FLOOR'].includes(t.type) || tileIsWall(t)) {
           return false;
         }
       }
@@ -275,7 +282,7 @@ const getOuterWalls = (map, tiles) => {
 
 const removeInnerWalls = (map) => {
   let walls = Object.keys(map).filter((key) => {
-    return map[key].type === 'WALL';
+    return tileIsWall(map[key]);
   })
 
   let innerWalls = getInnerWalls(map, walls);
@@ -287,7 +294,7 @@ const removeInnerWalls = (map) => {
 
 const addDoorToOuterWalls = (map) => {
   let walls = Object.keys(map).filter((key) => {
-    return map[key].type === 'WALL';
+    return tileIsWall(map[key]);
   });
 
   let outerWalls = getOuterWalls(map, walls);
@@ -299,7 +306,7 @@ const addInnerWalls = (map, count = 2) => {
   // Finding corners
   let corners = Object.keys(map).filter((key) => {
     const tile = map[key];
-    if (tile.type !== 'WALL') return false;
+    if (!tileIsWall(tile)) return false;
     const coordArray = key.split(',').map((i) => parseInt(i));
     const coords = {
       x: coordArray[0],
@@ -334,7 +341,7 @@ const addInnerWalls = (map, count = 2) => {
     const wallNeighbors = getNeighboringPoints(coords, false).filter((point) => {
       let t = map[Helper.coordsToString(point)];
       if (t) {
-        if (['WALL'].includes(t.type)) {
+        if (tileIsWall(t)) {
           return true;
         }
       }

@@ -1,5 +1,6 @@
 import { MESSAGE_TYPE } from '../message';
 import * as Helper from '../../helper';
+import * as MapHelper from '../Maps/helper';
 
 export const RangedAttacking = superclass => class extends superclass {
   constructor({ attackRange = 0, baseRangedAccuracy = 0, baseRangedDamage = 0, magazineSize = 0, ...args }) {
@@ -25,7 +26,7 @@ export const RangedAttacking = superclass => class extends superclass {
     const coverAccuracyModifer = path.reduce((acc, curr) => {
       let tile = this.game.map[Helper.coordsToString(curr)];
       // if targeting throuh a wall, the shot is modified by -100%
-      if (['WALL'].includes(tile.type)) return acc - 1;
+      if (MapHelper.tileHasTag({tile, tag: 'WALL'})) return acc - 1;
       let entitiesProvidingCover = Helper.filterEntitiesByType(tile.entities, 'COVERING');
       let coverModifer = 0;
       // only counts the first entity cover modifer in a tile
