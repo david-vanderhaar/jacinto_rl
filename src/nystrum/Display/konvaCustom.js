@@ -280,7 +280,7 @@ export class Display {
       text: character,
       width: this.tileWidth,
       height: this.tileHeight,
-      fontSize: this.tileWidth - 4,
+      fontSize: this.tileWidth - 2,
       fontFamily: 'scroll-o-script',
       fill: foreground,
       align: 'center',

@@ -83,7 +83,7 @@ export const TILE_KEY = {
     tags: ['BURNABLE'],
   },
   'WALL': {
-    background: COLORS.locust0,
+    background: COLORS.base02,
     foreground: COLORS.locust2,
     character: '#',
     sprite: '',
@@ -91,7 +91,7 @@ export const TILE_KEY = {
     tags: ['BURNABLE', 'WALL'],
   },
   'WALL_VERTICAL': {
-    background: COLORS.locust0,
+    background: COLORS.base02,
     foreground: COLORS.locust2,
     character: '||',
     sprite: '',
@@ -99,7 +99,7 @@ export const TILE_KEY = {
     tags: ['BURNABLE', 'WALL'],
   },
   'WALL_HORIZONTAL': {
-    background: COLORS.locust0,
+    background: COLORS.base02,
     foreground: COLORS.locust2,
     character: '=',
     sprite: '',
@@ -107,7 +107,7 @@ export const TILE_KEY = {
     tags: ['BURNABLE', 'WALL'],
   },
   'WALL_CORNER_NW': {
-    background: COLORS.locust0,
+    background: COLORS.base02,
     foreground: COLORS.locust2,
     character: '#',
     sprite: '',
@@ -115,7 +115,7 @@ export const TILE_KEY = {
     tags: ['BURNABLE', 'WALL'],
   },
   'WALL_CORNER_NE': {
-    background: COLORS.locust0,
+    background: COLORS.base02,
     foreground: COLORS.locust2,
     character: '#',
     sprite: '',
@@ -123,7 +123,7 @@ export const TILE_KEY = {
     tags: ['BURNABLE', 'WALL'],
   },
   'WALL_CORNER_SW': {
-    background: COLORS.locust0,
+    background: COLORS.base02,
     foreground: COLORS.locust2,
     character: '#',
     sprite: '',
@@ -131,7 +131,7 @@ export const TILE_KEY = {
     tags: ['BURNABLE', 'WALL'],
   },
   'WALL_CORNER_SE': {
-    background: COLORS.locust0,
+    background: COLORS.base02,
     foreground: COLORS.locust2,
     character: '#',
     sprite: '',
@@ -155,7 +155,7 @@ export const TILE_KEY = {
     tags: [],
   },
   'DOOR': {
-    background: COLORS.locust0,
+    background: COLORS.base02,
     foreground: COLORS.base1,
     character: '+',
     sprite: '',
