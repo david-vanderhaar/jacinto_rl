@@ -13,23 +13,31 @@ export class MoveRangedAttackCursor extends Base {
     this.processDelay = 0;
     this.energyCost = 0;
   }
+
+  isInRange (targetPos) {
+    return _.find(this.availablePositions, {x: targetPos.x, y: targetPos.y});
+  }
+
+  isInRangeV1 (targetPos) {
+    const initiatedFrom = this.actor.getPosition();
+    const path = Helper.calculateStraightPath(initiatedFrom, targetPos);
+    return this.range ? path.length <= this.range : true;
+  }
+
   perform() {
     let success = false;
     let alternative = null;
     if (!this.targetPos && !this.direction) {
       return {success, alternative}
     }
-    const initiatedFrom = this.actor.getPosition();
     let targetPos = this.targetPos;
     if (!this.targetPos) {
       targetPos = Helper.getPositionInDirection(this.actor.getCursorPositions()[0], this.direction);
     }
-    const path = Helper.calculateStraightPath(initiatedFrom, targetPos);
-    // const isInRange = this.range ? path.length <= this.range : true;
-    const isInRange = _.find(this.availablePositions, {x: targetPos.x, y: targetPos.y});
     // const pathIsNotBlocked = path.reduce((acc, curr) => acc && this.game.rangedCursorCanOccupyPosition(curr), true);
-    // if (isInRange && pathIsNotBlocked && this.game.rangedCursorCanOccupyPosition(targetPos, this.actor)) {
-    if (isInRange) {
+    // if (this.isInRange(targetPos) && pathIsNotBlocked && this.game.rangedCursorCanOccupyPosition(targetPos, this.actor)) {
+    // if (this.isInRange(targetPos) && this.game.rangedCursorCanOccupyPosition(targetPos, this.actor)) {
+    if (this.isInRange(targetPos)) {
       this.actor.moveCursorToPosition(targetPos);
       success = true;
     }
@@ -39,4 +47,3 @@ export class MoveRangedAttackCursor extends Base {
     };
   }
 }
-;

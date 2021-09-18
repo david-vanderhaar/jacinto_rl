@@ -76,7 +76,7 @@ export class PrepareRangedAttack extends Base {
       this.game.display.removeAnimation(anim.id);
     })
 
-    const positionsInRange = Helper.getPointsWithinRadius(pos, range).filter((pose) => (pose.x !== pos.x || pose.y !== pos.y));
+    const positionsInRange = Helper.getPointsWithinRadius(pos, range);
 
     let targets = [];
     let targetIndex = 0;

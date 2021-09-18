@@ -184,12 +184,12 @@ export class Jacinto extends Mode {
       this[`add${enemyName}`]({ x: posXY[0], y: posXY[1] });
     })
 
-    // for (let index = 0; index < 40; index++) {
-    //   let pos = Helper.getRandomInArray(groundTiles);
-    //   if (!pos) break;
-    //   let posXY = pos.split(',').map((coord) => parseInt(coord));
-    //   this.addCover({ x: posXY[0], y: posXY[1] });
-    // }
+    for (let index = 0; index < 40; index++) {
+      let pos = Helper.getRandomInArray(groundTiles);
+      if (!pos) break;
+      let posXY = pos.split(',').map((coord) => parseInt(coord));
+      this.addCover({ x: posXY[0], y: posXY[1] });
+    }
 
     // adding emergence holes
     for (let index = 0; index < this.data.emergenceHoles; index++) {
@@ -418,30 +418,7 @@ export class Jacinto extends Mode {
     background = COLORS.base02,
     color = COLORS.base01
   ) {
-    let sprite = Helper.getRandomInArray(['', '', '', '', '', '']);
-    switch (character) {
-      case '%':
-        sprite = Helper.getRandomInArray(['', '']);
-        break;
-      case 'm':
-        sprite = Helper.getRandomInArray(['', '']);
-        break;
-      case 'H':
-        sprite = Helper.getRandomInArray(['', '']);
-        break;
-      case 'Xs':
-        sprite = ''
-        break;
-      case 'X':
-        sprite = ''
-        break;
-      case 'XL':
-        sprite = ''
-        break;
-      default:
-        sprite = '';
-        break;
-    }
+    let sprite = Helper.getRandomInArray(['', '']);
 
     let box = new CoverWall({
       pos,
