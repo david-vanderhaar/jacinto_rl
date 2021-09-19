@@ -31,4 +31,9 @@ export const tileHasTag = ({tile, tag}) => {
   return tags.includes(tag);
 }
 
+export const tileHasAnyTags = ({tile, tags}) => {
+  const tileTags = _.get(tile.tileKey[tile.type], 'tags', []);
+  return tags.some((tag) => tileTags.includes(tag))
+}
+
 export const getTileFromMap = ({map, position}) => map[Helper.coordsToString(position)];

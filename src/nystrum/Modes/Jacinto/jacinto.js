@@ -3,6 +3,7 @@ import * as Helper from '../../../helper';
 import * as Item from '../../items';
 import * as MapHelper from '../../Maps/helper';
 import { generate as generateBuilding } from '../../Maps/generator';
+import * as CoverGenerator from '../../Maps/coverGenerator';
 import { CoverWall, Debris, Bandit, RangedBandit, EmergenceHole } from '../../Entities/index';
 import { MESSAGE_TYPE } from '../../message';
 import { Mode } from '../default';
@@ -117,14 +118,12 @@ export class Jacinto extends Mode {
   createVerticalRoadGoingNorth = (fromY) => (x) => this.createVerticalRoad(x, (fromY) + 1);
   createVerticalRoadGoingSouth = (fromY) => (x) => this.createVerticalRoad(x, (this.game.mapHeight - fromY) - 1, (fromY) + 1);
 
-  createCityBlockLevel () {
+  createCityBlockLevel (numberOfVerticalRoads, numberOfBuildings) {
     // Generates the main road
     const mainRoadY = this.game.mapHeight / 4
     this.createHorizontalRoad(mainRoadY, this.game.mapWidth)
 
     // Generates roads to run the height of the map
-    const numberOfVerticalRoads = Helper.getRandomIntInclusive(0, 5);
-    // const numberOfVerticalRoads = 0;
     Array(numberOfVerticalRoads).fill('').forEach(() => {
       const x = Helper.getRandomIntInclusive(0, this.game.mapWidth);
       const generateRoad = Helper.getRandomInArray([
@@ -135,8 +134,6 @@ export class Jacinto extends Mode {
       generateRoad(x)
     })
 
-    const numberOfBuildings = Helper.getRandomIntInclusive(0, 10);
-    // const numberOfBuildings = 4;
     Array(numberOfBuildings).fill('').forEach(() => {
       let groundTiles = this.getEmptyGroundTileKeys()
       let pos = Helper.getRandomInArray(groundTiles);
@@ -168,28 +165,16 @@ export class Jacinto extends Mode {
       this.game.mapHeight,
       this.game.mapWidth,
     );
-    
-    this.createCityBlockLevel();
+  
+    const numberOfVerticalRoads = Helper.getRandomIntInclusive(0, 5);
+    const numberOfBuildings = Helper.getRandomIntInclusive(0, 10);
+    this.createCityBlockLevel(numberOfVerticalRoads, numberOfBuildings);
 
     let floorTiles = Object.keys(this.game.map).filter((key) => this.game.map[key].type === 'FLOOR')
-    let groundTiles = Object.keys(this.game.map).filter((key) => this.game.map[key].type === 'GROUND')
 
     this.placePlayersInSafeZone();
     const player = this.game.getFirstPlayer();
     if (player) player.upgrade_points += 1;
-
-    this.data.enemies.forEach((enemyName) => {
-      let pos = Helper.getRandomInArray(this.getEmptyGroundTileKeys());
-      let posXY = pos.split(',').map((coord) => parseInt(coord));
-      this[`add${enemyName}`]({ x: posXY[0], y: posXY[1] });
-    })
-
-    for (let index = 0; index < 40; index++) {
-      let pos = Helper.getRandomInArray(groundTiles);
-      if (!pos) break;
-      let posXY = pos.split(',').map((coord) => parseInt(coord));
-      this.addCover({ x: posXY[0], y: posXY[1] });
-    }
 
     // adding emergence holes
     for (let index = 0; index < this.data.emergenceHoles; index++) {
@@ -197,6 +182,18 @@ export class Jacinto extends Mode {
       if (!pos) break;
       let posXY = pos.split(',').map((coord) => parseInt(coord));
       this.addEmerenceHole({ x: posXY[0], y: posXY[1] });
+    }
+
+    // adding cover blocks
+    const numberOfCoverStructures = 5 + this.data.enemies.length;
+    
+    let coverEligibleTiles = Object.keys(this.game.map).filter((key) =>  ['ROAD', 'DOOR', 'EMERGENCE_GROUND'].includes(this.game.map[key].type))
+    for (let index = 0; index < numberOfCoverStructures; index++) {
+      let pos = Helper.getRandomInArray(coverEligibleTiles);
+      if (!pos) break;
+      let posXY = pos.split(',').map((coord) => parseInt(coord));
+      const position = { x: posXY[0], y: posXY[1] };
+      CoverGenerator.generateRandom(position, this.game);
     }
 
     // adding  ammo loot
@@ -214,6 +211,13 @@ export class Jacinto extends Mode {
       let posXY = pos.split(',').map((coord) => parseInt(coord));
       this.addGrenadeLoot({ x: posXY[0], y: posXY[1] });
     }
+
+      // adding enemies
+    this.data.enemies.forEach((enemyName) => {
+      let pos = Helper.getRandomInArray(this.getEmptyGroundTileKeys());
+      let posXY = pos.split(',').map((coord) => parseInt(coord));
+      this[`add${enemyName}`]({ x: posXY[0], y: posXY[1] });
+    })
   }
 
   // TODO curry these funcs
@@ -410,34 +414,6 @@ export class Jacinto extends Mode {
     this.game.placeActorOnMap(entity)
   }
 
-  addCover (
-    pos,
-    name = 'box',
-    character = '%',
-    durability = 5,
-    background = COLORS.base02,
-    color = COLORS.base01
-  ) {
-    let sprite = Helper.getRandomInArray(['', '']);
-
-    let box = new CoverWall({
-      pos,
-      renderer: {
-        character,
-        sprite,
-        color,
-        background,
-      },
-      name,
-      game: this.game,
-      durability,
-      accuracyModifer: -0.3,
-      damageModifer: 0,
-    })
-
-    this.game.placeActorOnMap(box)
-  }
-  
   getBanditStats () {
     let banditLevels = [
       {

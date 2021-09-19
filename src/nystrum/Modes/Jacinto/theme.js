@@ -45,6 +45,7 @@ export const TILE_KEY = {
     character: '.',
     sprite: '',
     passable: true,
+    tags: ['PROVIDING_COVER'],
   },
   'GROUND_ALT': {
     background: COLORS.base04,
@@ -52,6 +53,7 @@ export const TILE_KEY = {
     character: '',
     sprite: '',
     passable: true,
+    tags: ['PROVIDING_COVER'],
   },
   'EMERGENCE_DESTROYED': {
     background: COLORS.base04,
@@ -144,7 +146,7 @@ export const TILE_KEY = {
     character: '',
     sprite: '',
     passable: true,
-    tags: [],
+    tags: ['ROAD', 'PROVIDING_COVER'],
   },
   'ROAD': {
     background: COLORS.base03,
@@ -152,7 +154,7 @@ export const TILE_KEY = {
     character: '=',
     sprite: '',
     passable: true,
-    tags: [],
+    tags: ['ROAD', 'PROVIDING_COVER'],
   },
   'DOOR': {
     background: COLORS.base02,
