@@ -1,4 +1,6 @@
 import Behavior from './Behaviors/Behavior';
+import { Say } from '../../Actions/Say';
+import * as Constant from '../../constants';
 
 
 export const CyclesBehaviors = superclass => class extends superclass {
@@ -13,13 +15,32 @@ export const CyclesBehaviors = superclass => class extends superclass {
     return this.behaviors[this.activeBehaviorIndex]
   }
 
+  getDefaultAction() {
+    return new Say({
+      message: '*whistles*',
+      game: this.game,
+      actor: this,
+      energyCost: Constant.ENERGY_THRESHOLD
+    });
+  }
+
   selectNextBehavior() {
     this.activeBehaviorIndex = (this.activeBehaviorIndex + 1) % this.behaviors.length;
   }
 
   getAction() {
-    const behavior = this.getActiveBehavior();
-    this.selectNextBehavior();
-    return behavior.getAction();
+    let action = null;
+    let kill = this.behaviors.length;
+
+    while (action === null && kill > 0) {
+      const behavior = this.getActiveBehavior();
+      this.selectNextBehavior();
+      const isValid = behavior.isValid();
+      if (isValid) action = behavior.getAction();
+      kill -= 1;
+    }
+    
+    if (action) return action;
+    return this.getDefaultAction();
   }
 };

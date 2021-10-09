@@ -102,6 +102,17 @@ export const Chaser = pipe(
   Destructable
 )(Entity);
 
+export const JacintoAI = pipe(
+  Acting,
+  Rendering,
+  Destructable,
+  Attacking,
+  Pushable,
+  HasFaction,
+  UsesCover,
+  CyclesBehaviors,
+)(Entity);
+
 export const Bandit = pipe(
   Acting,
   Rendering,

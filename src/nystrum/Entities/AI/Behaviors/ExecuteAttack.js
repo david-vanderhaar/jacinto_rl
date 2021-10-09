@@ -1,9 +1,10 @@
 import * as Constant from '../../../constants';
 import { Say } from '../../../Actions/Say';
+import Behavior from './Behavior';
 
-export default class ExecuteAttack {
-  constructor({ actor = null }) {
-    this.actor = actor;
+export default class ExecuteAttack extends Behavior {
+  constructor({ ...args }) {
+    super({ ...args });
   }
 
   getAction() {

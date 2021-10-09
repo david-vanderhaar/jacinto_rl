@@ -6,6 +6,10 @@ export default class Behavior {
     this.actor = actor;
   }
 
+  isValid () {
+    return true;
+  }
+
   getAction() {
     return new Say({
       message: 'I am behaving',

@@ -178,6 +178,7 @@ export default function (engine) {
     game: engine.game,
     presentingUI: true,
     faction: 'COG',
+    enemyFactions: ['LOCUST'],
     initializeKeymap: keymap,
   })
 

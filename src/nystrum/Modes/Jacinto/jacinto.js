@@ -13,6 +13,7 @@ import * as _ from 'lodash';
 import {COLORS, TILE_KEY} from './theme';
 import { Ammo } from '../../Items/Pickups/Ammo';
 import { Grenade } from '../../Items/Weapons/Grenade';
+import {addWretch} from './Actors/Grubs';
 const MAP_DATA = require('../../Maps/castle.json');
 
 export class Jacinto extends Mode {
@@ -25,8 +26,9 @@ export class Jacinto extends Mode {
     };
     this.dataByLevel = [
       {
-        enemies: Array(4).fill('Grub'),
-        emergenceHoles: 2,
+        // enemies: Array(4).fill('Grub'),
+        enemies: Array(1).fill('Wretch'),
+        emergenceHoles: 0,
         ammoLoot: 2,
         grenadeLoot: 1,
       },
@@ -355,6 +357,7 @@ export class Jacinto extends Mode {
       spreadCount: 3,
       durability: 1,
       faction: 'LOCUST',
+      enemyFactions: ['COG'],
       speed: Constant.ENERGY_THRESHOLD,
       getSpawnedEntity: (spawnPosition) => {
         let players = this.getPlayers()
@@ -371,6 +374,7 @@ export class Jacinto extends Mode {
           durability: banditStats.durability,
           speed: banditStats.speed,
           faction: 'LOCUST',
+          enemyFactions: ['COG'],
           onDestroy: (actor) => {
             const chance = Math.random();
             if (chance <= 0.05) {
@@ -475,6 +479,8 @@ export class Jacinto extends Mode {
     return Helper.getRandomInArray(banditLevels);
   }
 
+  addWretch (pos) {addWretch(this, pos)}
+
   addGrub (pos) {
     let players = this.getPlayers()
     let targetEntity = players[0]
@@ -495,6 +501,7 @@ export class Jacinto extends Mode {
         Behaviors.ExecuteAttack,
       ],
       faction: 'LOCUST',
+      enemyFactions: ['COG'],
       onDestroy: (actor) => {
         const chance = Math.random();
         if (chance <= 0.05) {
@@ -531,6 +538,7 @@ export class Jacinto extends Mode {
       durability: 40,
       speed: Constant.ENERGY_THRESHOLD * 5,
       faction: 'LOCUST',
+      enemyFactions: ['COG'],
       // directional projectile destruction breaks engine
       // getProjectile: ({ pos, targetPos, direction, range }) => Item.directionalKunai(this.game.engine, { ...pos }, direction, range)
       // getProjectile: ({ pos, targetPos, direction, range }) => Item.kunai(game.engine, { ...pos }, { ...targetPos })
