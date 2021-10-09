@@ -5,6 +5,7 @@ import * as MapHelper from '../../Maps/helper';
 import { generate as generateBuilding } from '../../Maps/generator';
 import * as CoverGenerator from '../../Maps/coverGenerator';
 import { CoverWall, Debris, Bandit, RangedBandit, EmergenceHole } from '../../Entities/index';
+import * as Behaviors from '../../Entities/AI/Behaviors';
 import { MESSAGE_TYPE } from '../../message';
 import { Mode } from '../default';
 import SOUNDS from '../../sounds';
@@ -488,6 +489,11 @@ export class Jacinto extends Mode {
       attackDamage: banditStats.attackDamage,
       durability: banditStats.durability,
       speed: banditStats.speed,
+      behaviorClasses: [
+        Behaviors.MoveTowardsCover,
+        Behaviors.TelegraphAttack,
+        Behaviors.ExecuteAttack,
+      ],
       faction: 'LOCUST',
       onDestroy: (actor) => {
         const chance = Math.random();
