@@ -1,4 +1,3 @@
-import * as Constant from '../../../constants';
 import { Say } from '../../../Actions/Say';
 import Behavior from './Behavior';
 
@@ -7,12 +6,10 @@ export default class ExecuteAttack extends Behavior {
     super({ ...args });
   }
 
-  getAction() {
-    return new Say({
-      message: 'I am executing attack',
-      game: this.actor.game,
-      actor: this.actor,
-      energyCost: Constant.ENERGY_THRESHOLD
-    });
+  constructActionClassAndParams () {
+    return [
+      Say,
+      {message: 'I am executing an attack'}
+    ]
   }
 }

@@ -110,6 +110,7 @@ export const JacintoAI = pipe(
   Pushable,
   HasFaction,
   UsesCover,
+  HasTargetingCursor,
   CyclesBehaviors,
 )(Entity);
 

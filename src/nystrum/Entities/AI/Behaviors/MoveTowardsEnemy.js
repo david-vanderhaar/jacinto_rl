@@ -1,4 +1,3 @@
-import * as Constant from '../../../constants';
 import { Move } from '../../../Actions/Move';
 import Behavior from './Behavior';
 import { calculatePath } from '../../../../helper'; 
@@ -27,21 +26,24 @@ export default class MoveTowardsEnemy extends Behavior {
     return closest;
   }
 
-  getAction() {
+  constructActionClassAndParams () {
+    let actionClass = null;
+    let actionParams = null;
+
     // find closest enemy
     const enemy = this.findClosestEnemy();
-    if (!enemy) return null; 
+    if (!enemy) return [null, null]; 
     // get path to enemy
     let path = calculatePath(this.actor.game, enemy.getPosition(), this.actor.getPosition());
     let moveToPosition = path.length > 0 ? path[0] : null;
-    if (!moveToPosition) return null
-    // return move action
-    return new Move({
+    if (!moveToPosition) return [null, null]
+
+    actionClass = Move; 
+    actionParams = {
       hidden: true,
       targetPos: moveToPosition,
-      game: this.actor.game,
-      actor: this.actor,
-      energyCost: Constant.ENERGY_THRESHOLD
-    });
+    }
+
+    return [actionClass, actionParams];
   }
 }

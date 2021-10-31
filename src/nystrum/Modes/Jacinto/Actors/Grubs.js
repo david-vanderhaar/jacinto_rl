@@ -1,5 +1,6 @@
 import * as Behaviors from '../../../Entities/AI/Behaviors';
 import { COLORS } from '../theme';
+import {CLONE_PATTERNS} from '../../../constants';
 import {JacintoAI} from '../../../Entities/index';
 
 export function addWretch (modeData, pos) {
@@ -20,10 +21,9 @@ export function addWretch (modeData, pos) {
     durability: 1,
     attackDamage: 1,
     speed: 500,
-    behaviorClasses: [
-      Behaviors.MoveTowardsEnemy,
-      Behaviors.TelegraphAttack,
-      Behaviors.ExecuteAttack,
+    behaviors: [
+      new Behaviors.MoveTowardsEnemy({actor: null, repeat: 5}),
+      new Behaviors.TelegraphAttack({actor: null, repeat: 1, attackPattern: CLONE_PATTERNS.clover}),
     ],
     faction: 'LOCUST',
     enemyFactions: ['COG'],

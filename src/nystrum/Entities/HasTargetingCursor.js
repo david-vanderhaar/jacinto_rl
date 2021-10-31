@@ -1,4 +1,3 @@
-import * as Helper from '../../helper';
 import { THEMES } from '../constants';
 import { ANIMATION_TYPES } from '../Display/konvaCustom';
 
@@ -97,10 +96,24 @@ export const HasTargetingCursor = superclass => class extends superclass {
     return newPositons;
   }
 
-  updateCursoNode (index, args) {
+  updateCursorNode (index, args) {
     const anim = this.animations[index];
     args.forEach((arg) => {
       anim.node[arg.key](arg.value)
     })
+  }
+
+  updateAllCursorNodes (args) {
+    this.getCursorPositions().forEach((pos, index) => {
+      const anim = this.animations[index];
+      args.forEach((arg) => {
+        anim.node[arg.key](arg.value)
+      })
+    })
+  }
+
+  destroy() {
+    this.removeAnimations();
+    super.destroy();
   }
 };

@@ -1,18 +1,35 @@
-import * as Constant from '../../../constants';
 import { Say } from '../../../Actions/Say';
+import { getPositionsFromStructure } from '../../../../helper';
+import {CLONE_PATTERNS} from '../../../constants';
+import {COLORS} from '../../../Modes/Jacinto/theme';
 import Behavior from './Behavior';
 
 export default class TelegraphAttack extends Behavior {
-  constructor({ ...args }) {
+  constructor({ attackPattern = CLONE_PATTERNS.point, ...args }) {
     super({ ...args });
+    this.attackPattern = attackPattern;
   }
 
-  getAction() {
-    return new Say({
-      message: 'I am telegraphing my next attack',
-      game: this.actor.game,
-      actor: this.actor,
-      energyCost: Constant.ENERGY_THRESHOLD
-    });
+  getTargetPosition () {
+    return this.actor.getPosition();
+  }
+
+  constructActionClassAndParams () {
+    // pick one or more tiles to target with attack or action via attackPattern class (random, fixed)
+    const positions = getPositionsFromStructure(this.attackPattern, this.getTargetPosition());
+    console.log(positions);
+    // add blink animations or particle animation to targeted tiles
+    this.actor.activateCursor(positions);
+    this.actor.updateAllCursorNodes([
+      {key: 'fill', value: COLORS.red}, 
+      {key: 'stroke', value: 'transparent'}, 
+    ]);
+    // (or add telegraph entities to map?)
+    // or produce and insert Execute behavior based on attack pattern?
+    // return None action
+    return [
+      Say,
+      {message: 'I am telegraphing my next attack'}
+    ]
   }
 }

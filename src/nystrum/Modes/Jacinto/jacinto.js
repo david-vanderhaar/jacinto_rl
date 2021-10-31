@@ -26,7 +26,6 @@ export class Jacinto extends Mode {
     };
     this.dataByLevel = [
       {
-        // enemies: Array(4).fill('Grub'),
         enemies: Array(1).fill('Wretch'),
         emergenceHoles: 0,
         ammoLoot: 2,
@@ -495,11 +494,6 @@ export class Jacinto extends Mode {
       attackDamage: banditStats.attackDamage,
       durability: banditStats.durability,
       speed: banditStats.speed,
-      behaviorClasses: [
-        Behaviors.MoveTowardsCover,
-        Behaviors.TelegraphAttack,
-        Behaviors.ExecuteAttack,
-      ],
       faction: 'LOCUST',
       enemyFactions: ['COG'],
       onDestroy: (actor) => {

@@ -39,25 +39,25 @@ export class PrepareRangedAttack extends Base {
     cursorPositions.forEach((pos, i) => {
       const chance = this.actor.getRangedAttackChance(pos);
       if (chance <= 0) {
-        this.actor.updateCursoNode(i, [
+        this.actor.updateCursorNode(i, [
           {key: 'fill', value: 'transparent'}, 
           {key: 'stroke', value: 'white'}, 
         ]);
       }
       if (chance > 0 && chance <= 0.5) {
-        this.actor.updateCursoNode(i, [
+        this.actor.updateCursorNode(i, [
           {key: 'fill', value: THEMES.SOLARIZED.red}, 
           {key: 'stroke', value: 'transparent'}, 
         ]);
       }
       if (chance > 0.5 && chance <= 0.7) {
-        this.actor.updateCursoNode(i, [
+        this.actor.updateCursorNode(i, [
           {key: 'fill', value: THEMES.SOLARIZED.yellow}, 
           {key: 'stroke', value: 'transparent'}, 
         ]);
       }
       if (chance >= 0.7) {
-        this.actor.updateCursoNode(i, [
+        this.actor.updateCursorNode(i, [
           {key: 'fill', value: THEMES.SOLARIZED.green}, 
           {key: 'stroke', value: 'transparent'}, 
         ]);
