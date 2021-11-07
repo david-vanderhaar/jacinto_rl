@@ -5,7 +5,7 @@ import { Player } from '../Entities/index';
 import { ContainerSlot } from '../Entities/Containing';
 import { ChakraResource } from '../Actions/ActionResources/ChakraResource';
 import { Say } from '../Actions/Say';
-import { Move } from '../Actions/Move';
+import { MoveOrAttack } from '../Actions/MoveOrAttack';
 import { OpenInventory } from '../Actions/OpenInventory';
 import { OpenEquipment } from '../Actions/OpenEquipment';
 import { OpenDropInventory } from '../Actions/OpenDropInventory';
@@ -23,7 +23,7 @@ export default function (engine) {
         const direction = Constant.DIRECTIONS.N;
         let newX = actor.pos.x + direction[0];
         let newY = actor.pos.y + direction[1];
-        return new Move({
+        return new MoveOrAttack({
           hidden: true,
           targetPos: { x: newX, y: newY },
           game: engine.game,
@@ -35,7 +35,7 @@ export default function (engine) {
         const direction = Constant.DIRECTIONS.S;
         let newX = actor.pos.x + direction[0];
         let newY = actor.pos.y + direction[1];
-        return new Move({
+        return new MoveOrAttack({
           hidden: true,
           targetPos: { x: newX, y: newY },
           game: engine.game,
@@ -47,7 +47,7 @@ export default function (engine) {
         const direction = Constant.DIRECTIONS.W;
         let newX = actor.pos.x + direction[0];
         let newY = actor.pos.y + direction[1];
-        return new Move({
+        return new MoveOrAttack({
           hidden: true,
           targetPos: { x: newX, y: newY },
           game: engine.game,
@@ -59,7 +59,7 @@ export default function (engine) {
         const direction = Constant.DIRECTIONS.E;
         let newX = actor.pos.x + direction[0];
         let newY = actor.pos.y + direction[1];
-        return new Move({
+        return new MoveOrAttack({
           hidden: true,
           targetPos: { x: newX, y: newY },
           game: engine.game,

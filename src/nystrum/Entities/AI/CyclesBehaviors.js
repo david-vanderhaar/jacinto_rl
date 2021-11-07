@@ -61,10 +61,12 @@ export const CyclesBehaviors = superclass => class extends superclass {
       behavior = this.selectNextBehavior();
     }
 
-    while (action === null) {
+    let killLoopAt = this.behaviors.length;
+    while (action === null && killLoopAt >= 0) {
       if (behavior.isValid()) {
         behavior.repeated += 1;
         action = behavior.getAction();
+        killLoopAt -= 1;
       };
     }
 

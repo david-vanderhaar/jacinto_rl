@@ -1,8 +1,8 @@
-import { Move } from './Move';
+import { MoveOrAttack } from './MoveOrAttack';
 import { DestroySelf } from './DestroySelf';
 import * as Constant from '../constants';
 
-export class ThrowProjectile extends Move {
+export class ThrowProjectile extends MoveOrAttack {
   constructor({ ...args }) {
     super({ ...args });
   }

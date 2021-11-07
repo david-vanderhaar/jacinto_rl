@@ -1,5 +1,4 @@
 import { Base } from './Base';
-import { Attack } from "./Attack";
 
 export class Move extends Base {
   constructor({ targetPos, processDelay = 25, ...args }) {
@@ -8,24 +7,11 @@ export class Move extends Base {
     this.processDelay = processDelay;
   }
   perform() {
-    let success = false;
+    let success = this.actor.move(this.targetPos);
     let alternative = null;
-    let moveSuccess = this.actor.move(this.targetPos);
-    if (moveSuccess) {
-      success = true;
-    } else {
-      success = true;
-      alternative = new Attack({
-        targetPos: this.targetPos,
-        game: this.game,
-        actor: this.actor,
-        energyCost: 0
-      });
-    }
     return {
       success,
       alternative,
     };
   }
 }
-;

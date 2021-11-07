@@ -1,6 +1,6 @@
 import * as Constant from '../constants';
 import * as Helper from '../../helper';
-import { Move } from '../Actions/Move';
+import { MoveOrAttack } from '../Actions/MoveOrAttack';
 import { Say } from '../Actions/Say';
 
 export const Chasing = superclass => class extends superclass {
@@ -13,7 +13,7 @@ export const Chasing = superclass => class extends superclass {
     if (this.targetEntity) {
       let path = Helper.calculatePath(game, this.targetEntity.pos, this.pos);
       let targetPos = path.length > 0 ? path[0] : this.pos;
-      return new Move({
+      return new MoveOrAttack({
         targetPos,
         game,
         actor: this,

@@ -1,6 +1,6 @@
 import { DIRECTIONS, ENERGY_THRESHOLD } from '../../constants';
 import * as StatusEffect from '../../statusEffects';
-import { Move } from "../../Actions/Move";
+import { MoveOrAttack } from "../../Actions/MoveOrAttack";
 import { AddStatusEffect } from "../../Actions/AddStatusEffect";
 import { walk } from './walk';
 import { getRandomInArray } from '../../../helper';
@@ -21,7 +21,7 @@ const drunkWalk = (direction, engine) => {
 
   let newX = actor.pos.x + direction[0];
   let newY = actor.pos.y + direction[1];
-  actor.setNextAction(new Move({
+  actor.setNextAction(new MoveOrAttack({
     targetPos: { x: newX, y: newY },
     game: engine.game,
     actor,

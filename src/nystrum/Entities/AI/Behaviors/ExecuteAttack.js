@@ -1,4 +1,5 @@
 import { Say } from '../../../Actions/Say';
+import { MultiTargetAttack } from '../../../Actions/MultiTargetAttack';
 import Behavior from './Behavior';
 
 export default class ExecuteAttack extends Behavior {
@@ -8,8 +9,11 @@ export default class ExecuteAttack extends Behavior {
 
   constructActionClassAndParams () {
     return [
-      Say,
-      {message: 'I am executing an attack'}
+      MultiTargetAttack,
+      {
+        targetPositions: this.actor.getCursorPositions(),
+        onAfter: () => this.actor.removeAnimations()
+      }
     ]
   }
 }

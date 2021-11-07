@@ -1,6 +1,6 @@
 import * as Constant from '../constants';
 import * as Helper from '../../helper';
-import { Move } from '../Actions/Move';
+import { MoveOrAttack } from '../Actions/MoveOrAttack';
 
 export const Projecting = superclass => class extends superclass {
   constructor({ path = false, targetPos = null, ...args }) {
@@ -18,7 +18,7 @@ export const Projecting = superclass => class extends superclass {
       this.createPath(game);
     }
     let targetPos = this.path.length > 0 ? this.path[0] : this.pos;
-    let result = new Move({
+    let result = new MoveOrAttack({
       targetPos,
       game,
       actor: this,

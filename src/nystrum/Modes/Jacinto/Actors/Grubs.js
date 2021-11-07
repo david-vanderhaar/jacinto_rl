@@ -24,6 +24,7 @@ export function addWretch (modeData, pos) {
     behaviors: [
       new Behaviors.MoveTowardsEnemy({actor: null, repeat: 5}),
       new Behaviors.TelegraphAttack({actor: null, repeat: 1, attackPattern: CLONE_PATTERNS.clover}),
+      new Behaviors.ExecuteAttack({actor: null, repeat: 1}),
     ],
     faction: 'LOCUST',
     enemyFactions: ['COG'],

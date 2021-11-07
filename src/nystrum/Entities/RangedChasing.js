@@ -2,7 +2,7 @@ import * as Constant from '../constants';
 import * as Helper from '../../helper'; 
 import { PlaceActor } from '../Actions/PlaceActor';
 import { Say } from '../Actions/Say';
-import { Move } from '../Actions/Move';
+import { MoveOrAttack } from '../Actions/MoveOrAttack';
 
 export const RangedChasing = superclass => class extends superclass {
   constructor({ targetEntity = null, getProjectile = () => null, ...args }) {
@@ -68,7 +68,7 @@ export const RangedChasing = superclass => class extends superclass {
     // if not, select target tile in range of enemy and move
     let movePath = Helper.calculatePath(game, this.targetEntity.pos, this.pos);
     let targetPos = movePath.length > 0 ? movePath[0] : this.pos;
-    return new Move({
+    return new MoveOrAttack({
       targetPos,
       game,
       actor: this,
