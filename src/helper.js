@@ -30,7 +30,7 @@ export const coordsAreEqual = (pos_one, pos_two) => pos_one.x === pos_two.x && p
 
 export const coordsToString = (coords) => `${coords.x},${coords.y}`
 
-const isPassableDefault = (game) => (x, y) => {
+const isTilePassable = (game) => (x, y) => {
   const tile = game.map[x + "," + y];
   if (tile) {
     return (game.tileKey[tile.type].passable);
@@ -39,7 +39,21 @@ const isPassableDefault = (game) => (x, y) => {
   }
 }
 
-export const calculatePath = (game, targetPos, currentPos, topology = 4, isPassable = isPassableDefault) => {
+const isTileAndEntitiesPassable = (game, sourceEntityPos) => (x, y) => {
+  const tile = game.map[x + "," + y];
+  if (tile) {
+    const tileIsPassable = game.tileKey[tile.type].passable
+    if (tile.entities.length && !coordsAreEqual(sourceEntityPos, {x, y})) {
+      const entitiesArePassable = tile.entities.every((entity) => entity.passable);
+      return tileIsPassable && entitiesArePassable;
+    }
+    return tileIsPassable;
+  } else {
+    return false
+  }
+}
+
+export const calculatePath = (game, targetPos, currentPos, topology = 4, isPassable = isTilePassable) => {
   let map = game.map
   let isPassableCallback = isPassable(game);
   let astar = new ROT.Path.AStar(targetPos.x, targetPos.y, isPassableCallback, { topology });
@@ -50,6 +64,19 @@ export const calculatePath = (game, targetPos, currentPos, topology = 4, isPassa
 
   return path.slice(1);
 }
+
+export const calculatePathAroundObstacles = (
+  game, 
+  targetPos, 
+  currentPos, 
+  topology = 4
+) => calculatePath(
+  game,
+  targetPos,
+  currentPos,
+  topology,
+  (gameObject) => isTileAndEntitiesPassable(gameObject, currentPos)
+);
 
 const diagonal_distance = (p0, p1) => {
   let dx = p1.x - p0.x, dy = p1.y - p0.y;

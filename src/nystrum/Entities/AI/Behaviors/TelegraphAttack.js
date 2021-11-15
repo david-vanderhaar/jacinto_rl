@@ -17,7 +17,6 @@ export default class TelegraphAttack extends Behavior {
   constructActionClassAndParams () {
     // pick one or more tiles to target with attack or action via attackPattern class (random, fixed)
     const positions = getPositionsFromStructure(this.attackPattern, this.getTargetPosition());
-    console.log(positions);
     // add blink animations or particle animation to targeted tiles
     this.actor.activateCursor(positions);
     this.actor.updateAllCursorNodes([

@@ -1,6 +1,6 @@
 import { Move } from '../../../Actions/Move';
 import Behavior from './Behavior';
-import { calculatePath } from '../../../../helper'; 
+import { calculatePathAroundObstacles } from '../../../../helper'; 
 
 export default class MoveTowardsEnemy extends Behavior {
   constructor({ ...args }) {
@@ -12,18 +12,20 @@ export default class MoveTowardsEnemy extends Behavior {
   }
 
   getDistanceToTarget (target) {
-    return calculatePath(this.actor.game, target.getPosition(), this.actor.getPosition(), 8).length;
+    return calculatePathAroundObstacles(this.actor.game, target.getPosition(), this.actor.getPosition(), 8).length;
   }
 
   findClosestEnemy() {
-    let closest = null;
+    let currentClosestEnemy = null;
     this.actor.getEnemies().forEach((enemy) => {
-      if (!closest) closest = enemy;
-      if (this.getDistanceToTarget(enemy) < this.getDistanceToTarget(closest)) {
-        closest = enemy;
+      if (!currentClosestEnemy) currentClosestEnemy = enemy;
+      const distanceToEnemy = this.getDistanceToTarget(enemy);
+      const distanceToCurrentClosestEnemy = this.getDistanceToTarget(currentClosestEnemy);
+      if (distanceToEnemy < distanceToCurrentClosestEnemy) {
+        currentClosestEnemy = enemy;
       }
     });
-    return closest;
+    return currentClosestEnemy;
   }
 
   constructActionClassAndParams () {
@@ -34,7 +36,7 @@ export default class MoveTowardsEnemy extends Behavior {
     const enemy = this.findClosestEnemy();
     if (!enemy) return [null, null]; 
     // get path to enemy
-    let path = calculatePath(this.actor.game, enemy.getPosition(), this.actor.getPosition());
+    let path = calculatePathAroundObstacles(this.actor.game, enemy.getPosition(), this.actor.getPosition());
     let moveToPosition = path.length > 0 ? path[0] : null;
     if (!moveToPosition) return [null, null]
 
