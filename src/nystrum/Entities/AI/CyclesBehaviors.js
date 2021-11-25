@@ -1,6 +1,5 @@
 import Behavior from './Behaviors/Behavior';
 import { Say } from '../../Actions/Say';
-import * as Constant from '../../constants';
 
 
 export const CyclesBehaviors = superclass => class extends superclass {
@@ -16,6 +15,17 @@ export const CyclesBehaviors = superclass => class extends superclass {
     });
     this.activeBehaviorIndex = 0;
   }
+
+  // hasEnoughEnergy() {
+  //   const behavior = this.selectedBehavior();
+  //   return !this.shouldCycleToNextBehavior(behavior)
+  // }
+
+  // gainEnergy() {
+  //   const currentBehavior = this.selectedBehavior();
+  //   currentBehavior.repeated = 0;
+  //   this.selectNextBehavior();
+  // }
 
   getActiveBehavior() {
     return this.selectedBehavior();

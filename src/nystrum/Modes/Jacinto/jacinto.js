@@ -4,16 +4,14 @@ import * as Item from '../../items';
 import * as MapHelper from '../../Maps/helper';
 import { generate as generateBuilding } from '../../Maps/generator';
 import * as CoverGenerator from '../../Maps/coverGenerator';
-import { CoverWall, Debris, Bandit, RangedBandit, EmergenceHole } from '../../Entities/index';
-import * as Behaviors from '../../Entities/AI/Behaviors';
-import { MESSAGE_TYPE } from '../../message';
+import { EmergenceHole } from '../../Entities/index';
 import { Mode } from '../default';
 import SOUNDS from '../../sounds';
 import * as _ from 'lodash';
 import {COLORS, TILE_KEY} from './theme';
 import { Ammo } from '../../Items/Pickups/Ammo';
 import { Grenade } from '../../Items/Weapons/Grenade';
-import {addWretch} from './Actors/Grubs';
+import * as LocustActors from './Actors/Grubs';
 const MAP_DATA = require('../../Maps/castle.json');
 
 export class Jacinto extends Mode {
@@ -26,19 +24,22 @@ export class Jacinto extends Mode {
     };
     this.dataByLevel = [
       {
-        enemies: Array(1).fill('Wretch'),
-        emergenceHoles: 0,
+        // enemies: Array(1).fill('Wretch'),
+        enemies: Array(2).fill('Wretch'),
+        // enemies: Array(1).fill('Wretch').concat('Drone'),
+        // emergenceHoles: 0,
+        emergenceHoles: 1,
         ammoLoot: 2,
         grenadeLoot: 1,
       },
       {
-        enemies: Array(6).fill('Grub'),
+        enemies: Array(6).fill('RandomGrub'),
         emergenceHoles: 3,
         ammoLoot: 1,
         grenadeLoot: 0,
       },
       {
-        enemies: Array(12).fill('Grub'),
+        enemies: Array(12).fill('RandomGrub'),
         emergenceHoles: 0,
         ammoLoot: 3,
         grenadeLoot: 1,
@@ -50,7 +51,7 @@ export class Jacinto extends Mode {
         grenadeLoot: 0,
       },
       {
-        enemies: Array(10).fill('Grub'),
+        enemies: Array(10).fill('RandomGrub'),
         emergenceHoles: 4,
         ammoLoot: 1,
         grenadeLoot: 0,
@@ -62,7 +63,7 @@ export class Jacinto extends Mode {
         grenadeLoot: 5,
       },
       {
-        enemies: [...Array(4).fill('Grub'), 'Skorge'],
+        enemies: [...Array(4).fill('RandomGrub'), 'Skorge'],
         emergenceHoles: 6,
         ammoLoot: 20,
         grenadeLoot: 2,
@@ -218,7 +219,7 @@ export class Jacinto extends Mode {
     this.data.enemies.forEach((enemyName) => {
       let pos = Helper.getRandomInArray(this.getEmptyGroundTileKeys());
       let posXY = pos.split(',').map((coord) => parseInt(coord));
-      this[`add${enemyName}`]({ x: posXY[0], y: posXY[1] });
+      LocustActors[`add${enemyName}`](this, { x: posXY[0], y: posXY[1] });
     })
   }
 
@@ -358,37 +359,7 @@ export class Jacinto extends Mode {
       faction: 'LOCUST',
       enemyFactions: ['COG'],
       speed: Constant.ENERGY_THRESHOLD,
-      getSpawnedEntity: (spawnPosition) => {
-        let players = this.getPlayers()
-        let targetEntity = players[0]
-        const banditStats = this.getBanditStats();
-        let entity = new banditStats.entityClass({
-          targetEntity,
-          pos: spawnPosition,
-          renderer: banditStats.renderer,
-          name: banditStats.name,
-          game: this.game,
-          actions: [],
-          attackDamage: banditStats.attackDamage,
-          durability: banditStats.durability,
-          speed: banditStats.speed,
-          faction: 'LOCUST',
-          enemyFactions: ['COG'],
-          onDestroy: (actor) => {
-            const chance = Math.random();
-            if (chance <= 0.05) {
-              this.addAmmoLoot(actor.getPosition());
-            } else if (chance <= 0.1) {
-              this.addGrenadeLoot(actor.getPosition());
-            }
-          },
-          // directional projectile destruction breaks engine
-          getProjectile: ({ pos, targetPos, direction, range }) => Item.directionalKunai(this.game.engine, { ...pos }, direction, range)
-          // getProjectile: ({ pos, targetPos, direction, range }) => Item.kunai(game.engine, { ...pos }, { ...targetPos })
-        });
-
-        return entity
-      },
+      getSpawnedEntity: (spawnPosition) => LocustActors.createRandomBasicGrub(this, spawnPosition),
       onDestroy: () => this.game.map[Helper.coordsToString(pos)].type = 'EMERGENCE_DESTROYED',
     });
 
@@ -416,130 +387,6 @@ export class Jacinto extends Mode {
     const entity = Grenade(this.game.engine, 6);
     entity.pos = pos;
     this.game.placeActorOnMap(entity)
-  }
-
-  getBanditStats () {
-    let banditLevels = [
-      {
-        name: 'Grub',
-        renderer: {
-          character: Helper.getRandomInArray(['g']),
-          color: COLORS.flesh2,
-          background: COLORS.flesh1,
-          sprite: '',
-          // sprite: '',
-        },
-        durability: 3,
-        attackDamage: 1,
-        speed: 100,
-        entityClass: RangedBandit
-      },
-      {
-        name: 'Grub Scout',
-        renderer: {
-          character: Helper.getRandomInArray(['s']),
-          color: COLORS.flesh1,
-          background: COLORS.flesh2,
-          sprite: '',
-          // sprite: '',
-        },
-        durability: 1,
-        attackDamage: 1,
-        speed: 500,
-        entityClass: RangedBandit
-      },
-      {
-        name: 'Wretch',
-        renderer: {
-          character: Helper.getRandomInArray(['w']),
-          color: COLORS.flesh1,
-          background: COLORS.flesh3,
-          sprite: '',
-        },
-        durability: 1,
-        attackDamage: 1,
-        speed: 500,
-        entityClass: Bandit
-      },
-      {
-        name: 'Big Grub',
-        renderer: {
-          character: Helper.getRandomInArray(['B']),
-          color: COLORS.locust2,
-          background: COLORS.flesh1,
-          sprite: '',
-        },
-        durability: 4,
-        attackDamage: 3,
-        speed: 100,
-        entityClass: Bandit
-      },
-    ]
-    return Helper.getRandomInArray(banditLevels);
-  }
-
-  addWretch (pos) {addWretch(this, pos)}
-
-  addGrub (pos) {
-    let players = this.getPlayers()
-    let targetEntity = players[0]
-    const banditStats = this.getBanditStats();
-    let entity = new banditStats.entityClass({
-      targetEntity,
-      pos,
-      renderer: banditStats.renderer,
-      name: banditStats.name,
-      game: this.game,
-      actions: [],
-      attackDamage: banditStats.attackDamage,
-      durability: banditStats.durability,
-      speed: banditStats.speed,
-      faction: 'LOCUST',
-      enemyFactions: ['COG'],
-      onDestroy: (actor) => {
-        const chance = Math.random();
-        if (chance <= 0.05) {
-          this.addAmmoLoot(actor.getPosition());
-        } else if (chance <= 0.1) {
-          this.addGrenadeLoot(actor.getPosition());
-        }
-      },
-      // directional projectile destruction breaks engine
-      getProjectile: ({ pos, targetPos, direction, range }) => Item.directionalKunai(this.game.engine, { ...pos }, direction, range)
-      // getProjectile: ({ pos, targetPos, direction, range }) => Item.kunai(game.engine, { ...pos }, { ...targetPos })
-    })
-    if (this.game.placeActorOnMap(entity)) {
-      this.game.engine.addActor(entity);
-      // this.game.draw();
-    };
-  }
-  
-  addSkorge (pos) {
-    let players = this.getPlayers()
-    let targetEntity = players[0]
-    let entity = new Bandit({
-      targetEntity,
-      pos,
-      renderer: {
-        sprite: '',
-        character: 'S',
-        color: COLORS.flesh1,
-        background: COLORS.base04,
-      },
-      name: 'Skorge',
-      game: this.game,
-      attackDamage: 8,
-      durability: 40,
-      speed: Constant.ENERGY_THRESHOLD * 5,
-      faction: 'LOCUST',
-      enemyFactions: ['COG'],
-      // directional projectile destruction breaks engine
-      // getProjectile: ({ pos, targetPos, direction, range }) => Item.directionalKunai(this.game.engine, { ...pos }, direction, range)
-      // getProjectile: ({ pos, targetPos, direction, range }) => Item.kunai(game.engine, { ...pos }, { ...targetPos })
-    })
-    if (this.game.placeActorOnMap(entity)) {
-      this.game.engine.addActor(entity);
-    };
   }
 
   placePlayersInSafeZone () {
