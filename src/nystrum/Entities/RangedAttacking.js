@@ -102,13 +102,15 @@ export const RangedAttacking = superclass => class extends superclass {
 
   getEquipedWeapons() {
     if (this.entityTypes.includes('EQUIPING')) {
-      return this.equipment.map((slot) => {
+      const equipmentSlots = this.equipment.map((slot) => {
         if (slot.item) {
           if (slot.item.entityTypes.includes('RANGED_ATTACKING')) {
             return slot.item;
           }
         }
       });
+      const filledSlots = equipmentSlots.filter((slot) => slot)
+      return filledSlots;
     }
     return [];
   }

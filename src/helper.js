@@ -78,6 +78,16 @@ export const calculatePathAroundObstacles = (
   (gameObject) => isTileAndEntitiesPassable(gameObject, currentPos)
 );
 
+export const calculateStraightPath = (p0, p1) => {
+  let points = [];
+  let N = diagonal_distance(p0, p1);
+  for (let step = 0; step < N; step++) {
+    let t = N === 0 ? 0.0 : step / N;
+    points.push(round_point(lerp_point(p0, p1, t)));
+  }
+  return points;
+}
+
 const diagonal_distance = (p0, p1) => {
   let dx = p1.x - p0.x, dy = p1.y - p0.y;
   return Math.max(Math.abs(dx), Math.abs(dy));
@@ -96,16 +106,6 @@ const lerp_point = (p0, p1, t) => {
 
 const lerp = (start, end, t) => {
   return start + t * (end - start);
-}
-
-export const calculateStraightPath = (p0, p1) => {
-  let points = [];
-  let N = diagonal_distance(p0, p1);
-  for (let step = 0; step < N; step++) {
-    let t = N === 0 ? 0.0 : step / N;
-    points.push(round_point(lerp_point(p0, p1, t)));
-  }
-  return points;
 }
 
 export const getPositionInDirection = (pos, direction) => {

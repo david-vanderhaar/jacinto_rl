@@ -7,6 +7,10 @@ export default class ExecuteAttack extends Behavior {
     super({ ...args });
   }
 
+  isValid () {
+    return this.actor.getCursorPositions().length
+  }
+
   constructActionClassAndParams () {
     return [
       MultiTargetAttack,

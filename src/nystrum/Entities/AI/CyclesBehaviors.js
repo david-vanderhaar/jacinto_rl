@@ -16,17 +16,6 @@ export const CyclesBehaviors = superclass => class extends superclass {
     this.activeBehaviorIndex = 0;
   }
 
-  // hasEnoughEnergy() {
-  //   const behavior = this.selectedBehavior();
-  //   return !this.shouldCycleToNextBehavior(behavior)
-  // }
-
-  // gainEnergy() {
-  //   const currentBehavior = this.selectedBehavior();
-  //   currentBehavior.repeated = 0;
-  //   this.selectNextBehavior();
-  // }
-
   getActiveBehavior() {
     return this.selectedBehavior();
   }
@@ -36,7 +25,7 @@ export const CyclesBehaviors = superclass => class extends superclass {
   }
 
   shouldCycleToNextBehavior(behavior) {
-    return behavior.repeated >= behavior.repeat
+    return !behavior.isValid() || !behavior.shouldRepeat();
   }
 
   getDefaultAction() {
@@ -66,18 +55,18 @@ export const CyclesBehaviors = superclass => class extends superclass {
   getAction() {
     let action = null;
     let behavior = this.selectedBehavior();
+    let killLoopAt = this.behaviors.length;
+
     while (this.shouldCycleToNextBehavior(behavior)) {
-      behavior.repeated = 0;
+      behavior.reset();
       behavior = this.selectNextBehavior();
     }
 
-    let killLoopAt = this.behaviors.length;
-    while (action === null && killLoopAt >= 0) {
-      if (behavior.isValid()) {
-        behavior.repeated += 1;
-        action = behavior.getAction();
-        killLoopAt -= 1;
-      };
+    while (action === null) {
+      behavior.repeated += 1;
+      action = behavior.getAction();
+      killLoopAt -= 1;
+      if (killLoopAt >= 0) break;
     }
 
     if (!action) action = this.getDefaultAction();

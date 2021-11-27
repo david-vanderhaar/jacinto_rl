@@ -11,6 +11,14 @@ export default class Behavior {
     return true;
   }
 
+  reset () {
+    this.repeated = 0;
+  }
+
+  shouldRepeat () {
+    return this.repeated < this.repeat
+  }
+
   getDefaultActionParams() {
     return {
       game: this.actor.game,
@@ -29,6 +37,7 @@ export default class Behavior {
   getAction() {
     const [actionClass, actionParams] = this.constructActionClassAndParams();
     if (!actionClass || !actionParams) return null;
+    
     return new actionClass({
       ...this.getDefaultActionParams(),
       ...actionParams,

@@ -9,6 +9,24 @@ export const UsesCover = superclass => class extends superclass {
     this.coveredBy = [];
   }
 
+  isCovered () {
+    return this.coveredBy.length;
+  }
+
+  getCoverEntities () {
+    const keys = Object.keys(this.game.map);
+    let coverEntities = []
+    keys.forEach((key) => {
+      const tile = this.game.map[key]
+      const covers = tile.entities.filter((entity) => {
+        const hasCovers = entity.entityTypes.includes('COVERING')
+        return hasCovers;
+      })
+      coverEntities = [...coverEntities, ...covers];
+    })
+    return coverEntities;
+  }
+
   getCoveredByIds () {
     return this.coveredBy.map((entity) => entity.id);
   }
