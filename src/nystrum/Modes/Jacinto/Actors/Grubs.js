@@ -81,6 +81,7 @@ const GRUB_STATS = {
       attackDamage: 1,
       behaviors: [
         new Behaviors.MoveTowardsCover({repeat: 5}),
+        new Behaviors.Wait({repeat: 1}),
         new Behaviors.TelegraphRangedAttack({repeat: 1}),
         new Behaviors.ExecuteAttack({repeat: 1}),
         new Behaviors.TelegraphRangedAttack({repeat: 1}),

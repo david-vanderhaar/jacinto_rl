@@ -4,6 +4,7 @@ import MoveTowardsCover from './MoveTowardsCover';
 import MoveTowardsEnemy from './MoveTowardsEnemy';
 import TelegraphAttack from './TelegraphAttack';
 import TelegraphRangedAttack from './TelegraphRangedAttack';
+import Wait from './Wait';
 
 export {
   Behavior,
@@ -12,4 +13,5 @@ export {
   MoveTowardsEnemy,
   TelegraphAttack,
   TelegraphRangedAttack,
+  Wait,
 }

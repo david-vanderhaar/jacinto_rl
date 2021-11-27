@@ -24,8 +24,7 @@ export class Jacinto extends Mode {
     };
     this.dataByLevel = [
       {
-        // enemies: Array(2).fill('Hunter'),
-        enemies: [...Array(3).fill('Drone'), ...Array(2).fill('Hunter')],
+        enemies: Array(3).fill('Wretch'),
         emergenceHoles: 0,
         ammoLoot: 2,
         grenadeLoot: 1,
