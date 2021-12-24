@@ -408,14 +408,16 @@ export class Game {
     this.initializeUI(presserRef, document);
     this.initializeGameData();
     // hack to register sprite mode
-    setTimeout(() => {
-      this.spriteMode = false;
-      this.draw()
-    }, 500)
-    setTimeout(() => {
-      this.spriteMode = true;
-      this.draw()
-    }, 500)
+    if (this.spriteMode) {
+      setTimeout(() => {
+        this.spriteMode = false;
+        this.draw()
+      }, 500)
+      setTimeout(() => {
+        this.spriteMode = true;
+        this.draw()
+      }, 500)
+    }
     // end hack
   }
 
