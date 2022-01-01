@@ -18,7 +18,7 @@ export const RangedAttacking = superclass => class extends superclass {
     const coverDebuff = targetPos ? this.getRangedAttackCoverDebuff(targetPos) : 0;
     const distanceDebuff = targetPos ? this.getRangedAttackDistanceDebuff(targetPos) : 0;
     const result = this.baseRangedAccuracy + weaponAccuracy + coverDebuff + distanceDebuff;
-    return result;
+    return Math.max(result, 0);
   }
 
   getRangedAttackCoverDebuff(targetPos) {
@@ -115,8 +115,22 @@ export const RangedAttacking = superclass => class extends superclass {
     return [];
   }
 
-  useAmmo() {
-    this.getEquipedWeapons().forEach((weapon) => weapon.magazine = Math.max(0, weapon.magazine - 1));
+  decrementMagazine() {
+    this.magazine = Math.max(0, this.magazine - 1)
+  }
+
+  useAmmo(position) {
+    this.getEquipedWeapons().forEach(
+      (weapon) => {
+        weapon.decrementMagazine();
+        let ammo = this.contains('Ammo');
+        if (ammo) {
+          this.removeFromContainer(ammo);
+          ammo.move(position)
+          ammo.destroy();
+        }
+      }
+    );
   }
 
   reload () {
@@ -127,7 +141,6 @@ export const RangedAttacking = superclass => class extends superclass {
         for (let i = 0; i < amount; i++) {
           let ammo = this.contains('Ammo');
           if (ammo) {
-            this.removeFromContainer(ammo);
             weapon.magazine += 1;
             reloaded = true;
           }
@@ -150,12 +163,12 @@ export const RangedAttacking = superclass => class extends superclass {
       const hitChance = attackChance + additionalAccuracy;
       hit = Math.random() < hitChance;
       // TODO: trigger hit and miss animations
-      this.useAmmo();
+      let target = targets[0];
+      this.useAmmo(target.getPosition());
       if (!hit) {
         success = true;
         return [success, hit];
       }
-      let target = targets[0];
       if (this.canRangedAttack(target)) {
         let damage = this.getRangedAttackDamage(additionalDamage);
         this.game.addMessage(`${this.name} does ${damage} to ${target.name}`, MESSAGE_TYPE.DANGER);

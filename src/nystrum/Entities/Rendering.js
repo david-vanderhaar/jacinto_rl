@@ -27,6 +27,7 @@ export const Rendering = superclass => class extends superclass {
     }
     return success;
   }
+
   shove(targetPos, direction) {
     let success = false;
     let targetTile = this.game.map[Helper.coordsToString(targetPos)];

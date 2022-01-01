@@ -1,16 +1,16 @@
 import {Ammo as AmmoEntity} from '../../Entities/index';
 import {COLORS} from '../../Modes/Jacinto/theme';
 
-export const Ammo = (engine) => new AmmoEntity({
+export const ExplodingAmmo = (engine) => new AmmoEntity({
   game: engine.game,
   name: 'Ammo',
   passable: true,
   renderer: {
-    character: '||',
-    sprite: '',
+    character: '|b',
+    sprite: '',
     background: COLORS.gray,
-    color: COLORS.base3,
+    color: COLORS.red,
   },
   flammability: 0,
-  explosivity: 0,
+  explosivity: 2,
 });

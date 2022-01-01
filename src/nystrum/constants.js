@@ -364,7 +364,7 @@ export const CLONE_PATTERNS = {
       { x: -1, y: -1, taken: false, },
       { x: -1, y: 0, taken: false, },
       { x: -1, y: 1, taken: false, },
-      { x: 0, y: 1, taken: false, },
+      { x: 0, y: 2, taken: false, },
       { x: 2, y: 2, taken: false, },
       { x: 2, y: 0, taken: false, },
       { x: 2, y: -2, taken: false, },

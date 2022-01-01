@@ -6,13 +6,19 @@ import {JacintoAI} from '../../../Entities/index';
 import { ContainerSlot } from '../../../Entities/Containing';
 import { Gnasher } from '../../../Items/Weapons/Gnasher';
 import { HammerBurst } from '../../../Items/Weapons/HammerBurst';
+import { GrenadeThrower } from '../../../Items/Weapons/GrenadeThrower';
 import { Ammo } from '../../../Items/Pickups/Ammo';
+import { ExplodingAmmo } from '../../../Items/Pickups/ExplodingAmmo';
+import { SandSkin } from '../../../StatusEffects/SandSkin';
 
 export function addWretch (mode, pos) {
   addGrubToMapWithStats(mode, pos, GRUB_STATS.wretch())
 }
 export function addDrone (mode, pos) {
   addGrubToMapWithStats(mode, pos, GRUB_STATS.drone())
+}
+export function addDroneGrenadier (mode, pos) {
+  addGrubToMapWithStats(mode, pos, GRUB_STATS.drone_grenadier())
 }
 export function addHunter (mode, pos) {
   addGrubToMapWithStats(mode, pos, GRUB_STATS.hunter())
@@ -68,6 +74,28 @@ const GRUB_STATS = {
       },
     }
   },
+  drone_grenadier: () => {
+    return {
+      name: 'Grenadier',
+      renderer: {
+        character: 'db',
+        color: COLORS.flesh2,
+        background: COLORS.flesh1,
+        sprite: '',
+      },
+      durability: 3,
+      attackDamage: 1,
+      behaviors: [
+        new Behaviors.MoveTowardsEnemy({repeat: 1}),
+        new Behaviors.TelegraphRangedAttackThroughCover({repeat: 1}),
+        new Behaviors.ExecuteRangedAttack({repeat: 1}),
+      ],
+      loadout: {
+        equipmentCreators: [GrenadeThrower],
+        inventoryCreators: [{amount: 10, creator: ExplodingAmmo}]
+      },
+    }
+  },
   hunter: () => {
     return {
       name: 'Hunter',
@@ -83,9 +111,9 @@ const GRUB_STATS = {
         new Behaviors.MoveTowardsCover({repeat: 5}),
         new Behaviors.Wait({repeat: 1}),
         new Behaviors.TelegraphRangedAttack({repeat: 1}),
-        new Behaviors.ExecuteAttack({repeat: 1}),
+        new Behaviors.ExecuteRangedAttack({repeat: 1}),
         new Behaviors.TelegraphRangedAttack({repeat: 1}),
-        new Behaviors.ExecuteAttack({repeat: 1}),
+        new Behaviors.ExecuteRangedAttack({repeat: 1}),
       ],
       loadout: {
         equipmentCreators: [HammerBurst],
@@ -106,8 +134,18 @@ const GRUB_STATS = {
       attackDamage: 4,
       behaviors: [
         new Behaviors.MoveTowardsEnemy({repeat: 5}),
+        // new Behaviors.TelegraphAttack({repeat: 1, attackPattern: Constant.CLONE_PATTERNS.clover}),
+        // new Behaviors.ExecuteAttack({repeat: 1}),
         new Behaviors.TelegraphAttack({repeat: 1, attackPattern: Constant.CLONE_PATTERNS.clover}),
-        new Behaviors.ExecuteAttack({repeat: 1}),
+        new Behaviors.ExecuteStatusEffects({repeat: 1, 
+          effectClass: SandSkin,
+          effectDefaults: {
+            defenseBuff: 10,
+            lifespan: Constant.ENERGY_THRESHOLD * 10,
+            stepInterval: Constant.ENERGY_THRESHOLD,
+            processDelay: 200
+          },
+        }),
       ],
     }
   },
