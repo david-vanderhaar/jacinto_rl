@@ -127,7 +127,7 @@ export const sandTomb = ({
   actor,
   targetPos,
   speed: 100,
-  structureType: 'circle',
+  structureType: 'donut',
   createProjectile: sandTombPart,
 })
 
@@ -140,7 +140,7 @@ export const sandBurst = ({
   actor,
   targetPos,
   speed: 500,
-  structureType: 'circle',
+  structureType: 'donut',
   createProjectile: sandTombPart,
 })
 

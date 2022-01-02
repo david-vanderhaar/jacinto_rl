@@ -10,6 +10,7 @@ import { GrenadeThrower } from '../../../Items/Weapons/GrenadeThrower';
 import { Ammo } from '../../../Items/Pickups/Ammo';
 import { ExplodingAmmo } from '../../../Items/Pickups/ExplodingAmmo';
 import { SandSkin } from '../../../StatusEffects/SandSkin';
+import { MeleeDamage } from '../../../StatusEffects/MeleeDamage';
 
 export function addWretch (mode, pos) {
   addGrubToMapWithStats(mode, pos, GRUB_STATS.wretch())
@@ -47,7 +48,7 @@ const GRUB_STATS = {
       attackDamage: 1,
       behaviors: [
         new Behaviors.MoveTowardsEnemy({repeat: 5}),
-        new Behaviors.TelegraphAttack({repeat: 1, attackPattern: Constant.CLONE_PATTERNS.clover}),
+        new Behaviors.Telegraph({repeat: 1, attackPattern: Constant.CLONE_PATTERNS.clover}),
         new Behaviors.ExecuteAttack({repeat: 1}),
       ],
     }
@@ -134,18 +135,23 @@ const GRUB_STATS = {
       attackDamage: 4,
       behaviors: [
         new Behaviors.MoveTowardsEnemy({repeat: 5}),
-        // new Behaviors.TelegraphAttack({repeat: 1, attackPattern: Constant.CLONE_PATTERNS.clover}),
-        // new Behaviors.ExecuteAttack({repeat: 1}),
-        new Behaviors.TelegraphAttack({repeat: 1, attackPattern: Constant.CLONE_PATTERNS.clover}),
-        new Behaviors.ExecuteStatusEffects({repeat: 1, 
-          effectClass: SandSkin,
+        new Behaviors.Telegraph({
+          repeat: 1,
+          attackPattern: Constant.CLONE_PATTERNS.big_circle,
+          color: COLORS.blue,
+        }),
+        new Behaviors.ExecuteStatusEffectOnAllies({
+          repeat: 1, 
+          effectClass: MeleeDamage,
           effectDefaults: {
-            defenseBuff: 10,
+            buffValue: 5,
             lifespan: Constant.ENERGY_THRESHOLD * 10,
             stepInterval: Constant.ENERGY_THRESHOLD,
             processDelay: 200
           },
         }),
+        new Behaviors.Telegraph({repeat: 1, attackPattern: Constant.CLONE_PATTERNS.clover}),
+        new Behaviors.ExecuteAttack({repeat: 1}),
       ],
     }
   },
@@ -162,7 +168,7 @@ const GRUB_STATS = {
       attackDamage: 8,
       behaviors: [
         new Behaviors.MoveTowardsEnemy({repeat: 5}),
-        new Behaviors.TelegraphAttack({repeat: 1, attackPattern: Constant.CLONE_PATTERNS.clover}),
+        new Behaviors.Telegraph({repeat: 1, attackPattern: Constant.CLONE_PATTERNS.clover}),
         new Behaviors.ExecuteAttack({repeat: 1}),
       ],
     }

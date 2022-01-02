@@ -14,6 +14,10 @@ export default class ExecuteStatusEffects extends Behavior {
     return this.actor.getCursorPositions().length
   }
 
+  getTargetsOnTile(tile) {
+    return Helper.getDestructableEntities(tile.entities);
+  }
+
   createEffects() {
     let effects = [];
     const targetPositions = this.actor.getCursorPositions();
@@ -21,7 +25,7 @@ export default class ExecuteStatusEffects extends Behavior {
     targetPositions.forEach((pos) => {
       let tile = this.actor.game.map[Helper.coordsToString(pos)];
       if (!!tile) {
-        let targets = Helper.getDestructableEntities(tile.entities);
+        let targets = this.getTargetsOnTile(tile)
         // TODO: create alternat version that targets only allies/only enemies
         targets.forEach((target) => {
           const newEffect = new this.effectClass({

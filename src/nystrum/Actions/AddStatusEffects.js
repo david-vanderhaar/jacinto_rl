@@ -22,11 +22,11 @@ export class AddStatusEffects extends Base {
     let success = false;
     this.effects.forEach((effect) => {
       const effectSuccess = this.game.engine.addStatusEffect(effect);
+      console.log(effectSuccess);
       success = effectSuccess || success;
       if (effectSuccess) this.addParticleAnimationAt({pos: effect.actor.getPosition()});
     });
 
-    this.addParticleAnimationAt({pos: this.actor.getPosition()});
     return {
       success,
       alternative: null,

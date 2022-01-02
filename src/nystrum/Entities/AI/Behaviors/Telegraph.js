@@ -4,10 +4,11 @@ import {CLONE_PATTERNS} from '../../../constants';
 import {COLORS} from '../../../Modes/Jacinto/theme';
 import Behavior from './Behavior';
 
-export default class TelegraphAttack extends Behavior {
-  constructor({ attackPattern = CLONE_PATTERNS.point, ...args }) {
+export default class Telegraph extends Behavior {
+  constructor({ attackPattern = CLONE_PATTERNS.point, color = COLORS.red, ...args }) {
     super({ ...args });
     this.attackPattern = attackPattern;
+    this.color = color;
   }
 
   getTargetPosition () {
@@ -20,7 +21,7 @@ export default class TelegraphAttack extends Behavior {
     // add blink animations or particle animation to targeted tiles
     this.actor.activateCursor(positions);
     this.actor.updateAllCursorNodes([
-      {key: 'fill', value: COLORS.red}, 
+      {key: 'fill', value: this.color}, 
       {key: 'stroke', value: 'transparent'}, 
     ]);
     // (or add telegraph entities to map?)

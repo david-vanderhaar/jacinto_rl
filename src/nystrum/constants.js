@@ -374,12 +374,30 @@ export const CLONE_PATTERNS = {
       { x: -2, y: 2, taken: false, },
     ],
   },
-  circle: {
+  donut: {
     x_offset: 0,
     y_offset: 0,
     positions: [
       ...Helper.getPointsOnCircumference(0, 0, 2),
       ...Helper.getPointsOnCircumference(0, 0, 3)
+    ]
+  },
+  big_circle: {
+    x_offset: 0,
+    y_offset: 0,
+    positions: [
+      // { x: 0, y: 0, taken: false, },
+      { x: 0, y: 1, taken: false, },
+      { x: 1, y: 1, taken: false, },
+      { x: 1, y: 0, taken: false, },
+      { x: 1, y: -1, taken: false, },
+      { x: 0, y: -1, taken: false, },
+      { x: -1, y: -1, taken: false, },
+      { x: -1, y: 0, taken: false, },
+      { x: -1, y: 1, taken: false, },
+      ...Helper.getPointsOnCircumference(0, 0, 2),
+      ...Helper.getPointsOnCircumference(0, 0, 3),
+      ...Helper.getPointsOnCircumference(0, 0, 4)
     ]
   },
 }
