@@ -3,7 +3,7 @@ import * as Constant from '../constants';
 import { Player } from '../Entities/index';
 import { ContainerSlot } from '../Entities/Containing';
 import {Say} from '../Actions/Say';
-import {MoveOrAttack} from '../Actions/MoveOrAttack';
+import {Move} from '../Actions/Move';
 import {PrepareDirectionalThrow} from '../Actions/PrepareDirectionalThrow';
 import {PrepareRangedAttack} from '../Actions/PrepareRangedAttack';
 import {OpenInventory} from '../Actions/OpenInventory';
@@ -37,7 +37,7 @@ export default function (engine) {
         const direction = Constant.DIRECTIONS.N;
         let newX = actor.pos.x + direction[0];
         let newY = actor.pos.y + direction[1];
-        return new MoveOrAttack({
+        return new Move({
           hidden: true,
           targetPos: { x: newX, y: newY },
           game: engine.game,
@@ -49,7 +49,7 @@ export default function (engine) {
         const direction = Constant.DIRECTIONS.S;
         let newX = actor.pos.x + direction[0];
         let newY = actor.pos.y + direction[1];
-        return new MoveOrAttack({
+        return new Move({
           hidden: true,
           targetPos: { x: newX, y: newY },
           game: engine.game,
@@ -61,7 +61,7 @@ export default function (engine) {
         const direction = Constant.DIRECTIONS.W;
         let newX = actor.pos.x + direction[0];
         let newY = actor.pos.y + direction[1];
-        return new MoveOrAttack({
+        return new Move({
           hidden: true,
           targetPos: { x: newX, y: newY },
           game: engine.game,
@@ -73,7 +73,7 @@ export default function (engine) {
         const direction = Constant.DIRECTIONS.E;
         let newX = actor.pos.x + direction[0];
         let newY = actor.pos.y + direction[1];
-        return new MoveOrAttack({
+        return new Move({
           hidden: true,
           targetPos: { x: newX, y: newY },
           game: engine.game,
@@ -163,7 +163,7 @@ export default function (engine) {
     },
     name: 'The Scout',
     actions: [],
-    speed: Constant.ENERGY_THRESHOLD * 8,
+    speed: Constant.ENERGY_THRESHOLD * 4,
     durability,
     attackDamage: 0,
     baseRangedAccuracy: 0,

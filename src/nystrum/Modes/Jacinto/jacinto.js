@@ -24,44 +24,49 @@ export class Jacinto extends Mode {
     };
     this.dataByLevel = [
       {
-        enemies: [
-          ...Array(1).fill('Scion'),
-          ...Array(2).fill('Wretch'),
-        ],
-        // enemies: Array(1).fill('DroneGrenadier'),
-        // enemies: Array(1).fill('Drone'),
-        // enemies: Array(3).fill('Wretch'),
+        enemies: Array(12).fill('Wretch'),
         emergenceHoles: 0,
-        ammoLoot: 2,
-        grenadeLoot: 1,
+        ammoLoot: 0,
+        grenadeLoot: 0,
       },
       {
-        enemies: Array(6).fill('RandomGrub'),
-        emergenceHoles: 3,
+        enemies: [
+          ...Array(2).fill('Scion'),
+          ...Array(6).fill('Wretch'),
+        ],
+        emergenceHoles: 0,
         ammoLoot: 1,
         grenadeLoot: 0,
       },
       {
-        enemies: Array(12).fill('RandomGrub'),
+        enemies: [
+          ...Array(1).fill('Scion'),
+          ...Array(3).fill('Drone'),
+          ...Array(6).fill('Wretch'),
+        ],
         emergenceHoles: 0,
         ammoLoot: 3,
         grenadeLoot: 1,
       },
       {
         enemies: [],
-        emergenceHoles: 5,
+        emergenceHoles: 6,
         ammoLoot: 2,
         grenadeLoot: 0,
       },
       {
-        enemies: Array(10).fill('RandomGrub'),
-        emergenceHoles: 4,
+        enemies: [
+          ...Array(4).fill('DroneGrenadier'),
+        ],
+        emergenceHoles: 1,
         ammoLoot: 1,
         grenadeLoot: 0,
       },
       {
-        enemies: [],
-        emergenceHoles: 12,
+        enemies: [
+          ...Array(12).fill('Wretch'),
+        ],
+        emergenceHoles: 0,
         ammoLoot: 20,
         grenadeLoot: 5,
       },
@@ -172,8 +177,8 @@ export class Jacinto extends Mode {
       this.game.mapWidth,
     );
   
-    const numberOfVerticalRoads = Helper.getRandomIntInclusive(0, 5);
-    const numberOfBuildings = Helper.getRandomIntInclusive(0, 10);
+    const numberOfVerticalRoads = Helper.getRandomIntInclusive(0, 2);
+    const numberOfBuildings = Helper.getRandomIntInclusive(0, 5);
     this.createCityBlockLevel(numberOfVerticalRoads, numberOfBuildings);
 
     let floorTiles = Object.keys(this.game.map).filter((key) => this.game.map[key].type === 'FLOOR')
@@ -191,7 +196,7 @@ export class Jacinto extends Mode {
     }
 
     // adding cover blocks
-    const numberOfCoverStructures = 5 + this.data.enemies.length;
+    const numberOfCoverStructures = Helper.getRandomIntInclusive(2, 10);
     
     let coverEligibleTiles = Object.keys(this.game.map).filter((key) =>  ['ROAD', 'DOOR', 'EMERGENCE_GROUND'].includes(this.game.map[key].type))
     for (let index = 0; index < numberOfCoverStructures; index++) {

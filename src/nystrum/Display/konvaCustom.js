@@ -153,7 +153,7 @@ export class Display {
     let displayContainer = document.createElement('div');
     d.appendChild(displayContainer);
 
-    // this.adjustContentToScreen(d);
+    this.adjustContentToScreen(d);
     
     this.stage = new Konva.Stage({
       container: 'display',   // id of container <div>
@@ -190,9 +190,9 @@ export class Display {
   adjustContentToScreen (display_element) {
     const DEVICE_WIDTH = display_element.offsetWidth;
     const value = (DEVICE_WIDTH - this.tileOffset) / this.game.mapWidth;
-    this.tileWidth = Math.floor(value);
+    this.tileWidth = Math.round(value);
     this.tileHeight = this.tileWidth;
-    this.width = ((this.game.mapWidth - 1) * this.tileWidth) + this.tileOffset;
+    this.width = ((this.game.mapWidth) * this.tileWidth) + this.tileOffset;
     this.height = (this.game.mapHeight * this.tileHeight) + this.tileOffset;
   }
 

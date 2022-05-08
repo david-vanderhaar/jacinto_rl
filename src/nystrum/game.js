@@ -11,8 +11,10 @@ import * as MapHelper from './Maps/helper';
 // const MAP_DATA = require('./Maps/castle.json');
 // const SOLANGE = require('./Data/solange.json');
 
-const MAP_WIDTH = 50;
-const MAP_HEIGHT = 25;
+// const MAP_WIDTH = 50;
+// const MAP_HEIGHT = 25;
+const MAP_WIDTH = 28;
+const MAP_HEIGHT = 14;
 
 const TILE_OFFSET = 0;
 

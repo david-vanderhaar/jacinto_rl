@@ -25,6 +25,7 @@ export const RangedAttacking = superclass => class extends superclass {
     const path = Helper.calculateStraightPath(this.getPosition(), targetPos);
     const coverAccuracyModifer = path.reduce((acc, curr) => {
       let tile = this.game.map[Helper.coordsToString(curr)];
+      if (!tile) return 0
       // if targeting throuh a wall, the shot is modified by -100%
       if (MapHelper.tileHasTag({tile, tag: 'WALL'})) return acc - 1;
       let entitiesProvidingCover = Helper.filterEntitiesByType(tile.entities, 'COVERING');

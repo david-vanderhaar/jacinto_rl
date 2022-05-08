@@ -3,7 +3,7 @@ import * as Constant from '../constants';
 import { Player } from '../Entities/index';
 import { ContainerSlot } from '../Entities/Containing';
 import {Say} from '../Actions/Say';
-import {MoveOrAttack} from '../Actions/MoveOrAttack';
+import {Move} from '../Actions/Move';
 import {PrepareDirectionalThrow} from '../Actions/PrepareDirectionalThrow';
 import {PrepareRangedAttack} from '../Actions/PrepareRangedAttack';
 import {OpenInventory} from '../Actions/OpenInventory';
@@ -19,6 +19,7 @@ import { Ammo } from '../Items/Pickups/Ammo';
 import {COLORS} from '../Modes/Jacinto/theme';
 import { Reload } from '../Actions/Reload';
 import { Gnasher } from '../Items/Weapons/Gnasher';
+import { PrepareMelee } from '../Actions/PrepareMelee';
 
 export default function (engine) {
   // define keymap
@@ -36,7 +37,7 @@ export default function (engine) {
         const direction = Constant.DIRECTIONS.N;
         let newX = actor.pos.x + direction[0];
         let newY = actor.pos.y + direction[1];
-        return new MoveOrAttack({
+        return new Move({
           hidden: true,
           targetPos: { x: newX, y: newY },
           game: engine.game,
@@ -48,7 +49,7 @@ export default function (engine) {
         const direction = Constant.DIRECTIONS.S;
         let newX = actor.pos.x + direction[0];
         let newY = actor.pos.y + direction[1];
-        return new MoveOrAttack({
+        return new Move({
           hidden: true,
           targetPos: { x: newX, y: newY },
           game: engine.game,
@@ -60,7 +61,7 @@ export default function (engine) {
         const direction = Constant.DIRECTIONS.W;
         let newX = actor.pos.x + direction[0];
         let newY = actor.pos.y + direction[1];
-        return new MoveOrAttack({
+        return new Move({
           hidden: true,
           targetPos: { x: newX, y: newY },
           game: engine.game,
@@ -72,7 +73,7 @@ export default function (engine) {
         const direction = Constant.DIRECTIONS.E;
         let newX = actor.pos.x + direction[0];
         let newY = actor.pos.y + direction[1];
-        return new MoveOrAttack({
+        return new Move({
           hidden: true,
           targetPos: { x: newX, y: newY },
           game: engine.game,
@@ -80,6 +81,13 @@ export default function (engine) {
           energyCost: Constant.ENERGY_THRESHOLD
         });
       },
+      m: () => new PrepareMelee({
+        label: 'Melee',
+        game: engine.game,
+        actor,
+        passThroughEnergyCost: Constant.ENERGY_THRESHOLD * 2,
+        passThroughRequiredResources: [],
+      }),
       p: () => new Say({
         label: 'Stay',
         message: 'standing still...',
@@ -147,7 +155,7 @@ export default function (engine) {
       background: COLORS.cog2,
     },
     name: 'The Veteran',
-    speed: Constant.ENERGY_THRESHOLD * 4,
+    speed: Constant.ENERGY_THRESHOLD * 2,
     durability,
     baseRangedAccuracy: 0,
     baseRangedDamage: 0,
