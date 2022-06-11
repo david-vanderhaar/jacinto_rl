@@ -44,7 +44,7 @@ const GRUB_STATS = {
         background: COLORS.flesh3,
         sprite: '',
       },
-      durability: 1,
+      durability: 2,
       attackDamage: 1,
       behaviors: [
         new Behaviors.MoveTowardsEnemy({repeat: 5}),

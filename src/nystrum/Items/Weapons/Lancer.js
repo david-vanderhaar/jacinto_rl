@@ -10,7 +10,7 @@ export const Lancer = (engine, pos) => new RangedWeapon({
   magazineSize: 4,
   baseRangedAccuracy: 0.85,
   baseRangedDamage: 2,
-  attackDamage: 2,
+  attackDamage: 1,
   pos,
   // shapePattern: Constant.CLONE_PATTERNS.triple_point,
   // shapePattern: Constant.CLONE_PATTERNS.bigSquare,

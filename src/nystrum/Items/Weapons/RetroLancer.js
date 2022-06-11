@@ -10,7 +10,7 @@ export const RetroLancer = (engine, pos) => new RangedWeapon({
   magazineSize: 3,
   baseRangedAccuracy: 0.7,
   baseRangedDamage: 2,
-  attackDamage: 6,
+  attackDamage: 2,
   pos,
   // shapePattern: Constant.CLONE_PATTERNS.triple_point,
   // shapePattern: Constant.CLONE_PATTERNS.bigSquare,

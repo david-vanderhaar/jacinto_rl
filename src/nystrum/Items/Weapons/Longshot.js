@@ -10,7 +10,7 @@ export const Longshot = (engine, pos) => new RangedWeapon({
   magazineSize: 1,
   baseRangedAccuracy: 1,
   baseRangedDamage: 10,
-  attackDamage: 0,
+  attackDamage: 1,
   pos,
   // shapePattern: Constant.CLONE_PATTERNS.triple_point,
   // shapePattern: Constant.CLONE_PATTERNS.bigSquare,

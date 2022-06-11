@@ -19,6 +19,14 @@ export default class Behavior {
     return this.repeated < this.repeat
   }
 
+  interrupt() {
+    this.repeated = this.repeat
+  }
+
+  shouldInterupt() {
+    return this.interrupted
+  }
+
   getDefaultActionParams() {
     return {
       game: this.actor.game,

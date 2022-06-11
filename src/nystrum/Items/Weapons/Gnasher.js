@@ -10,7 +10,7 @@ export const Gnasher = (engine, pos) => new RangedWeapon({
   magazineSize: 2,
   baseRangedAccuracy: 0.9,
   baseRangedDamage: 3,
-  attackDamage: 0,
+  attackDamage: 1,
   pos,
   shapePattern: Constant.CLONE_PATTERNS.square,
   equipmentType: Constant.EQUIPMENT_TYPES.HAND,
