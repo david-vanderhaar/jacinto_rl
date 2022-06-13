@@ -150,7 +150,8 @@ const GRUB_STATS = {
             processDelay: 200
           },
         }),
-        new Behaviors.Telegraph({repeat: 1, attackPattern: Constant.CLONE_PATTERNS.clover}),
+        new Behaviors.MoveTowardsEnemy({repeat: 5}),
+        new Behaviors.Telegraph({repeat: 1, attackPattern: Constant.CLONE_PATTERNS.big_circle}),
         new Behaviors.ExecuteAttack({repeat: 1}),
       ],
     }

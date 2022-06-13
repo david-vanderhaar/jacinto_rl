@@ -23,10 +23,6 @@ export default class Behavior {
     this.repeated = this.repeat
   }
 
-  shouldInterupt() {
-    return this.interrupted
-  }
-
   getDefaultActionParams() {
     return {
       game: this.actor.game,

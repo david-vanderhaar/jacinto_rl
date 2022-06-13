@@ -44,7 +44,6 @@ export default class MoveTowardsEnemy extends Behavior {
     actionParams = {
       hidden: true,
       targetPos: moveToPosition,
-      onFailure: () => this.interrupt(),
     }
 
     return [actionClass, actionParams];
