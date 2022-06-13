@@ -16,8 +16,13 @@ export const RangedAttacking = superclass => class extends superclass {
   getRangedAttackChance(targetPos = null) {
     const weaponAccuracy = this.getRangedWeaponAccuracy();
     const coverDebuff = targetPos ? this.getRangedAttackCoverDebuff(targetPos) : 0;
-    const distanceDebuff = targetPos ? this.getRangedAttackDistanceDebuff(targetPos) : 0;
-    const result = this.baseRangedAccuracy + weaponAccuracy + coverDebuff + distanceDebuff;
+    // const distanceDebuff = targetPos ? this.getRangedAttackDistanceDebuff(targetPos) : 0;
+    const rangedAttackChanceFactors = [
+      weaponAccuracy,
+      coverDebuff,
+      // distanceDebuff,
+    ];
+    const result = rangedAttackChanceFactors.reduce((accumulator, current) => accumulator + current, this.baseRangedAccuracy)
     return Math.max(result, 0);
   }
 
@@ -79,7 +84,6 @@ export const RangedAttacking = superclass => class extends superclass {
   }
 
   getRangedAttackDamage(additional = 0) {
-
     return this.baseRangedDamage + this.getRangedWeaponDamage() + additional;
   }
 
