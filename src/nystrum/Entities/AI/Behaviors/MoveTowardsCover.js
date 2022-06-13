@@ -10,8 +10,11 @@ export default class MoveTowardsCover extends Behavior {
   }
 
   isValid() {
-    return !this.actor.isCovered();
-    // return true
+    return this.enemiesExist() && !this.actor.isCovered();
+  }
+
+  enemiesExist () {
+    return this.actor.getEnemies().length > 0;
   }
 
   getDistanceToTarget (target) {

@@ -6,6 +6,7 @@ import ExecuteStatusEffectOnAllies from './ExecuteStatusEffectOnAllies';
 import ExecuteStatusEffectOnEnemies from './ExecuteStatusEffectOnEnemies';
 import MoveTowardsCover from './MoveTowardsCover';
 import MoveTowardsEnemy from './MoveTowardsEnemy';
+import MoveTowardsPlayer from './MoveTowardsPlayer';
 import Telegraph from './Telegraph';
 import TelegraphRangedAttack from './TelegraphRangedAttack';
 import TelegraphRangedAttackThroughCover from './TelegraphRangedAttackThroughCover';
@@ -20,6 +21,7 @@ export {
   ExecuteStatusEffectOnEnemies,
   MoveTowardsCover,
   MoveTowardsEnemy,
+  MoveTowardsPlayer,
   Telegraph,
   TelegraphRangedAttack,
   TelegraphRangedAttackThroughCover,
