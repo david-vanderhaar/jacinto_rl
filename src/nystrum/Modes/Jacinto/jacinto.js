@@ -186,8 +186,9 @@ export class Jacinto extends Mode {
     this.createCityBlockLevel(numberOfVerticalRoads, numberOfBuildings);
 
     let floorTiles = Object.keys(this.game.map).filter((key) => this.game.map[key].type === 'FLOOR')
-
-    this.placePlayersInSafeZone();
+    const safeTiles = Object.keys(this.game.map).filter((key) => this.game.map[key].type == 'SAFE');
+    // this.placePlayersInSafeZone(safeTiles);
+    this.placeCogInSafeZone(safeTiles);
     const player = this.game.getFirstPlayer();
     if (player) player.upgrade_points += 1;
 
@@ -233,6 +234,8 @@ export class Jacinto extends Mode {
       let posXY = pos.split(',').map((coord) => parseInt(coord));
       LocustActors[`add${enemyName}`](this, { x: posXY[0], y: posXY[1] });
     })
+    // super.initialize();
+    this.game.draw()
   }
 
   // TODO curry these funcs
@@ -360,7 +363,7 @@ export class Jacinto extends Mode {
       game: this.game,
       passable: true,
       renderer: {
-        character: '',
+        character: '+',
         sprite: '',
         color: COLORS.locust1,
         background: COLORS.base04,
@@ -401,11 +404,10 @@ export class Jacinto extends Mode {
     this.game.placeActorOnMap(entity)
   }
 
-  placePlayersInSafeZone () {
+  placePlayersInSafeZone (safeZoneTileKeys) {
     let players = this.getPlayers()
-    const keys = Object.keys(this.game.map).filter((key) => this.game.map[key].type == 'SAFE');
     players.forEach((player) => {
-      const key = keys.shift();
+      const key = safeZoneTileKeys.shift();
       if (key) {
         const position = {
           x: parseInt(key.split(',')[0]),
@@ -415,6 +417,26 @@ export class Jacinto extends Mode {
         this.game.placeActorOnMap(player)
       }
     })
+  }
+
+  placeCogInSafeZone (safeZoneTileKeys) {
+    let cogEntities = this.getCogEntites()
+    cogEntities.forEach((cog) => {
+      const key = safeZoneTileKeys.shift();
+      if (key) {
+        const position = {
+          x: parseInt(key.split(',')[0]),
+          y: parseInt(key.split(',')[1]),
+        }
+        cog.pos = {x: position.x, y: cog.pos.y};
+        this.game.placeActorOnMap(cog)
+      }
+    })
+  }
+
+  getCogEntites () {
+    const entitiesWithFaction = this.game.engine.actors.filter((actor) => actor.entityTypes.includes('HAS_FACTION'))
+    return entitiesWithFaction.filter((entity) => entity.faction === 'COG');
   }
 
   playerIsOnExit() {

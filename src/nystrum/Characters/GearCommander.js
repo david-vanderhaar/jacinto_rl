@@ -17,6 +17,8 @@ import { Ammo } from '../Items/Pickups/Ammo';
 import {COLORS} from '../Modes/Jacinto/theme';
 import { Reload } from '../Actions/Reload';
 import * as Cogs from '../Modes/Jacinto/Actors/Cogs';
+import {UpgradeResource} from '../Actions/ActionResources/UpgradeResource';
+
 
 export default function (engine) {
   // define keymap
@@ -135,8 +137,11 @@ export default function (engine) {
           message: 'requesting backup!',
           game: engine.game,
           actor,
-          energyCost: Constant.ENERGY_THRESHOLD,
-          onSuccess: () => Cogs.addBasicCog(engine.game.mode, { x: newX, y: newY })
+          energyCost: Constant.ENERGY_THRESHOLD * 3,
+          requiredResources: [
+            new UpgradeResource({ getResourceCost: () => 1 }),
+          ],
+          onSuccess: () => Cogs.addCogPod(engine.game.mode, { x: newX, y: newY })
         })
       },
     };

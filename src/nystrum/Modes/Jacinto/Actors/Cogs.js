@@ -1,18 +1,19 @@
 import * as Behaviors from '../../../Entities/AI/Behaviors';
 import { COLORS } from '../theme';
 import * as Constant from '../../../constants';
-import {JacintoAI} from '../../../Entities/index';
+import {JacintoAI, EmergenceHole} from '../../../Entities/index';
 import { ContainerSlot } from '../../../Entities/Containing';
 import { Lancer } from '../../../Items/Weapons/Lancer';
 import { Ammo } from '../../../Items/Pickups/Ammo';
 
-export function addBasicCog (mode, pos) {
+export const addBasicCog = (mode, pos) => {
   addToMapWithStats(mode, pos, STATS.basic_cog())
 }
 
+const createBasicCog = (mode, pos) => createWithStats(mode, pos, STATS.basic_cog())
+
 const STATS = {
-  basic_cog: () => {
-    return {
+  basic_cog: () => ({
       name: 'Cog',
       renderer: {
         character: 'c',
@@ -32,9 +33,36 @@ const STATS = {
         equipmentCreators: [Lancer],
         inventoryCreators: [{amount: 100, creator: Ammo}]
       },
-    }
-  },
+    }),
 };
+
+export const addCogPod = (mode, pos) => {
+  // create new fire actor and place
+  let entity = new EmergenceHole({
+    name: 'Pod',
+    pos,
+    game: mode.game,
+    passable: true,
+    renderer: {
+      character: '+',
+      sprite: '',
+      color: COLORS.cog1,
+      background: COLORS.base04,
+    },
+    timeToSpread: 3,
+    spreadCount: 1,
+    durability: 1,
+    faction: 'COG',
+    enemyFactions: ['LOCUST'],
+    speed: Constant.ENERGY_THRESHOLD,
+    getSpawnedEntity: (spawnPosition) => createBasicCog(mode, spawnPosition),
+  });
+
+  if (mode.game.placeActorOnMap(entity)) {
+    mode.game.engine.addActor(entity);
+    mode.game.draw();
+  };
+}
 
 const createBaseStats = (mode, pos) => {
   return {
