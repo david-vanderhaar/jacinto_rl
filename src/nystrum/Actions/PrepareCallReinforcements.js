@@ -44,6 +44,7 @@ export class PrepareCallReinforcements extends Base {
         return new PlaceActor({
           actor: this.actor,
           game: this.game,
+          interrupt: false,
           energyCost: this.passThroughEnergyCost,
           requiredResources: this.passThroughRequiredResources,
           label: 'target N',
@@ -59,6 +60,7 @@ export class PrepareCallReinforcements extends Base {
         return new PlaceActor({
           actor: this.actor,
           game: this.game,
+          interrupt: false,
           energyCost: this.passThroughEnergyCost,
           requiredResources: this.passThroughRequiredResources,
           label: 'target E',
@@ -74,6 +76,7 @@ export class PrepareCallReinforcements extends Base {
         return new PlaceActor({
           actor: this.actor,
           game: this.game,
+          interrupt: false,
           energyCost: this.passThroughEnergyCost,
           requiredResources: this.passThroughRequiredResources,
           label: 'target S',
@@ -89,6 +92,7 @@ export class PrepareCallReinforcements extends Base {
         return new PlaceActor({
           actor: this.actor,
           game: this.game,
+          interrupt: false,
           energyCost: this.passThroughEnergyCost,
           requiredResources: this.passThroughRequiredResources,
           label: 'target W',
