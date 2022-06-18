@@ -37,10 +37,17 @@ const STATS = {
 };
 
 export const addCogPod = (mode, pos) => {
-  // create new fire actor and place
-  let entity = new EmergenceHole({
+  let entity = createCogPod(mode)
+
+  if (mode.game.placeActorOnMap(entity)) {
+    mode.game.engine.addActor(entity);
+    mode.game.draw();
+  };
+}
+
+export const createCogPod = (mode) => (
+  new EmergenceHole({
     name: 'Pod',
-    pos,
     game: mode.game,
     passable: true,
     renderer: {
@@ -56,13 +63,8 @@ export const addCogPod = (mode, pos) => {
     enemyFactions: ['LOCUST'],
     speed: Constant.ENERGY_THRESHOLD,
     getSpawnedEntity: (spawnPosition) => createBasicCog(mode, spawnPosition),
-  });
-
-  if (mode.game.placeActorOnMap(entity)) {
-    mode.game.engine.addActor(entity);
-    mode.game.draw();
-  };
-}
+  })
+)
 
 const createBaseStats = (mode, pos) => {
   return {

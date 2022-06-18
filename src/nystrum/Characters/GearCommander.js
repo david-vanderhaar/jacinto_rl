@@ -6,6 +6,7 @@ import {Say} from '../Actions/Say';
 import {MoveOrAttack} from '../Actions/MoveOrAttack';
 import {PrepareDirectionalThrow} from '../Actions/PrepareDirectionalThrow';
 import {PrepareRangedAttack} from '../Actions/PrepareRangedAttack';
+import {PrepareCallReinforcements} from '../Actions/PrepareCallReinforcements';
 import {OpenInventory} from '../Actions/OpenInventory';
 import {OpenUpgrades} from '../Actions/OpenUpgrades';
 import {Upgrade} from '../Entities/Upgradable';
@@ -23,7 +24,6 @@ import {UpgradeResource} from '../Actions/ActionResources/UpgradeResource';
 export default function (engine) {
   // define keymap
   const keymap = (engine, actor) => {
-    console.log(engine);
     return {
       Escape: () => new Say({
         label: 'Pass',
@@ -128,22 +128,15 @@ export default function (engine) {
         actor,
         passThroughEnergyCost: Constant.ENERGY_THRESHOLD,
       }),
-      c: () => {
-        const direction = Constant.DIRECTIONS.W;
-        let newX = actor.pos.x + direction[0];
-        let newY = actor.pos.y + direction[1];
-        return new Say({
+      c: () => new PrepareCallReinforcements({
           label: 'Call Reinforcments',
-          message: 'requesting backup!',
           game: engine.game,
           actor,
-          energyCost: Constant.ENERGY_THRESHOLD * 3,
-          requiredResources: [
+          passThroughEnergyCost: Constant.ENERGY_THRESHOLD * 3,
+          passThroughRequiredResources: [
             new UpgradeResource({ getResourceCost: () => 1 }),
           ],
-          onSuccess: () => Cogs.addCogPod(engine.game.mode, { x: newX, y: newY })
-        })
-      },
+        }),
     };
   }
   // instantiate class
