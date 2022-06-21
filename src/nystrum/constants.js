@@ -379,7 +379,7 @@ export const CLONE_PATTERNS = {
     y_offset: 0,
     positions: [
       ...Helper.getPointsOnCircumference(0, 0, 2),
-      ...Helper.getPointsOnCircumference(0, 0, 3)
+      ...Helper.getPointsOnCircumference(0, 0, 3),
     ]
   },
   big_circle: {

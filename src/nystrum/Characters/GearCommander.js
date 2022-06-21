@@ -7,6 +7,7 @@ import {MoveOrAttack} from '../Actions/MoveOrAttack';
 import {PrepareDirectionalThrow} from '../Actions/PrepareDirectionalThrow';
 import {PrepareRangedAttack} from '../Actions/PrepareRangedAttack';
 import {PrepareCallReinforcements} from '../Actions/PrepareCallReinforcements';
+import {PrepareAreaStatusEffect} from '../Actions/PrepareAreaStatusEffect';
 import {OpenInventory} from '../Actions/OpenInventory';
 import {OpenUpgrades} from '../Actions/OpenUpgrades';
 import {Upgrade} from '../Entities/Upgradable';
@@ -17,8 +18,9 @@ import { Grenade } from '../Items/Weapons/Grenade';
 import { Ammo } from '../Items/Pickups/Ammo';
 import {COLORS} from '../Modes/Jacinto/theme';
 import { Reload } from '../Actions/Reload';
-import * as Cogs from '../Modes/Jacinto/Actors/Cogs';
 import {UpgradeResource} from '../Actions/ActionResources/UpgradeResource';
+import { SandSkin } from '../StatusEffects/SandSkin';
+import { MeleeDamage } from '../StatusEffects/MeleeDamage';
 
 
 export default function (engine) {
@@ -136,6 +138,19 @@ export default function (engine) {
           passThroughRequiredResources: [
             new UpgradeResource({ getResourceCost: () => 1 }),
           ],
+        }),
+      b: () => new PrepareAreaStatusEffect({
+          label: 'Encourage',
+          game: engine.game,
+          actor,
+          passThroughEnergyCost: Constant.ENERGY_THRESHOLD * 1,
+          effectClass: MeleeDamage,
+          effectDefaults: {
+            buffValue: 5,
+            lifespan: Constant.ENERGY_THRESHOLD * 10,
+            stepInterval: Constant.ENERGY_THRESHOLD,
+            processDelay: 200
+          },
         }),
     };
   }
