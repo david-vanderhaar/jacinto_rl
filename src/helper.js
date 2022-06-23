@@ -173,7 +173,7 @@ export const getPointsWithinRadius = (position, radius) => {
   let positions = [];
   for (let x = position.x - radius; x < position.x + radius; x++) {
     let yspan = Math.floor(radius * Math.sin(Math.acos((position.x - x) / radius)));
-    for (let y = position.y - yspan; y < position.y + yspan; y++) {
+    for (let y = position.y - yspan + 1; y < position.y + yspan; y++) {
       positions.push({x, y})
     }
   }

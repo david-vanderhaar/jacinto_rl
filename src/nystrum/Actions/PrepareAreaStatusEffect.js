@@ -23,8 +23,8 @@ export class PrepareAreaStatusEffect extends Base {
     this.energyCost = 0;
   }
 
-  getTargetsOnTile(tile) {
-    return Helper.getDestructableEntities(tile.entities);
+  getValidTargetsOnTile(tile) {
+    return Helper.getDestructableEntities(tile.entities).filter((entity) => this.actor.id !== entity.id && this.actor.isAlly(entity));
   }
 
   createEffects() {
@@ -34,8 +34,7 @@ export class PrepareAreaStatusEffect extends Base {
     targetPositions.forEach((pos) => {
       let tile = this.actor.game.map[Helper.coordsToString(pos)];
       if (!!tile) {
-        let targets = this.getTargetsOnTile(tile)
-        // TODO: create alternat version that targets only allies/only enemies
+        let targets = this.getValidTargetsOnTile(tile)
         targets.forEach((target) => {
           const newEffect = new this.effectClass({
             ...this.effectDefaults,
@@ -78,72 +77,37 @@ export class PrepareAreaStatusEffect extends Base {
   perform() {
     const pos = this.actor.getPosition();
     // const range = this.actor.getAttackRange();
-    let range = 1;
-
-    const animations = [];
-    const deactivateAnimations = (anims) => anims.forEach((anim) => {
-      this.game.display.removeAnimation(anim.id);
-    })
-
-    // const positionsInRange = Helper.getPositionsFromStructure(CLONE_PATTERNS.donut, pos)
+    let range = this.actor.getStatusEffectRange();
     const positionsInRange = Helper.getPointsWithinRadius(pos, range);
     this.actor.activateCursor(positionsInRange)
-    this.actor.updateAllCursorNodes([
-      {key: 'fill', value: THEMES.JACINTO.cog1}, 
-      {key: 'stroke', value: 'transparent'}, 
-    ]);
-    let targets = [];
-    // positionsInRange.forEach((position) => {
-    //   let tile = this.game.map[Helper.coordsToString(position)];
-    //   if (tile) {
-    //     // const validTargets = Helper.getDestructableEntities(tile.entities);
-    //     const validTargets = tile.entities.filter((actor) => actor['faction'] === 'LOCUST');
-    //     let newTarget = validTargets.length ? validTargets[0] : null;
-    //     let animation = null;
-    //     if (newTarget) {
-    //       targets.push(newTarget);
-    //       animation = this.game.display.addAnimation(
-    //         this.game.display.animationTypes.BLINK_TILE,
-    //         {
-    //           x: position.x,
-    //           y: position.y,
-    //           color: THEMES.JACINTO.cog1
-    //         }
-    //       )
-    //     } else {
-    //       animation = this.game.display.addAnimation(
-    //         this.game.display.animationTypes.BLINK_TILE,
-    //         {
-    //           x: position.x,
-    //           y: position.y,
-    //           color: THEMES.JACINTO.base1
-    //         }
-    //       )
-    //     }
-    //     animations.push(animation)
-    //   }
-    // })
-
-    // let positions = [];
-
-    // this.actor.activateCursor(positionsInRange);
+    positionsInRange.forEach((position, index) => {
+      let tile = this.game.map[Helper.coordsToString(position)];
+      if (tile) {
+        const validTargets = this.getValidTargetsOnTile(tile);
+        let newTarget = validTargets.length ? validTargets[0] : null;
+        if (newTarget) {
+          this.actor.updateCursorNode(index, [
+            {key: 'fill', value: THEMES.JACINTO.cog1}, 
+            {key: 'stroke', value: 'transparent'}, 
+          ]);
+        }
+      }
+    })
 
     let keymap = {
       Escape: () => this.createGoToPreviousKeymapAction(),
+      b: () => this.createAddStatusEffectsAction(),
       q: () => new Say({
         label: 'decrease',
         game: this.game,
         actor: this.actor,
         energyCost: 0,
         onSuccess: () => {
-          range -= 1;
+          this.actor.decreaseStatusEffectRange(1)
+          const range = this.actor.getStatusEffectRange()
           this.actor.deactivateCursor();
           const positionsInRange = Helper.getPointsWithinRadius(pos, range);
           this.actor.activateCursor(positionsInRange)
-          this.actor.updateAllCursorNodes([
-            {key: 'fill', value: THEMES.JACINTO.cog1}, 
-            {key: 'stroke', value: 'transparent'}, 
-          ]);
         }
       }),
       e: () => new Say({
@@ -152,17 +116,13 @@ export class PrepareAreaStatusEffect extends Base {
         actor: this.actor,
         energyCost: 0,
         onSuccess: () => {
-          range += 1;
+          this.actor.increaseStatusEffectRange(1)
+          const range = this.actor.getStatusEffectRange()
           this.actor.deactivateCursor();
           const positionsInRange = Helper.getPointsWithinRadius(pos, range);
           this.actor.activateCursor(positionsInRange)
-          this.actor.updateAllCursorNodes([
-            {key: 'fill', value: THEMES.JACINTO.cog1}, 
-            {key: 'stroke', value: 'transparent'}, 
-          ]);
         }
       }),
-      f: () => this.createAddStatusEffectsAction(),
     };
     this.actor.setKeymap(keymap);
     return {

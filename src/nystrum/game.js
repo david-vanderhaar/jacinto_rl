@@ -193,7 +193,21 @@ export class Game {
         }
       }
     }
+    return result;
+  }
 
+  canPassPositionWhenThrown (pos, entity = {passable: false}) {
+    let result = false;
+    let targetTile = this.map[Helper.coordsToString(pos)];
+    if (targetTile) {
+      let hasImpassableEntity = targetTile.entities.filter((entity) => !entity.passable).length > 0;
+      if (!hasImpassableEntity) {
+        let tile = this.map[Helper.coordsToString(pos)];
+        if (this.tileKey[tile.type].passable) {
+          result = true;
+        }
+      }
+    }
     return result;
   }
 

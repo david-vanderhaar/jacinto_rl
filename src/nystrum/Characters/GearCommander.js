@@ -144,9 +144,9 @@ export default function (engine) {
           game: engine.game,
           actor,
           passThroughEnergyCost: Constant.ENERGY_THRESHOLD * 1,
-          effectClass: MeleeDamage,
+          effectClass: SandSkin,
           effectDefaults: {
-            buffValue: 5,
+            buffValue: 1,
             lifespan: Constant.ENERGY_THRESHOLD * 10,
             stepInterval: Constant.ENERGY_THRESHOLD,
             processDelay: 200
@@ -171,7 +171,7 @@ export default function (engine) {
     baseRangedAccuracy: 0,
     baseRangedDamage: 0,
     attackDamage: 0,
-    upgrade_points: 0,
+    upgrade_points: 10,
     upgrade_tree: [
       Upgrade({
         cost: 1,
@@ -183,8 +183,8 @@ export default function (engine) {
       }),
       Upgrade({
         cost: 1,
-        name: '+1 Melee Damage',
-        activate: (actor) => (primary.attackDamage += 1),
+        name: '+1 Encourage Range',
+        activate: (actor) => (actor.increaseStatusEffectRange(1)),
       }),
       Upgrade({
         cost: 3,

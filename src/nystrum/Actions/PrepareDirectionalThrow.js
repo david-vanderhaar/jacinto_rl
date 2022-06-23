@@ -3,7 +3,7 @@ import { PlaceActor } from './PlaceActor';
 import { GoToPreviousKeymap } from './GoToPreviousKeymap';
 import { TYPE } from '../items';
 import { DIRECTIONS, ENERGY_THRESHOLD } from '../constants';
-import { getPositionInDirection, getPointsWithinRadius } from '../../helper';
+import * as Helper from '../../helper';
 
 export class PrepareDirectionalThrow extends Base {
   constructor({ 
@@ -42,16 +42,25 @@ export class PrepareDirectionalThrow extends Base {
       DIRECTIONS.E,
       DIRECTIONS.W,
     ].forEach((direction, i) => {
-      Array(projectile.range + 1).fill('').forEach((none, distance) => {
+      for (let distance = 0; distance < projectile.range + 1; distance++) {
+        let endPath = false
         if (distance > 0) {
-          const endPosition = getPositionInDirection(pos, direction.map((dir) => dir * (distance)))
-          cursor_positions.push(endPosition)
-          if (distance === projectile.range) {
-            const circlePositions = getPointsWithinRadius(endPosition, 3)
+          const currentPosition = Helper.getPositionInDirection(pos, direction.map((dir) => dir * (distance)))
+          const lastPosition = Helper.getPositionInDirection(pos, direction.map((dir) => dir * (distance - 1)))
+
+          if (!this.game.canPassPositionWhenThrown(currentPosition, projectile, true)) endPath = true
+          if (distance === projectile.range) endPath = true
+
+          cursor_positions.push(currentPosition)
+
+          if (endPath) {
+            const circlePositions = Helper.getPointsWithinRadius(currentPosition, projectile.explosivity)
             cursor_positions = cursor_positions.concat(circlePositions)
+            cursor_positions.push(currentPosition)
+            break;
           }
         }
-      })
+      }
     });
 
     this.actor.activateCursor(cursor_positions)

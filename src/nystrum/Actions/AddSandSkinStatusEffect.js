@@ -8,7 +8,7 @@ export class AddSandSkinStatusEffect extends AddStatusEffect {
     super({ ...args });
     this.processDelay = 25
     this.effect = new SandSkin({
-      defenseBuff,
+      buffValue: defenseBuff,
       game: this.game,
       actor: this.actor,
       lifespan: Constant.ENERGY_THRESHOLD * 10,
