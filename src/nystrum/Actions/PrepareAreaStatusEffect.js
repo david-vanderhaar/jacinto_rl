@@ -86,10 +86,13 @@ export class PrepareAreaStatusEffect extends Base {
         const validTargets = this.getValidTargetsOnTile(tile);
         let newTarget = validTargets.length ? validTargets[0] : null;
         if (newTarget) {
-          this.actor.updateCursorNode(index, [
-            {key: 'fill', value: THEMES.JACINTO.cog1}, 
-            {key: 'stroke', value: 'transparent'}, 
-          ]);
+          this.actor.updateCursorNode(
+            index,
+            [
+              {key: 'fill', value: THEMES.JACINTO.cog1}, 
+              {key: 'stroke', value: 'transparent'}, 
+            ]
+          );
         }
       }
     })

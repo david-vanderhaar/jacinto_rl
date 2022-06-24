@@ -2,7 +2,7 @@ import { Base } from './Base';
 import { PlaceActor } from './PlaceActor';
 import { GoToPreviousKeymap } from './GoToPreviousKeymap';
 import { TYPE } from '../items';
-import { DIRECTIONS, ENERGY_THRESHOLD } from '../constants';
+import { DIRECTIONS, ENERGY_THRESHOLD, THEMES } from '../constants';
 import * as Helper from '../../helper';
 
 export class PrepareDirectionalThrow extends Base {
@@ -34,8 +34,8 @@ export class PrepareDirectionalThrow extends Base {
     };
 
     const pos = this.actor.getPosition();
-    // tackle in 4 directions a sfar as the actor has energy
-    let cursor_positions = [];
+    let cursorPositions = [];
+    let hitPositions = [];
     [
       DIRECTIONS.N,
       DIRECTIONS.S,
@@ -43,27 +43,45 @@ export class PrepareDirectionalThrow extends Base {
       DIRECTIONS.W,
     ].forEach((direction, i) => {
       for (let distance = 0; distance < projectile.range + 1; distance++) {
-        let endPath = false
+        let endPathAtObstacle = false
+        let endPathAtDistance = false
+        let endPosition = null
         if (distance > 0) {
           const currentPosition = Helper.getPositionInDirection(pos, direction.map((dir) => dir * (distance)))
           const lastPosition = Helper.getPositionInDirection(pos, direction.map((dir) => dir * (distance - 1)))
 
-          if (!this.game.canPassPositionWhenThrown(currentPosition, projectile, true)) endPath = true
-          if (distance === projectile.range) endPath = true
+          if (!this.game.canPassPositionWhenThrown(currentPosition, projectile, true)) {
+            endPosition = lastPosition
+            endPathAtObstacle = true
+          } else if (distance === projectile.range) {
+            endPosition = currentPosition;
+            endPathAtDistance = true
+          }
 
-          cursor_positions.push(currentPosition)
-
-          if (endPath) {
-            const circlePositions = Helper.getPointsWithinRadius(currentPosition, projectile.explosivity)
-            cursor_positions = cursor_positions.concat(circlePositions)
-            cursor_positions.push(currentPosition)
+          if (endPathAtObstacle || endPathAtDistance) {
+            const circlePositions = Helper.getPointsWithinRadius(endPosition, projectile.explosivity)
+            hitPositions = hitPositions.concat(circlePositions)
+            cursorPositions = cursorPositions.concat(circlePositions)
+            cursorPositions.push(endPosition)
             break;
           }
+
+          cursorPositions.push(currentPosition)
         }
       }
     });
 
-    this.actor.activateCursor(cursor_positions)
+    this.actor.activateCursor(cursorPositions)
+    hitPositions.forEach((hitPosition) => {
+      this.actor.updateCursorNodeByPosition(
+        hitPosition,
+        [
+          {key: 'fill', value: THEMES.JACINTO.red}, 
+          {key: 'stroke', value: 'transparent'}, 
+        ]
+      );
+    })
+
 
     const goToPreviousKeymap = new GoToPreviousKeymap({
       actor: this.actor,
