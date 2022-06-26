@@ -8,6 +8,7 @@ import {PrepareDirectionalThrow} from '../Actions/PrepareDirectionalThrow';
 import {PrepareRangedAttack} from '../Actions/PrepareRangedAttack';
 import {PrepareCallReinforcements} from '../Actions/PrepareCallReinforcements';
 import {PrepareAreaStatusEffect} from '../Actions/PrepareAreaStatusEffect';
+import {OpenAvailableStatusEffects} from '../Actions/OpenAvailableStatusEffects';
 import {OpenInventory} from '../Actions/OpenInventory';
 import {OpenUpgrades} from '../Actions/OpenUpgrades';
 import {Upgrade} from '../Entities/Upgradable';
@@ -139,18 +140,10 @@ export default function (engine) {
             new UpgradeResource({ getResourceCost: () => 1 }),
           ],
         }),
-      b: () => new PrepareAreaStatusEffect({
-          label: 'Encourage',
+      b: () => new OpenAvailableStatusEffects({
+          label: 'Buff',
           game: engine.game,
           actor,
-          passThroughEnergyCost: Constant.ENERGY_THRESHOLD * 1,
-          effectClass: SandSkin,
-          effectDefaults: {
-            buffValue: 1,
-            lifespan: Constant.ENERGY_THRESHOLD * 10,
-            stepInterval: Constant.ENERGY_THRESHOLD,
-            processDelay: 200
-          },
         }),
     };
   }
@@ -193,6 +186,7 @@ export default function (engine) {
         activate: (actor) => (actor.increaseDurability(actor.durabilityMax - actor.durability)),
       }),
     ],
+    availableStatusEffects: [SandSkin],
     equipment: Constant.EQUIPMENT_LAYOUTS.gear(),
     game: engine.game,
     presentingUI: true,

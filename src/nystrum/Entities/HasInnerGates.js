@@ -7,35 +7,35 @@ export const HasInnerGates = superclass => class extends superclass {
       {
         name: 'Gate of Opening',
         damageBuff: 1,
-        speedBuff: 100,
+        buffValue: 100,
         durabilityDebuff: 1,
         character: '1'
       },
       {
         name: 'Gate of Healing',
         damageBuff: 1,
-        speedBuff: 100,
+        buffValue: 100,
         durabilityDebuff: 1,
         character: '2'
       },
       {
         name: 'Gate of Life',
         damageBuff: 1,
-        speedBuff: 100,
+        buffValue: 100,
         durabilityDebuff: 1,
         character: '3'
       },
       {
         name: 'Gate of Pain',
         damageBuff: 1,
-        speedBuff: 100,
+        buffValue: 100,
         durabilityDebuff: 1,
         character: '4'
       },
       {
         name: 'Gate of Limit',
         damageBuff: 1,
-        speedBuff: 100,
+        buffValue: 100,
         durabilityDebuff: 1,
         character: '5'
       },

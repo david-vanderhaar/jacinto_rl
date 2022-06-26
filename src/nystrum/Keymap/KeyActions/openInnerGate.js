@@ -19,8 +19,8 @@ export const openInnerGate = (engine) => {
         character: nextGate.character,
       },
       onStart: () => {
-        currentActor.speed += nextGate.speedBuff;
-        currentActor.energy += nextGate.speedBuff;
+        currentActor.speed += nextGate.buffValue;
+        currentActor.energy += nextGate.buffValue;
         currentActor.attackDamage += nextGate.damageBuff;
         currentActor.renderer.character = nextGate.character;
         console.log(`${currentActor.name} opened the ${nextGate.name}.`);

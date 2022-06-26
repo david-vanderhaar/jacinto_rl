@@ -126,7 +126,7 @@ export default function (engine) {
       //   label: 'Sprint',
       //   game: engine.game,
       //   actor,
-      //   speedBuff: Constant.ENERGY_THRESHOLD * 10,
+      //   buffValue: Constant.ENERGY_THRESHOLD * 10,
       //   requiredResources: [
       //     new UpgradeResource({ getResourceCost: () => 1 }),
       //   ],

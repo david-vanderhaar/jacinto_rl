@@ -24,4 +24,6 @@ export class MeleeDamage extends Base {
       this.actor.renderer.background = this['actor_background']
     }
   }
+
+  static displayName = 'Melee Damage'
 }

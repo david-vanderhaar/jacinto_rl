@@ -76,7 +76,6 @@ export class PrepareAreaStatusEffect extends Base {
 
   perform() {
     const pos = this.actor.getPosition();
-    // const range = this.actor.getAttackRange();
     let range = this.actor.getStatusEffectRange();
     const positionsInRange = Helper.getPointsWithinRadius(pos, range);
     this.actor.activateCursor(positionsInRange)
@@ -100,32 +99,6 @@ export class PrepareAreaStatusEffect extends Base {
     let keymap = {
       Escape: () => this.createGoToPreviousKeymapAction(),
       b: () => this.createAddStatusEffectsAction(),
-      q: () => new Say({
-        label: 'decrease',
-        game: this.game,
-        actor: this.actor,
-        energyCost: 0,
-        onSuccess: () => {
-          this.actor.decreaseStatusEffectRange(1)
-          const range = this.actor.getStatusEffectRange()
-          this.actor.deactivateCursor();
-          const positionsInRange = Helper.getPointsWithinRadius(pos, range);
-          this.actor.activateCursor(positionsInRange)
-        }
-      }),
-      e: () => new Say({
-        label: 'increase',
-        game: this.game,
-        actor: this.actor,
-        energyCost: 0,
-        onSuccess: () => {
-          this.actor.increaseStatusEffectRange(1)
-          const range = this.actor.getStatusEffectRange()
-          this.actor.deactivateCursor();
-          const positionsInRange = Helper.getPointsWithinRadius(pos, range);
-          this.actor.activateCursor(positionsInRange)
-        }
-      }),
     };
     this.actor.setKeymap(keymap);
     return {

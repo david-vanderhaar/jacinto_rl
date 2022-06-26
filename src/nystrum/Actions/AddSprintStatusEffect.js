@@ -4,11 +4,11 @@ import { AddStatusEffect } from './AddStatusEffect';
 import { Sprint } from '../StatusEffects/Sprint';
 
 export class AddSprintStatusEffect extends AddStatusEffect {
-  constructor({ speedBuff = Constant.ENERGY_THRESHOLD, ...args }) {
+  constructor({ buffValue = Constant.ENERGY_THRESHOLD, ...args }) {
     super({ ...args });
     this.processDelay = 25
     this.effect = new Sprint({
-      speedBuff,
+      buffValue,
       game: this.game,
       actor: this.actor,
       lifespan: Constant.ENERGY_THRESHOLD * 10,

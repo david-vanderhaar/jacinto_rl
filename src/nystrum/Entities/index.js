@@ -40,7 +40,7 @@ import { HasKeymap } from './HasKeymap';
 import { Upgradable } from './Upgradable';
 import { HasFaction } from './HasFaction';
 import { UsesCover } from './UsesCover';
-import { HasStatusEffectRange } from './HasStatusEffectRange';
+import { CanActivateStatusEffects } from './CanActivateStatusEffects';
 import { CyclesBehaviors } from './AI/CyclesBehaviors';
 
 export const UI_Actor = pipe(
@@ -159,7 +159,7 @@ export const Player = pipe(
   Burnable,
   Upgradable,
   HasFaction,
-  HasStatusEffectRange,
+  CanActivateStatusEffects,
   UsesCover,
 )(Entity);
 

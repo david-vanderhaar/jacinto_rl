@@ -2,7 +2,7 @@ import {Base} from './Base';
 import {MESSAGE_TYPE} from '../message';
 
 export class Sprint extends Base {
-  constructor({speedBuff = 1, ...args}) {
+  constructor({buffValue = 1, ...args}) {
     super({ ...args });
     this.name = 'Sprint';
     this.allowDuplicates = false
@@ -14,7 +14,7 @@ export class Sprint extends Base {
       character: '〣'
     };
     this.onStart = () => {
-      this.actor.speed += speedBuff;
+      this.actor.speed += buffValue;
       this.game.addMessage(`${this.actor.name} was enveloped in hardened sand.`, MESSAGE_TYPE.INFORMATION);
       this.actor.renderer.background = '#A89078'
     }

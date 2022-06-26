@@ -23,4 +23,6 @@ export class SandSkin extends Base {
       this.actor.renderer.background = this['actor_background'];
     }
   }
+  
+  static displayName = 'Sand Skin'
 }
