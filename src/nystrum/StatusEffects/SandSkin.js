@@ -1,5 +1,6 @@
 import {Base} from './Base';
 import {MESSAGE_TYPE} from '../message';
+import * as Helper from '../../helper';
 
 export class SandSkin extends Base {
   constructor({buffValue = 1, ...args}) {
@@ -25,4 +26,7 @@ export class SandSkin extends Base {
   }
   
   static displayName = 'Sand Skin'
+  static getValidTargetsOnTile(tile, actor) {
+    return Helper.getDestructableEntities(tile.entities).filter((entity) => actor.id !== entity.id && actor.isAlly(entity));
+  }
 }

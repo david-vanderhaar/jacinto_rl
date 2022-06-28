@@ -23,10 +23,6 @@ export class PrepareAreaStatusEffect extends Base {
     this.energyCost = 0;
   }
 
-  getValidTargetsOnTile(tile) {
-    return Helper.getDestructableEntities(tile.entities).filter((entity) => this.actor.id !== entity.id && this.actor.isAlly(entity));
-  }
-
   createEffects() {
     let effects = [];
     const targetPositions = this.actor.getCursorPositions();
@@ -34,7 +30,7 @@ export class PrepareAreaStatusEffect extends Base {
     targetPositions.forEach((pos) => {
       let tile = this.actor.game.map[Helper.coordsToString(pos)];
       if (!!tile) {
-        let targets = this.getValidTargetsOnTile(tile)
+        let targets = this.effectClass.getValidTargetsOnTile(tile, this.actor)
         targets.forEach((target) => {
           const newEffect = new this.effectClass({
             ...this.effectDefaults,
@@ -82,7 +78,7 @@ export class PrepareAreaStatusEffect extends Base {
     positionsInRange.forEach((position, index) => {
       let tile = this.game.map[Helper.coordsToString(position)];
       if (tile) {
-        const validTargets = this.getValidTargetsOnTile(tile);
+        const validTargets = this.effectClass.getValidTargetsOnTile(tile, this.actor);
         let newTarget = validTargets.length ? validTargets[0] : null;
         if (newTarget) {
           this.actor.updateCursorNode(

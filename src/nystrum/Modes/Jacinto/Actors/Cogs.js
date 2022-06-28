@@ -45,7 +45,7 @@ export const addCogPod = (mode, pos) => {
   };
 }
 
-export const createCogPod = (mode) => (
+export const createCogPod = (mode, reinforcementCount = 1) => (
   new EmergenceHole({
     name: 'Pod',
     game: mode.game,
@@ -56,8 +56,8 @@ export const createCogPod = (mode) => (
       color: COLORS.cog1,
       background: COLORS.base04,
     },
-    timeToSpread: 3,
-    spreadCount: 1,
+    timeToSpread: 1,
+    spreadCount: reinforcementCount,
     durability: 1,
     faction: 'COG',
     enemyFactions: ['LOCUST'],

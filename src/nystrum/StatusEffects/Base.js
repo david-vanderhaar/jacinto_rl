@@ -1,3 +1,5 @@
+import * as Helper from '../../helper';
+
 export class Base {
   constructor({ 
     game, 
@@ -23,5 +25,10 @@ export class Base {
     this.onStep = onStep
     this.onStop = onStop
     this.renderer = renderer
+  }
+
+  static displayName = 'Base Effect'
+  static getValidTargetsOnTile (tile, actor) {
+    return Helper.getDestructableEntities(tile.entities);
   }
 }

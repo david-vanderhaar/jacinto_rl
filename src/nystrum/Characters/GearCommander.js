@@ -21,7 +21,7 @@ import {COLORS} from '../Modes/Jacinto/theme';
 import { Reload } from '../Actions/Reload';
 import {UpgradeResource} from '../Actions/ActionResources/UpgradeResource';
 import { SandSkin } from '../StatusEffects/SandSkin';
-import { MeleeDamage } from '../StatusEffects/MeleeDamage';
+import { MeleeDamageDebuff } from '../StatusEffects/MeleeDamageDebuff';
 
 
 export default function (engine) {
@@ -141,7 +141,7 @@ export default function (engine) {
           ],
         }),
       b: () => new OpenAvailableStatusEffects({
-          label: 'Buff',
+          label: 'Buff/Debuff',
           game: engine.game,
           actor,
         }),
@@ -168,16 +168,20 @@ export default function (engine) {
     upgrade_tree: [
       Upgrade({
         cost: 1,
-        name: '+1 Health',
-        activate: (actor) => {
-          actor.durabilityMax += 1
-          actor.increaseDurability(1)
-        },
+        name: 'Gain Melee Debuff Action',
+        removeOnActivate: true,
+        activate: (actor) => actor.addAvailableStatusEffect(MeleeDamageDebuff),
       }),
       Upgrade({
         cost: 1,
-        name: '+1 Encourage Range',
+        name: '+1 Effect Range',
+        canUpgrade: (actor) => actor.getStatusEffectRange() < actor.statusEffectRangeMax,
         activate: (actor) => (actor.increaseStatusEffectRange(1)),
+      }),
+      Upgrade({
+        cost: 1,
+        name: '+1 Reinforcements',
+        activate: (actor) => (actor['reinforcementCount'] += 1),
       }),
       Upgrade({
         cost: 3,
@@ -194,6 +198,8 @@ export default function (engine) {
     enemyFactions: ['LOCUST'],
     initializeKeymap: keymap,
   })
+
+  actor['reinforcementCount'] = 1
 
   // add default items to container
   const ammo = Array(10).fill('').map(() => Ammo(engine));

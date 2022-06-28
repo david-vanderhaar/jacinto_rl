@@ -2,7 +2,7 @@ import { SandSkin } from '../StatusEffects/SandSkin';
 import { MeleeDamage } from '../StatusEffects/MeleeDamage';
 
 export const CanActivateStatusEffects = superclass => class extends superclass {
-  constructor({ availableStatusEffects = [], statusEffectRange = 1, ...args }) {
+  constructor({ availableStatusEffects = [], statusEffectRange = 2, ...args }) {
     super({ ...args });
     this.entityTypes = this.entityTypes.concat('CAN_ACTIVATE_STATUS_EFFECTS');
     this.statusEffectRange = statusEffectRange;
@@ -12,6 +12,10 @@ export const CanActivateStatusEffects = superclass => class extends superclass {
 
   getAvailableStatusEffects () {
     return this.availableStatusEffects;
+  }
+
+  addAvailableStatusEffect (effectClass) {
+    this.availableStatusEffects.push(effectClass)
   }
   
   getStatusEffectRange() { return this.statusEffectRange }

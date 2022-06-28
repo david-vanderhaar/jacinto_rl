@@ -6,7 +6,7 @@ import { DIRECTIONS, ENERGY_THRESHOLD } from '../constants';
 import { getPositionInDirection } from '../../helper';
 
 export class PrepareCallReinforcements extends Base {
-  constructor({ 
+  constructor({
     passThroughEnergyCost = ENERGY_THRESHOLD, 
     passThroughRequiredResources = [], 
     ...args 
@@ -17,8 +17,8 @@ export class PrepareCallReinforcements extends Base {
     this.processDelay = 0;
     this.energyCost = 0;
   }
+  getReinforcementCount () { return this.actor['reinforcementCount'] || 1 }
   perform() {
-
     const pos = this.actor.getPosition();
     // tackle in 4 directions a sfar as the actor has energy
     const cursor_positions = [
@@ -35,7 +35,7 @@ export class PrepareCallReinforcements extends Base {
       onAfter: () => this.actor.deactivateCursor(),
     })
 
-    const podEntity = Cogs.createCogPod(this.game.mode)
+    const podEntity = Cogs.createCogPod(this.game.mode, this.getReinforcementCount())
 
     let keymap = {
       Escape: () => goToPreviousKeymap,
