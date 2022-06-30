@@ -6,6 +6,16 @@ export const HasFaction = superclass => class extends superclass {
     this.enemyFactions = enemyFactions;
   }
 
+  // Overriding Attacking
+  canAttack (entity) {
+    return !this.isAlly(entity)
+  }
+
+  // Overriding RangedAttacking
+  canRangedAttack(entity) {
+    return !this.isAlly(entity)
+  }
+
   getEnemies () {
     return this.game.engine.actors
       .filter((actor) => this.enemyFactions.includes( actor['faction']))

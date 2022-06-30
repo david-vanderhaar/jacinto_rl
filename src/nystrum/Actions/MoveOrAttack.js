@@ -14,12 +14,11 @@ export class MoveOrAttack extends Base {
     if (moveSuccess) {
       success = true;
     } else {
-      success = true;
       alternative = new Attack({
         targetPos: this.targetPos,
         game: this.game,
         actor: this.actor,
-        energyCost: 0
+        energyCost: this.energyCost
       });
     }
     return {

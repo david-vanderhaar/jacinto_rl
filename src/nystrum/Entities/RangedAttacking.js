@@ -164,17 +164,16 @@ export const RangedAttacking = superclass => class extends superclass {
     }
     let targets = Helper.getDestructableEntities(tile.entities);
     if (targets.length > 0) {
-      const attackChance = this.getRangedAttackChance(targetPos);
-      const hitChance = attackChance + additionalAccuracy;
-      hit = Math.random() < hitChance;
-      // TODO: trigger hit and miss animations
       let target = targets[0];
-      this.useAmmo(target.getPosition());
-      if (!hit) {
-        success = true;
-        return [success, hit];
-      }
       if (this.canRangedAttack(target)) {
+        const attackChance = this.getRangedAttackChance(targetPos);
+        const hitChance = attackChance + additionalAccuracy;
+        hit = Math.random() < hitChance;
+        this.useAmmo(target.getPosition());
+        if (!hit) {
+          success = true;
+          return [success, hit];
+        }
         let damage = this.getRangedAttackDamage(additionalDamage);
         this.game.addMessage(`${this.name} does ${damage} to ${target.name}`, MESSAGE_TYPE.DANGER);
         target.decreaseDurability(damage);
