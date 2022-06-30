@@ -28,7 +28,7 @@ export const getRandomIntInclusive = (min, max) => {
 
 export const coordsAreEqual = (pos_one, pos_two) => pos_one.x === pos_two.x && pos_one.y === pos_two.y
 
-export const coordsToString = (coords) => `${coords.x},${coords.y}`
+export const coordsToString = (coords) => coords && `${coords.x},${coords.y}`
 
 const isTilePassable = (game) => (x, y) => {
   const tile = game.map[x + "," + y];
