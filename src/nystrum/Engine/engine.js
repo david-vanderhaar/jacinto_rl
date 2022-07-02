@@ -64,6 +64,7 @@ export class Engine {
             
             action.onBefore();
             result = await action.perform();
+            actor.lastActionResult = result
             if (result.success) {
               action.onSuccess();
               action.payRequiredResources();

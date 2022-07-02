@@ -25,7 +25,7 @@ export const CyclesBehaviors = superclass => class extends superclass {
   }
 
   shouldCycleToNextBehavior(behavior) {
-    return !behavior.isValid() || !behavior.shouldRepeat();
+    return this.lastActionFailed() || !behavior.isValid() || !behavior.shouldRepeat();
   }
 
   getDefaultAction() {
@@ -60,6 +60,7 @@ export const CyclesBehaviors = superclass => class extends superclass {
     while (this.shouldCycleToNextBehavior(behavior)) {
       behavior.reset();
       behavior = this.selectNextBehavior();
+      this.resetLastActionResult()
     }
 
     while (action === null) {

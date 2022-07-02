@@ -7,7 +7,17 @@ export const Acting = superclass => class extends superclass {
     this.actions = actions;
     this.speed = speed;
     this.energy = speed;
+    this.lastActionResult = null
   }
+
+  getLastActionResult() {return this.lastActionResult}
+  resetLastActionResult() {return this.lastActionResult = null}
+  
+  lastActionFailed() {
+    const result = this.getLastActionResult()
+    return result ? !result.success : false
+  }
+  
   getAction() {
     let action = Helper.getRandomInArray(this.actions);
     if (action) {
