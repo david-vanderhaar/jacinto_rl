@@ -77,12 +77,7 @@ export const Spreading = superclass => class extends superclass {
           name: 'Pyro',
           pos: { x: 0, y: 0 },
           game,
-          renderer: {
-            character: '*',
-            sprite: '',
-            color: Constant.THEMES.SOLARIZED.base3,
-            background: Constant.THEMES.SOLARIZED.red,
-          },
+          renderer: {...this.renderer},
           timeToSpread: this.timeToSpreadMax,
           spreadCount: this.spreadCountMax,
           durability: this.durability,

@@ -357,13 +357,13 @@ export class Game {
   
   animateEntity (entity) {
     let renderer = entity.getRenderer();
-    let { character, foreground, background } = this.getEntityRenderer(renderer)
-    if (renderer.animation) {
-      let frame = this.getEntityRenderer(renderer.animation[entity.currentFrame]);
+    let { character, foreground, background, animation } = this.getEntityRenderer(renderer)
+    if (animation) {
+      let frame = this.getEntityRenderer(animation[entity.currentFrame]);
       character = frame.character;
       foreground = frame.foreground;
       background = frame.background;
-      entity.currentFrame = (entity.currentFrame + 1) % renderer.animation.length;
+      entity.currentFrame = (entity.currentFrame + 1) % animation.length;
     }
     return {character, foreground, background}
   }

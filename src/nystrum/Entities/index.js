@@ -42,6 +42,9 @@ import { HasFaction } from './HasFaction';
 import { UsesCover } from './UsesCover';
 import { CanActivateStatusEffects } from './CanActivateStatusEffects';
 import { CyclesBehaviors } from './AI/CyclesBehaviors';
+import { SpawningWithStructure } from './SpawningWithStructure';
+import { Projecting } from './Projecting';
+import { TimeBombing } from './TimeBombing';
 
 export const UI_Actor = pipe(
   Acting,
@@ -76,6 +79,13 @@ export const CoverWall = pipe(
   Rendering,
   Covering,
   Destructable,
+)(Entity);
+
+export const SmokeParticle = pipe(
+  Rendering,
+  Covering,
+  Destructable,
+  TimeBombing,
 )(Entity);
 
 export const Debris = pipe(
@@ -212,6 +222,15 @@ export const Grenade = pipe(
   DirectionalProjecting,
   Destructable,
   Exploding,
+)(Entity);
+
+export const ThrowableSpawner = pipe(
+  Acting,
+  Rendering,
+  Attacking,
+  DirectionalProjecting,
+  Destructable,
+  SpawningWithStructure,
 )(Entity);
 
 export const DestructiveCloudProjectile = pipe(

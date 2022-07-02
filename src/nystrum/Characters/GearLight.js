@@ -14,6 +14,7 @@ import {PickupAllItems} from '../Actions/PickupAllItems';
 import { Lancer } from '../Items/Weapons/Lancer';
 import { Snub } from '../Items/Weapons/Snub';
 import { Grenade } from '../Items/Weapons/Grenade';
+import { SmokeGrenade } from '../Items/Weapons/SmokeGrenade';
 import { Ammo } from '../Items/Pickups/Ammo';
 import {COLORS} from '../Modes/Jacinto/theme';
 import { Reload } from '../Actions/Reload';
@@ -129,6 +130,13 @@ export default function (engine) {
         actor,
         passThroughEnergyCost: Constant.ENERGY_THRESHOLD,
       }),
+      y: () => new PrepareDirectionalThrow({
+        label: 'Smoke',
+        projectileType: 'Smoke Grenade',
+        game: engine.game,
+        actor,
+        passThroughEnergyCost: Constant.ENERGY_THRESHOLD,
+      }),
       c: () => new AddStatusEffect({
         label: 'Rev Lancer Chainsaw',
         game: engine.game,
@@ -210,7 +218,8 @@ export default function (engine) {
 
   // add default items to container
   const ammo = Array(30).fill('').map(() => Ammo(engine));
-  const grenades = Array(4).fill('').map(() => Grenade(engine, 6));
+  const grenades = Array(2).fill('').map(() => Grenade(engine, 6));
+  const smokes = Array(4).fill('').map(() => SmokeGrenade(engine, 2));
   const snub = Snub(engine);
   actor.container = [
     new ContainerSlot({
@@ -224,6 +233,10 @@ export default function (engine) {
     new ContainerSlot({
       itemType: grenades[0].name,
       items: grenades,
+    }),
+    new ContainerSlot({
+      itemType: smokes[0].name,
+      items: smokes,
     }),
   ]
 
