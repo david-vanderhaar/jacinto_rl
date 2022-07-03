@@ -158,7 +158,7 @@ export class Display {
     this.stage = new Konva.Stage({
       container: 'display',   // id of container <div>
       width: this.width,
-      height: this.height
+      height: this.height,
     });
 
     
@@ -185,6 +185,21 @@ export class Display {
     }, this.animationLayer);
     this.animationLoop = animationLoop;
     animationLoop.start();
+  }
+
+  async shakeScreen (durationMs = 10, intensity = 1) {
+    let timer = durationMs
+    while (timer > 0) {
+      const randomX = Helper.getRandomIntInclusive(1, 5) * intensity
+      const randomY = Helper.getRandomIntInclusive(1, 5) * intensity
+      this.stage.offsetX(randomX)
+      this.stage.offsetY(randomY)
+      await Helper.delay(durationMs);
+      this.stage.offsetX(0)
+      this.stage.offsetY(0)
+      timer -= 1
+    }
+    
   }
 
   adjustContentToScreen (display_element) {
