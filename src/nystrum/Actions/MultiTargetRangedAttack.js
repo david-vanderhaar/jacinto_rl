@@ -55,7 +55,6 @@ export class MultiTargetRangedAttack extends Base {
             Constant.PARTICLE_TEMPLATES.fail.renderer,
           );
         } else {
-          this.game.display.shakeScreen()
           const sound = Helper.getRandomInArray([SOUNDS.chop_0, SOUNDS.chop_1]);
           sound.play();
           this.addParticle(

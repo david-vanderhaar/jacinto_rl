@@ -177,6 +177,8 @@ export const RangedAttacking = superclass => class extends superclass {
         let damage = this.getRangedAttackDamage(additionalDamage);
         this.game.addMessage(`${this.name} does ${damage} to ${target.name}`, MESSAGE_TYPE.DANGER);
         target.decreaseDurability(damage);
+        if (this.entityTypes.includes('PLAYING')) this.game.display.shakeScreen({intensity: 1})
+        
         success = true;
       }
     }

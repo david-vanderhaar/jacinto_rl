@@ -187,19 +187,24 @@ export class Display {
     animationLoop.start();
   }
 
-  async shakeScreen (durationMs = 10, intensity = 1) {
-    let timer = durationMs
-    while (timer > 0) {
+  async shakeScreen ({intensity = 1}) {
+    this.shakeNode({node: this.stage, intensity})
+  }
+
+  async shakeNode ({node, intensity = 1}) {
+    let duration = 10;
+    let shakeCount = 5 * intensity
+    while (shakeCount > 0) {
       const randomX = Helper.getRandomIntInclusive(1, 5) * intensity
       const randomY = Helper.getRandomIntInclusive(1, 5) * intensity
-      this.stage.offsetX(randomX)
-      this.stage.offsetY(randomY)
-      await Helper.delay(durationMs);
-      this.stage.offsetX(0)
-      this.stage.offsetY(0)
-      timer -= 1
+      node.offsetX(randomX)
+      node.offsetY(randomY)
+      node.draw()
+      await Helper.delay(duration/shakeCount);
+      shakeCount -= 1
     }
-    
+    node.offsetX(0)
+    node.offsetY(0)
   }
 
   adjustContentToScreen (display_element) {

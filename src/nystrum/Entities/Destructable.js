@@ -1,4 +1,6 @@
 import { destroyEntity } from './helper';
+import * as Helper from '../../helper';
+
 export const Destructable = superclass => class extends superclass {
   constructor({ durability = 1, defense = 0, onDestroy = () => null, ...args }) {
     super({ ...args });
@@ -35,9 +37,15 @@ export const Destructable = superclass => class extends superclass {
     const newDurability = current - (value - this.getDefense());
     this.durability = Math.min(current, newDurability);
     this.updateActorRenderer();
+    if (this.entityTypes.includes('PLAYING')) this.shakePlayer(value)
     if (this.durability <= 0) {
       this.destroy();
     }
+  }
+  shakePlayer(intensity) {
+    const nodeKey = Helper.coordsToString(this.getPosition())
+    const actorNode = this.game.tileMap[nodeKey]
+    this.game.display.shakeNode({node: actorNode, intensity: intensity})
   }
   increaseDurability(value) {
     this.durability += value;
