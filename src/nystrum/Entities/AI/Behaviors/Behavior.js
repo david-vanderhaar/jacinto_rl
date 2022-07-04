@@ -5,6 +5,7 @@ export default class Behavior {
     this.actor = actor;
     this.repeat = repeat;
     this.repeated = 0;
+    this.willChainToNextBehaviour = false
   }
 
   isValid () {
@@ -19,15 +20,15 @@ export default class Behavior {
     return this.repeated < this.repeat
   }
 
-  interrupt() {
-    this.repeated = this.repeat
+  interrupted() {
+    return !this.willChainToNextBehaviour && (this.repeated >= this.repeat)
   }
 
   getDefaultActionParams() {
     return {
       game: this.actor.game,
       actor: this.actor,
-      interrupt: this.repeated >= this.repeat,
+      interrupt: this.interrupted(),
       energyCost: 0,
     }
   }

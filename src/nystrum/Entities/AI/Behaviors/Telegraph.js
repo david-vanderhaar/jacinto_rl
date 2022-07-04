@@ -9,6 +9,7 @@ export default class Telegraph extends Behavior {
     super({ ...args });
     this.attackPattern = attackPattern;
     this.color = color;
+    this.willChainToNextBehaviour = true;
   }
 
   isValid () {
@@ -48,7 +49,10 @@ export default class Telegraph extends Behavior {
     // return None action
     return [
       Say,
-      {message: 'I am telegraphing my next attack'}
+      {
+        message: 'I am telegraphing my next attack',
+        processDelay: 500,
+      }
     ]
   }
 }

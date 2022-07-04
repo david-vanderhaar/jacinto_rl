@@ -7,6 +7,7 @@ export default class TelegraphRangedAttack extends MoveTowardsEnemy {
   constructor({ accuracyToAttackThreshold = 0.1, ...args }) {
     super({ ...args });
     this.accuracyToAttackThreshold = accuracyToAttackThreshold;
+    this.willChainToNextBehaviour = true;
   }
 
   isValid () {
@@ -63,7 +64,10 @@ export default class TelegraphRangedAttack extends MoveTowardsEnemy {
     ]);
     return [
       Say,
-      {message: 'I am telegraphing my next attack'}
+      {
+        message: 'I am telegraphing my next attack',
+        processDelay: 500,
+      }
     ]
   }
 }

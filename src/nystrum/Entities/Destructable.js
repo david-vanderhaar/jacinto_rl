@@ -42,10 +42,10 @@ export const Destructable = superclass => class extends superclass {
       this.destroy();
     }
   }
-  shakePlayer(intensity) {
+  shakePlayer() {
     const nodeKey = Helper.coordsToString(this.getPosition())
     const actorNode = this.game.tileMap[nodeKey]
-    this.game.display.shakeNode({node: actorNode, intensity: intensity})
+    this.game.display.shakeNode({node: actorNode, intensity: 2})
   }
   increaseDurability(value) {
     this.durability += value;
