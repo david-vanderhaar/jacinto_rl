@@ -59,12 +59,15 @@ class Level extends React.Component {
     return (
       <div className="Level">
         <div className='row'>
-          <div className='col s10'>
+          <div className='col s2'>
+            <PlayerInformation game={this.state.game} />
+          </div>
+          <div className='col s8'>
             <div className='game_display_container'>
               {Game.DisplayElement(this.presserRef, Game.handleKeyPress, this.state.game.engine)}
             </div>
             <Help id="jacinto_help" />
-            <PlayerInformation game={this.state.game} />
+            {/* <PlayerInformation game={this.state.game} /> */}
             {/* <Information game={this.state.game} /> */}
             <Instructions game={this.state.game} spriteMode={this.state.game.spriteMode} setActiveScreen={this.props.setActiveScreen} toggleSpriteMode={this.toggleSpriteMode.bind(this)} />
           </div>

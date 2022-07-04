@@ -10,13 +10,13 @@ export const ANIMATION_TYPES = {
 }
 
 class Animation {
-  constructor({display}) {
+  constructor({display, game}) {
     const id = uuid();
     this.id = id;
     this.lifeTime = 0;
     this.active = true;
-    this.display = display;
     this.node = null;
+    this.display = display;
   }
 
   getActive () {
@@ -70,12 +70,20 @@ class BlinkTile extends Animation {
     return this.active;
   }
 
+  getMapNode() {
+    return this.display.game.tileMap[Helper.coordsToString({x: this.x, y: this.y})]
+  }
+
   initialize () {
     this.active = true;
+    let node = this.getMapNode()
+    console.log(node);
     const attrs = {
       name: 'rect',
-      x: (this.display.tileWidth * this.x) + (this.display.tileOffset + this.display.tileGutter),
-      y: (this.display.tileHeight * this.y) + (this.display.tileOffset + this.display.tileGutter),
+      x: node.x(),
+      y: node.y(),
+      // x: (this.display.tileWidth * this.x) + (this.display.tileOffset + this.display.tileGutter),
+      // y: (this.display.tileHeight * this.y) + (this.display.tileOffset + this.display.tileGutter),
       offsetX: this.display.tileWidth / -4,
       offsetY: this.display.tileHeight / -4,
       width: this.display.tileWidth / 2,
@@ -208,8 +216,12 @@ export class Display {
   }
 
   adjustContentToScreen (display_element) {
-    const DEVICE_WIDTH = display_element.offsetWidth;
-    const value = (DEVICE_WIDTH - this.tileOffset) / this.game.mapWidth;
+    const DEVICE_HEIGHT = display_element.offsetHeight;
+    console.log(display_element);
+    console.log(DEVICE_HEIGHT);
+    const value = (DEVICE_HEIGHT - this.tileOffset) / this.game.mapHeight;
+    // const DEVICE_WIDTH = display_element.offsetWidth;
+    // const value = (DEVICE_WIDTH - this.tileOffset) / this.game.mapWidth;
     this.tileWidth = Math.round(value);
     this.tileHeight = this.tileWidth;
     this.width = ((this.game.mapWidth) * this.tileWidth) + this.tileOffset;
