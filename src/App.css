@@ -42,8 +42,9 @@
 }
 
 .game_display_container {
-  overflow-x: scroll;
-  border: solid 4px #eee;
+  /* overflow-x: scroll; */
+  /* border: solid 4px #eee; */
+  margin: 10px;
 }
 
 .Level > .row {
@@ -129,7 +130,7 @@
   border-radius: 6px;
   display: flex;
   justify-content: space-around;
-  margin-right: 20px;
+  /* margin-right: 20px; */
   margin-bottom: 20px;
   border-collapse: collapse;
   flex-direction: column;

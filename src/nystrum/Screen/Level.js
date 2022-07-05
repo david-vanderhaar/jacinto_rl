@@ -58,11 +58,11 @@ class Level extends React.Component {
   render() {
     return (
       <div className="Level">
-        <div className='row'>
-          <div className='col s2'>
+        <div style={{display: 'flex', justifyContent: 'space-around'}}>
+          <div style={{flex: 1}}>
             <PlayerInformation game={this.state.game} />
           </div>
-          <div className='col s8'>
+          <div style={{flex: 5}}>
             <div className='game_display_container'>
               {Game.DisplayElement(this.presserRef, Game.handleKeyPress, this.state.game.engine)}
             </div>
@@ -71,7 +71,7 @@ class Level extends React.Component {
             {/* <Information game={this.state.game} /> */}
             <Instructions game={this.state.game} spriteMode={this.state.game.spriteMode} setActiveScreen={this.props.setActiveScreen} toggleSpriteMode={this.toggleSpriteMode.bind(this)} />
           </div>
-          <div className='col s2'>
+          <div style={{flex: 1}}>
             <Equipment game={this.state.game} player={this.state.game.getFirstPlayer()} />
             <InfoBlocks game={this.state.game} />
             <Messages messages={this.state.game.messages.slice(-5).reverse()} />

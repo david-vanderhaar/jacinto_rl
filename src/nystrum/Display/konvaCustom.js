@@ -70,20 +70,12 @@ class BlinkTile extends Animation {
     return this.active;
   }
 
-  getMapNode() {
-    return this.display.game.tileMap[Helper.coordsToString({x: this.x, y: this.y})]
-  }
-
   initialize () {
     this.active = true;
-    let node = this.getMapNode()
-    console.log(node);
     const attrs = {
       name: 'rect',
-      x: node.x(),
-      y: node.y(),
-      // x: (this.display.tileWidth * this.x) + (this.display.tileOffset + this.display.tileGutter),
-      // y: (this.display.tileHeight * this.y) + (this.display.tileOffset + this.display.tileGutter),
+      x: (this.display.tileWidth * (this.x + this.display.game.getRenderOffsetX())) + (this.display.tileOffset + this.display.tileGutter),
+      y: (this.display.tileHeight * (this.y + this.display.game.getRenderOffsetY())) + (this.display.tileOffset + this.display.tileGutter),
       offsetX: this.display.tileWidth / -4,
       offsetY: this.display.tileHeight / -4,
       width: this.display.tileWidth / 2,
@@ -217,16 +209,23 @@ export class Display {
 
   adjustContentToScreen (display_element) {
     const DEVICE_HEIGHT = display_element.offsetHeight;
-    console.log(display_element);
-    console.log(DEVICE_HEIGHT);
-    const value = (DEVICE_HEIGHT - this.tileOffset) / this.game.mapHeight;
-    // const DEVICE_WIDTH = display_element.offsetWidth;
-    // const value = (DEVICE_WIDTH - this.tileOffset) / this.game.mapWidth;
+    const value = (DEVICE_HEIGHT - this.tileOffset) / this.game.getRenderHeight();
+    const DEVICE_WIDTH = display_element.offsetWidth;
+    // const value = (DEVICE_WIDTH - this.tileOffset) / this.game.getRenderWidth();
     this.tileWidth = Math.round(value);
     this.tileHeight = this.tileWidth;
-    this.width = ((this.game.mapWidth) * this.tileWidth) + this.tileOffset;
-    this.height = (this.game.mapHeight * this.tileHeight) + this.tileOffset;
+
+    const adjustedCameraWidth = this.getTilesDownOnScreenByWidth(DEVICE_WIDTH)
+    const newRenderWidth = this.game.setRenderWidth(adjustedCameraWidth)
+    this.width = (newRenderWidth * this.tileWidth) + this.tileOffset;
+
+    const adjustedCameraHeight = this.getTilesDownOnScreenByHeight(DEVICE_HEIGHT)
+    const newRenderHeight = this.game.setRenderHeight(adjustedCameraHeight)
+    this.height = (newRenderHeight * this.tileHeight) + this.tileOffset;
   }
+
+  adjustGameCameraHeightToScreenHeight (height) { this.game.cameraHeight = this.getTilesDownOnScreenByHeight(height) }
+  adjustGameCameraHeightToScreenHeight (height) { this.game.cameraHeight = this.getTilesDownOnScreenByHeight(height) }
 
   addAnimation (type, args) {
     let animation;
@@ -346,8 +345,8 @@ export class Display {
     return Math.floor((height - tileOffset) / tileHeight)
   }
 
-  getTilesAcrossOnScreen () { return Math.floor(this.width / this.tileWidth)}
-  getTilesDownOnScreen () { return Math.floor(this.height / this.tileHeight)}
+  getTilesDownOnScreenByWidth (canvasWidth) { return Math.ceil(canvasWidth / this.tileWidth)}
+  getTilesDownOnScreenByHeight (canvasHeight) { return Math.ceil(canvasHeight / this.tileHeight)}
 
   draw () {
     this.layer.batchDraw();

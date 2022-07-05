@@ -34,10 +34,8 @@ export class Game {
     tileMap = {},
     mapWidth = MAP_WIDTH,
     mapHeight = MAP_HEIGHT,
-    cameraWidth = 14,
+    cameraWidth = MAP_WIDTH,
     cameraHeight = MAP_HEIGHT,
-    // cameraWidth = MAP_WIDTH,
-    // cameraHeight = MAP_HEIGHT,
     tileWidth = TILE_WIDTH,
     tileHeight = TILE_HEIGHT,
     tileOffset = TILE_OFFSET,
@@ -240,32 +238,48 @@ export class Game {
     this.display.initialize(document)
   }
 
-  getRenderMap(fullMap, referencePosition, renderWidth, renderHeight, fullWidth, fullHeight) { 
+  getRenderWidth () { return this.cameraWidth }
+  getRenderHeight () { return this.cameraHeight }
+  setRenderWidth (value) { return this.cameraWidth = value }
+  setRenderHeight (value) { return this.cameraHeight = value }
+
+  getRenderOffsetX () {
+    const renderPaddingX = Math.floor((this.getRenderWidth() / 2));
+    const referencePosition = this.getReferencePosition();
+    let offsetX = 0
+    if (referencePosition) {
+      offsetX = referencePosition.x - renderPaddingX;
+    }
+    return  -1 * Helper.clamp(offsetX, 0, this.mapWidth - this.getRenderWidth());
+  }
+
+  getRenderOffsetY () {
+    const renderPaddingY = Math.floor((this.getRenderHeight() / 2));
+    const referencePosition = this.getReferencePosition();
+    let offsetY = 0
+    if (referencePosition) {
+      offsetY = referencePosition.y - renderPaddingY;
+    }
+    return  -1 * Helper.clamp(offsetY, 0, this.mapHeight - this.getRenderHeight());
+  }
+
+  getReferencePosition () { return this.getPlayerPosition() }
+
+  getRenderMap(fullMap) { 
     // create an object with only tile keys that should be rendered (around player)
     // renderWidth/Height measured in tiles
     // reference positon usually based on player pos
     // position from fullMap key should be translated to 0,0 based on referencePos
-    
-    const renderPaddingX = Math.floor((renderWidth / 2));
-    const renderPaddingY = Math.floor((renderHeight / 2));
-    let offsetX = 0;
-    let offsetY = 0;
-    if (referencePosition) {
-      offsetX = referencePosition.x - renderPaddingX;
-      offsetY = referencePosition.y - renderPaddingY;
-    }
-    offsetX = Helper.clamp(offsetX, 0, fullWidth - renderWidth);
-    offsetY = Helper.clamp(offsetY, 0, fullHeight - renderHeight);
     
     let result = {}
     for (let key in fullMap) {
       let parts = key.split(",");
       let x = parseInt(parts[0]);
       let y = parseInt(parts[1]);
-      let finalX = x - offsetX;
-      let finalY = y - offsetY;
-      if (finalX >= 0 && finalX <= renderWidth) {
-        if (finalY >= 0 && finalY <= renderHeight) {
+      let finalX = x + this.getRenderOffsetX();
+      let finalY = y + this.getRenderOffsetY();
+      if (finalX >= 0 && finalX <= this.getRenderWidth()) {
+        if (finalY >= 0 && finalY <= this.getRenderHeight()) {
           result[`${finalX},${finalY}`] = fullMap[key]
         }
       }
@@ -274,10 +288,7 @@ export class Game {
   }
 
   processTileMap (callback) {
-    // const map = this.map;
-    // const map = this.getRenderMap(this.map, this.getPlayerPosition(), this.mapWidth, this.mapHeight);
-    // const map = this.getRenderMap(this.map, this.getPlayerPosition(), 50, 25, this.mapWidth, this.mapHeight);
-    const map = this.getRenderMap(this.map, this.getPlayerPosition(), this.cameraWidth, this.cameraHeight, this.mapWidth, this.mapHeight);
+    const map = this.getRenderMap(this.map);
     for (let key in map) {
       let parts = key.split(",");
       let x = parseInt(parts[0]);
