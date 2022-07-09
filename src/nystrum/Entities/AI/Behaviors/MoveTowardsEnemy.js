@@ -3,8 +3,9 @@ import Behavior from './Behavior';
 import { calculatePathAroundObstacles } from '../../../../helper'; 
 
 export default class MoveTowardsEnemy extends Behavior {
-  constructor({ ...args }) {
+  constructor({...args }) {
     super({ ...args });
+    this.chainOnFail = true;
   }
 
   isValid () {

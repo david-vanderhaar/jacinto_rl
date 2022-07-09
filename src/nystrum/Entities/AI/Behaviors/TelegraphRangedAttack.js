@@ -7,7 +7,7 @@ export default class TelegraphRangedAttack extends MoveTowardsEnemy {
   constructor({ accuracyToAttackThreshold = 0.1, ...args }) {
     super({ ...args });
     this.accuracyToAttackThreshold = accuracyToAttackThreshold;
-    this.willChainToNextBehaviour = true;
+    this.chainOnSuccess = true;
   }
 
   isValid () {

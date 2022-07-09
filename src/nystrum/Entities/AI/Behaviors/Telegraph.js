@@ -9,7 +9,7 @@ export default class Telegraph extends Behavior {
     super({ ...args });
     this.attackPattern = attackPattern;
     this.color = color;
-    this.willChainToNextBehaviour = true;
+    this.chainOnSuccess = true;
   }
 
   isValid () {

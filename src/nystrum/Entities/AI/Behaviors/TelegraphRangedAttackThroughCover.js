@@ -4,6 +4,6 @@ export default class TelegraphRangedAttackThroughCover extends TelegraphRangedAt
   constructor({ ...args }) {
     super({ ...args });
     this.accuracyToAttackThreshold = -1;
-    this.willChainToNextBehaviour = true;
+    this.chainOnSuccess = true;
   }
 }

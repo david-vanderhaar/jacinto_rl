@@ -17,6 +17,8 @@ export const Acting = superclass => class extends superclass {
     const result = this.getLastActionResult()
     return result ? !result.success : false
   }
+
+  lastActionSucceded () { return !this.lastActionFailed() }
   
   getAction() {
     let action = Helper.getRandomInArray(this.actions);

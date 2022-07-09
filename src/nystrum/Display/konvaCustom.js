@@ -192,6 +192,7 @@ export class Display {
   }
 
   async shakeNode ({node, intensity = 1}) {
+    if (!!!node) return;
     let duration = 10;
     let shakeCount = 5 * intensity
     while (shakeCount > 0) {
@@ -205,6 +206,7 @@ export class Display {
     }
     node.offsetX(0)
     node.offsetY(0)
+    node.draw()
   }
 
   adjustContentToScreen (display_element) {

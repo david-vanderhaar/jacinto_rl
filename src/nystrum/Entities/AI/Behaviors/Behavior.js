@@ -1,11 +1,12 @@
 import { Say } from '../../../Actions/Say';
 
 export default class Behavior {
-  constructor({ actor = null, repeat = 1 }) {
+  constructor({ actor = null, repeat = 1, chainOnSuccess = false, chainOnFail = false }) {
     this.actor = actor;
     this.repeat = repeat;
     this.repeated = 0;
-    this.willChainToNextBehaviour = false
+    this.chainOnSuccess = chainOnSuccess
+    this.chainOnFail = chainOnFail
   }
 
   isValid () {
@@ -20,8 +21,14 @@ export default class Behavior {
     return this.repeated < this.repeat
   }
 
+  shouldChainToNextBehavior () {
+    if (this.chainOnSuccess && this.actor.lastActionSucceded()) return true
+    if (this.chainOnFail && this.actor.lastActionFailed()) return true
+    return false
+  }
+
   interrupted() {
-    return !this.willChainToNextBehaviour && (this.repeated >= this.repeat)
+    return !this.shouldChainToNextBehavior() && !this.shouldRepeat()
   }
 
   getDefaultActionParams() {
