@@ -9,8 +9,10 @@ export class DropItem extends Base {
   }
   perform() {
     this.game.addMessage(`${this.actor.name} drops ${this.item.name}.`, MESSAGE_TYPE.ACTION);
-    this.actor.removeFromContainer(this.item);
-    this.game.map[Helper.coordsToString(this.actor.pos)].entities.push(this.item);
+    const didDropItem = this.actor.removeFromContainer(this.item);
+    if (!didDropItem) return {success: false, alternative: null}
+    this.item.pos = this.actor.getPosition()
+    this.game.map[Helper.coordsToString(this.actor.getPosition())].entities.push(this.item);
     return {
       success: true,
       alternative: null,

@@ -75,6 +75,12 @@ export const Wall = pipe(
   Destructable,
 )(Entity);
 
+export const Trap = pipe(
+  Rendering,
+  Destructable,
+  HasFaction,
+)(Entity);
+
 export const CoverWall = pipe(
   Rendering,
   Covering,

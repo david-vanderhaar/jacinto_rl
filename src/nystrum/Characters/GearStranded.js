@@ -10,12 +10,14 @@ import {PrepareDirectionalThrow} from '../Actions/PrepareDirectionalThrow';
 import {PrepareRangedAttack} from '../Actions/PrepareRangedAttack';
 import {OpenInventory} from '../Actions/OpenInventory';
 import {OpenUpgrades} from '../Actions/OpenUpgrades';
+import {OpenDropInventory} from '../Actions/OpenDropInventory';
 import {Upgrade} from '../Entities/Upgradable';
 import {PickupAllItems} from '../Actions/PickupAllItems';
 import { Longshot } from '../Items/Weapons/Longshot';
 import { Boltok } from '../Items/Weapons/Boltok';
 import { Grenade } from '../Items/Weapons/Grenade';
 import { Ammo } from '../Items/Pickups/Ammo';
+import { SpikeTrap } from '../Items/Environment/SpikeTrap';
 import {COLORS} from '../Modes/Jacinto/theme';
 import { Reload } from '../Actions/Reload';
 import { AddSprintStatusEffect } from '../Actions/AddSprintStatusEffect';
@@ -122,6 +124,11 @@ export default function (engine) {
         actor,
         passThroughEnergyCost: Constant.ENERGY_THRESHOLD,
       }),
+      u: () => new OpenDropInventory({
+        label: 'Drop Items',
+        game: engine.game,
+        actor,
+      }),
       // c: () => new AddSprintStatusEffect({
       //   label: 'Sprint',
       //   game: engine.game,
@@ -196,6 +203,7 @@ export default function (engine) {
   // add default items to container
   const ammo = Array(20).fill('').map(() => Ammo(engine));
   const grenades = Array(2).fill('').map(() => Grenade(engine, 6));
+  const traps = Array(10).fill('').map(() => SpikeTrap(engine, actor));
   actor.container = [
     new ContainerSlot({
       itemType: secondary.name,
@@ -208,6 +216,10 @@ export default function (engine) {
     new ContainerSlot({
       itemType: grenades[0].name,
       items: grenades,
+    }),
+    new ContainerSlot({
+      itemType: traps[0].name,
+      items: traps,
     }),
   ]
 

@@ -64,7 +64,6 @@ export const CyclesBehaviors = superclass => class extends superclass {
       this.resetLastActionResult()
       killGetBehaviourLoop -= 1
       if (killGetBehaviourLoop < 0) break;
-      // debugger
     }
 
     let killGetActionLoop = this.behaviors.length;
@@ -72,7 +71,6 @@ export const CyclesBehaviors = superclass => class extends superclass {
       behavior.repeated += 1;
       action = behavior.getAction();
       killGetActionLoop -= 1;
-      // debugger
       if (killGetActionLoop < 0) break;
     }
 

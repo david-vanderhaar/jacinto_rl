@@ -33,10 +33,13 @@ export const Containing = superclass => class extends superclass {
     }
   }
   removeFromContainer(item) {
+    let success = false
     this.container.forEach((slot, index) => {
       slot.items = slot.items.filter((it) => it.id !== item.id);
       if (!slot.items.length)
         this.container.splice(index, 1);
+        success = true
     });
+    return success
   }
 };

@@ -39,6 +39,8 @@ const isTilePassable = (game) => (x, y) => {
   }
 }
 
+export const getTileAtPosition = (game, pos) => game.map[coordsToString(pos)]
+
 const isTileAndEntitiesPassable = (game, sourceEntityPos) => (x, y) => {
   const tile = game.map[x + "," + y];
   if (tile) {
