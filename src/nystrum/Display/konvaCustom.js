@@ -56,6 +56,7 @@ class BlinkTile extends Animation {
     lerpDirection = -1,
     color = '#fff',
     rectAttributes = {},
+    isBlinking = true,
     ...args
   }) {
     super({ ...args });
@@ -63,7 +64,8 @@ class BlinkTile extends Animation {
     this.y = y;
     this.lerpDirection = lerpDirection;
     this.color = color;
-    this.rectAttributes = rectAttributes
+    this.rectAttributes = rectAttributes;
+    this.isBlinking = isBlinking;
   }
 
   getActive () {
@@ -96,6 +98,7 @@ class BlinkTile extends Animation {
   }
 
   update (frame) {
+    if (!this.isBlinking) return
     let opacity = this.node.opacity();
     if (opacity >= 1) this.lerpDirection = -1;
     if (opacity <= 0) this.lerpDirection = 1;
@@ -112,7 +115,7 @@ export class BlinkBox extends BlinkTile {
     this.rectAttributes = {
       fill: 'transparent',
       stroke: args.color,
-      strokeWidth: 5,
+      strokeWidth: args.strokeWidth || 5,
       offsetX: 0,
       offsetY: 0,
       width: this.display.tileWidth,

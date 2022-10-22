@@ -22,21 +22,37 @@ export class PrepareRangedAttack extends Base {
   updateCursors(pathAnimations, initiatedFrom) {
     const cursorPositions = this.actor.getCursorPositions();
     const path = Helper.calculateStraightPath(initiatedFrom, this.actor.getCursorPositions()[0]);
-    // removing visible path from last action
-    pathAnimations.forEach((anim) => {
+    this.removeLastVisibleAnimations(pathAnimations)
+
+    // const positionsInRange = Helper.getPointsWithinRadius(pos, range);
+    const animationPositions = path.slice(1).filter((pos) => !find(cursorPositions, {x: pos.x, y: pos.y}))
+    const newAnimations = this.addNewAnimations(animationPositions)
+    newAnimations.forEach((anim) => pathAnimations.push(anim))
+
+    this.updateCursorColor(cursorPositions)
+  }
+
+  removeLastVisibleAnimations(animations) {
+    animations.forEach((anim) => {
       this.game.display.removeAnimation(anim.id);
     })
-    
-    // adding visible path to new cursor position
-    path.slice(1).forEach((pathPos) => {
-      if (!find(cursorPositions, {x: pathPos.x, y: pathPos.y})) {
-        const animation = this.game.display.addAnimation(this.game.display.animationTypes.BLINK_TILE, { x: pathPos.x, y: pathPos.y, color: THEMES.SOLARIZED.base3 })
-        pathAnimations.push(animation);
-      }
+  }
+
+  addNewAnimations(positions) {
+    const anims = []
+    positions.forEach((pos) => {
+      const animation = this.game.display.addAnimation(
+        this.game.display.animationTypes.BLINK_TILE,
+        { x: pos.x, y: pos.y, color: THEMES.SOLARIZED.base3 }
+      )
+      anims.push(animation);
     })
 
-    // modifying target curso color based on change to hit
-    cursorPositions.forEach((pos, i) => {
+    return anims
+  }
+
+  updateCursorColor(positions) {
+    positions.forEach((pos, i) => {
       const chance = this.actor.getRangedAttackChance(pos);
       if (chance <= 0) {
         this.actor.updateCursorNode(i, [
@@ -81,11 +97,16 @@ export class PrepareRangedAttack extends Base {
     let targets = [];
     let targetIndex = 0;
     positionsInRange.forEach((position) => {
-      // rangeAnims.push(this.game.display.addAnimation(1, {
-      //   x: position.x,
-      //   y: position.y,
-      //   color: THEMES.SOLARIZED.blue
-      // }))
+      rangeAnims.push(this.game.display.addAnimation(
+        this.game.display.animationTypes.BLINK_BOX, 
+        {
+          x: position.x,
+          y: position.y,
+          color: THEMES.SOLARIZED.base3,
+          isBlinking: false,
+          strokeWidth: 1,
+        }
+      ))
       let tile = this.game.map[Helper.coordsToString(position)];
       if (tile) {
         // const validTargets = Helper.getDestructableEntities(tile.entities);
