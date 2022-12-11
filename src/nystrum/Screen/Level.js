@@ -67,9 +67,14 @@ class Level extends React.Component {
               {Game.DisplayElement(this.presserRef, Game.handleKeyPress, this.state.game.engine)}
             </div>
             <Help id="jacinto_help" />
+            <Instructions 
+              game={this.state.game}
+              spriteMode={this.state.game.spriteMode}
+              setActiveScreen={this.props.setActiveScreen}
+              toggleSpriteMode={this.toggleSpriteMode.bind(this)}
+            />
             {/* <PlayerInformation game={this.state.game} /> */}
             {/* <Information game={this.state.game} /> */}
-            <Instructions game={this.state.game} spriteMode={this.state.game.spriteMode} setActiveScreen={this.props.setActiveScreen} toggleSpriteMode={this.toggleSpriteMode.bind(this)} />
           </div>
           <div style={{flex: 1}}>
             <Equipment game={this.state.game} player={this.state.game.getFirstPlayer()} />

@@ -36,7 +36,9 @@
 
 #display {
   /* overflow: scroll; */
-  height: 100vh;
+  /* height: 100vh; */
+  height: 100%;
+  /* min-height: 300px; */
 }
 
 #display:focus {
@@ -47,7 +49,17 @@
   /* overflow-x: scroll; */
   /* border: solid 4px #eee; */
   /* height: 100%; */
+  height: calc(100vh - 200px);
   margin: 10px;
+}
+
+.Instructions {
+  height: 200px;
+}
+
+.Level {
+  /* height: 100vh; */
+  /* max-height: 100vh; */
 }
 
 .Level > .row {
