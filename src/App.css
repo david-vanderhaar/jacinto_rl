@@ -310,7 +310,7 @@
   border-radius: 6px;
   display: flex;
   font-size: 10px;
-  font-family: 'Roboto', 'scroll-o-script';
+  /* font-family: 'Roboto', 'scroll-o-script'; */
   height: 40px;
   width: 100px;
   justify-content: center;
@@ -379,7 +379,7 @@
   border: #222 solid 2px;
   border-radius: 6px;
   display: flex;
-  font-family: 'Roboto', 'scroll-o-script';
+  /* font-family: 'Roboto', 'scroll-o-script'; */
   height: 100px;
   justify-content: center;
   margin: auto;
