@@ -17,12 +17,19 @@ export const HasFaction = superclass => class extends superclass {
   }
 
   getEnemies () {
-    return this.game.engine.actors
-      .filter((actor) => this.enemyFactions.includes( actor['faction']))
+    return this.game.engine.actors.filter((actor) => this.isEnemy(actor))
   }
 
   isEnemy (actor) {
-    return this.enemyFactions.includes( actor['faction'])
+    return (!this.isAlly(actor) && this.considersAllAsEnemy()) || this.isEnemyFaction(actor)
+  }
+
+  considersAllAsEnemy() {
+    return this.enemyFactions.includes('ALL')
+  }
+
+  isEnemyFaction(actor) {
+    this.enemyFactions.includes(actor['faction'])
   }
 
   isAlly (actor) {

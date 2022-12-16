@@ -181,7 +181,7 @@ const createBaseGrubStats = (mode, pos) => {
     pos,
     game: mode.game,
     faction: 'LOCUST',
-    enemyFactions: ['COG'],
+    enemyFactions: ['COG', 'ALL'],
     equipment: Constant.EQUIPMENT_LAYOUTS.gear(),
     onDestroy: (actor) => {
       const chance = Math.random();
