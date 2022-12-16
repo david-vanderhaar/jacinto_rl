@@ -36,7 +36,7 @@ export default class Behavior {
       game: this.actor.game,
       actor: this.actor,
       interrupt: this.interrupted(),
-      energyCost: 0,
+      energyCost: 100,
     }
   }
 

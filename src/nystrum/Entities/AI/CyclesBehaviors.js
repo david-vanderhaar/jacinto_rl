@@ -14,6 +14,7 @@ export const CyclesBehaviors = superclass => class extends superclass {
       return behavior;
     });
     this.activeBehaviorIndex = 0;
+    this.energy = Infinity
   }
 
   getActiveBehavior() {
@@ -35,7 +36,7 @@ export const CyclesBehaviors = superclass => class extends superclass {
       game: this.game,
       actor: this,
       interrupt: true,
-      energyCost: 0
+      energyCost: 100
     });
   }
 

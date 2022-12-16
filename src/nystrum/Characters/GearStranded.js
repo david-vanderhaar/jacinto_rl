@@ -125,11 +125,6 @@ export default function (engine) {
         actor,
         passThroughEnergyCost: Constant.ENERGY_THRESHOLD,
       }),
-      u: () => new OpenDropInventory({
-        label: 'Drop Items',
-        game: engine.game,
-        actor,
-      }),
       y: () => new PrepareDropItemInDirection({
         label: 'Place Trap',
         itemName: 'Trap',

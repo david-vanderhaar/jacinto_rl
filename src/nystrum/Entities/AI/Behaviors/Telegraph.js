@@ -22,7 +22,6 @@ export default class Telegraph extends Behavior {
         let targets = Helper.getDestructableEntities(tile.entities);
         targets.forEach((target) => {
           if (this.actor.isEnemy(target)) {
-            console.log('enemy: ', target.name)
             valid = true
           }
         })
