@@ -1,5 +1,5 @@
 import { Base } from './Base';
-import { PlaceItem } from './PlaceItem';
+import { DropItem } from './DropItem';
 import { GoToPreviousKeymap } from './GoToPreviousKeymap';
 import { DIRECTIONS, ENERGY_THRESHOLD } from '../constants';
 import { getPositionInDirection } from '../../helper';
@@ -20,11 +20,11 @@ const directionKeyMap = {
   W: 'a',
 }
 
-export class PreparePlaceItem extends Base {
+export class PrepareDropItemInDirection extends Base {
   constructor({
     passThroughEnergyCost = ENERGY_THRESHOLD, 
     passThroughRequiredResources = [],
-    entity,
+    itemName,
     ...args 
   }) {
     super({ ...args });
@@ -32,7 +32,9 @@ export class PreparePlaceItem extends Base {
     this.passThroughRequiredResources = passThroughRequiredResources;
     this.processDelay = 0;
     this.energyCost = 0;
+    this.itemName = itemName
   }
+
   perform() {
     const pos = this.actor.getPosition();
     const cursor_positions = directions.map((direction) => getPositionInDirection(pos, direction));
@@ -52,14 +54,14 @@ export class PreparePlaceItem extends Base {
 
     directionKeys.forEach((key) => {
       const action = () => { 
-        return new PlaceItem({
+        return new DropItem({
           actor: this.actor,
           game: this.game,
           interrupt: false,
           energyCost: this.passThroughEnergyCost,
           requiredResources: this.passThroughRequiredResources,
           label: `target ${key}`,
-          entity,
+          itemName: this.itemName,
           targetPos: getPositionInDirection(pos, DIRECTIONS[key]),
           onSuccess: () => {
             this.actor.deactivateCursor();

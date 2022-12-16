@@ -21,6 +21,7 @@ import { SpikeTrap } from '../Items/Environment/SpikeTrap';
 import {COLORS} from '../Modes/Jacinto/theme';
 import { Reload } from '../Actions/Reload';
 import { AddSprintStatusEffect } from '../Actions/AddSprintStatusEffect';
+import { PrepareDropItemInDirection } from '../Actions/PrepareDropItemInDirection';
 
 export default function (engine) {
   // define keymap
@@ -129,6 +130,12 @@ export default function (engine) {
         game: engine.game,
         actor,
       }),
+      y: () => new PrepareDropItemInDirection({
+        label: 'Place Trap',
+        itemName: 'Trap',
+        game: engine.game,
+        actor,
+      })
       // c: () => new AddSprintStatusEffect({
       //   label: 'Sprint',
       //   game: engine.game,
