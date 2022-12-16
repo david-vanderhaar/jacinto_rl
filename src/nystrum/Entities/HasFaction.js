@@ -21,7 +21,8 @@ export const HasFaction = superclass => class extends superclass {
   }
 
   isEnemy (actor) {
-    return (!this.isAlly(actor) && this.considersAllAsEnemy()) || this.isEnemyFaction(actor)
+    if (this.isAlly(actor)) return false
+    return this.considersAllAsEnemy() || this.isEnemyFaction(actor)
   }
 
   considersAllAsEnemy() {
@@ -29,7 +30,7 @@ export const HasFaction = superclass => class extends superclass {
   }
 
   isEnemyFaction(actor) {
-    this.enemyFactions.includes(actor['faction'])
+    return this.enemyFactions.includes(actor['faction'])
   }
 
   isAlly (actor) {
