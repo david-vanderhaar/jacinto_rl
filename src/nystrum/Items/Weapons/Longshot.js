@@ -6,7 +6,7 @@ export const Longshot = (engine, pos) => new RangedWeapon({
   game: engine.game,
   name: 'Longshot',
   passable: true,
-  attackRange: 20,
+  attackRange: 14,
   magazineSize: 1,
   baseRangedAccuracy: 1,
   baseRangedDamage: 10,

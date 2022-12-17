@@ -6,7 +6,7 @@ export const RetroLancer = (engine, pos) => new RangedWeapon({
   game: engine.game,
   name: 'Retro Lancer',
   passable: true,
-  attackRange: 10,
+  attackRange: 6,
   magazineSize: 3,
   baseRangedAccuracy: 0.7,
   baseRangedDamage: 2,

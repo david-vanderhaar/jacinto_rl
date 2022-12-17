@@ -6,7 +6,7 @@ export const HammerBurst = (engine, pos) => new RangedWeapon({
   game: engine.game,
   name: 'Hammer Burst',
   passable: true,
-  attackRange: 12,
+  attackRange: 8,
   magazineSize: 4,
   baseRangedAccuracy: 0.85,
   baseRangedDamage: 2,

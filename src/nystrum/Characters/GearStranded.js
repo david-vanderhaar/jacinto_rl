@@ -188,6 +188,13 @@ export default function (engine) {
         },
       }),
       Upgrade({
+        cost: 1,
+        name: 'Craft 10 Traps',
+        activate: (actor) => {
+          Array(10).fill('').map(() => actor.addToContainer(SpikeTrap(engine, actor)));
+        },
+      }),
+      Upgrade({
         cost: 3,
         name: 'Full Health',
         canUpgrade: (actor) => actor.durability < actor.durabilityMax,
