@@ -45,6 +45,7 @@ import { CyclesBehaviors } from './AI/CyclesBehaviors';
 import { SpawningWithStructure } from './SpawningWithStructure';
 import { Projecting } from './Projecting';
 import { TimeBombing } from './TimeBombing';
+import { HasPickupEffects } from './HasPickupEffects';
 
 export const UI_Actor = pipe(
   Acting,
@@ -57,6 +58,15 @@ export const UI_Actor = pipe(
 export const Actor = pipe(
   Acting,
   Rendering
+)(Entity);
+
+export const Rendered = pipe(
+  Rendering,
+)(Entity);
+
+export const RenderedWithPickUpEffects = pipe(
+  Rendering,
+  HasPickupEffects,
 )(Entity);
 
 export const Speaker = pipe(

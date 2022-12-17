@@ -8,6 +8,7 @@ import { Display } from './Display/konvaCustom';
 import Mode from './Modes/index';
 import * as MapHelper from './Maps/helper';
 
+export let GAME = null
 // const MAP_DATA = require('./Maps/castle.json');
 // const SOLANGE = require('./Data/solange.json');
 
@@ -72,6 +73,7 @@ export class Game {
     this.mode = new mode({game: this});
     this.messages = messages;
     this.getSelectedCharacter = getSelectedCharacter;
+    GAME = this
   }
 
   initializeMode () {

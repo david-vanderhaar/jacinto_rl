@@ -12,6 +12,7 @@ import {COLORS, TILE_KEY} from './theme';
 import { Ammo } from '../../Items/Pickups/Ammo';
 import { Grenade } from '../../Items/Weapons/Grenade';
 import * as LocustActors from './Actors/Grubs';
+import { CogTag } from '../../Items/Pickups/CogTag';
 const MAP_DATA = require('../../Maps/castle.json');
 
 export class Jacinto extends Mode {
@@ -228,6 +229,15 @@ export class Jacinto extends Mode {
       this.addGrenadeLoot({ x: posXY[0], y: posXY[1] });
     }
 
+    // adding  cog tags loot
+    const cogTagLoot = Helper.getRandomInArray([0, 0, 0, 1])
+    for (let index = 0; index < cogTagLoot; index++) {
+      let pos = Helper.getRandomInArray(floorTiles);
+      if (!pos) break;
+      let posXY = pos.split(',').map((coord) => parseInt(coord));
+      this.addCogTagLoot({ x: posXY[0], y: posXY[1] });
+    }
+
       // adding enemies
     this.data.enemies.forEach((enemyName) => {
       let pos = Helper.getRandomInArray(this.getEmptyGroundTileKeys());
@@ -400,6 +410,12 @@ export class Jacinto extends Mode {
 
   addGrenadeLoot (pos) {
     const entity = Grenade(this.game.engine, 6);
+    entity.pos = pos;
+    this.game.placeActorOnMap(entity)
+  }
+
+  addCogTagLoot (pos) {
+    const entity = CogTag();
     entity.pos = pos;
     this.game.placeActorOnMap(entity)
   }
