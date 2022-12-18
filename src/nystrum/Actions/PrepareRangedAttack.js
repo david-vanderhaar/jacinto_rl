@@ -1,9 +1,11 @@
 import { Base } from './Base';
 import { MoveRangedAttackCursor } from './MoveRangedAttackCursor';
 import { MultiTargetRangedAttack } from './MultiTargetRangedAttack';
+import { Reload } from './Reload';
 import { GoToPreviousKeymap } from './GoToPreviousKeymap';
 import { DIRECTIONS, ENERGY_THRESHOLD, THEMES, EQUIPMENT_TYPES } from '../constants';
 import * as Helper from '../../helper';
+import * as Constant from '../constants'
 import {find} from 'lodash';
 
 export class PrepareRangedAttack extends Base {
@@ -244,6 +246,12 @@ export class PrepareRangedAttack extends Base {
           }
         })
       },
+      r: () => new Reload({
+        label: 'Reload',
+        game: this.game,
+        actor: this.actor,
+        energyCost: Constant.ENERGY_THRESHOLD,
+      }),
     };
     this.actor.setKeymap(keymap);
     return {

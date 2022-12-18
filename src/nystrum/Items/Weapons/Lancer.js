@@ -1,6 +1,7 @@
 import * as Constant from '../../constants';
 import {RangedWeapon} from '../../Entities/index';
 import {COLORS} from '../../Modes/Jacinto/theme';
+import JACINTO_SOUNDS from '../../Modes/Jacinto/sounds'
 
 export const Lancer = (engine, pos) => new RangedWeapon({
   game: engine.game,
@@ -20,4 +21,15 @@ export const Lancer = (engine, pos) => new RangedWeapon({
     color: COLORS.base3,
     background: COLORS.gray,
   },
+  rangedHitSounds: [
+    JACINTO_SOUNDS.cog_rifle_fire_01,
+    JACINTO_SOUNDS.cog_rifle_fire_02,
+    JACINTO_SOUNDS.cog_rifle_fire_03,
+    JACINTO_SOUNDS.cog_rifle_fire_04,
+  ],
+  rangedMissSounds: [
+    JACINTO_SOUNDS.bullet_miss_01,
+    JACINTO_SOUNDS.bullet_miss_02,
+    JACINTO_SOUNDS.bullet_miss_03,
+  ]
 });

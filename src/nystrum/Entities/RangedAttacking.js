@@ -1,9 +1,20 @@
 import { MESSAGE_TYPE } from '../message';
 import * as Helper from '../../helper';
 import * as MapHelper from '../Maps/helper';
+import SOUNDS from '../sounds';
+const DEFAULT_HIT_SOUNDS = [SOUNDS.chop_0, SOUNDS.chop_1]
+const DEFAULT_MISS_SOUNDS = [SOUNDS.release_0]
 
 export const RangedAttacking = superclass => class extends superclass {
-  constructor({ attackRange = 0, baseRangedAccuracy = 0, baseRangedDamage = 0, magazineSize = 0, ...args }) {
+  constructor({
+    attackRange = 0,
+    baseRangedAccuracy = 0,
+    baseRangedDamage = 0,
+    magazineSize = 0,
+    rangedHitSounds = [],
+    rangedMissSounds = [],
+    ...args
+  }) {
     super({ ...args });
     this.entityTypes = this.entityTypes.concat('RANGED_ATTACKING');
     this.attackRange = attackRange;
@@ -11,6 +22,8 @@ export const RangedAttacking = superclass => class extends superclass {
     this.baseRangedDamage = baseRangedDamage;
     this.magazineSize = magazineSize;
     this.magazine = magazineSize;
+    this.rangedHitSounds = rangedHitSounds;
+    this.rangedMissSounds = rangedMissSounds;
   }
 
   getRangedAttackChance(targetPos = null) {
@@ -171,6 +184,7 @@ export const RangedAttacking = superclass => class extends superclass {
         hit = Math.random() < hitChance;
         this.useAmmo(target.getPosition());
         if (!hit) {
+          this.playMissSound()
           success = true;
           return [success, hit];
         }
@@ -178,10 +192,42 @@ export const RangedAttacking = superclass => class extends superclass {
         this.game.addMessage(`${this.name} does ${damage} to ${target.name}`, MESSAGE_TYPE.DANGER);
         target.decreaseDurability(damage);
         if (this.entityTypes.includes('PLAYING')) this.game.display.shakeScreen({intensity: 1})
+        this.playHitSound()
         
         success = true;
       }
     }
     return [success, hit];
   }
+
+  playMissSound() {
+    const sound = Helper.getRandomInArray(this.getMissSounds());
+    sound.play();
+  }
+
+  playHitSound() {
+    const sound = Helper.getRandomInArray(this.getHitSounds());
+    sound.play();
+  }
+
+  getHitSounds() {
+    const hitSounds = this.getWeaponSounds('rangedHitSounds')
+    if (hitSounds.length > 0) return hitSounds
+    return DEFAULT_HIT_SOUNDS
+  }
+
+  getMissSounds() {
+    const sounds = this.getWeaponSounds('rangedMissSounds')
+    if (sounds.length > 0) return sounds
+    return DEFAULT_MISS_SOUNDS
+  }
+
+  getWeaponSounds(property) {
+    const result = []
+    this.getEquipedWeapons().forEach((weapon) => {
+      result.push(...weapon[property])
+    })
+    return result
+  }
+
 };

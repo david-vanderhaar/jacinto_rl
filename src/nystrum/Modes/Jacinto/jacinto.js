@@ -7,6 +7,7 @@ import * as CoverGenerator from '../../Maps/coverGenerator';
 import { EmergenceHole } from '../../Entities/index';
 import { Mode } from '../default';
 import SOUNDS from '../../sounds';
+import JACINTO_SOUNDS from '../../Modes/Jacinto/sounds';
 import * as _ from 'lodash';
 import {COLORS, TILE_KEY} from './theme';
 import { Ammo } from '../../Items/Pickups/Ammo';
@@ -246,6 +247,7 @@ export class Jacinto extends Mode {
     })
     // super.initialize();
     this.game.draw()
+    JACINTO_SOUNDS.level_start.play()
   }
 
   // TODO curry these funcs
@@ -324,7 +326,7 @@ export class Jacinto extends Mode {
   setWaveData () {
     const level = this.data.level - 1
     const nextLevelData = _.get(this.dataByLevel, level, {});
-    this.data = {...this.data, ...nextLevelData}
+    this.data = {...this.data, ...nextLevelData, hasPlayedEndSound: false}
   }
 
   levelComplete () {
@@ -332,8 +334,13 @@ export class Jacinto extends Mode {
     const enemiesDefeated = this.enemiesDefeated();
     if (enemiesDefeated) {
       this.activateExitTiles();
+      if (!this.data.hasPlayedEndSound) {
+        JACINTO_SOUNDS.level_end.play()
+        this.data.hasPlayedEndSound = true
+      }
     }
-    return playerOnExit && enemiesDefeated; 
+
+    return playerOnExit && enemiesDefeated
   }
 
   enemiesDefeated () {
