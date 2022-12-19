@@ -1,12 +1,13 @@
 import { Say } from '../../../Actions/Say';
 
 export default class Behavior {
-  constructor({ actor = null, repeat = 1, chainOnSuccess = false, chainOnFail = false }) {
+  constructor({ actor = null, repeat = 1, chainOnSuccess = false, chainOnFail = false, extraActionParams = {} }) {
     this.actor = actor;
     this.repeat = repeat;
     this.repeated = 0;
     this.chainOnSuccess = chainOnSuccess
     this.chainOnFail = chainOnFail
+    this.extraActionParams = extraActionParams
   }
 
   isValid () {
@@ -53,6 +54,7 @@ export default class Behavior {
     return new actionClass({
       ...this.getDefaultActionParams(),
       ...actionParams,
+      ...this.extraActionParams,
     });
   }
 }

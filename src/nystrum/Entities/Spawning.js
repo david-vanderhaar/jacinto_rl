@@ -7,7 +7,13 @@ import { DestroySelf } from '../Actions/DestroySelf';
 import { PlaceActor } from '../Actions/PlaceActor';
 
 export const Spawning = superclass => class extends superclass {
-  constructor({ getSpawnedEntity, timeToSpread = 5, spreadCount = 1, ...args }) {
+  constructor({
+    getSpawnedEntity,
+    timeToSpread = 5,
+    spreadCount = 1,
+    onSpawn = () => null,
+    ...args
+  }) {
     super({ ...args });
     this.entityTypes = this.entityTypes.concat('SPAWNING');
     this.timeToSpreadMax = timeToSpread;
@@ -15,6 +21,7 @@ export const Spawning = superclass => class extends superclass {
     this.spreadCountMax = spreadCount;
     this.spreadCount = spreadCount;
     this.getSpawnedEntity = getSpawnedEntity
+    this.onSpawn = onSpawn
   }
   getAction(game) {
     // if no more spreads, then destroy
@@ -62,6 +69,7 @@ export const Spawning = superclass => class extends superclass {
       if (adjacentPos) {
         this.timeToSpread = this.timeToSpreadMax;
         this.spreadCount -= 1;
+        this.onSpawn()
         return new PlaceActor({
           targetPos: adjacentPos,
           entity: this.getSpawnedEntity(adjacentPos),

@@ -2,8 +2,8 @@ import {Base} from './Base';
 import * as Helper from '../../helper';
 
 export class MeleeDamage extends Base {
-  constructor({buffValue = 1, ...args}) {
-    super({ ...args });
+  constructor({buffValue = 1, onStartCallback = () => null, ...args}) {
+  super({ ...args });
     this.name = 'Melee Damage';
     this.allowDuplicates = false
     this['actor_background'] = this.actor.renderer.background;
@@ -15,6 +15,7 @@ export class MeleeDamage extends Base {
       character: ''
     };
     this.onStart = () => {
+      onStartCallback()
       this.actor.attackDamage += buffValue;
       this.actor.renderer.background = this['actor_color']
       this.actor.renderer.color = this['actor_background']

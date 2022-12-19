@@ -1,5 +1,6 @@
 import * as Constant from '../../constants';
 import {RangedWeapon} from '../../Entities/index';
+import { JACINTO_SOUNDS } from '../../Modes/Jacinto/sounds';
 import {COLORS} from '../../Modes/Jacinto/theme';
 
 export const GrenadeThrower = (engine, pos) => new RangedWeapon({
@@ -19,4 +20,8 @@ export const GrenadeThrower = (engine, pos) => new RangedWeapon({
     color: COLORS.base03,
     background: COLORS.green,
   },
+  rangedHitSounds: [
+    JACINTO_SOUNDS.explosion_01,
+    JACINTO_SOUNDS.explosion_01,
+  ],
 });

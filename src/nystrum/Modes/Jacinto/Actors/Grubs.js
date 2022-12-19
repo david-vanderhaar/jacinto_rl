@@ -11,6 +11,7 @@ import { Ammo } from '../../../Items/Pickups/Ammo';
 import { ExplodingAmmo } from '../../../Items/Pickups/ExplodingAmmo';
 import { SandSkin } from '../../../StatusEffects/SandSkin';
 import { MeleeDamage } from '../../../StatusEffects/MeleeDamage';
+import { JACINTO_SOUNDS } from '../sounds';
 
 export function addWretch (mode, pos) {
   addGrubToMapWithStats(mode, pos, GRUB_STATS.wretch())
@@ -49,7 +50,18 @@ const GRUB_STATS = {
       behaviors: [
         new Behaviors.MoveTowardsEnemy({repeat: 5}),
         new Behaviors.Telegraph({repeat: 1, attackPattern: Constant.CLONE_PATTERNS.clover}),
-        new Behaviors.ExecuteAttack({repeat: 1}),
+        new Behaviors.ExecuteAttack({
+          repeat: 1,
+          extraActionParams: {
+            onSuccess: () => {
+              Helper.getRandomInArray([
+                JACINTO_SOUNDS.wretch_melee_01,
+                JACINTO_SOUNDS.wretch_melee_02,
+                JACINTO_SOUNDS.wretch_melee_03,
+              ]).play()
+            }
+          }
+        }),
       ],
     }
   },
@@ -67,7 +79,7 @@ const GRUB_STATS = {
       behaviors: [
         new Behaviors.MoveTowardsEnemy({repeat: 5}),
         new Behaviors.TelegraphRangedAttack({repeat: 1}),
-        new Behaviors.ExecuteAttack({repeat: 1}),
+        new Behaviors.ExecuteRangedAttack({repeat: 1}),
       ],
       loadout: {
         equipmentCreators: [Gnasher],
@@ -149,10 +161,30 @@ const GRUB_STATS = {
             stepInterval: Constant.ENERGY_THRESHOLD,
             processDelay: 200
           },
+          extraActionParams: {
+            onSuccess: () => {
+              Helper.getRandomInArray([
+                JACINTO_SOUNDS.locust_buff_01,
+                JACINTO_SOUNDS.locust_buff_02,
+                JACINTO_SOUNDS.locust_buff_03,
+              ]).play()
+            }
+          }
         }),
         new Behaviors.MoveTowardsEnemy({repeat: 5}),
         new Behaviors.Telegraph({repeat: 1, attackPattern: Constant.CLONE_PATTERNS.big_circle}),
-        new Behaviors.ExecuteAttack({repeat: 1}),
+        new Behaviors.ExecuteAttack({
+          repeat: 1,
+          extraActionParams: {
+            onSuccess: () => {
+              Helper.getRandomInArray([
+                JACINTO_SOUNDS.scion_melee_01,
+                JACINTO_SOUNDS.scion_melee_02,
+                JACINTO_SOUNDS.scion_melee_03,
+              ]).play()
+            }
+          }
+        }),
       ],
     }
   },

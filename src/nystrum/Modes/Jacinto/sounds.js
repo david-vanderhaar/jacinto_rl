@@ -1,19 +1,29 @@
 import { Howl } from 'howler';
 
-const createSoundFromSource = (relativePath) => {
+const createSoundFromSource = (relativePath, howlerOptions = {}) => {
   return new Howl({
     src: [window.PUBLIC_URL + relativePath],
     volume: 0.5,
     loop: false,
+    ...howlerOptions,
   })
 }
 
-export default {
-  cog_tags: createSoundFromSource('/sounds/jacinto/CogTags.ogg'),
+export const JACINTO_SOUNDS = {
   emergence_01: createSoundFromSource('/sounds/jacinto/EarthDebrisSmallClose01.ogg'),
   emergence_02: createSoundFromSource('/sounds/jacinto/EarthDebrisSmallClose02.ogg'),
-  needs_reload: createSoundFromSource('/sounds/jacinto/weapons/reloadassault02.ogg'),
-  reload: createSoundFromSource('/sounds/jacinto/NeedsReload01.ogg'),
+  cog_tags: createSoundFromSource('/sounds/jacinto/CogTags.ogg'),
+  wretch_melee_01: createSoundFromSource('/sounds/jacinto/actors/wretch/AAttackSmall01.ogg'),
+  wretch_melee_02: createSoundFromSource('/sounds/jacinto/actors/wretch/AAttackSmall03.ogg'),
+  wretch_melee_03: createSoundFromSource('/sounds/jacinto/actors/wretch/AAttackSmall04.ogg'),
+  scion_melee_01: createSoundFromSource('/sounds/jacinto/actors/wretch/AAttackSmall01.ogg', {rate: 0.5}),
+  scion_melee_02: createSoundFromSource('/sounds/jacinto/actors/wretch/AAttackSmall03.ogg', {rate: 0.5}),
+  scion_melee_03: createSoundFromSource('/sounds/jacinto/actors/wretch/AAttackSmall04.ogg', {rate: 0.5}),
+  locust_buff_01: createSoundFromSource('/sounds/jacinto/actors/drone/AChatterAttack01.ogg'),
+  locust_buff_02: createSoundFromSource('/sounds/jacinto/actors/drone/AChatterAttack02.ogg'),
+  locust_buff_03: createSoundFromSource('/sounds/jacinto/actors/drone/AChatterAttack03.ogg'),
+  reload: createSoundFromSource('/sounds/jacinto/weapons/reloadassault02.ogg'),
+  needs_reload: createSoundFromSource('/sounds/jacinto/NeedsReload01.ogg'),
   level_start: createSoundFromSource('/sounds/jacinto/ObjectiveAdd01.ogg'),
   level_end: createSoundFromSource('/sounds/jacinto/ObjectiveComplete01.ogg'),
   cog_rifle_fire_01: createSoundFromSource('/sounds/jacinto/weapons/Assault_Fire_02.ogg'),
@@ -41,10 +51,6 @@ export default {
   bullet_miss_01: createSoundFromSource('/sounds/jacinto/weapons/RifleAmmoImpactDirt01.ogg'),
   bullet_miss_02: createSoundFromSource('/sounds/jacinto/weapons/RifleAmmoImpactDirt02.ogg'),
   bullet_miss_03: createSoundFromSource('/sounds/jacinto/weapons/RifleAmmoImpactDirt03.ogg'),
-  wretch_melee_01: createSoundFromSource('/sounds/jacinto/actors/wretch/AAttackSmall01.ogg'),
-  wretch_melee_02: createSoundFromSource('/sounds/jacinto/actors/wretch/AAttackSmall03.ogg'),
-  wretch_melee_03: createSoundFromSource('/sounds/jacinto/actors/wretch/AAttackSmall04.ogg'),
-  locust_buff_01: createSoundFromSource('/sounds/jacinto/actors/drone/AChatterAttack01.ogg'),
-  locust_buff_02: createSoundFromSource('/sounds/jacinto/actors/drone/AChatterAttack02.ogg'),
-  locust_buff_03: createSoundFromSource('/sounds/jacinto/actors/drone/AChatterAttack03.ogg'),
+  explosion_01: createSoundFromSource('/sounds/jacinto/weapons/BoomerExplosionA01.ogg'),
+  explosion_02: createSoundFromSource('/sounds/jacinto/weapons/BoomerExplosionB01.ogg'),
 }

@@ -1,5 +1,6 @@
 import * as Constant from '../../constants';
 import {RangedWeapon} from '../../Entities/index';
+import { JACINTO_SOUNDS } from '../../Modes/Jacinto/sounds';
 import {COLORS} from '../../Modes/Jacinto/theme';
 
 export const Snub = (engine, pos) => new RangedWeapon({
@@ -19,4 +20,13 @@ export const Snub = (engine, pos) => new RangedWeapon({
     color: COLORS.base3,
     background: COLORS.base01,
   },
+  rangedHitSounds: [
+    JACINTO_SOUNDS.pistol_fire_01,
+    JACINTO_SOUNDS.pistol_fire_02,
+  ],
+  rangedMissSounds: [
+    JACINTO_SOUNDS.bullet_miss_01,
+    JACINTO_SOUNDS.bullet_miss_02,
+    JACINTO_SOUNDS.bullet_miss_03,
+  ]
 });

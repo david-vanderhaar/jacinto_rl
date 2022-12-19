@@ -1,6 +1,6 @@
 import {RenderedWithPickUpEffects} from '../../Entities/index';
+import { JACINTO_SOUNDS } from '../../Modes/Jacinto/sounds';
 import {COLORS} from '../../Modes/Jacinto/theme';
-import SOUNDS from '../../sounds';
 
 export const CogTag = () => {
   let isUsed = false
@@ -18,7 +18,7 @@ export const CogTag = () => {
         if (!isUsed) {
           isUsed = true
           actor.upgrade_points += 1
-          SOUNDS.save.play();
+          JACINTO_SOUNDS.cog_tags.play()
         }
       }
     ]

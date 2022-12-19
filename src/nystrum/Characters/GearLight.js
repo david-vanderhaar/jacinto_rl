@@ -3,7 +3,6 @@ import * as Constant from '../constants';
 import { Player } from '../Entities/index';
 import { ContainerSlot } from '../Entities/Containing';
 import {Say} from '../Actions/Say';
-import {Move} from '../Actions/Move';
 import {MoveOrAttack} from '../Actions/MoveOrAttack';
 import {PrepareDirectionalThrow} from '../Actions/PrepareDirectionalThrow';
 import {PrepareRangedAttack} from '../Actions/PrepareRangedAttack';
@@ -20,6 +19,8 @@ import {COLORS} from '../Modes/Jacinto/theme';
 import { Reload } from '../Actions/Reload';
 import { AddStatusEffect } from '../Actions/AddStatusEffect';
 import {MeleeDamage} from '../StatusEffects/MeleeDamage';
+import { JACINTO_SOUNDS } from '../Modes/Jacinto/sounds';
+import * as Helper from '../../helper'
 
 
 export default function (engine) {
@@ -148,6 +149,12 @@ export default function (engine) {
           actor: lancer, // should be weapon
           lifespan: Constant.ENERGY_THRESHOLD * 3,
           stepInterval: Constant.ENERGY_THRESHOLD,
+          onStartCallback: () => {
+            Helper.getRandomInArray([
+              JACINTO_SOUNDS.chainsaw_01,
+              JACINTO_SOUNDS.chainsaw_02,
+            ]).play()
+          },
         }),
         particleTemplate: {
           renderer: {

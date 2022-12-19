@@ -2,6 +2,7 @@ import { Base } from './Base';
 import { Say } from './Say';
 import { Reload } from './Reload';
 import * as Constant from '../constants';
+import { JACINTO_SOUNDS } from '../Modes/Jacinto/sounds';
 
 export class MultiTargetRangedAttack extends Base {
   constructor({ targetPositions, processDelay = 25, ...args }) {
@@ -25,6 +26,7 @@ export class MultiTargetRangedAttack extends Base {
     const weapons = this.actor.getEquipedWeapons();
     if (weapons.length > 0) {
       if (weapons[0].magazine <= 0) {
+        JACINTO_SOUNDS.needs_reload.play()
         return {
           success: false,
           alternative: null

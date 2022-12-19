@@ -1,7 +1,7 @@
 import * as Constant from '../../constants';
 import {RangedWeapon} from '../../Entities/index';
 import {COLORS} from '../../Modes/Jacinto/theme';
-import JACINTO_SOUNDS from '../../Modes/Jacinto/sounds'
+import {JACINTO_SOUNDS} from '../../Modes/Jacinto/sounds'
 
 export const Lancer = (engine, pos) => new RangedWeapon({
   game: engine.game,

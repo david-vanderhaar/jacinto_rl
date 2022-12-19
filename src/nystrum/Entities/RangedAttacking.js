@@ -2,6 +2,7 @@ import { MESSAGE_TYPE } from '../message';
 import * as Helper from '../../helper';
 import * as MapHelper from '../Maps/helper';
 import SOUNDS from '../sounds';
+import {JACINTO_SOUNDS} from '../Modes/Jacinto/sounds'
 const DEFAULT_HIT_SOUNDS = [SOUNDS.chop_0, SOUNDS.chop_1]
 const DEFAULT_MISS_SOUNDS = [SOUNDS.release_0]
 
@@ -165,7 +166,13 @@ export const RangedAttacking = superclass => class extends superclass {
         }
       });
     }
-    return reloaded;
+
+    if (reloaded) {
+      JACINTO_SOUNDS.reload.play()
+      return true
+    }
+
+    return false;
   }
 
   rangedAttack(targetPos, additionalDamage = 0, additionalAccuracy = 0) {

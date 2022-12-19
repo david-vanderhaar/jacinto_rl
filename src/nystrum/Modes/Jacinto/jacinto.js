@@ -7,7 +7,7 @@ import * as CoverGenerator from '../../Maps/coverGenerator';
 import { EmergenceHole } from '../../Entities/index';
 import { Mode } from '../default';
 import SOUNDS from '../../sounds';
-import JACINTO_SOUNDS from '../../Modes/Jacinto/sounds';
+import {JACINTO_SOUNDS} from '../../Modes/Jacinto/sounds';
 import * as _ from 'lodash';
 import {COLORS, TILE_KEY} from './theme';
 import { Ammo } from '../../Items/Pickups/Ammo';
@@ -28,10 +28,12 @@ export class Jacinto extends Mode {
       {
         enemies: [
           ...Array(4).fill('Wretch'),
+          // ...Array(2).fill('Scion'),
           // ...Array(12).fill('Wretch'),
+          // ...Array(2).fill('DroneGrenadier'),
           // ...Array(2).fill('Drone'),
         ],
-        emergenceHoles: 0,
+        emergenceHoles: 1,
         ammoLoot: 0,
         grenadeLoot: 0,
       },
@@ -392,7 +394,14 @@ export class Jacinto extends Mode {
       enemyFactions: ['COG'],
       speed: Constant.ENERGY_THRESHOLD,
       getSpawnedEntity: (spawnPosition) => LocustActors.createRandomBasicGrub(this, spawnPosition),
-      onDestroy: () => this.game.map[Helper.coordsToString(pos)].type = 'EMERGENCE_DESTROYED',
+      onDestroy: () => {
+        this.game.map[Helper.coordsToString(pos)].type = 'EMERGENCE_DESTROYED'
+        JACINTO_SOUNDS.emergence_01.play()
+      },
+      onSpawn: () => {
+        console.log('onSpawn');
+        JACINTO_SOUNDS.emergence_02.play()
+      }
     });
 
     if (this.game.placeActorOnMap(entity)) {
