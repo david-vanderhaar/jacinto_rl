@@ -59,7 +59,7 @@ class Level extends React.Component {
     return (
       <div className="Level">
         <div style={{display: 'flex', justifyContent: 'space-around'}}>
-          <div style={{flex: 1}}>
+          <div style={{flex: 2}}>
             <PlayerInformation game={this.state.game} />
           </div>
           <div style={{flex: 5}}>
@@ -76,7 +76,7 @@ class Level extends React.Component {
             {/* <PlayerInformation game={this.state.game} /> */}
             {/* <Information game={this.state.game} /> */}
           </div>
-          <div style={{flex: 1}}>
+          <div style={{flex: 2}}>
             <Equipment game={this.state.game} player={this.state.game.getFirstPlayer()} />
             <InfoBlocks game={this.state.game} />
             <Messages messages={this.state.game.messages.slice(-5).reverse()} />

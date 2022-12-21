@@ -32,6 +32,63 @@ function StatBlock({stat}) {
   )
 }
 
+const SimpleEquipmentCard = ({game, player, data}) => {
+  const {
+    item,
+    equipped,
+    amount,
+    equipable,
+  } = data;
+
+  let onClick = () => null;
+  if (equipable) {
+    const action = new EquipItemFromContainer({
+      item,
+      game,
+      energyCost: 0,
+      actor: player,
+      label: `Equip ${item.name}`,
+    });
+    onClick = () => {
+      game.refocus();
+      action.setAsNextAction();
+      game.engine.start();
+    }
+  }
+
+  let needsReload = false;
+  if (item.hasOwnProperty('magazine')) {
+    if (item.magazine <= 0) {
+      needsReload = true;
+    }
+  }
+
+  return (
+    <div 
+      className={`SimpleEquipmentCard EquipmentCard ${equipped ? 'EquipmentCard--selected' : ''}`} 
+      onClick={() => game.refocus()}
+    >
+      {needsReload && (
+        <div
+          className="EquipmentCard__reload_overlay"
+          onClick={onClick}
+        >
+          <div className="EquipmentCard__reload_overlay__text">Needs Reload</div>
+          <div className="EquipmentCard__reload_overlay__text"><GiBackwardTime /></div>
+        </div>
+      )}
+      <div
+        className="EquipmentCard__item"
+        onClick={onClick}
+      >
+        <div className="EquipmentCard__item__label--simple">
+        <span class="EquipmentCard__item__label__amount">{amount || 1}</span> {item.name}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 const EquipmentCard = (props) => {
   const {
     game,
@@ -197,14 +254,26 @@ class Equipment extends React.Component {
             <div>
               {
                 items.map((item, index) => {
-                  return (
-                    <EquipmentCard 
-                      key={index}
-                      game={game} 
-                      player={player} 
-                      data={item} 
-                    />
-                  )
+                  if (item.equipped) {
+                    return (
+                      <EquipmentCard 
+                        key={index}
+                        game={game} 
+                        player={player} 
+                        data={item} 
+                      />
+                    )
+                  } else {
+                    return (
+                      <SimpleEquipmentCard 
+                        key={index}
+                        game={game} 
+                        player={player} 
+                        data={item} 
+                      />
+                    )
+
+                  }
                 })
               }
             </div>

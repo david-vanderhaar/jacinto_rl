@@ -57,7 +57,6 @@ export const CyclesBehaviors = superclass => class extends superclass {
   getAction() {
     let action = null;
     let behavior = this.selectedBehavior();
-    debugger
 
     let killGetBehaviourLoop = this.behaviors.length;
     while (this.shouldCycleToNextBehavior(behavior)) {
@@ -77,7 +76,6 @@ export const CyclesBehaviors = superclass => class extends superclass {
     }
 
     if (!action) action = this.getDefaultAction();
-    debugger
     return action;
   }
 };

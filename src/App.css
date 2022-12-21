@@ -375,6 +375,23 @@
   /* top: 10px; */
 }
 
+.SimpleEquipmentCard {
+  margin-bottom: 0;
+  padding: 0 0 10px 10px;
+}
+
+.EquipmentCard__item__label--simple {
+  /* background-color: #222;
+  border: #222 1px solid; */
+  border-radius: 6px;
+  margin: auto;
+  text-align: center;
+}
+
+.EquipmentCard__item__label__amount {
+  color: #E19D3Fff
+}
+
 .EquipmentCard__item__content {
   align-items: center;
   border: #222 solid 2px;
