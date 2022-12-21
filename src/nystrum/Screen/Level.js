@@ -76,10 +76,10 @@ class Level extends React.Component {
             {/* <PlayerInformation game={this.state.game} /> */}
             {/* <Information game={this.state.game} /> */}
           </div>
-          <div style={{flex: 2}}>
-            <Equipment game={this.state.game} player={this.state.game.getFirstPlayer()} />
+          <div style={{flex: 2, paddingRight: 16}}>
             <InfoBlocks game={this.state.game} />
             <Messages messages={this.state.game.messages.slice(-5).reverse()} />
+            <Equipment game={this.state.game} player={this.state.game.getFirstPlayer()} />
             {/* <Inventory inventory={this.state.game.visibleInventory} /> */}
           </div>
           {/* <div className='col s2'> */}
