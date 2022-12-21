@@ -42,7 +42,7 @@
 }
 
 #display:focus {
-  /* outline: none; */
+  outline: none;
 }
 
 .game_display_container {
@@ -137,6 +137,7 @@
 .CharacterCard_Container {
   display: flex;
   justify-content: flex-start;
+  padding: 16px 0 0 16px;
 }
 
 .CharacterCard {
@@ -155,13 +156,14 @@
   border: 3px solid;
   border-radius: 6px;
   display: flex;
-  font-size: 45px;
+  font-size: 26px;
   justify-content: center;
   align-items: center;
   margin-right: 10px;
-  min-width: 100px;
-  min-height: 100px;
-  padding: 10px;
+  margin-bottom: 16px;
+  /* min-width: 100px;
+  min-height: 100px; */
+  /* padding: 10px; */
 }
 
 .CharacterCard .StatusEffects {
@@ -220,15 +222,14 @@
 }
 
 .ProgressBar {
-
+  margin-bottom: 16px;
 }
-.ProgressBar__label {
 
-}
 .ProgressBar__blips {
   background-color: #666;
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
   border-radius: 6px;
   padding: 8px;
   margin: 0 12px 0 0;
@@ -527,4 +528,35 @@
 .btn-main:hover, .btn-main:focus {
   background-color: #02252e;
   color: #E19D3Fff;
+}
+
+.Jacinto__ActionMenu__Actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.Jacinto__ActionMenu__Actions__item {
+  display: flex;
+  flex-direction: row;
+  padding: 0 2px 16px 0;
+  flex-wrap: wrap;
+}
+
+.Jacinto__ActionMenu__Actions__item:hover {
+  border: 2px solid #E19D3Fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Jacinto__ActionMenu__Actions__item__label {
+  color: #E19D3Fff;
+  margin-right: 10px;
+}
+
+.Jacinto__ActionMenu__Actions__item__content {
+  margin-right: 10px;
+}
+
+.Jacinto__ActionMenu__Actions__item__resources {
+  display: flex;
 }

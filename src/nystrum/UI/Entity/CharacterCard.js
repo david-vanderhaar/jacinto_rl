@@ -2,6 +2,7 @@ import React from 'react';
 import * as _ from 'lodash';
 import Tooltip from '../Tooltip';
 import ActionBar from '../ActionBar';
+import ActionMenu from '../Jacinto/ActionMenu'
 
 function Portrait ({actor}) {
   return (
@@ -93,9 +94,9 @@ function ProgressBar ({
 function CharacterCard ({actor, game}) {
   return (
     <div className='CharacterCard'>
-      <Portrait actor={actor}/>
       <div>
         <NamePlate actor={actor}/>
+        <Portrait actor={actor}/>
         <ProgressBar 
           label='Action Points'
           attributePath='energy'
@@ -124,7 +125,8 @@ function CharacterCard ({actor, game}) {
       </div>
       <div>
         {/* <ActionBar keymap={game.visibleKeymap} game={game} /> */}
-        <ActionBar keymap={actor.getKeymap()} game={game} />
+        {/* <ActionBar keymap={actor.getKeymap()} game={game} /> */}
+        <ActionMenu keymap={actor.getKeymap()} game={game} />
       </div>
     </div>
   )
