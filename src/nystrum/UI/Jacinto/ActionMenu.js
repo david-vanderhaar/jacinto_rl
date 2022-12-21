@@ -54,8 +54,6 @@ const ActionMenu = ({keymap, game}) => {
                     <div className="Jacinto__ActionMenu__Actions__item__resources">
                       {
                         reqs.map((req, i) => {
-                          console.log(req);
-                          // const numBlocks = req.getResourceCost();
                           const numBlocks = req.getResourceCostDisplay();
                           return numBlocks > 0 && (
                             <ResourceBlock
