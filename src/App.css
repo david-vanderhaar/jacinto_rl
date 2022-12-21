@@ -336,8 +336,11 @@
   position: relative;
 }
 
-.EquipmentCard:hover,
 .EquipmentCard--selected {
+  border: 5px solid #eee8d5;
+  border-radius: 5px;
+}
+.EquipmentCard--equipable:hover {
   border: 5px solid #eee8d5;
   border-radius: 5px;
 }
@@ -381,11 +384,8 @@
 }
 
 .EquipmentCard__item__label--simple {
-  /* background-color: #222;
-  border: #222 1px solid; */
   border-radius: 6px;
   margin: auto;
-  text-align: center;
 }
 
 .EquipmentCard__item__label__amount {
@@ -409,7 +409,6 @@
 .EquipmentCard__item__stats {
   flex-direction: column;
   display: flex;
-  justify-content: space-around;
 }
 
 .StatBlock {

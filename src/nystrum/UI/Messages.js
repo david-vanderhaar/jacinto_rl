@@ -19,7 +19,7 @@ class Messages extends React.Component {
   render() {
     return (
       <div className="Messages UI">
-        <div className='flow-text center'>Messages</div>
+        <div className='flow-text'>Messages</div>
         {
           this.props.messages && (
             this.props.messages.map((message, index) => {

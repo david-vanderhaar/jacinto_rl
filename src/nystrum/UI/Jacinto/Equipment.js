@@ -2,7 +2,6 @@ import React from 'react';
 import {
   GiCrosshair,
   GiBullets,
-  GiBackwardTime,
   GiBarbedArrow,
   GiBurningDot,
 } from "react-icons/gi";
@@ -32,6 +31,21 @@ function StatBlock({stat}) {
   )
 }
 
+function StatText({stat}) {
+  const {value, name, abbreviatedName} = stat;
+  const attributeNameStyle = {
+    color: stat.renderer.background,
+    marginRight: 10,
+  }
+
+  return (
+    <div className="StatBlock--simple">
+      <span style={attributeNameStyle}>{abbreviatedName}</span>
+      <span>{value}</span>
+    </div>
+  )
+}
+
 const SimpleEquipmentCard = ({game, player, data}) => {
   const {
     item,
@@ -40,7 +54,7 @@ const SimpleEquipmentCard = ({game, player, data}) => {
     equipable,
   } = data;
 
-  let onClick = () => null;
+  let onClick = game.refocus();
   if (equipable) {
     const action = new EquipItemFromContainer({
       item,
@@ -65,24 +79,16 @@ const SimpleEquipmentCard = ({game, player, data}) => {
 
   return (
     <div 
-      className={`SimpleEquipmentCard EquipmentCard ${equipped ? 'EquipmentCard--selected' : ''}`} 
-      onClick={() => game.refocus()}
+      className={`SimpleEquipmentCard EquipmentCard ${equipped ? 'EquipmentCard--selected' : ''} ${equipable ? 'EquipmentCard--equipable': ''}`} 
+      onClick={onClick}
     >
-      {needsReload && (
-        <div
-          className="EquipmentCard__reload_overlay"
-          onClick={onClick}
-        >
-          <div className="EquipmentCard__reload_overlay__text">Needs Reload</div>
-          <div className="EquipmentCard__reload_overlay__text"><GiBackwardTime /></div>
-        </div>
-      )}
-      <div
-        className="EquipmentCard__item"
-        onClick={onClick}
-      >
+      <div className="EquipmentCard__item">
         <div className="EquipmentCard__item__label--simple">
-        <span class="EquipmentCard__item__label__amount">{amount || 1}</span> {item.name}
+          <span class="EquipmentCard__item__label__amount">
+            {equipable && 'equip'} {(amount || 1)}&nbsp;
+          </span>
+          <span>{item.name}&nbsp;</span>
+          <span style={{color: '#6d7886'}}>{needsReload && '(reload)'}</span>
         </div>
       </div>
     </div>
@@ -104,7 +110,7 @@ const EquipmentCard = (props) => {
 
   let needsReload = false;
 
-  let onClick = () => null;
+  let onClick = () => game.refocus();
   if (equipable) {
     const action = new EquipItemFromContainer({
       item,
@@ -131,6 +137,7 @@ const EquipmentCard = (props) => {
   if (item.hasOwnProperty('attackRange')) {
     stats.push({
       name: 'attack range',
+      abbreviatedName: 'range',
       value: item['attackRange'],
       renderer: STAT_RENDERERS.attackRange,
       getIcon: () => <GiBarbedArrow />,
@@ -139,6 +146,7 @@ const EquipmentCard = (props) => {
   if (item.hasOwnProperty('magazine')) {
     stats.push({
       name: 'shots before reload',
+      abbreviatedName: 'ammo',
       value: item.magazine,
       renderer: STAT_RENDERERS.magazine,
       getIcon: () => <GiBullets />,
@@ -150,6 +158,7 @@ const EquipmentCard = (props) => {
   if (item.hasOwnProperty('baseRangedAccuracy')) {
     stats.push({
       name: 'base accuracy',
+      abbreviatedName: 'ranged chance',
       value: `${Math.round(item['baseRangedAccuracy'] * 100)}%`,
       renderer: STAT_RENDERERS.baseRangedAccuracy,
       getIcon: () => <GiCrosshair />,
@@ -158,6 +167,7 @@ const EquipmentCard = (props) => {
   if (item.hasOwnProperty('baseRangedDamage')) {
     stats.push({
       name: 'base damage',
+      abbreviatedName: 'ranged dmg',
       value: item['baseRangedDamage'],
       renderer: STAT_RENDERERS.baseRangedDamage,
       getIcon: () => <GiBurningDot />,
@@ -166,6 +176,7 @@ const EquipmentCard = (props) => {
   if (item.hasOwnProperty('attackDamage')) {
     stats.push({
       name: 'base melee damage',
+      abbreviatedName: 'melee dmg',
       value: item['attackDamage'],
       renderer: STAT_RENDERERS.meleeDamage,
     })
@@ -174,21 +185,14 @@ const EquipmentCard = (props) => {
   return (
     <div 
       className={`EquipmentCard ${equipped ? 'EquipmentCard--selected' : ''}`} 
-      onClick={() => game.refocus()}
+      onClick={onClick}
     >
       {needsReload && (
-        <div
-          className="EquipmentCard__reload_overlay"
-          onClick={onClick}
-        >
-          <div className="EquipmentCard__reload_overlay__text">Needs Reload</div>
-          <div className="EquipmentCard__reload_overlay__text"><GiBackwardTime /></div>
+        <div className="EquipmentCard__reload_overlay">
+          <div className="EquipmentCard__reload_overlay__text">Reload</div>
         </div>
       )}
-      <div
-        className="EquipmentCard__item"
-        onClick={onClick}
-      >
+      <div className="EquipmentCard__item">
         <div className="EquipmentCard__item__label">
           {item.name}
         </div>
@@ -204,7 +208,7 @@ const EquipmentCard = (props) => {
         {
           stats.map((stat, i) => {
             return (
-              <StatBlock
+              <StatText
                 key={`${i}-${stat.name}-resource-block`}
                 stat={stat}
               />
@@ -221,6 +225,7 @@ class Equipment extends React.Component {
     if (!this.props.player) return null;
     const player = this.props.player;
     const game = this.props.game;
+    let equipment = [];
     let items = [];
     player.equipment.forEach((slot) => {
       if (slot.item) {
@@ -233,19 +238,17 @@ class Equipment extends React.Component {
     player.container.forEach((slot) => {
       if (slot.items.length) {
         const item = slot.items[0];
-        // disallow duplicates
-        if (items.filter((data) => data.item.name === item.name).length === 0) {
-          const equipable = item.entityTypes.includes('EQUIPABLE');
-          const amount = equipable ? null : slot.items.length;
-          items.push({
-            item,
-            amount,
-            equipable,
-            equipped: false,
-          })
-        }
+        const equipable = item.entityTypes.includes('EQUIPABLE');
+        items.push({
+          item,
+          amount: slot.items.length,
+          equipable,
+          equipped: false,
+        })
       }
     });
+
+    items.sort((a, b) => Number(b.equipable) - Number(a.equipable))
     return (
       <div className="Equipment UI">
         {
