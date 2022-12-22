@@ -84,7 +84,7 @@ const SimpleEquipmentCard = ({game, player, data}) => {
     >
       <div className="EquipmentCard__item">
         <div className="EquipmentCard__item__label--simple">
-          <span class="EquipmentCard__item__label__amount">
+          <span className="EquipmentCard__item__label__amount">
             {equipable && 'equip'} {(amount || 1)}&nbsp;
           </span>
           <span>{item.name}&nbsp;</span>

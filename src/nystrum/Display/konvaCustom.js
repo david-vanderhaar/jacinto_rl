@@ -167,7 +167,7 @@ export class Display {
     
     // setting up main tile map layer
     this.layer = new Konva.Layer({
-      hitGraphEnabled: false,
+      hitGraphEnabled: true,
     });
     
     this.stage.add(this.layer);
@@ -307,7 +307,7 @@ export class Display {
       // for optimization
       transformsEnabled: 'position',
       perfectDrawEnabled: false,
-      listening: false,
+      listening: true,
       shadowForStrokeEnabled: false,
     });
 
@@ -334,8 +334,33 @@ export class Display {
 
     node.add(rect);
     node.add(text);
+    this.addMouseListenersToNode(rect, {x, y})
+
     this.layer.add(node);
     return node;
+  }
+
+  addMouseListenersToNode(tileNode, worldPosition) {
+    let animation = null
+    const display = this
+    tileNode.on('mouseover', function () {
+      // add tile highlight
+      animation = display.addAnimation(
+        ANIMATION_TYPES.BLINK_BOX,
+        {
+          x: worldPosition.x - display.game.getRenderOffsetX(),
+          y: worldPosition.y - display.game.getRenderOffsetY(),
+          color: '#3e7dc9'
+        }
+      )
+    });
+
+    tileNode.on('mouseout', function () {
+      // remove tile highlight
+      if (animation) {
+        display.removeAnimation(animation.id)
+      }
+    });
   }
 
   getAbsoultueX(x) {
