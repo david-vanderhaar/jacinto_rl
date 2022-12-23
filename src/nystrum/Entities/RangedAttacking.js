@@ -3,6 +3,7 @@ import * as Helper from '../../helper';
 import * as MapHelper from '../Maps/helper';
 import SOUNDS from '../sounds';
 import {JACINTO_SOUNDS} from '../Modes/Jacinto/sounds'
+import { ANIMATION_TYPES } from '../Display/konvaCustom';
 const DEFAULT_HIT_SOUNDS = [SOUNDS.chop_0, SOUNDS.chop_1]
 const DEFAULT_MISS_SOUNDS = [SOUNDS.release_0]
 
@@ -189,9 +190,11 @@ export const RangedAttacking = superclass => class extends superclass {
         const attackChance = this.getRangedAttackChance(targetPos);
         const hitChance = attackChance + additionalAccuracy;
         hit = Math.random() < hitChance;
-        this.useAmmo(target.getPosition());
+        const targetPosition = target.getPosition()
+        this.useAmmo(targetPosition);
         if (!hit) {
           this.playMissSound()
+          this.animateMiss(targetPosition)
           success = true;
           return [success, hit];
         }
@@ -205,6 +208,17 @@ export const RangedAttacking = superclass => class extends superclass {
       }
     }
     return [success, hit];
+  }
+
+  animateMiss(position) {
+    this.game.display.addAnimation(
+      ANIMATION_TYPES.TEXT_FLOAT,
+      {
+        ...position,
+        color: '#fff',
+        text: 'miss',
+      }
+    );
   }
 
   playMissSound() {
