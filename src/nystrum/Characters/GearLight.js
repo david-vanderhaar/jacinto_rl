@@ -21,8 +21,7 @@ import { AddStatusEffect } from '../Actions/AddStatusEffect';
 import {MeleeDamage} from '../StatusEffects/MeleeDamage';
 import { JACINTO_SOUNDS } from '../Modes/Jacinto/sounds';
 import * as Helper from '../../helper'
-import { ExtraRoundReload } from '../StatusEffects/ExtraRoundReload';
-
+import { TakeAim } from '../StatusEffects/TakeAim';
 
 export default function (engine) {
   const lancer = Lancer(engine);
@@ -164,6 +163,17 @@ export default function (engine) {
             character: ''
           },
         },
+      }),
+      v: () => new AddStatusEffect({
+        label: 'Take Aim',
+        game: engine.game,
+        actor,
+        energyCost: Constant.ENERGY_THRESHOLD * 2,
+        effect: new TakeAim({
+          buffValue: 10,
+          game: engine.game,
+          actor,
+        }),
       }),
     };
   }

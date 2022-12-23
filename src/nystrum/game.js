@@ -127,7 +127,7 @@ export class Game {
       tile.entities.push(actor);
       return true
     } else {
-      console.log(`could not place ${actor.id}: ${actor.name} on map`);
+      // console.log(`could not place ${actor.id}: ${actor.name} on map`);
       return false
     }
   }

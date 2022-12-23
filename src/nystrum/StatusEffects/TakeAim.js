@@ -1,16 +1,17 @@
 import {Base} from './Base';
 import { COLORS } from '../Modes/Jacinto/theme';
+import * as Helper from '../../helper'
 
-export class ExtraRoundReload extends Base {
+export class TakeAim extends Base {
   constructor({buffValue = 1, ...args}) {
   super({ ...args });
-    this.name = 'Extra Round Reload';
+    this.name = 'Take Aim';
     this.allowDuplicates = false
     this.lifespan = -1
     this.particleTemplate = {
       renderer: {
-        character: '||',
-        sprite: '',
+        character: '+',
+        sprite: '+',
         background: COLORS.gray,
         color: COLORS.base3,
       },
@@ -21,12 +22,11 @@ export class ExtraRoundReload extends Base {
       this['weapon'] = weapons[0]
       return weapons[0]
     }
+    this['actor_position'] = {...this.actor.getPosition()}
     this.onStart = () => {
       const weapon = this.setWeapon()
       if (weapon) {
-        weapon.baseRangedDamage += buffValue
-        weapon.reload()
-        weapon.magazine += buffValue
+        weapon.baseRangedAccuracy += buffValue
         this['actor_background'] = weapon.renderer.background;
         this['actor_color'] = weapon.renderer.color;
         weapon.renderer.background = this['actor_color']
@@ -34,23 +34,24 @@ export class ExtraRoundReload extends Base {
       }
     }
     this.onStep = () => {
-      console.log('step');
       const weapon = this['weapon']
-      if (weapon) {
-        if (weapon.magazine <= weapon.magazineSize) {
-          this.lifespan = 0
-        }
+      if (!weapon) {
+        this.lifespan = 0
+        return
       }
+
+      if (Helper.coordsAreEqual(this.actor.getPosition(), this['actor_position'])) return
+      this.lifespan = 0
     }
     this.onStop = () => {
       const weapon = this['weapon']
       if (weapon) {
-        weapon.baseRangedDamage -= buffValue
+        weapon.baseRangedAccuracy -= buffValue
         weapon.renderer.color = this['actor_color']
         weapon.renderer.background = this['actor_background']
       }
     }
   }
 
-  static displayName = 'Extra Round Reload'
+  static displayName = 'Take Aim'
 }

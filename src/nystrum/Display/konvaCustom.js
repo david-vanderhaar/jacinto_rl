@@ -10,6 +10,7 @@ export const ANIMATION_TYPES = {
   BLINK_TILE: 1,
   SOLID_TILE: 2,
   BLINK_BOX: 3,
+  TEXT_FLOAT: 4,
 }
 
 class Animation {
@@ -50,6 +51,63 @@ class ExampleAnimation extends Animation {
     }
     return true;
   }
+}
+
+class TextFloat extends Animation {
+  constructor({
+    x,
+    y,
+    text,
+    color = '#fff',
+    textAttributes = {},
+    ...args
+  }) {
+    super({ ...args });
+    this.x = x;
+    this.y = y;
+    this.color = color;
+    this.textAttributes = textAttributes;
+  }
+
+  getActive () {
+    if (this.lifeTime > 500) {
+      return false;
+    }
+    return true;
+  }
+
+  initialize () {
+    this.active = true;
+    const attrs = {
+      name: 'rect',
+      x: (this.display.tileWidth * (this.x + this.display.game.getRenderOffsetX())) + (this.display.tileOffset + this.display.tileGutter),
+      y: (this.display.tileHeight * (this.y + this.display.game.getRenderOffsetY())) + (this.display.tileOffset + this.display.tileGutter),
+      offsetX: this.display.tileWidth / -4,
+      offsetY: this.display.tileHeight / -4,
+      width: this.display.tileWidth / 2,
+      height: this.display.tileHeight / 2,
+      fill: this.color,
+      // strokeEnabled: false,
+      // for optimization
+      transformsEnabled: 'position',
+      perfectDrawEnabled: false,
+      listening: false,
+      shadowForStrokeEnabled: false,
+      ...this.textAttributes,
+    };
+    let rect = new Konva.Rect(attrs);
+    this.display.animationLayer.add(rect);
+    this.node = rect;
+    super.initialize();
+  }
+
+  update (frame) {
+    let y = this.node.y();
+    y += (0.030 * -1)
+    this.node.y(y)
+    super.update(frame);
+  }
+  
 }
 
 class BlinkTile extends Animation {
@@ -248,6 +306,9 @@ export class Display {
         break;
       case ANIMATION_TYPES.BLINK_BOX:
         animation = new BlinkBox({display: this, ...args})
+        break;
+      case ANIMATION_TYPES.TEXT_FLOAT:
+        animation = new TextFloat({display: this, ...args})
         break;
       case ANIMATION_TYPES.DEFAULT:
       default:
