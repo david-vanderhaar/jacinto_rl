@@ -14,7 +14,7 @@ export const generateCoverBlock = (
     background = COLORS.base02,
     color = COLORS.base01
   ) => {
-    let sprite = Helper.getRandomInArray(['', '']);
+    let sprite = Helper.getRandomInArray(['', '', '']);
 
     let box = new CoverWall({
       pos,
