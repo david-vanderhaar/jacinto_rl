@@ -1,6 +1,9 @@
 import Konva from 'konva';
 import uuid from 'uuid/v1';
 import * as Helper from '../../helper';
+import { Move } from '../Actions/Move';
+import { MoveRangedAttackCursor } from '../Actions/MoveRangedAttackCursor';
+import { PrepareRangedAttack } from '../Actions/PrepareRangedAttack';
 
 export const ANIMATION_TYPES = {
   DEFAULT: 0,
@@ -134,6 +137,7 @@ export class Display {
     tileGutter = 0,
     tileOffset = 10,
     game = null,
+    mouseEnabled = false
   }) {
     this.containerId = containerId;
     this.width = width;
@@ -149,6 +153,7 @@ export class Display {
     this.animationLoop = null;
     this.game = game;
     this.animationTypes = ANIMATION_TYPES;
+    this.mouseEnabled = mouseEnabled
   }
 
   initialize (document) {
@@ -167,7 +172,7 @@ export class Display {
     
     // setting up main tile map layer
     this.layer = new Konva.Layer({
-      hitGraphEnabled: true,
+      hitGraphEnabled: this.mouseEnabled,
     });
     
     this.stage.add(this.layer);
@@ -311,7 +316,7 @@ export class Display {
       // for optimization
       transformsEnabled: 'position',
       perfectDrawEnabled: false,
-      listening: true,
+      listening: this.mouseEnabled,
       shadowForStrokeEnabled: false,
     });
 
@@ -322,10 +327,8 @@ export class Display {
       height: this.tileHeight,
       fontSize: this.tileWidth - 2,
       // fontSize: this.tileWidth / 2,
-      // fontFamily: 'Courier New',
-      // fontFamily: 'scroll-o-script',
-      // fontFamily: 'scroll-o-script, Courier New',
-      fontFamily: 'scroll-o-script, player-start-2p',
+      fontFamily: 'scroll-o-script, Courier New',
+      // fontFamily: 'scroll-o-script, player-start-2p',
       fill: foreground,
       align: 'center',
       verticalAlign: 'bottom',
@@ -338,7 +341,7 @@ export class Display {
 
     node.add(rect);
     node.add(text);
-    this.addMouseListenersToNode(rect, {x, y})
+    if (this.mouseEnabled) this.addMouseListenersToNode(rect, {x, y})
 
     this.layer.add(node);
     return node;
@@ -348,30 +351,82 @@ export class Display {
     let animations = []
     const display = this
     let color = '#3e7dc9'
+    let path = []
+    let player = display.game.getFirstPlayer()
+    let actionType = null
+    let keymapKey = null
 
-    tileNode.on('mouseover', function () {
+    tileNode.on('mouseover', () => {
       const position = display.getRelativeTilePosition(worldPosition)
-
       const entities = Helper.getEntitiesByPositionByType({
         game: display.game,
         position,
         entityType: 'DESTRUCTABLE'
       })
 
-      if (entities.length <= 0) {
-        color = '#fff'
-        animations.push(...display.highlightPathTiles(position))
+      if (display.preparedToFire(player)) {
+        const playerPos = player.getPosition()
+        const action = new MoveRangedAttackCursor({
+          targetPos: position,
+          availablePositions: Helper.getPointsWithinRadius(playerPos, player.getAttackRange()),
+          actor: player,
+          game: display.game,
+        })
+
+        action.immediatelyExecuteAction()
+
+        player.getKeymap().m(position).immediatelyExecuteAction()
       }
+
+      if (entities.length <= 0 && !display.preparedToFire(player)) {
+        color = '#fff'
+        const playerPos = player.getPosition()
+        path = Helper.calculatePathAroundObstacles(display.game, position, playerPos)
+        if (path.length) actionType = Move
+        animations.push(...display.highlightPathTiles(path))
+      }
+      
+      if (entities.length > 0) {
+        keymapKey = 'f'
+      }
+
       // add tile highlight
       animations.push(display.highlightTile(position, color))
     });
 
-    tileNode.on('mouseout', function () {
+    tileNode.on('click', () => {
+      let action = null
+      if (actionType) {
+        action = new actionType({
+          targetPos: path[0],
+          game: display.game,
+          actor: player,
+          energyCost: 100
+        });
+        actionType = null
+      } else if (keymapKey) {
+        action = player.getKeymap()[keymapKey]()
+        keymapKey = null
+      }
+
+      if (!Boolean(action)) return
+      action.immediatelyExecuteAction()
+      tileNode.fire('mouseout')
+      tileNode.fire('mouseover')
+    })
+
+    tileNode.on('mouseout', () => {
       // remove tile highlight
       if (animations.length > 0) {
         display.removeAnimations(animations.map((anim) => anim.id))
       }
     });
+  }
+
+  preparedToFire(player) {
+    const keymapAction = player.getKeymap().f 
+    if (!keymapAction) return false
+    return keymapAction()?.label === 'Fire'
   }
 
   highlightTile(position, color) {
@@ -384,10 +439,8 @@ export class Display {
     )
   }
 
-  highlightPathTiles(targetPos, color) {
+  highlightPathTiles(path, color) {
     const animations = []
-    const playerPos = this.game.getPlayerPosition()
-    const path = Helper.calculatePathAroundObstacles(this.game, targetPos, playerPos)
     path.forEach((pos) => {
       animations.push(
         this.addAnimation(
@@ -403,7 +456,7 @@ export class Display {
     return animations
   }
 
-  getRelativeTilePosition(position, displayRef) {
+  getRelativeTilePosition(position) {
     return {
       x: position.x - this.game.getRenderOffsetX(),
       y: position.y - this.game.getRenderOffsetY()

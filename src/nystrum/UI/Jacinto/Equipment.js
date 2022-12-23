@@ -65,8 +65,7 @@ const SimpleEquipmentCard = ({game, player, data}) => {
     });
     onClick = () => {
       game.refocus();
-      action.setAsNextAction();
-      game.engine.start();
+      action.immediatelyExecuteAction();
     }
   }
 
@@ -121,8 +120,7 @@ const EquipmentCard = (props) => {
     });
     onClick = () => {
       game.refocus();
-      action.setAsNextAction();
-      game.engine.start();
+      action.immediatelyExecuteAction();
     }
   }
 

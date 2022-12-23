@@ -69,6 +69,11 @@ export class Base {
     this.actor.setNextAction(this);
   }
 
+  immediatelyExecuteAction() {
+    this.actor.setNextAction(this);
+    this.game.engine.start();
+  }
+
   getEnergyCost() {
     return _.find(this.requiredResources, {name: 'Energy'}).getResourceCost();
   }

@@ -98,6 +98,7 @@ export const HasTargetingCursor = superclass => class extends superclass {
 
   updateCursorNode (index, args) {
     const anim = this.animations[index];
+    if (!!!anim) return
     args.forEach((arg) => {
       anim.node[arg.key](arg.value)
     })

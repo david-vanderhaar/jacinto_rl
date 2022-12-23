@@ -230,6 +230,18 @@ export class PrepareRangedAttack extends Base {
           }
         })
       },
+      m: (targetPos) => { 
+        return new MoveRangedAttackCursor({
+          hidden: true,
+          actor: this.actor,
+          game: this.game,
+          targetPos,
+          availablePositions: positionsInRange,
+          onSuccess: () => {
+            this.updateCursors(pathAnimations, pos);
+          }
+        })
+      },
       f: () => { 
         return new MultiTargetRangedAttack({
           label: 'Fire',
