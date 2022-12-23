@@ -1,5 +1,6 @@
 import { destroyEntity } from './helper';
 import * as Helper from '../../helper';
+import { ANIMATION_TYPES } from '../Display/konvaCustom';
 
 export const Destructable = superclass => class extends superclass {
   constructor({ durability = 1, defense = 0, onDestroy = () => null, ...args }) {
@@ -34,8 +35,10 @@ export const Destructable = superclass => class extends superclass {
   }
   decreaseDurability(value) {
     const current = this.durability;
-    const newDurability = current - (value - this.getDefense());
+    const decreaseBy = value - this.getDefense()
+    const newDurability = current - decreaseBy;
     this.durability = Math.min(current, newDurability);
+    this.addAnimation(-decreaseBy)
     this.updateActorRenderer();
     if (this.entityTypes.includes('PLAYING')) this.shakePlayer(value)
     if (this.durability <= 0) {
@@ -49,6 +52,7 @@ export const Destructable = superclass => class extends superclass {
   }
   increaseDurability(value) {
     this.durability += value;
+    this.addAnimation(+value)
     this.updateActorRenderer();
   }
   updateActorRenderer() {
@@ -60,6 +64,25 @@ export const Destructable = superclass => class extends superclass {
       this.renderer.character = this.durability;
     }
     this.game.draw();
+  }
+  addAnimation(value) {
+    let sign = ''
+    let color = '#dc322f'
+
+    if (value >= 0) {
+      sign = '+'
+      color = '#3e7dc9'
+    }
+
+    const text = sign + value
+    this.game.display.addAnimation(
+      ANIMATION_TYPES.TEXT_FLOAT,
+      {
+        ...this.getPosition(),
+        color,
+        text,
+      }
+    );
   }
   destroy() {
     this.onDestroy(this);

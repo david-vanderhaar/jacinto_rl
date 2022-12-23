@@ -66,6 +66,7 @@ class TextFloat extends Animation {
     this.x = x;
     this.y = y;
     this.color = color;
+    this.text = text;
     this.textAttributes = textAttributes;
   }
 
@@ -79,14 +80,14 @@ class TextFloat extends Animation {
   initialize () {
     this.active = true;
     const attrs = {
-      name: 'rect',
+      name: 'text',
       x: (this.display.tileWidth * (this.x + this.display.game.getRenderOffsetX())) + (this.display.tileOffset + this.display.tileGutter),
       y: (this.display.tileHeight * (this.y + this.display.game.getRenderOffsetY())) + (this.display.tileOffset + this.display.tileGutter),
-      offsetX: this.display.tileWidth / -4,
-      offsetY: this.display.tileHeight / -4,
-      width: this.display.tileWidth / 2,
-      height: this.display.tileHeight / 2,
+      text: this.text,
+      fontSize: this.display.tileWidth / 2,
+      fontFamily: 'player-start-2p, Courier New',
       fill: this.color,
+      zIndex: 2,
       // strokeEnabled: false,
       // for optimization
       transformsEnabled: 'position',
@@ -95,15 +96,16 @@ class TextFloat extends Animation {
       shadowForStrokeEnabled: false,
       ...this.textAttributes,
     };
-    let rect = new Konva.Rect(attrs);
-    this.display.animationLayer.add(rect);
-    this.node = rect;
+
+    let node = new Konva.Text(attrs);
+    this.display.animationLayer.add(node);
+    this.node = node;
     super.initialize();
   }
 
   update (frame) {
     let y = this.node.y();
-    y += (0.030 * -1)
+    y += (1 * -1)
     this.node.y(y)
     super.update(frame);
   }
