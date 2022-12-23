@@ -21,6 +21,7 @@ import { AddStatusEffect } from '../Actions/AddStatusEffect';
 import {MeleeDamage} from '../StatusEffects/MeleeDamage';
 import { JACINTO_SOUNDS } from '../Modes/Jacinto/sounds';
 import * as Helper from '../../helper'
+import { ExtraRoundReload } from '../StatusEffects/ExtraRoundReload';
 
 
 export default function (engine) {
@@ -163,7 +164,7 @@ export default function (engine) {
             character: ''
           },
         },
-      })
+      }),
     };
   }
   // instantiate class

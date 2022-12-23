@@ -21,6 +21,8 @@ import {COLORS} from '../Modes/Jacinto/theme';
 import { Reload } from '../Actions/Reload';
 import { Gnasher } from '../Items/Weapons/Gnasher';
 import { PrepareMelee } from '../Actions/PrepareMelee';
+import { ExtraRoundReload } from '../StatusEffects/ExtraRoundReload';
+import { AddStatusEffect } from '../Actions/AddStatusEffect';
 
 export default function (engine) {
   // define keymap
@@ -108,6 +110,17 @@ export default function (engine) {
         game: engine.game,
         actor,
         energyCost: Constant.ENERGY_THRESHOLD,
+      }),
+      v: () => new AddStatusEffect({
+        label: 'Extra Round Reload',
+        game: engine.game,
+        actor,
+        energyCost: Constant.ENERGY_THRESHOLD * 2,
+        effect: new ExtraRoundReload({
+          buffValue: 2,
+          game: engine.game,
+          actor,
+        }),
       }),
       i: () => new OpenInventory({
         label: 'Inventory',

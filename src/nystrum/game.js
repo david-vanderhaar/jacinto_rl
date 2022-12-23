@@ -67,7 +67,7 @@ export class Game {
       tileHeight: tileHeight,
       tileOffset: tileOffset,
       game: this,
-      mouseEnabled: true
+      mouseEnabled: false
     });
     this.spriteMode = spriteMode;
     this.tileKey = tileKey;
