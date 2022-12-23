@@ -134,6 +134,16 @@ export const filterEntitiesByType = (entites, type) => {
   return entites.filter((entity) => entity.entityTypes.includes(type));
 }
 
+export const getEntitiesByPosition = ({game, position}) => {
+  const tile = getTileAtPosition(game, position)
+  return tile.entities
+}
+
+export const getEntitiesByPositionByType = ({game, position, entityType}) => {
+  const entities = getEntitiesByPosition({game, position})
+  return filterEntitiesByType(entities, entityType);
+}
+
 const getGranularity = (radius) => {
   let result = (2 / 3) * (Math.pow(radius, 3) - (9 * Math.pow(radius, 2)) + (32 * radius) - 18)
   return result

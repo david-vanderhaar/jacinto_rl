@@ -264,6 +264,10 @@ export class Display {
     });
   }
 
+  removeAnimations(ids) {
+    ids.forEach((id) => this.removeAnimation(id))
+  }
+
   updateAnimation (id) {
     this.animations = this.animations.map((anim) => {
       if (anim.id === id) {
@@ -341,26 +345,69 @@ export class Display {
   }
 
   addMouseListenersToNode(tileNode, worldPosition) {
-    let animation = null
+    let animations = []
     const display = this
+    let color = '#3e7dc9'
+
     tileNode.on('mouseover', function () {
+      const position = display.getRelativeTilePosition(worldPosition)
+
+      const entities = Helper.getEntitiesByPositionByType({
+        game: display.game,
+        position,
+        entityType: 'DESTRUCTABLE'
+      })
+
+      if (entities.length <= 0) {
+        color = '#fff'
+        animations.push(...display.highlightPathTiles(position))
+      }
       // add tile highlight
-      animation = display.addAnimation(
-        ANIMATION_TYPES.BLINK_BOX,
-        {
-          x: worldPosition.x - display.game.getRenderOffsetX(),
-          y: worldPosition.y - display.game.getRenderOffsetY(),
-          color: '#3e7dc9'
-        }
-      )
+      animations.push(display.highlightTile(position, color))
     });
 
     tileNode.on('mouseout', function () {
       // remove tile highlight
-      if (animation) {
-        display.removeAnimation(animation.id)
+      if (animations.length > 0) {
+        display.removeAnimations(animations.map((anim) => anim.id))
       }
     });
+  }
+
+  highlightTile(position, color) {
+    return this.addAnimation(
+      ANIMATION_TYPES.BLINK_BOX,
+      {
+        ...position,
+        color,
+      },
+    )
+  }
+
+  highlightPathTiles(targetPos, color) {
+    const animations = []
+    const playerPos = this.game.getPlayerPosition()
+    const path = Helper.calculatePathAroundObstacles(this.game, targetPos, playerPos)
+    path.forEach((pos) => {
+      animations.push(
+        this.addAnimation(
+          ANIMATION_TYPES.BLINK_TILE,
+          {
+            ...pos,
+            color,
+          },
+        )
+      )
+    })
+
+    return animations
+  }
+
+  getRelativeTilePosition(position, displayRef) {
+    return {
+      x: position.x - this.game.getRenderOffsetX(),
+      y: position.y - this.game.getRenderOffsetY()
+    }
   }
 
   getAbsoultueX(x) {
