@@ -47,6 +47,14 @@ export const TILE_KEY = {
     passable: true,
     tags: ['PROVIDING_COVER'],
   },
+  'COVER_PLACEHOLDER': {
+    background: COLORS.base04,
+    foreground: COLORS.base02,
+    character: '.',
+    sprite: '',
+    passable: true,
+    tags: ['PROVIDING_COVER'],
+  },
   'GROUND_ALT': {
     background: COLORS.base04,
     foreground: COLORS.base02,

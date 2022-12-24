@@ -14,7 +14,8 @@ import { Ammo } from '../../Items/Pickups/Ammo';
 import { Grenade } from '../../Items/Weapons/Grenade';
 import * as LocustActors from './Actors/Grubs';
 import { CogTag } from '../../Items/Pickups/CogTag';
-const MAP_DATA = require('../../Maps/castle.json');
+const MAP_DATA = require('./Maps/map_01.json');
+// const MAP_DATA = require('../../Maps/castle.json');
 
 export class Jacinto extends Mode {
   constructor({ ...args }) {
@@ -137,7 +138,23 @@ export class Jacinto extends Mode {
   createVerticalRoadGoingNorth = (fromY) => (x) => this.createVerticalRoad(x, (fromY) + 1);
   createVerticalRoadGoingSouth = (fromY) => (x) => this.createVerticalRoad(x, (this.game.mapHeight - fromY) - 1, (fromY) + 1);
 
-  createCityBlockLevel (numberOfVerticalRoads, numberOfBuildings) {
+  createCityBlockLevel () {
+    const numberOfVerticalRoads = Helper.getRandomIntInclusive(0, 2);
+    const numberOfBuildings = Helper.getRandomIntInclusive(0, 5);
+
+    this.game.createEmptyLevel();
+    // Generates a safe zone on left-hand edge of map for player to start
+    MapHelper.addTileZone(
+      this.game.tileKey,
+      { x: 0, y: 0 },
+      this.game.mapHeight,
+      1,
+      'SAFE',
+      this.game.map,
+      this.game.mapHeight,
+      this.game.mapWidth,
+    );
+
     // Generates the main road
     const mainRoadY = this.game.mapHeight / 4
     this.createHorizontalRoad(mainRoadY, this.game.mapWidth)
@@ -162,47 +179,6 @@ export class Jacinto extends Mode {
       const unitSize = Helper.getRandomInArray([3, 4, 6]);
       generateBuilding(this.game.map, posXY[0], posXY[1], unitCount, unitSize);
     })
-  }
-
-  initialize () {
-    super.initialize();
-    this.game.tileKey = TILE_KEY
-    this.game.createEmptyLevel();
-    this.game.initializeMapTiles();
-    // this.game.createCustomLevel(MAP_DATA);
-
-    this.setWaveData();
-
-    // Generates a safe zone on left-hand edge of map for player to start
-    MapHelper.addTileZone(
-      this.game.tileKey,
-      { x: 0, y: 0 },
-      this.game.mapHeight,
-      1,
-      'SAFE',
-      this.game.map,
-      this.game.mapHeight,
-      this.game.mapWidth,
-    );
-  
-    const numberOfVerticalRoads = Helper.getRandomIntInclusive(0, 2);
-    const numberOfBuildings = Helper.getRandomIntInclusive(0, 5);
-    this.createCityBlockLevel(numberOfVerticalRoads, numberOfBuildings);
-
-    let floorTiles = Object.keys(this.game.map).filter((key) => this.game.map[key].type === 'FLOOR')
-    const safeTiles = Object.keys(this.game.map).filter((key) => this.game.map[key].type == 'SAFE');
-    // this.placePlayersInSafeZone(safeTiles);
-    this.placeCogInSafeZone(safeTiles);
-    const player = this.game.getFirstPlayer();
-    if (player) player.upgrade_points += 1;
-
-    // adding emergence holes
-    for (let index = 0; index < this.data.emergenceHoles; index++) {
-      let pos = Helper.getRandomInArray(this.getEmptyTileKeys());
-      if (!pos) break;
-      let posXY = pos.split(',').map((coord) => parseInt(coord));
-      this.addEmerenceHole({ x: posXY[0], y: posXY[1] });
-    }
 
     // adding cover blocks
     const numberOfCoverStructures = Helper.getRandomIntInclusive(2, 10);
@@ -214,6 +190,40 @@ export class Jacinto extends Mode {
       let posXY = pos.split(',').map((coord) => parseInt(coord));
       const position = { x: posXY[0], y: posXY[1] };
       CoverGenerator.generateRandom(position, this.game);
+    }
+
+  }
+
+  initialize () {
+    super.initialize();
+    this.game.tileKey = TILE_KEY
+    this.setWaveData();
+    
+    this.game.createCustomLevel(MAP_DATA);
+    // this.createCityBlockLevel();
+    this.game.initializeMapTiles();
+
+    let floorTiles = Object.keys(this.game.map).filter((key) => this.game.map[key].type === 'FLOOR')
+    const safeTiles = Object.keys(this.game.map).filter((key) => this.game.map[key].type == 'SAFE');
+    // this.placePlayersInSafeZone(safeTiles);
+    this.placeCogInSafeZone(safeTiles);
+    const player = this.game.getFirstPlayer();
+    if (player) player.upgrade_points += 1;
+
+    // cover tiles
+    let coverEligibleTiles = Object.keys(this.game.map).filter((key) => this.game.map[key].type === 'COVER_PLACEHOLDER')
+    coverEligibleTiles.forEach((key) => {
+      let pos = key.split(',').map((coord) => parseInt(coord));
+      const position = { x: pos[0], y: pos[1] };
+      CoverGenerator.generateSingle(position, this.game);
+    })
+
+    // adding emergence holes
+    for (let index = 0; index < this.data.emergenceHoles; index++) {
+      let pos = Helper.getRandomInArray(this.getEmptyTileKeys());
+      if (!pos) break;
+      let posXY = pos.split(',').map((coord) => parseInt(coord));
+      this.addEmerenceHole({ x: posXY[0], y: posXY[1] });
     }
 
     // adding  ammo loot
@@ -460,7 +470,7 @@ export class Jacinto extends Mode {
           x: parseInt(key.split(',')[0]),
           y: parseInt(key.split(',')[1]),
         }
-        cog.pos = {x: position.x, y: cog.pos.y};
+        cog.pos = {x: position.x, y: position.y};
         this.game.placeActorOnMap(cog)
       }
     })

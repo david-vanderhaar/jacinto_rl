@@ -176,9 +176,9 @@ export class Game {
   createCustomLevel (data) {
     Object.keys(data.tiles).forEach((key, i) => {
       const tile = data.tiles[key];
-      let type = tile.data.type;
+      let type = tile.data?.type;
       if (!type) {
-        type = 'GROUND';
+        type = Helper.getRandomInArray(['GROUND', 'GROUND_ALT', 'GROUND_ALT', 'GROUND_ALT']);
       }
       MapHelper.addTileToMap({map: this.map, key, tileKey: this.tileKey, tileType: type})
     })
