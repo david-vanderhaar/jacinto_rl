@@ -3,7 +3,6 @@ import uuid from 'uuid/v1';
 import * as Helper from '../../helper';
 import { Move } from '../Actions/Move';
 import { MoveRangedAttackCursor } from '../Actions/MoveRangedAttackCursor';
-import { PrepareRangedAttack } from '../Actions/PrepareRangedAttack';
 
 export const ANIMATION_TYPES = {
   DEFAULT: 0,
@@ -11,6 +10,7 @@ export const ANIMATION_TYPES = {
   SOLID_TILE: 2,
   BLINK_BOX: 3,
   TEXT_FLOAT: 4,
+  TEXT_OVERLAY: 5,
 }
 
 class Animation {
@@ -87,7 +87,6 @@ class TextFloat extends Animation {
       fontSize: this.display.tileWidth / 2,
       fontFamily: 'player-start-2p, Courier New',
       fill: this.color,
-      zIndex: 2,
       // strokeEnabled: false,
       // for optimization
       transformsEnabled: 'position',
@@ -109,7 +108,58 @@ class TextFloat extends Animation {
     this.node.y(y)
     super.update(frame);
   }
-  
+}
+
+class TextOverlay extends Animation {
+  constructor({
+    x,
+    y,
+    text,
+    color = '#fff',
+    textAttributes = {},
+    ...args
+  }) {
+    super({ ...args });
+    this.x = x;
+    this.y = y;
+    this.color = color;
+    this.text = text;
+    this.textAttributes = textAttributes;
+  }
+
+  getActive () {
+    return this.active;
+  }
+
+  initialize () {
+    this.active = true;
+    const attrs = {
+      name: 'text',
+      text: this.text,
+      x: (this.display.tileWidth * (this.x + this.display.game.getRenderOffsetX())) + (this.display.tileOffset + this.display.tileGutter),
+      y: (this.display.tileHeight * (this.y + this.display.game.getRenderOffsetY())) + (this.display.tileOffset + this.display.tileGutter),
+      width: this.display.tileWidth,
+      height: this.display.tileHeight,
+      fontSize: this.display.tileWidth / 4,
+      // offsetX: this.display.tileWidth / -4,
+      fontFamily: 'player-start-2p, Courier New',
+      verticalAlign: 'middle',
+      align: 'center',
+      fill: this.color,
+      // strokeEnabled: false,
+      // for optimization
+      transformsEnabled: 'position',
+      perfectDrawEnabled: false,
+      listening: false,
+      shadowForStrokeEnabled: false,
+      ...this.textAttributes,
+    };
+
+    let node = new Konva.Text(attrs);
+    this.display.animationLayer.add(node);
+    this.node = node;
+    super.initialize();
+  }
 }
 
 class BlinkTile extends Animation {
@@ -312,6 +362,9 @@ export class Display {
       case ANIMATION_TYPES.TEXT_FLOAT:
         animation = new TextFloat({display: this, ...args})
         break;
+      case ANIMATION_TYPES.TEXT_OVERLAY:
+        animation = new TextOverlay({display: this, ...args})
+        break;
       case ANIMATION_TYPES.DEFAULT:
       default:
         animation = new Animation({ display: this, ...args})
@@ -356,8 +409,8 @@ export class Display {
   }
 
   createTile(x, y, character, foreground, background, layer = 'layer') {
-    const actual_x = (this.tileWidth * x) + (this.tileOffset + this.tileGutter);
-    const actual_y = (this.tileHeight * y) + (this.tileOffset + this.tileGutter);
+    // const actual_x = (this.tileWidth * x) + (this.tileOffset + this.tileGutter);
+    // const actual_y = (this.tileHeight * y) + (this.tileOffset + this.tileGutter);
     let node = new Konva.Group({
       id: `${x},${y}`,
       x: (this.tileWidth * x) + (this.tileOffset + this.tileGutter),
@@ -389,7 +442,6 @@ export class Display {
       width: this.tileWidth,
       height: this.tileHeight,
       fontSize: this.tileWidth - 2,
-      // fontSize: this.tileWidth / 2,
       fontFamily: 'scroll-o-script, Courier New',
       // fontFamily: 'scroll-o-script, player-start-2p',
       fill: foreground,

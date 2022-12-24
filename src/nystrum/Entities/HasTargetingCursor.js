@@ -37,22 +37,27 @@ export const HasTargetingCursor = superclass => class extends superclass {
   addAnimations () {
     const positions = this.getCursorPositions();
     if (positions.length) {
-      // hack for visual separation
-      let lastPos = {x: null, y: null}
-      let nudge = 0;
-      // const nudgeInc = 0.2
       positions.forEach((position) => {
-        // if (position.x == lastPos.x && position.y == lastPos.y) nudge += nudgeInc;
-        // lastPos = {...position};
-        const newAnimation = this.game.display.addAnimation(
+        const boxAnimation = this.game.display.addAnimation(
           ANIMATION_TYPES.BLINK_BOX, 
           {
             x: position.x, 
-            y: position.y + nudge, 
+            y: position.y, 
             color: THEMES.SOLARIZED.base3 
           }
         );
-        this.animations.push(newAnimation);
+        
+        const chance = this.getRangedAttackChance(position);
+        const textAnimation = this.game.display.addAnimation(
+          ANIMATION_TYPES.TEXT_OVERLAY, 
+          {
+            x: position.x, 
+            y: position.y, 
+            color: THEMES.SOLARIZED.base3,
+            text: `${Math.round(chance * 100)}%`,
+          }
+        );
+        this.animations.push(...[boxAnimation, textAnimation]);
       })
     }
   }
