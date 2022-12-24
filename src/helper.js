@@ -90,7 +90,7 @@ export const calculateStraightPath = (p0, p1) => {
   return points;
 }
 
-const diagonal_distance = (p0, p1) => {
+export const diagonal_distance = (p0, p1) => {
   let dx = p1.x - p0.x, dy = p1.y - p0.y;
   return Math.max(Math.abs(dx), Math.abs(dy));
 }

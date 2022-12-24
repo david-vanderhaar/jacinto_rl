@@ -42,6 +42,7 @@ export class Game {
     tileOffset = TILE_OFFSET,
     getSelectedCharacter = () => false,
     spriteMode = true,
+    fovActive = false,
     tileKey = Constant.TILE_KEY,
     mode = Mode.Flume,
     messages = [],
@@ -70,6 +71,7 @@ export class Game {
       mouseEnabled: false
     });
     this.spriteMode = spriteMode;
+    this.fovActive = fovActive;
     this.tileKey = tileKey;
     this.mode = new mode({game: this});
     this.messages = messages;
@@ -292,11 +294,26 @@ export class Game {
 
   processTileMap (callback) {
     const map = this.getRenderMap(this.map);
+    let playerPosition = null
+    if (this.fovActive) {
+      playerPosition = this.getPlayerPosition()
+    }
+    const lightRange = 5
+
     for (let key in map) {
       let parts = key.split(",");
       let x = parseInt(parts[0]);
       let y = parseInt(parts[1]);
       let tile = map[key];
+
+      if (this.fovActive) {
+        const renderedX = x - this.getRenderOffsetX()
+        const renderedY = y - this.getRenderOffsetY()
+        if (Helper.diagonal_distance(playerPosition, {x: renderedX, y: renderedY}) > lightRange) {
+          callback(key, x, y, '', '#000', 'rgba(0,0,0,0.2)');
+          continue;
+        }
+      }
       // let { foreground, background } = this.tileKey[tile.type]
       // Proto code to handle tile animations
       let tileRenderer = this.tileKey[tile.type]
@@ -318,7 +335,18 @@ export class Game {
       }
       callback(key, x, y, character, foreground, background);          
     }
+
+    // fov.compute(playerPosition.x, playerPosition.y, lightRange, (xFov, yFov, rFov, visibility) => {
+    //   console.log(rFov, visibility, xFov, yFov);
+    //   const key = Helper.coordsToString({x: xFov, y: yFov})
+    //   console.log(key);
+    //   if (!visibility) callback(key, xFov, yFov, '', '#000', '#000');
+    // });
   }
+
+  // fovLightPasses(x, y, game) {
+  //   return game.canOccupyPosition({x, y})
+  // }
 
   initializeMapTiles () {
     if (this.mapInitialized) return false;

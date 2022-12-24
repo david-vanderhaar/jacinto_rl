@@ -20,6 +20,7 @@ const MAP_DATA = require('./Maps/map_01.json');
 export class Jacinto extends Mode {
   constructor({ ...args }) {
     super({ ...args });
+    // this.game.fovActive = true
     this.data = {
       level: 1,
       highestLevel: null,
@@ -199,8 +200,8 @@ export class Jacinto extends Mode {
     this.game.tileKey = TILE_KEY
     this.setWaveData();
     
-    this.game.createCustomLevel(MAP_DATA);
-    // this.createCityBlockLevel();
+    // this.game.createCustomLevel(MAP_DATA);
+    this.createCityBlockLevel();
     this.game.initializeMapTiles();
 
     let floorTiles = Object.keys(this.game.map).filter((key) => this.game.map[key].type === 'FLOOR')
