@@ -46,18 +46,22 @@ export const HasTargetingCursor = superclass => class extends superclass {
             color: THEMES.SOLARIZED.base3 
           }
         );
-        
-        const chance = this.getRangedAttackChance(position);
-        const textAnimation = this.game.display.addAnimation(
-          ANIMATION_TYPES.TEXT_OVERLAY, 
-          {
-            x: position.x, 
-            y: position.y, 
-            color: THEMES.SOLARIZED.base3,
-            text: `${Math.round(chance * 100)}%`,
-          }
-        );
-        this.animations.push(...[boxAnimation, textAnimation]);
+        this.animations.push(boxAnimation);
+
+        if (this.entityTypes.includes('PLAYING')) {
+          const chance = this.getRangedAttackChance(position);
+          const textAnimation = this.game.display.addAnimation(
+            ANIMATION_TYPES.TEXT_OVERLAY, 
+            {
+              x: position.x, 
+              y: position.y, 
+              color: THEMES.SOLARIZED.base3,
+              text: `${Math.round(chance * 100)}%`,
+            }
+          );
+          
+          this.animations.push(textAnimation);
+        }
       })
     }
   }

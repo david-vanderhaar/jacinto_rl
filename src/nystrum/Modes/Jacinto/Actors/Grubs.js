@@ -77,7 +77,7 @@ const GRUB_STATS = {
       durability: 3,
       attackDamage: 1,
       behaviors: [
-        new Behaviors.MoveTowardsEnemy({repeat: 5}),
+        new Behaviors.MoveTowardsEnemy({repeat: 5, maintainDistanceOf: 4}),
         new Behaviors.TelegraphRangedAttack({repeat: 1}),
         new Behaviors.ExecuteRangedAttack({repeat: 1}),
       ],
@@ -99,7 +99,7 @@ const GRUB_STATS = {
       durability: 3,
       attackDamage: 1,
       behaviors: [
-        new Behaviors.MoveTowardsEnemy({repeat: 1}),
+        new Behaviors.MoveTowardsEnemy({repeat: 1, maintainDistanceOf: 4}),
         new Behaviors.TelegraphRangedAttackThroughCover({repeat: 1}),
         new Behaviors.ExecuteRangedAttack({repeat: 1}),
       ],

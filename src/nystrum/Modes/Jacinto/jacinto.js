@@ -33,7 +33,7 @@ export class Jacinto extends Mode {
           // ...Array(2).fill('Scion'),
           // ...Array(12).fill('Wretch'),
           // ...Array(2).fill('DroneGrenadier'),
-          // ...Array(2).fill('Drone'),
+          // ...Array(1).fill('Drone'),
         ],
         emergenceHoles: 0,
       },

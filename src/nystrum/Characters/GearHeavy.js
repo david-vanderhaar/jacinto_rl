@@ -169,7 +169,7 @@ export default function (engine) {
       background: COLORS.cog2,
     },
     name: 'The Veteran',
-    speed: Constant.ENERGY_THRESHOLD * 2,
+    speed: Constant.ENERGY_THRESHOLD * 3,
     durability,
     baseRangedAccuracy: 0,
     baseRangedDamage: 0,
@@ -186,8 +186,8 @@ export default function (engine) {
       }),
       Upgrade({
         cost: 1,
-        name: '+2 Melee Damage',
-        activate: (actor) => (primary.attackDamage += 2),
+        name: '+1 Melee Damage',
+        activate: (actor) => (primary.attackDamage += 1),
       }),
       Upgrade({
         cost: 3,

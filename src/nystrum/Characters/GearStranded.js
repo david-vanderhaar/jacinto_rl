@@ -182,16 +182,23 @@ export default function (engine) {
       }),
       Upgrade({
         cost: 1,
-        name: 'Craft 3 Grenades',
+        name: 'Craft 2 Grenades',
         activate: (actor) => {
-          Array(3).fill('').map(() => actor.addToContainer(Grenade(engine, 6)));
+          Array(2).fill('').map(() => actor.addToContainer(Grenade(engine, 6)));
         },
       }),
       Upgrade({
         cost: 1,
-        name: 'Craft 10 Traps',
+        name: 'Craft 6 Traps',
         activate: (actor) => {
-          Array(10).fill('').map(() => actor.addToContainer(SpikeTrap(engine, actor)));
+          Array(6).fill('').map(() => actor.addToContainer(SpikeTrap(engine, actor)));
+        },
+      }),
+      Upgrade({
+        cost: 1,
+        name: 'Craft 10 Ammo',
+        activate: (actor) => {
+          Array(10).fill('').map(() => actor.addToContainer(Ammo(engine)));
         },
       }),
       Upgrade({
@@ -210,7 +217,7 @@ export default function (engine) {
   })
 
   // add default items to container
-  const ammo = Array(5).fill('').map(() => Ammo(engine));
+  const ammo = Array(15).fill('').map(() => Ammo(engine));
   const grenades = Array(2).fill('').map(() => Grenade(engine, 6));
   const traps = Array(4).fill('').map(() => SpikeTrap(engine, actor));
   actor.container = [

@@ -3,8 +3,9 @@ import Behavior from './Behavior';
 import { calculatePathAroundObstacles } from '../../../../helper'; 
 
 export default class MoveTowardsPlayer extends Behavior {
-  constructor({ ...args }) {
+  constructor({maintainDistanceOf = 3, ...args }) {
     super({ ...args });
+    this.maintainDistanceOf = maintainDistanceOf
   }
 
   isValid () {
@@ -28,6 +29,7 @@ export default class MoveTowardsPlayer extends Behavior {
     if (!player) return [null, null]; 
     // get path to player
     let path = calculatePathAroundObstacles(this.actor.game, player.getPosition(), this.actor.getPosition());
+    path = path.slice(0, -this.maintainDistanceOf)
     let moveToPosition = path.length > 0 ? path[0] : null;
     if (!moveToPosition) return [null, null]
 
