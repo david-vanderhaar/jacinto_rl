@@ -164,7 +164,7 @@ export default function (engine) {
     baseRangedAccuracy: 0,
     baseRangedDamage: 0,
     attackDamage: 0,
-    upgrade_points: 10,
+    upgrade_points: 0,
     upgrade_tree: [
       Upgrade({
         cost: 1,
