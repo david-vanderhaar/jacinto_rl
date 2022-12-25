@@ -3,10 +3,18 @@ import { Howl } from 'howler';
 const createSoundFromSource = (relativePath, howlerOptions = {}) => {
   return new Howl({
     src: [window.PUBLIC_URL + relativePath],
-    volume: 0.5,
+    volume: 0.3,
     loop: false,
     ...howlerOptions,
   })
+}
+
+export const JACINTO_SOUND_MANAGER = {
+  setVolume: (volume) => {
+    Object.entries(JACINTO_SOUNDS).forEach(([key, sound]) => {
+      sound.volume(volume)
+    })
+  }
 }
 
 export const JACINTO_SOUNDS = {

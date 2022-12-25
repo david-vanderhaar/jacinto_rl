@@ -580,3 +580,18 @@
 .Jacinto__ActionMenu__Actions__item__resources {
   display: flex;
 }
+
+.range-field {
+  background-color: #07111D;
+}
+
+.range-field > label {
+  color: #E19D3Fff;
+}
+
+.range-field > input {
+  width: 50%;
+  margin: auto;
+  display: block;
+}
+
