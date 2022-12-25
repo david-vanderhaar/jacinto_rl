@@ -179,7 +179,7 @@ export default function (engine) {
   }
   // instantiate class
   
-  const durability = 10;
+  const durability = 5;
   let actor = new Player({
     pos: { x: 23, y: 7 },
     renderer: {
@@ -211,13 +211,13 @@ export default function (engine) {
         activate: (actor) => (lancer.baseRangedAccuracy += 0.1),
       }),
       Upgrade({
-        cost: 2,
+        cost: 3,
         name: '+1 Actions',
         activate: (actor) => {
           actor.speed += Constant.ENERGY_THRESHOLD;
           actor.energy += Constant.ENERGY_THRESHOLD;
         },
-        // removeOnActivate: true,
+        removeOnActivate: true,
       }),
       Upgrade({
         cost: 3,
@@ -235,9 +235,9 @@ export default function (engine) {
   })
 
   // add default items to container
-  const ammo = Array(30).fill('').map(() => Ammo(engine));
+  const ammo = Array(10).fill('').map(() => Ammo(engine));
   const grenades = Array(2).fill('').map(() => Grenade(engine, 6));
-  const smokes = Array(4).fill('').map(() => SmokeGrenade(engine, 2));
+  // const smokes = Array(4).fill('').map(() => SmokeGrenade(engine, 2));
   const snub = Snub(engine);
   actor.container = [
     new ContainerSlot({
@@ -252,10 +252,10 @@ export default function (engine) {
       itemType: grenades[0].name,
       items: grenades,
     }),
-    new ContainerSlot({
-      itemType: smokes[0].name,
-      items: smokes,
-    }),
+    // new ContainerSlot({
+    //   itemType: smokes[0].name,
+    //   items: smokes,
+    // }),
   ]
 
   actor.equip(lancer.equipmentType, lancer);

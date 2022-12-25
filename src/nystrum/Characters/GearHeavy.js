@@ -159,7 +159,7 @@ export default function (engine) {
   }
   // instantiate class
   const primary = RetroLancer(engine);
-  const durability = 20;
+  const durability = 7;
   let actor = new Player({
     pos: { x: 23, y: 7 },
     renderer: {

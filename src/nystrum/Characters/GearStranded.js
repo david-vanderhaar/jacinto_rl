@@ -145,7 +145,7 @@ export default function (engine) {
   // instantiate class
   const primary = Longshot(engine);
   const secondary = Boltok(engine);
-  const durability = 12;
+  const durability = 4;
   let actor = new Player({
     pos: { x: 23, y: 7 },
     renderer: {
@@ -210,9 +210,9 @@ export default function (engine) {
   })
 
   // add default items to container
-  const ammo = Array(20).fill('').map(() => Ammo(engine));
+  const ammo = Array(5).fill('').map(() => Ammo(engine));
   const grenades = Array(2).fill('').map(() => Grenade(engine, 6));
-  const traps = Array(10).fill('').map(() => SpikeTrap(engine, actor));
+  const traps = Array(4).fill('').map(() => SpikeTrap(engine, actor));
   actor.container = [
     new ContainerSlot({
       itemType: secondary.name,

@@ -29,62 +29,47 @@ export class Jacinto extends Mode {
     this.dataByLevel = [
       {
         enemies: [
-          ...Array(4).fill('Wretch'),
+          ...Array(6).fill('Wretch'),
           // ...Array(2).fill('Scion'),
           // ...Array(12).fill('Wretch'),
           // ...Array(2).fill('DroneGrenadier'),
           // ...Array(2).fill('Drone'),
         ],
         emergenceHoles: 0,
-        ammoLoot: 0,
-        grenadeLoot: 0,
-      },
-      {
-        enemies: [
-          ...Array(2).fill('Scion'),
-          ...Array(6).fill('Wretch'),
-        ],
-        emergenceHoles: 0,
-        ammoLoot: 1,
-        grenadeLoot: 0,
       },
       {
         enemies: [
           ...Array(1).fill('Scion'),
-          ...Array(3).fill('Drone'),
           ...Array(6).fill('Wretch'),
         ],
         emergenceHoles: 0,
-        ammoLoot: 3,
-        grenadeLoot: 1,
+      },
+      {
+        enemies: [
+          ...Array(4).fill('Drone'),
+        ],
+        emergenceHoles: 0,
+      },
+      {
+        enemies: [
+          ...Array(3).fill('Wretch'),
+        ],
+        emergenceHoles: 1,
       },
       {
         enemies: [],
         emergenceHoles: 6,
-        ammoLoot: 2,
-        grenadeLoot: 0,
       },
       {
         enemies: [
-          ...Array(4).fill('DroneGrenadier'),
-        ],
-        emergenceHoles: 1,
-        ammoLoot: 1,
-        grenadeLoot: 0,
-      },
-      {
-        enemies: [
-          ...Array(12).fill('Wretch'),
+          ...Array(3).fill('DroneGrenadier'),
         ],
         emergenceHoles: 0,
-        ammoLoot: 20,
-        grenadeLoot: 5,
       },
       {
-        enemies: [...Array(4).fill('RandomGrub'), 'Skorge'],
-        emergenceHoles: 6,
-        ammoLoot: 20,
-        grenadeLoot: 2,
+        // enemies: [...Array(4).fill('RandomGrub'), 'Skorge'],
+        enemies: [...Array(12).fill('Wretch'), 'Skorge'],
+        emergenceHoles: 3,
       },
     ]
   }
@@ -141,7 +126,7 @@ export class Jacinto extends Mode {
 
   createCityBlockLevel () {
     const numberOfVerticalRoads = Helper.getRandomIntInclusive(0, 2);
-    const numberOfBuildings = Helper.getRandomIntInclusive(0, 5);
+    const numberOfBuildings = Helper.getRandomIntInclusive(1, 5);
 
     this.game.createEmptyLevel();
     // Generates a safe zone on left-hand edge of map for player to start
@@ -206,10 +191,12 @@ export class Jacinto extends Mode {
 
     let floorTiles = Object.keys(this.game.map).filter((key) => this.game.map[key].type === 'FLOOR')
     const safeTiles = Object.keys(this.game.map).filter((key) => this.game.map[key].type == 'SAFE');
-    // this.placePlayersInSafeZone(safeTiles);
     this.placeCogInSafeZone(safeTiles);
     const player = this.game.getFirstPlayer();
-    if (player) player.upgrade_points += 1;
+    if (player) {
+      player.upgrade_points += 1;
+      player.restoreFullEnergy()
+    }
 
     // cover tiles
     let coverEligibleTiles = Object.keys(this.game.map).filter((key) => this.game.map[key].type === 'COVER_PLACEHOLDER')
@@ -227,22 +214,6 @@ export class Jacinto extends Mode {
       this.addEmerenceHole({ x: posXY[0], y: posXY[1] });
     }
 
-    // adding  ammo loot
-    for (let index = 0; index < this.data.ammoLoot; index++) {
-      let pos = Helper.getRandomInArray(floorTiles);
-      if (!pos) break;
-      let posXY = pos.split(',').map((coord) => parseInt(coord));
-      this.addAmmoLoot({ x: posXY[0], y: posXY[1] });
-    }
-
-    // adding  grenade loot
-    for (let index = 0; index < this.data.grenadeLoot; index++) {
-      let pos = Helper.getRandomInArray(floorTiles);
-      if (!pos) break;
-      let posXY = pos.split(',').map((coord) => parseInt(coord));
-      this.addGrenadeLoot({ x: posXY[0], y: posXY[1] });
-    }
-
     // adding  cog tags loot
     const cogTagLoot = Helper.getRandomInArray([0, 0, 0, 1])
     for (let index = 0; index < cogTagLoot; index++) {
@@ -258,6 +229,26 @@ export class Jacinto extends Mode {
       let posXY = pos.split(',').map((coord) => parseInt(coord));
       LocustActors[`add${enemyName}`](this, { x: posXY[0], y: posXY[1] });
     })
+
+    // adding  ammo loot
+    const totalEnemyHealth = this.enemies().reduce((prev, curr) => prev + curr.durability, 0)
+    const weaponDamage = 2
+    const difficultyModifier = 0.5
+    const ammoLoot = Math.round((totalEnemyHealth / weaponDamage) * (1 - difficultyModifier))
+    const ammoPos = Helper.getRandomInArray(floorTiles);
+    if (ammoPos) {
+      const posXY = ammoPos.split(',').map((coord) => parseInt(coord));
+      this.addAmmoLoot({ x: posXY[0], y: posXY[1] }, ammoLoot);
+    }
+
+    // adding  grenade loot
+    const grenadeLoot = Math.random() > 0.9 ? 1 : 0
+    for (let index = 0; index < grenadeLoot; index++) {
+      let pos = Helper.getRandomInArray(floorTiles);
+      if (!pos) break;
+      let posXY = pos.split(',').map((coord) => parseInt(coord));
+      this.addGrenadeLoot({ x: posXY[0], y: posXY[1] });
+    }
     // super.initialize();
     this.game.draw()
     JACINTO_SOUNDS.level_start.play()
@@ -357,7 +348,11 @@ export class Jacinto extends Mode {
   }
 
   enemiesDefeated () {
-    return this.game.engine.actors.filter((actor) => actor['faction'] === 'LOCUST').length <= 0
+    return this.enemies().length <= 0
+  }
+
+  enemies () {
+    return this.game.engine.actors.filter((actor) => actor['faction'] === 'LOCUST')
   }
 
   hasWon () {
@@ -429,8 +424,8 @@ export class Jacinto extends Mode {
     });
   }
 
-  addAmmoLoot (pos) {
-    this.createAmmoStack(5, pos).forEach((entity) => {
+  addAmmoLoot (pos, count = 1) {
+    this.createAmmoStack(count, pos).forEach((entity) => {
       this.game.placeActorOnMap(entity)
     })
   }
@@ -494,10 +489,11 @@ export class Jacinto extends Mode {
   }
 
   activateExitTiles() {
+    const mainRoadY = this.game.mapHeight / 4
     MapHelper.addTileZone(
       this.game.tileKey,
-      { x: this.game.mapWidth - 3, y: 0 },
-      this.game.mapHeight,
+      { x: this.game.mapWidth - 3, y: mainRoadY },
+      4,
       3,
       'EXIT',
       this.game.map,

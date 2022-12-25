@@ -29,6 +29,11 @@ export const Acting = superclass => class extends superclass {
   gainEnergy(value = this.speed) {
     this.energy += value;
   }
+
+  restoreFullEnergy() {
+    this.energy = this.speed;
+  }
+
   hasEnoughEnergy() {
     return this.energy > 0;
   }

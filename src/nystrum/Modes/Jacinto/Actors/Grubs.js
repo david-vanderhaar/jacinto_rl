@@ -72,7 +72,7 @@ const GRUB_STATS = {
         character: 'd',
         color: COLORS.flesh2,
         background: COLORS.flesh1,
-        sprite: '',
+        sprite: '',
       },
       durability: 3,
       attackDamage: 1,
@@ -156,7 +156,7 @@ const GRUB_STATS = {
           repeat: 1, 
           effectClass: MeleeDamage,
           effectDefaults: {
-            buffValue: 5,
+            buffValue: 1,
             lifespan: Constant.ENERGY_THRESHOLD * 10,
             stepInterval: Constant.ENERGY_THRESHOLD,
             processDelay: 200
@@ -198,7 +198,7 @@ const GRUB_STATS = {
       },
       name: 'Skorge',
       durability: 40,
-      attackDamage: 8,
+      attackDamage: 5,
       behaviors: [
         new Behaviors.MoveTowardsEnemy({repeat: 5}),
         new Behaviors.Telegraph({repeat: 1, attackPattern: Constant.CLONE_PATTERNS.clover}),

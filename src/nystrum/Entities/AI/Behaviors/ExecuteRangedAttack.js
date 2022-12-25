@@ -15,7 +15,10 @@ export default class ExecuteRangedAttack extends Behavior {
       MultiTargetRangedAttack,
       {
         targetPositions: this.actor.getCursorPositions(),
-        onAfter: () => this.actor.removeAnimations()
+        onAfter: () => {
+          this.actor.removeAnimations()
+          this.actor.reload()
+        }
       }
     ]
   }

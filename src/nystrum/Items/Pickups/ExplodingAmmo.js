@@ -12,5 +12,5 @@ export const ExplodingAmmo = (engine) => new AmmoEntity({
     color: COLORS.red,
   },
   flammability: 0,
-  explosivity: 2,
+  explosivity: 4,
 });
