@@ -131,13 +131,6 @@ export default function (engine) {
         actor,
         passThroughEnergyCost: Constant.ENERGY_THRESHOLD,
       }),
-      y: () => new PrepareDirectionalThrow({
-        label: 'Smoke',
-        projectileType: 'Smoke Grenade',
-        game: engine.game,
-        actor,
-        passThroughEnergyCost: Constant.ENERGY_THRESHOLD,
-      }),
       c: () => new AddStatusEffect({
         label: 'Rev Lancer Chainsaw',
         game: engine.game,
