@@ -22,12 +22,19 @@ export class DropItem extends Base {
 
   perform() {
     const item = this.getitem()
-    this.game.addMessage(`${this.actor.name} drops ${item.name}.`, MESSAGE_TYPE.ACTION);
+    if (!item) return {success: false, alternative: null}
+
+    const newItemPosition = this.newItemPosition()
+    const tile = this.game.map[Helper.coordsToString(newItemPosition)]
+    if (!tile) return {success: false, alternative: null}
+
     const didDropItem = this.actor.removeFromContainer(item);
     if (!didDropItem) return {success: false, alternative: null}
-    const newItemPosition = this.newItemPosition()
+
     item.pos = newItemPosition
-    this.game.map[Helper.coordsToString(newItemPosition)].entities.push(item);
+    tile.entities.push(item);
+
+    this.game.addMessage(`${this.actor.name} drops ${item.name}.`, MESSAGE_TYPE.ACTION);
     return {
       success: true,
       alternative: null,
