@@ -7,14 +7,16 @@ export const HasTargetingCursor = superclass => class extends superclass {
     this.entityTypes = this.entityTypes.concat('HAS_TARGETING_CURSOR');
     this.cursorIsActive = false;
     this.cursorPositions = []; 
-    this.animations = []; 
+    this.animations = [];
+    this.displayChanceText = false 
   }
 
   setCursorIsActive (active = true) {
     this.cursorIsActive = active;
   }
 
-  activateCursor (positions) {
+  activateCursor (positions, displayChanceText = false) {
+    this.setDisplayChanceText(displayChanceText)
     this.setCursorPositions(positions);
     this.setCursorIsActive(true);
     this.resetAnimations();
@@ -24,6 +26,8 @@ export const HasTargetingCursor = superclass => class extends superclass {
     this.setCursorIsActive(false);
     this.removeAnimations();
   }
+
+  setDisplayChanceText(value) {return this.displayChanceText = value}
 
   getCursorPositions () {
     return this.cursorPositions;
@@ -48,7 +52,7 @@ export const HasTargetingCursor = superclass => class extends superclass {
         );
         this.animations.push(boxAnimation);
 
-        if (this.entityTypes.includes('PLAYING')) {
+        if (this.displayChanceText) {
           const chance = this.getRangedAttackChance(position);
           const textAnimation = this.game.display.addAnimation(
             ANIMATION_TYPES.TEXT_OVERLAY, 

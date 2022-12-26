@@ -130,7 +130,8 @@ export class PrepareRangedAttack extends Base {
 
     if (equippedWeapon) positions = equippedWeapon.getPositionsInShape(positions[0]);
 
-    this.actor.activateCursor(positions);
+    const displayChanceText = true
+    this.actor.activateCursor(positions, displayChanceText);
     this.updateCursors(pathAnimations, pos);
 
     const goToPreviousKeymap = new GoToPreviousKeymap({
