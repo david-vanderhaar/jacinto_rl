@@ -29,12 +29,11 @@ export default function (engine) {
   const keymap = (engine, actor) => {
     return {
       Escape: () => new Say({
-        label: 'Pass',
-        message: 'pass turn...',
+        label: 'Stay',
+        message: 'standing still...',
         game: engine.game,
         actor,
-        interrupt: true,
-        energyCost: 0,
+        energyCost: Constant.ENERGY_THRESHOLD,
       }),
       w: () => {
         const direction = Constant.DIRECTIONS.N;
