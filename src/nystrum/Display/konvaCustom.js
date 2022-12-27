@@ -117,6 +117,7 @@ class TextOverlay extends Animation {
     text,
     color = '#fff',
     textAttributes = {},
+    isBlinking = false,
     ...args
   }) {
     super({ ...args });
@@ -125,6 +126,8 @@ class TextOverlay extends Animation {
     this.color = color;
     this.text = text;
     this.textAttributes = textAttributes;
+    this.isBlinking = isBlinking
+    this.lerpDirection = -1
   }
 
   getActive () {
@@ -159,6 +162,17 @@ class TextOverlay extends Animation {
     this.display.animationLayer.add(node);
     this.node = node;
     super.initialize();
+  }
+
+  update(frame) {
+    // blinking anim code can be abstracted to helper
+    if (!this.isBlinking) return
+    let opacity = this.node.opacity();
+    if (opacity >= 1) this.lerpDirection = -1;
+    if (opacity <= 0) this.lerpDirection = 1;
+    opacity += (0.030 * this.lerpDirection)
+    this.node.opacity(Helper.clamp(opacity, 0, 1))
+    super.update(frame);
   }
 }
 

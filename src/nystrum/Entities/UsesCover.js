@@ -1,5 +1,6 @@
 import { ANIMATION_TYPES } from '../Display/konvaCustom';
 import * as Helper from '../../helper';
+
 export const UsesCover = superclass => class extends superclass {
   constructor({ ...args }) {
     super({ ...args });
@@ -43,11 +44,17 @@ export const UsesCover = superclass => class extends superclass {
           if (entity.isProvidingCover()) {
             const position = entity.getPosition();
             const newAnimation = this.game.display.addAnimation(
-              ANIMATION_TYPES.BLINK_BOX,
+              ANIMATION_TYPES.TEXT_OVERLAY,
               {
                 x: position.x,
                 y: position.y,
-                color: '#3e7dc9'
+                color: this.renderer.color,
+                text: '',
+                isBlinking: true,
+                textAttributes: {
+                  fontFamily: 'scroll-o-script',
+                  fontSize: this.game.display.tileWidth / 2
+                }
               }
             );
             this.coverAnimations.push(newAnimation);
@@ -65,7 +72,7 @@ export const UsesCover = superclass => class extends superclass {
         {
           x: position.x,
           y: position.y,
-          color: '#3e7dc9'
+          color: this.renderer.color
         }
       );
       this.coverAnimations.push(newAnimation);

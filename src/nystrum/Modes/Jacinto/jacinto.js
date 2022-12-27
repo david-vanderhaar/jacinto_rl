@@ -30,8 +30,8 @@ export class Jacinto extends Mode {
       {
         enemies: [
           ...Array(6).fill('Wretch'),
+          // ...Array(1).fill('Hunter'),
           // ...Array(2).fill('Scion'),
-          // ...Array(12).fill('Wretch'),
           // ...Array(2).fill('DroneGrenadier'),
           // ...Array(1).fill('Drone'),
         ],
@@ -62,7 +62,7 @@ export class Jacinto extends Mode {
       },
       {
         enemies: [
-          ...Array(3).fill('DroneGrenadier'),
+          ...Array(4).fill('Hunter'),
         ],
         emergenceHoles: 0,
       },

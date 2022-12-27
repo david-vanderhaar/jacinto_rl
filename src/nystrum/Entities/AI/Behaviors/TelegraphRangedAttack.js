@@ -4,7 +4,7 @@ import {COLORS} from '../../../Modes/Jacinto/theme';
 import MoveTowardsEnemy from './MoveTowardsEnemy';
 
 export default class TelegraphRangedAttack extends MoveTowardsEnemy {
-  constructor({ accuracyToAttackThreshold = 0.1, ...args }) {
+  constructor({ accuracyToAttackThreshold = 0, ...args }) {
     super({ ...args });
     this.accuracyToAttackThreshold = accuracyToAttackThreshold;
     this.chainOnSuccess = true;
@@ -57,7 +57,8 @@ export default class TelegraphRangedAttack extends MoveTowardsEnemy {
     const equippedWeapon = this.getEquippedWeapon();
     const targetPosition = this.getTargetPosition();
     const positions = equippedWeapon.getPositionsInShape(targetPosition);
-    this.actor.activateCursor(positions);
+    const displayChanceText = true
+    this.actor.activateCursor(positions, displayChanceText);
     this.actor.updateAllCursorNodes([
       {key: 'fill', value: COLORS.red}, 
       {key: 'stroke', value: 'transparent'}, 
