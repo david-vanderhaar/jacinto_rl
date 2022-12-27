@@ -70,8 +70,8 @@ export const Exploding = superclass => class extends superclass {
     // this.game.draw(); //may not need draw here
   }
   destroy() {
+    super.destroy();
     this.explode();
     this.enflame();
-    super.destroy();
   }
 };

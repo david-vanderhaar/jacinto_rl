@@ -13,4 +13,8 @@ export const Playing = superclass => class extends superclass {
     this.nextAction = null;
     return action;
   }
+  destroy() {
+    super.destroy()
+    this.game.toLose();
+  }
 };
